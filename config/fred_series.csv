@@ -1,0 +1,6 @@
+series_id,name,factors,role,max_lag_days,discontinued
+DGS2,2-year Treasury yield (daily),interest rates; inflation; consumer spending,Surprise measure on Fed decision days and on CPI and retail sales release days,7,no
+T5YIE,5-year breakeven inflation (daily),inflation,Surprise measure on CPI release days,7,no
+T10YIE,10-year breakeven inflation (daily),inflation,Surprise measure on CPI release days,7,no
+DTWEXBGS,Broad trade-weighted US dollar index (daily since 2006),US dollar,Daily dollar moves (no scheduled releases),14,no
+DTWEXB,Broad trade-weighted US dollar index (old version 1995-2019),US dollar,History before 2006 for the time-period checks; discontinued by the Fed,0,yes

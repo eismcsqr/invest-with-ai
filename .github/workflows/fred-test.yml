@@ -1,0 +1,58 @@
+name: FRED key test
+
+# Checks that the FRED_API_KEY repository secret works by fetching the
+# latest observation of one series. Prints only the date and value.
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/project-thread-g2gktd
+    paths:
+      - .github/workflows/fred-test.yml
+
+permissions:
+  contents: read
+
+jobs:
+  fred-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+      SERIES_ID: DGS10
+    steps:
+      - name: Check the secret is set
+        run: |
+          if [ -z "$FRED_API_KEY" ]; then
+            echo "::error::Repository secret FRED_API_KEY is missing or empty."
+            exit 1
+          fi
+          echo "FRED_API_KEY is set (length ${#FRED_API_KEY})."
+
+      - name: Fetch latest observation
+        run: |
+          set -u
+          status=$(curl -sS -G -o resp.json -w '%{http_code}' \
+            https://api.stlouisfed.org/fred/series/observations \
+            --data-urlencode "series_id=${SERIES_ID}" \
+            --data-urlencode "api_key=${FRED_API_KEY}" \
+            --data-urlencode "file_type=json" \
+            --data-urlencode "sort_order=desc" \
+            --data-urlencode "limit=1")
+          echo "HTTP status: ${status}"
+          if [ "$status" != "200" ]; then
+            msg=$(jq -r '.error_message // "no error message"' resp.json 2>/dev/null || echo "response was not JSON")
+            echo "::error::FRED request failed (HTTP ${status}): ${msg}"
+            exit 1
+          fi
+          date=$(jq -r '.observations[0].date // empty' resp.json)
+          value=$(jq -r '.observations[0].value // empty' resp.json)
+          if [ -z "$date" ]; then
+            echo "::error::FRED returned no observations for ${SERIES_ID}."
+            exit 1
+          fi
+          echo "Series: ${SERIES_ID}"
+          echo "Latest date: ${date}"
+          echo "Latest value: ${value}"
+          echo "### FRED key works" >> "$GITHUB_STEP_SUMMARY"
+          echo "${SERIES_ID} latest observation: ${date} = ${value}" >> "$GITHUB_STEP_SUMMARY"

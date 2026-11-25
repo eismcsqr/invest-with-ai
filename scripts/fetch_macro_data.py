@@ -201,7 +201,7 @@ def check_series(name: str, source: str, dates: list[str], has_value: list[bool]
     else:
         # monthly rows are dated to the month; count lag from month end
         last_d = to_date(last)
-        if not daily:
+        if not daily:  # monthly: FRED dates to the 1st, French to the month
             last_d = (last_d.replace(day=28) + dt.timedelta(days=4)).replace(day=1) - dt.timedelta(days=1)
         lag = (today - last_d).days
         status = "STALE" if max_lag is not None and lag > max_lag else "ok"
@@ -259,7 +259,8 @@ def main() -> int:
         disc = s["discontinued"].strip().lower() == "yes"
         results.append(check_series(
             sid, "FRED", [d for d, _ in obs], [v != "" for _, v in obs],
-            int(s["max_lag_days"]), today, daily=True, discontinued=disc))
+            int(s["max_lag_days"]), today, daily=s["frequency"] == "daily",
+            discontinued=disc))
         print(f"FRED {sid}: {len(obs)} rows, latest {results[-1]['last']}")
 
     for stem, (cols, rows) in fetch_french().items():

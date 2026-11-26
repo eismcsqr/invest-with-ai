@@ -1,0 +1,17 @@
+name: Probe sources (temporary)
+on:
+  push:
+    branches: ["claude/project-thread-7i9u8t"]
+    paths: [scripts/probe/**, .github/workflows/probe.yml]
+  workflow_dispatch:
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+        run: python scripts/probe/probe_sources.py

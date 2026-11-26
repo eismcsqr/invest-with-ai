@@ -2,15 +2,15 @@
 
 Run date: 2026-11-26
 
-**267 Fed decision days for the rates test (1994-02-04 to 2026-10-28), 0 target changes without a decision day, 9 of 9 Fed spot checks and 5 of 5 first-print spot checks pass.**
+**271 Fed decision days for the rates test (1994-02-04 to 2026-10-28), 0 target changes without a decision day, 15 of 15 Fed spot checks and 5 of 5 first-print spot checks pass.**
 
 ## Fed decision days
 
-Parsed 313 meetings, calls and notation votes from the Fed's FOMC pages (1994 onward; the FOMC began announcing decisions in February 1994).
+Parsed 318 meetings, calls and notation votes from the Fed's FOMC pages (1994 onward; the FOMC began announcing decisions in February 1994).
 
 | Type | Count | With a rate change | In the rates test |
 |---|---|---|---|
-| scheduled | 258 | 83 | yes |
+| scheduled | 262 | 83 | yes |
 | unscheduled rate change | 9 | 9 | yes |
 | unscheduled statement | 8 | 0 | no |
 
@@ -37,6 +37,15 @@ Unscheduled statements with no rate change (kept, but left out of the rates test
 - 2020-08-27: August 27 (notation vote) - 2020 (date of the vote)
 - 2025-08-22: August 22 (notation vote) 2025 (date of the vote)
 
+**Schedule check:** the FOMC holds eight scheduled meetings a year. Years with a different count of scheduled decision days (1994 to 2026):
+
+- 2020: 7 scheduled decision days (cancelled: March 17-18 (cancelled) Meeting - 2020)
+- 2026: 7 scheduled decision days (not held yet: December 8-9* 2026)
+
+Meetings on the Fed's pages with no statement, left out as not a decision day (statements follow every meeting since May 1999):
+
+- September 15 Meeting - 2003
+
 **Cross-check against FRED's target rate:** every change in DFEDTAR / DFEDTARU / DFEDTARL since February 1994 should fall on a decision day or the day after.
 
 - All target changes matched a decision day.
@@ -54,6 +63,12 @@ Unscheduled statements with no rate change (kept, but left out of the rates test
 | 2020-03-15 | 1.00-1.25% to 0.00-0.25% | pass |
 | 2022-06-15 | 0.75-1.00% to 1.50-1.75% | pass |
 | 2024-09-18 | 5.25-5.50% to 4.75-5.00% | pass |
+| 2003-09-16 | 1.00% to 1.00% | pass |
+| 2013-05-01 | 0.00-0.25% to 0.00-0.25% | pass |
+| 2017-02-01 | 0.50-0.75% to 0.50-0.75% | pass |
+| 2017-11-01 | 1.00-1.25% to 1.00-1.25% | pass |
+| 2018-08-01 | 1.75-2.00% to 1.75-2.00% | pass |
+| 2019-05-01 | 2.25-2.50% to 2.25-2.50% | pass |
 
 ## Data releases and first prints
 
@@ -114,7 +129,7 @@ Change in the 2-year Treasury yield from the previous trading day's close to the
 
 | Event | Days with a 2-year move | Average size on event days (bp) | Average size on ordinary days (bp) | Days sharing another event |
 |---|---|---|---|---|
-| Fed decision (rates test) | 267 | 5.3 | 3.6 | 36 |
+| Fed decision (rates test) | 271 | 5.3 | 3.6 | 36 |
 | Consumer price index | 605 | 5.2 | 4.7 | 78 |
 | Personal income and outlays (PCE) | 601 | 4.9 | 4.7 | 18 |
 | Advance retail sales | 612 | 5.6 | 4.7 | 73 |

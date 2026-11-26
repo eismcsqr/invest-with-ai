@@ -46,3 +46,5 @@ python scripts/rates_test.py
 ```
 
 Standard library only, about 15 seconds. Writes `results/rates_test/` (RESULTS.md, events.csv, sensitivity.csv, v0_comparison.csv). Rerun after each data refresh.
+
+The same script runs on French's 49 detailed groups with `--groups 49` (write-up: [`rates-test-49.md`](rates-test-49.md)). RESULTS.md now also shows a false-discovery check across groups; all three clear groups here pass it.

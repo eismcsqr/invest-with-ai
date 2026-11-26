@@ -1,13 +1,17 @@
-"""Rates test on broad sectors: how each sector moves against the market when
-the 2-year Treasury yield moves on Fed decision days, compared with the
-Macro Exposure Scorecard v0's rates scores.
+"""Rates test: how each industry group moves against the market when the
+2-year Treasury yield moves on Fed decision days, compared with the Macro
+Exposure Scorecard v0's rates scores. Runs on Ken French's 12 broad sectors
+(the default) or his 49 detailed industry groups.
 
 Inputs (all already in the repo, refreshed by the macro data pull):
   data/fred/DGS2.csv                    2-year Treasury yield, daily
   data/french/industry12_daily_vw.csv   Ken French 12 industries, value-weighted, % returns
   data/french/industry12_daily_ew.csv   same, equal-weighted (robustness check)
+  data/french/industry49_daily_vw.csv   Ken French 49 industries, value-weighted (1990 on)
+  data/french/industry49_daily_ew.csv   same, equal-weighted
   data/french/ff_factors_daily.csv      market return = mkt_rf + rf
   config/v0_rates_scores.csv            v0 scorecard rates scores and the mapping to French groups
+                                        (french_group for the 12, french49_group for the 49)
 
 Fed decision days come from data/events/fomc_decisions.csv (rows with
 in_rates_test = yes) once the event calendar is merged. Until then the test
@@ -20,10 +24,15 @@ What it measures, per sector:
   change, in percentage points of relative return per +10 basis points.
   Ranges are 95% bootstrap ranges over events. It also reports the slope by
   period, out of sample, for rate news and growth news separately, beta
-  adjusted, equal-weighted, and the raw (not market-relative) slope.
+  adjusted, equal-weighted, and the raw (not market-relative) slope, plus a
+  false-discovery check across groups (with 49 groups, two or three would
+  clear a 95% range by luck alone).
 
-Writes results/rates_test/ (CSV tables and RESULTS.md). Standard library only.
-Run: python scripts/rates_test.py
+Writes results/rates_test/ for the 12 sectors and results/rates_test_49/ for
+the 49 groups (CSV tables and RESULTS.md). Standard library only.
+Run: python scripts/rates_test.py            (12 broad sectors)
+     python scripts/rates_test.py --groups 49 (49 detailed groups)
+     python scripts/rates_test.py --groups all
 """
 
 from __future__ import annotations
@@ -32,21 +41,22 @@ import bisect
 import csv
 import datetime as dt
 import random
+import sys
+from dataclasses import dataclass
 from pathlib import Path
 from statistics import mean, median
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 CONFIG = ROOT / "config"
-OUT = ROOT / "results" / "rates_test"
 
 CALENDAR = DATA / "events" / "fomc_decisions.csv"
 PROVISIONAL = CONFIG / "fomc_dates_provisional.csv"
 V0 = CONFIG / "v0_rates_scores.csv"
 
-SECTORS = ["NoDur", "Durbl", "Manuf", "Enrgy", "Chems", "BusEq",
-           "Telcm", "Utils", "Shops", "Hlth", "Money", "Other"]
-SECTOR_NAMES = {
+SECTORS_12 = ["NoDur", "Durbl", "Manuf", "Enrgy", "Chems", "BusEq",
+              "Telcm", "Utils", "Shops", "Hlth", "Money", "Other"]
+NAMES_12 = {
     "NoDur": "Consumer staples (food, drink, apparel)",
     "Durbl": "Consumer durables (cars, appliances)",
     "Manuf": "Manufacturing",
@@ -60,6 +70,49 @@ SECTOR_NAMES = {
     "Money": "Finance",
     "Other": "Other (construction, transport, services)",
 }
+# French's 49 groups, in his file's column order, with short names.
+NAMES_49 = {
+    "Agric": "Agriculture", "Food": "Food products", "Soda": "Soft drinks", "Beer": "Beer and liquor",
+    "Smoke": "Tobacco", "Toys": "Toys and recreation", "Fun": "Entertainment", "Books": "Printing and publishing",
+    "Hshld": "Household goods", "Clths": "Apparel", "Hlth": "Healthcare services", "MedEq": "Medical equipment",
+    "Drugs": "Drugs", "Chems": "Chemicals", "Rubbr": "Rubber and plastics", "Txtls": "Textiles",
+    "BldMt": "Building materials", "Cnstr": "Construction", "Steel": "Steel", "FabPr": "Fabricated products",
+    "Mach": "Machinery", "ElcEq": "Electrical equipment", "Autos": "Autos and parts", "Aero": "Aircraft",
+    "Ships": "Ships and railcars", "Guns": "Defense", "Gold": "Precious metals", "Mines": "Metal mining",
+    "Coal": "Coal", "Oil": "Oil and gas", "Util": "Utilities", "Telcm": "Telecom",
+    "PerSv": "Personal services", "BusSv": "Business services", "Hardw": "Computers", "Softw": "Software",
+    "Chips": "Chips and electronics", "LabEq": "Measuring equipment", "Paper": "Business supplies",
+    "Boxes": "Packaging", "Trans": "Transportation", "Whlsl": "Wholesale", "Rtail": "Retail",
+    "Meals": "Restaurants and hotels", "Banks": "Banks", "Insur": "Insurance", "RlEst": "Real estate",
+    "Fin": "Trading and finance", "Other": "Other",
+}
+
+
+@dataclass
+class IndustrySet:
+    key: str
+    title: str          # report title
+    label: str          # data description in the report
+    sectors: list[str]
+    names: dict[str, str]
+    vw: Path
+    ew: Path
+    out: Path
+    v0_group: str       # column in config/v0_rates_scores.csv
+    v0_fit: str
+
+
+SETS = {
+    "12": IndustrySet("12", "Rates test on broad sectors", "Value-weighted Ken French 12 industries.",
+                      SECTORS_12, NAMES_12,
+                      DATA / "french" / "industry12_daily_vw.csv", DATA / "french" / "industry12_daily_ew.csv",
+                      ROOT / "results" / "rates_test", "french_group", "mapping_fit"),
+    "49": IndustrySet("49", "Rates test on detailed industry groups", "Value-weighted Ken French 49 industries.",
+                      list(NAMES_49), NAMES_49,
+                      DATA / "french" / "industry49_daily_vw.csv", DATA / "french" / "industry49_daily_ew.csv",
+                      ROOT / "results" / "rates_test_49", "french49_group", "mapping49_fit"),
+}
+NUMBER_WORDS = {12: "twelve", 49: "49"}
 PERIODS = [("1994-2007", "1994-01-01", "2007-12-31"),
            ("2008-2015", "2008-01-01", "2015-12-31"),
            ("2016 on", "2016-01-01", "2099-12-31")]
@@ -69,6 +122,7 @@ SEED = 20261126
 MIN_MOVE_BP = 1.0      # smaller moves count as "flat" for the sign checks
 BETA_DAYS = 250        # trading days used to estimate each sector's beta
 BETA_GAP = 5           # beta window ends this many trading days before the event
+FDR_Q = 0.10           # false discovery rate for the check across groups
 
 
 # ------------------------------------------------------------------ loading --
@@ -97,10 +151,11 @@ def load_events() -> tuple[list[tuple[str, str]], str]:
     return sorted((r["date"], r["type"]) for r in rows), "PROVISIONAL hand-entered list (config/fomc_dates_provisional.csv)"
 
 
-def load_returns(path: Path) -> dict[str, dict[str, float]]:
+def load_returns(path: Path, sectors: list[str]) -> dict[str, dict[str, float]]:
     out = {}
     for r in read_csv(path):
-        out[r["date"]] = {s: float(r[s]) for s in SECTORS}
+        if all(r[s] != "" for s in sectors):
+            out[r["date"]] = {s: float(r[s]) for s in sectors}
     return out
 
 
@@ -130,6 +185,12 @@ def slope(x, y) -> float:
 
 
 def boot_range(x: list[float], y: list[float], rng: random.Random) -> tuple[float, float]:
+    lo, hi, _ = boot_draws(x, y, rng)
+    return lo, hi
+
+
+def boot_draws(x: list[float], y: list[float], rng: random.Random) -> tuple[float, float, float]:
+    """95% bootstrap range and a two-sided bootstrap p-value for the slope being zero."""
     n, draws = len(x), []
     for _ in range(BOOT):
         idx = [rng.randrange(n) for _ in range(n)]
@@ -137,7 +198,22 @@ def boot_range(x: list[float], y: list[float], rng: random.Random) -> tuple[floa
         if b == b:
             draws.append(b)
     draws.sort()
-    return draws[int(0.025 * len(draws))], draws[int(0.975 * len(draws)) - 1]
+    below = sum(d <= 0 for d in draws) / len(draws)
+    above = sum(d >= 0 for d in draws) / len(draws)
+    p = max(2 * min(below, above), 1 / len(draws))
+    return draws[int(0.025 * len(draws))], draws[int(0.975 * len(draws)) - 1], min(p, 1.0)
+
+
+def bh_pass(pvals: list[float], q: float) -> list[bool]:
+    """Benjamini-Hochberg: which tests survive a false discovery rate of q."""
+    m = len(pvals)
+    order = sorted(range(m), key=lambda i: pvals[i])
+    k = 0
+    for rank, i in enumerate(order, 1):
+        if pvals[i] <= q * rank / m:
+            k = rank
+    keep = set(order[:k])
+    return [i in keep for i in range(m)]
 
 
 def ranks(v: list[float]) -> list[float]:
@@ -167,7 +243,7 @@ def spearman(a, b) -> float:
 
 # ------------------------------------------------------------------- events --
 
-def build_event_rows(events, dgs2, vw, ew, mkt) -> tuple[list[dict], list[str]]:
+def build_event_rows(events, dgs2, vw, ew, mkt, sectors) -> tuple[list[dict], list[str]]:
     bond_days = sorted(dgs2)
     stock_days = sorted(set(vw) & set(mkt))
     notes, rows, seen = [], [], set()
@@ -195,7 +271,7 @@ def build_event_rows(events, dgs2, vw, ew, mkt) -> tuple[list[dict], list[str]]:
             row["news"] = "rate news" if m > 0 else "growth news"
         else:
             row["news"] = "flat"
-        for s in SECTORS:
+        for s in sectors:
             row[f"{s}_raw"] = vw[td][s]
             row[f"{s}_xs"] = round(vw[td][s] - m, 3)
             row[f"{s}_xs_ew"] = round(ew[td][s] - m, 3) if td in ew else None
@@ -229,17 +305,17 @@ def confidence(full_lo, full_hi, period_slopes, oos_same_sign) -> str:
     return {3: "High", 2: "Medium"}.get(score, "Low")
 
 
-def analyse(rows, rng):
+def analyse(rows, rng, ind: IndustrySet):
     n = len(rows)
     half = rows[: n // 2], rows[n // 2:]
     split_date = half[1][0]["trading_day"]
     sens = []
-    for s in SECTORS:
+    for s in ind.sectors:
         x, y = xy(rows, f"{s}_xs")
         b = slope(x, y)
-        lo, hi = boot_range(x, y, rng)
-        rec = {"sector": s, "name": SECTOR_NAMES[s], "events": len(x),
-               "xs_slope": b, "xs_lo": lo, "xs_hi": hi}
+        lo, hi, p = boot_draws(x, y, rng)
+        rec = {"sector": s, "name": ind.names[s], "events": len(x),
+               "xs_slope": b, "xs_lo": lo, "xs_hi": hi, "xs_p": p}
         rec["raw_slope"] = slope(*xy(rows, f"{s}_raw"))
         rec["raw_lo"], rec["raw_hi"] = boot_range(*xy(rows, f"{s}_raw"), rng)
         rec["beta_adj_slope"] = slope(*xy(rows, f"{s}_xs_beta"))
@@ -268,6 +344,8 @@ def analyse(rows, rng):
         oos_same = rec["train_slope"] * rec["test_slope"] > 0
         rec["confidence"] = confidence(lo, hi, [rec[f"p:{p[0]}"] for p in PERIODS], oos_same)
         sens.append(rec)
+    for rec, ok in zip(sens, bh_pass([r["xs_p"] for r in sens], FDR_Q)):
+        rec["fdr_pass"] = "yes" if ok else "no"
     mx, my = xy(rows, "mkt_ret_pct")
     oos = {
         "market_slope": slope(mx, my),
@@ -278,12 +356,12 @@ def analyse(rows, rng):
     return sens, oos
 
 
-def compare_v0(sens):
+def compare_v0(sens, ind: IndustrySet):
     by = {r["sector"]: r for r in sens}
     v0 = read_csv(V0)
     groups: dict[str, list[dict]] = {}
     for r in v0:
-        groups.setdefault(r["french_group"], []).append(r)
+        groups.setdefault(r[ind.v0_group], []).append(r)
     out = []
     for g, items in groups.items():
         score = mean(float(i["rates_net"]) for i in items)
@@ -305,12 +383,13 @@ def compare_v0(sens):
         else:
             relative = "unclear" if expect_worse else "agrees (no worse than market)"
         out.append({
-            "french_group": g, "name": SECTOR_NAMES[g],
+            "french_group": g, "name": ind.names[g],
             "v0_types": "; ".join(f"{i['company_type']} ({int(float(i['rates_net'])):+d})" for i in items),
-            "v0_avg": score, "mapping": items[0]["mapping_fit"],
+            "v0_avg": score, "mapping": items[0][ind.v0_fit],
             "xs_slope": rec["xs_slope"], "xs_lo": rec["xs_lo"], "xs_hi": rec["xs_hi"],
             "raw_slope": rec["raw_slope"], "raw_lo": rec["raw_lo"], "raw_hi": rec["raw_hi"],
             "direction": direction, "relative": relative, "confidence": rec["confidence"],
+            "fdr_pass": rec["fdr_pass"],
         })
     out.sort(key=lambda r: r["v0_avg"])
     rho = spearman([r["v0_avg"] for r in out], [r["xs_slope"] for r in out]) if len(out) >= 3 else float("nan")
@@ -335,11 +414,11 @@ def write_table(path: Path, rows: list[dict]) -> None:
             w.writerow({k: (f"{v:.4f}" if isinstance(v, float) else v) for k, v in r.items()})
 
 
-def write_report(rows, notes, source, sens, oos, comp, rho, provisional):
+def write_report(rows, notes, source, sens, oos, comp, rho, provisional, ind: IndustrySet):
     moves = [abs(r["dgs2_chg_bp"]) for r in rows]
     big = sum(m >= 5 for m in moves)
     lines = [
-        "# Rates test on broad sectors",
+        f"# {ind.title}",
         "",
         f"Run date: {dt.date.today().isoformat()}",
         "",
@@ -355,8 +434,7 @@ def write_report(rows, notes, source, sens, oos, comp, rho, provisional):
         "**Measure:** sector return minus market return on the decision day, regressed on the change in the "
         f"2-year Treasury yield that day. Numbers are percentage points of relative return per +{PER_BP:.0f} bp. "
         "A negative number means the sector does worse than the market when rates come in higher than expected "
-        "(and better when they come in lower). Ranges are 95% bootstrap ranges over events. Value-weighted "
-        "Ken French 12 industries.",
+        f"(and better when they come in lower). Ranges are 95% bootstrap ranges over events. {ind.label}",
         "",
         f"The market itself moves {f2(oos['market_slope'])}% per +{PER_BP:.0f} bp on these days "
         f"(95% range {f2(oos['market_range'][0])} to {f2(oos['market_range'][1])}).",
@@ -364,15 +442,16 @@ def write_report(rows, notes, source, sens, oos, comp, rho, provisional):
         "## Sensitivity by sector",
         "",
         "| Sector | Relative to market | 95% range | " + " | ".join(p[0] for p in PERIODS) +
-        " | Without crisis days | Beta-adjusted | Equal-weighted | Rate news | Growth news | Confidence |",
-        "|---|---|---|" + "---|" * len(PERIODS) + "---|---|---|---|---|---|",
+        " | Without crisis days | Beta-adjusted | Equal-weighted | Rate news | Growth news | Confidence "
+        "| Passes false-discovery check |",
+        "|---|---|---|" + "---|" * len(PERIODS) + "---|---|---|---|---|---|---|",
     ]
     for r in sorted(sens, key=lambda r: r["xs_slope"]):
         lines.append(
             f"| {r['name']} | {f2(r['xs_slope'])} | {f2(r['xs_lo'])} to {f2(r['xs_hi'])} | "
             + " | ".join(f2(r[f"p:{p[0]}"]) for p in PERIODS)
             + f" | {f2(r['ex_crisis_slope'])} | {f2(r['beta_adj_slope'])} | {f2(r['ew_slope'])} | "
-              f"{f2(r['news:rate news'])} | {f2(r['news:growth news'])} | {r['confidence']} |")
+              f"{f2(r['news:rate news'])} | {f2(r['news:growth news'])} | {r['confidence']} | {r['fdr_pass']} |")
     n_rate = sum(r["news"] == "rate news" for r in rows)
     n_growth = sum(r["news"] == "growth news" for r in rows)
     lines += [
@@ -385,6 +464,10 @@ def write_report(rows, notes, source, sens, oos, comp, rho, provisional):
         "",
         "Confidence: High when the full-sample range excludes zero, the sign holds in all three periods and "
         "the out-of-sample half has the same sign; Medium for two of the three; Low otherwise.",
+        "",
+        f"False-discovery check: Benjamini-Hochberg at {FDR_Q:.0%} across all {len(sens)} groups, using bootstrap "
+        "p-values for the relative slope. \"yes\" means the result is unlikely to be one of the few that clear a 95% "
+        "range by luck when many groups are tested at once.",
         "",
         "## Out of sample",
         "",
@@ -404,7 +487,8 @@ def write_report(rows, notes, source, sens, oos, comp, rho, provisional):
         "",
         "## Compared with the v0 scorecard",
         "",
-        "The v0 scorecard covers consumer company types only, so four of the twelve groups can be compared. "
+        f"The v0 scorecard covers consumer company types only, so {NUMBER_WORDS.get(len(comp), len(comp))} of the "
+        f"{NUMBER_WORDS.get(len(sens), len(sens))} groups can be compared. "
         "v0 score = net rates exposure if rates come in higher than expected (−5 to +5), averaged over the "
         "company types mapped to the group.",
         "",
@@ -428,32 +512,43 @@ def write_report(rows, notes, source, sens, oos, comp, rho, provisional):
     ]
     if notes:
         lines += ["", "## Data notes", ""] + [f"- {n}" for n in notes]
-    (OUT / "RESULTS.md").write_text("\n".join(lines) + "\n")
+    (ind.out / "RESULTS.md").write_text("\n".join(lines) + "\n")
 
 
-def main() -> None:
+def run(ind: IndustrySet) -> None:
     events, source = load_events()
     provisional = source.startswith("PROVISIONAL")
     dgs2 = load_dgs2()
-    vw = load_returns(DATA / "french" / "industry12_daily_vw.csv")
-    ew = load_returns(DATA / "french" / "industry12_daily_ew.csv")
+    vw = load_returns(ind.vw, ind.sectors)
+    ew = load_returns(ind.ew, ind.sectors)
     mkt = load_market()
-    rows, notes = build_event_rows(events, dgs2, vw, ew, mkt)
+    rows, notes = build_event_rows(events, dgs2, vw, ew, mkt, ind.sectors)
     if not provisional:
         notes += calendar_vs_provisional(events, rows[-1]["trading_day"])
     rng = random.Random(SEED)
-    sens, oos = analyse(rows, rng)
-    comp, rho = compare_v0(sens)
-    OUT.mkdir(parents=True, exist_ok=True)
-    write_table(OUT / "events.csv", rows)
-    write_table(OUT / "sensitivity.csv", sens)
-    write_table(OUT / "v0_comparison.csv", comp)
-    write_report(rows, notes, source, sens, oos, comp, rho, provisional)
-    print(f"{len(rows)} events from {source}")
+    sens, oos = analyse(rows, rng, ind)
+    comp, rho = compare_v0(sens, ind)
+    ind.out.mkdir(parents=True, exist_ok=True)
+    write_table(ind.out / "events.csv", rows)
+    write_table(ind.out / "sensitivity.csv", sens)
+    write_table(ind.out / "v0_comparison.csv", comp)
+    write_report(rows, notes, source, sens, oos, comp, rho, provisional, ind)
+    print(f"[{ind.key} groups] {len(rows)} events from {source}")
     for r in sorted(sens, key=lambda r: r["xs_slope"]):
         print(f"{r['sector']:6s} {r['xs_slope']:+.3f} [{r['xs_lo']:+.3f}, {r['xs_hi']:+.3f}] raw {r['raw_slope']:+.3f} {r['confidence']}")
     print(f"OOS spearman {oos['spearman']:.2f}; v0 rank rho {rho:.2f}")
 
 
+def main(argv: list[str]) -> None:
+    choice = "12"
+    if "--groups" in argv:
+        choice = argv[argv.index("--groups") + 1]
+    keys = list(SETS) if choice == "all" else [choice]
+    for k in keys:
+        if k not in SETS:
+            raise SystemExit(f"Unknown --groups value {k!r}; use 12, 49 or all.")
+        run(SETS[k])
+
+
 if __name__ == "__main__":
-    main()
+    main(sys.argv[1:])

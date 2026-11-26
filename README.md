@@ -27,3 +27,9 @@ To add a FRED series, add a row to `config/fred_series.csv`.
 - **Market-reaction surprise (the macro spec's measure):** the change in the 2-year Treasury yield, in basis points, from the previous trading day's close to the event day's close, plus the same for 5- and 10-year breakeven inflation. Events on non-trading days (such as the Sunday, March 15, 2020 cut) count on the next trading day. Limits: daily closes include everything else that happened that day, Fed days include the morning before a 2 PM announcement, and `same_day_events` flags days with two events (such as CPI on a Fed day).
 - **Scenario label (spec section 6):** yields up with stocks up is growth news; yields up with stocks down is tightening or inflation news; yields down with stocks down is weaker growth; yields down with stocks up is easing or cooling inflation. Moves under 1 basis point are "flat". It uses the Fama-French market return, which runs about two months behind.
 - **Data surprise (a rough backup, not in the spec):** the first-print month-on-month change minus the average month-on-month change over the prior 12 months, both as known on release day. It has no analyst consensus behind it, so it counts predictable moves (like a known jump in gas prices) as surprises. Use it as a cross-check on the market measure, not instead of it.
+
+## Rates test
+
+`scripts/rates_test.py` measures how each of French's 12 sectors moves against the market when the 2-year yield moves on Fed decision days, and compares the result with the Macro Exposure Scorecard v0's rates scores. It runs from the data already in `data/` and writes `results/rates_test/`. Write-up: `docs/rates-test.md`.
+
+It uses the Fed decision days in `data/events/fomc_decisions.csv` (rows marked for the rates test), and falls back to the hand-entered list in `config/fomc_dates_provisional.csv` only if that file is missing.

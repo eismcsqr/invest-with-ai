@@ -78,6 +78,17 @@ def read_csv(path: Path) -> list[dict]:
         return list(csv.DictReader(f))
 
 
+def calendar_vs_provisional(events: list[tuple[str, str]], last_day: str) -> list[str]:
+    """Dates where the event calendar and the hand-entered list disagree, up to last_day."""
+    if not PROVISIONAL.exists():
+        return []
+    cal = {d for d, _ in events if d <= last_day}
+    hand = {r["date"] for r in read_csv(PROVISIONAL) if r["date"] <= last_day}
+    out = [f"{d} is in the hand-entered list but not in the event calendar." for d in sorted(hand - cal)]
+    out += [f"{d} is in the event calendar but not in the hand-entered list." for d in sorted(cal - hand)]
+    return out
+
+
 def load_events() -> tuple[list[tuple[str, str]], str]:
     if CALENDAR.exists():
         rows = [r for r in read_csv(CALENDAR) if r.get("in_rates_test", "").lower() in ("yes", "true", "1")]
@@ -428,6 +439,8 @@ def main() -> None:
     ew = load_returns(DATA / "french" / "industry12_daily_ew.csv")
     mkt = load_market()
     rows, notes = build_event_rows(events, dgs2, vw, ew, mkt)
+    if not provisional:
+        notes += calendar_vs_provisional(events, rows[-1]["trading_day"])
     rng = random.Random(SEED)
     sens, oos = analyse(rows, rng)
     comp, rho = compare_v0(sens)

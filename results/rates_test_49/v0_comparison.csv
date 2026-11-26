@@ -1,0 +1,8 @@
+french_group,name,v0_types,v0_avg,mapping,xs_slope,xs_lo,xs_hi,raw_slope,raw_lo,raw_hi,direction,relative,confidence,fdr_pass
+Cnstr,Construction,Homebuilder (-5),-5.0000,fair,-0.2479,-0.5956,0.0995,-0.3976,-0.9351,0.1763,unclear,unclear,Medium,no
+Autos,Autos and parts,Automaker (-4),-4.0000,good,-0.2504,-0.5157,-0.0133,-0.4002,-0.9244,0.1434,unclear,agrees,High,no
+Meals,Restaurants and hotels,Restaurant chain (-3),-3.0000,good,-0.0661,-0.2353,0.1032,-0.2159,-0.5694,0.2045,unclear,unclear,Low,no
+Trans,Transportation,Airline (-3),-3.0000,fair,-0.0348,-0.2444,0.1286,-0.1846,-0.5922,0.2220,unclear,unclear,Low,no
+Food,Food products,Packaged foods maker (-2),-2.0000,good,0.0179,-0.2320,0.2776,-0.1319,-0.3989,0.1303,unclear,agrees (no worse than market),Low,no
+Clths,Apparel,Luxury brand (-2),-2.0000,fair,-0.2028,-0.4457,0.0346,-0.3526,-0.7861,0.1192,unclear,agrees (no worse than market),Low,no
+Rtail,Retail,Home improvement retailer (-4); Online marketplace (-3); Grocery chain (-1); Discount retailer (+0),-2.0000,mixed,-0.2763,-0.4717,-0.0990,-0.4261,-0.7720,-0.0398,agrees,disagrees,High,yes

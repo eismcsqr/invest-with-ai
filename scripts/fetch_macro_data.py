@@ -10,6 +10,7 @@ What it pulls:
 What it writes (all under data/):
   fred/<SERIES_ID>.csv            date,value  (blank value = no observation)
   french/industry12_<freq>_<w>.csv  date + one column per industry, % returns
+  french/industry49_daily_<w>.csv   same for the 49 industries, 1990 on
   french/ff_factors_<freq>.csv    date,mkt_rf,smb,hml,rf  (% returns)
   CHECK_REPORT.md                 series count, date ranges, gaps, stale series
 
@@ -38,7 +39,7 @@ CONFIG = ROOT / "config" / "fred_series.csv"
 FRED_URL = "https://api.stlouisfed.org/fred/series/observations"
 FRENCH_URL = "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/"
 
-# French files: (zip name, {section title prefix: output file stem})
+# French files: (zip name, {section title prefix: output file stem}[, first date kept])
 FRENCH_FILES = [
     ("12_Industry_Portfolios_daily_CSV.zip", {
         "Average Value Weighted Returns -- Daily": "industry12_daily_vw",
@@ -48,6 +49,10 @@ FRENCH_FILES = [
         "Average Value Weighted Returns -- Monthly": "industry12_monthly_vw",
         "Average Equal Weighted Returns -- Monthly": "industry12_monthly_ew",
     }),
+    ("49_Industry_Portfolios_daily_CSV.zip", {
+        "Average Value Weighted Returns -- Daily": "industry49_daily_vw",
+        "Average Equal Weighted Returns -- Daily": "industry49_daily_ew",
+    }, "1990-01-01"),
     ("F-F_Research_Data_Factors_daily_CSV.zip", {"": "ff_factors_daily"}),
     ("F-F_Research_Data_Factors_CSV.zip", {"": "ff_factors_monthly"}),
 ]
@@ -150,7 +155,8 @@ def french_date(code: str) -> str:
 
 def fetch_french() -> dict[str, tuple[list[str], list[list[str]]]]:
     out = {}
-    for zip_name, wanted in FRENCH_FILES:
+    for zip_name, wanted, *opt in FRENCH_FILES:
+        start = opt[0] if opt else ""
         raw = http_get(FRENCH_URL + zip_name, label=f"Ken French {zip_name}")
         with zipfile.ZipFile(io.BytesIO(raw)) as z:
             text = z.read(z.namelist()[0]).decode("latin-1")
@@ -168,8 +174,11 @@ def fetch_french() -> dict[str, tuple[list[str], list[list[str]]]]:
             for r in rows:
                 if len(r[0]) != date_len:
                     continue
+                day = french_date(r[0])
+                if start and day < start:
+                    continue
                 vals = ["" if v in MISSING_CODES else v for v in r[1:]]
-                clean.append([french_date(r[0])] + vals)
+                clean.append([day] + vals)
             cols = [c.lower().replace("-", "_") for c in header] if stem.startswith("ff_") else header
             out[stem] = (cols, clean)
     return out

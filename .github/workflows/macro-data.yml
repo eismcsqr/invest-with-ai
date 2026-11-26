@@ -1,7 +1,7 @@
 name: Macro data pull
 
 # Fetches the macro pillar's FRED series (config/fred_series.csv) and Kenneth
-# French's 12 industry portfolios and market factors, builds the event calendar
+# French's 12 and 49 industry portfolios and market factors, builds the event calendar
 # (Fed decision days, data release dates, first prints and surprise series),
 # writes everything under data/ with check reports, and commits any changes
 # back to the branch it ran on.

@@ -2,7 +2,7 @@
 
 Run date: 2026-11-26
 
-**19 datasets pulled. 0 stale or empty. 3 with gaps over 7 days to review.**
+**21 datasets pulled. 0 stale or empty. 3 with gaps over 7 days to review.**
 
 Missing counts the dates in the source file with no value (FRED lists market holidays this way). Gaps list stretches longer than a week between values in daily data, usually market closures.
 
@@ -25,6 +25,8 @@ Missing counts the dates in the source file with no value (FRED lists market hol
 | industry12_daily_ew | Ken French | 1926-07-01 | 2026-09-30 | 26338 | 0 | 1 | ok |
 | industry12_monthly_vw | Ken French | 1926-07 | 2026-09 | 1203 | 0 | 0 | ok |
 | industry12_monthly_ew | Ken French | 1926-07 | 2026-09 | 1203 | 0 | 0 | ok |
+| industry49_daily_vw | Ken French | 1990-01-02 | 2026-09-30 | 9254 | 0 | 0 | ok |
+| industry49_daily_ew | Ken French | 1990-01-02 | 2026-09-30 | 9254 | 0 | 0 | ok |
 | ff_factors_daily | Ken French | 1926-07-01 | 2026-09-30 | 26338 | 0 | 1 | ok |
 | ff_factors_monthly | Ken French | 1926-07 | 2026-09 | 1203 | 0 | 0 | ok |
 

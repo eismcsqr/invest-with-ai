@@ -153,7 +153,8 @@ def panel_info(body: list[str]) -> tuple[bool, str | None]:
     statement = any(line.startswith("Statement") for line in body)
     released = None
     for line in body:
-        m = RELEASED.search(line)
+        # only the statement's release date counts (minutes carry their own, weeks later)
+        m = RELEASED.search(line) if line.startswith("Statement") else None
         if m:
             released = dt.date(int(m["y"]), MONTH_NUM[m["m"]], int(m["d"])).isoformat()
             break
@@ -282,6 +283,7 @@ def build_decisions(meetings: list[dict], target: dict, today: dt.date) -> tuple
             "date_note": ("released date from the Fed page" if m["released"] else
                           "day after the call (target changed then)" if ann != end else
                           "last day of the meeting" if m["kind"] == "meeting" else
+                          "date of the vote" if m["kind"] == "notation vote" else
                           "date of the call; announcement may have come the next morning"),
             "source": m["source"],
         })
@@ -426,7 +428,7 @@ def build_calendar(decisions, release_dates, first_prints, market) -> list[dict]
     names = {e: n for _, e, n, _ in RELEASES}
     for _, event, _, series in RELEASES:
         dates = set(release_dates[event]) | {k[1] for k in fp if k[0] == event}
-        cover = min((p["release_date"] for p in first_prints if p["series_id"] == series[0]), default="9999")
+        cover = min((p["release_date"] for p in first_prints if p["event"] == event), default="9999")
         for day in sorted(dates):
             if day < start:
                 continue
@@ -439,8 +441,10 @@ def build_calendar(decisions, release_dates, first_prints, market) -> list[dict]
                 status = "first print" + ("" if day in release_dates[event] else " (date from ALFRED only)")
             else:
                 parts = [names[event]]
-                status = "release date before vintage coverage" if day < cover else "no new month in this release"
-            rows.append({"date": day, "event": event, "subtype": "data release", "in_rates_test": False,
+                status = "release date before vintage coverage" if day < cover else "revision only (no new month)"
+            rows.append({"date": day, "event": event,
+                         "subtype": "revision only" if status.startswith("revision") else "data release",
+                         "in_rates_test": False,
                          "detail": "; ".join(parts), "status": status,
                          "data_surprise_pp": head["data_surprise_pp"] if head else None,
                          "first_print_mom_pct": head["mom_pct"] if head else None})
@@ -538,18 +542,24 @@ def report(meetings, decisions, unmatched, release_dates, first_prints, calendar
 
     L += ["", "## Data releases and first prints", "",
           "| Release | Release dates on file | First prints from | First prints | Late first prints | "
-          "Dates with no new month | First-print dates missing from FRED's release calendar |",
+          "Revision-only dates (no new month) | First-print dates missing from FRED's release calendar |",
           "|---|---|---|---|---|---|---|"]
     start = market.days[0]
     for _, event, name, series in RELEASES:
         fps = [p for p in first_prints if p["series_id"] == series[0]]
+        all_fps = [p for p in first_prints if p["event"] == event]
         rdates = [x for x in release_dates[event] if x >= start]
         cal = [r for r in calendar if r["event"] == event]
-        no_new = sum(1 for r in cal if r["status"] == "no new month in this release")
+        no_new = sum(1 for r in cal if r["subtype"] == "revision only")
         missing = sum(1 for p in fps if p["release_date"] not in release_dates[event])
         late = sum(1 for p in fps if p["timing"] != "on time")
         L.append(f"| {name} | {len(rdates)} (from {rdates[0] if rdates else '-'}) | "
-                 f"{min(p['release_date'] for p in fps) if fps else '-'} | {len(fps)} | {late} | {no_new} | {missing} |")
+                 f"{min(p['release_date'] for p in all_fps) if all_fps else '-'} | {len(fps)} | {late} | {no_new} | {missing} |")
+    L += ["", "First prints count the headline series (CPI, PCE prices, retail sales); the start date is the earliest "
+          "first print of any series in the release (PCE spending goes back to 1979). Revision-only dates are "
+          "publications that added no new month, such as CPI's February seasonal-factor update or annual retail "
+          "sales revisions; they are labelled and left out of the averages below. Release dates before the "
+          "vintage coverage can't be checked this way."]
     L += ["", "Months with no first print (a skipped month in the vintage history):", ""]
     gaps = []
     for sid in SERIES_NAMES:
@@ -571,9 +581,10 @@ def report(meetings, decisions, unmatched, release_dates, first_prints, calendar
           "Ordinary days are trading days with none of these events, over the same years.", "",
           "| Event | Days with a 2-year move | Average size on event days (bp) | Average size on ordinary days (bp) | "
           "Days sharing another event |", "|---|---|---|---|---|"]
-    event_tds = {r.get("trading_day") for r in calendar if r.get("trading_day")}
+    event_tds = {r.get("trading_day") for r in calendar if r.get("trading_day") and r["subtype"] != "revision only"}
     for label, sel in [("Fed decision (rates test)", fomc_cal)] + [
-            (name, [r for r in calendar if r["event"] == event]) for _, event, name, _ in RELEASES]:
+            (name, [r for r in calendar if r["event"] == event and r["subtype"] == "data release"])
+            for _, event, name, _ in RELEASES]:
         if not sel:
             continue
         first = min(r["date"] for r in sel)

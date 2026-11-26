@@ -1,0 +1,276 @@
+date,type,in_rates_test,change_bp,target_low_before,target_high_before,target_low_after,target_high_after,fed_label,date_note,source
+1994-02-04,scheduled,yes,25,3,3,3.25,3.25,February 3-4 Meeting - 1994,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1994.htm
+1994-03-22,scheduled,yes,25,3.25,3.25,3.5,3.5,March 22 Meeting - 1994,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1994.htm
+1994-04-18,unscheduled_rate_change,yes,25,3.5,3.5,3.75,3.75,April 18 Conference Call - 1994,date of the call; announcement may have come the next morning,https://www.federalreserve.gov/monetarypolicy/fomchistorical1994.htm
+1994-05-17,scheduled,yes,50,3.75,3.75,4.25,4.25,May 17 Meeting - 1994,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1994.htm
+1994-07-06,scheduled,yes,0,4.25,4.25,4.25,4.25,July 5-6 Meeting - 1994,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1994.htm
+1994-08-16,scheduled,yes,50,4.25,4.25,4.75,4.75,August 16 Meeting - 1994,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1994.htm
+1994-09-27,scheduled,yes,0,4.75,4.75,4.75,4.75,September 27 Meeting - 1994,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1994.htm
+1994-11-15,scheduled,yes,75,4.75,4.75,5.5,5.5,November 15 Meeting - 1994,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1994.htm
+1994-12-20,scheduled,yes,0,5.5,5.5,5.5,5.5,December 20 Meeting - 1994,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1994.htm
+1995-02-01,scheduled,yes,50,5.5,5.5,6,6,January 31-February 1 Meeting - 1995,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1995.htm
+1995-03-28,scheduled,yes,0,6,6,6,6,March 28 Meeting - 1995,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1995.htm
+1995-05-23,scheduled,yes,0,6,6,6,6,May 23 Meeting - 1995,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1995.htm
+1995-07-06,scheduled,yes,-25,6,6,5.75,5.75,July 5-6 Meeting - 1995,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1995.htm
+1995-08-22,scheduled,yes,0,5.75,5.75,5.75,5.75,August 22 Meeting - 1995,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1995.htm
+1995-09-26,scheduled,yes,0,5.75,5.75,5.75,5.75,September 26 Meeting - 1995,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1995.htm
+1995-11-15,scheduled,yes,0,5.75,5.75,5.75,5.75,November 15 Meeting - 1995,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1995.htm
+1995-12-19,scheduled,yes,-25,5.75,5.75,5.5,5.5,December 19 Meeting - 1995,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1995.htm
+1996-01-31,scheduled,yes,-25,5.5,5.5,5.25,5.25,January 30-31 Meeting - 1996,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1996.htm
+1996-03-26,scheduled,yes,0,5.25,5.25,5.25,5.25,March 26 Meeting - 1996,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1996.htm
+1996-05-21,scheduled,yes,0,5.25,5.25,5.25,5.25,May 21 Meeting - 1996,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1996.htm
+1996-07-03,scheduled,yes,0,5.25,5.25,5.25,5.25,July 2-3 Meeting - 1996,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1996.htm
+1996-08-20,scheduled,yes,0,5.25,5.25,5.25,5.25,August 20 Meeting - 1996,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1996.htm
+1996-09-24,scheduled,yes,0,5.25,5.25,5.25,5.25,September 24 Meeting - 1996,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1996.htm
+1996-11-13,scheduled,yes,0,5.25,5.25,5.25,5.25,November 13 Meeting - 1996,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1996.htm
+1996-12-17,scheduled,yes,0,5.25,5.25,5.25,5.25,December 17 Meeting - 1996,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1996.htm
+1997-02-05,scheduled,yes,0,5.25,5.25,5.25,5.25,February 4-5 Meeting - 1997,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1997.htm
+1997-03-25,scheduled,yes,25,5.25,5.25,5.5,5.5,March 25 Meeting - 1997,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1997.htm
+1997-05-20,scheduled,yes,0,5.5,5.5,5.5,5.5,May 20 Meeting - 1997,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1997.htm
+1997-07-02,scheduled,yes,0,5.5,5.5,5.5,5.5,July 1-2 Meeting - 1997,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1997.htm
+1997-08-19,scheduled,yes,0,5.5,5.5,5.5,5.5,August 19 Meeting - 1997,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1997.htm
+1997-09-30,scheduled,yes,0,5.5,5.5,5.5,5.5,September 30 Meeting - 1997,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1997.htm
+1997-11-12,scheduled,yes,0,5.5,5.5,5.5,5.5,November 12 Meeting - 1997,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1997.htm
+1997-12-16,scheduled,yes,0,5.5,5.5,5.5,5.5,December 16 Meeting - 1997,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1997.htm
+1998-02-04,scheduled,yes,0,5.5,5.5,5.5,5.5,February 3-4 Meeting - 1998,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1998.htm
+1998-03-31,scheduled,yes,0,5.5,5.5,5.5,5.5,March 31 Meeting - 1998,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1998.htm
+1998-05-19,scheduled,yes,0,5.5,5.5,5.5,5.5,May 19 Meeting - 1998,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1998.htm
+1998-07-01,scheduled,yes,0,5.5,5.5,5.5,5.5,June 30-July 1 Meeting - 1998,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1998.htm
+1998-08-18,scheduled,yes,0,5.5,5.5,5.5,5.5,August 18 Meeting - 1998,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1998.htm
+1998-09-29,scheduled,yes,-25,5.5,5.5,5.25,5.25,September 29 Meeting - 1998,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1998.htm
+1998-10-15,unscheduled_rate_change,yes,-25,5.25,5.25,5,5,October 15 Conference Call - 1998,date of the call; announcement may have come the next morning,https://www.federalreserve.gov/monetarypolicy/fomchistorical1998.htm
+1998-11-17,scheduled,yes,-25,5,5,4.75,4.75,November 17 Meeting - 1998,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1998.htm
+1998-12-22,scheduled,yes,0,4.75,4.75,4.75,4.75,December 22 Meeting - 1998,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1998.htm
+1999-02-03,scheduled,yes,0,4.75,4.75,4.75,4.75,February 2-3 Meeting - 1999,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1999.htm
+1999-03-30,scheduled,yes,0,4.75,4.75,4.75,4.75,March 30 Meeting - 1999,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1999.htm
+1999-05-18,scheduled,yes,0,4.75,4.75,4.75,4.75,May 18 Meeting - 1999,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1999.htm
+1999-06-30,scheduled,yes,25,4.75,4.75,5,5,June 29-30 Meeting - 1999,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1999.htm
+1999-08-24,scheduled,yes,25,5,5,5.25,5.25,August 24 Meeting - 1999,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1999.htm
+1999-10-05,scheduled,yes,0,5.25,5.25,5.25,5.25,October 5 Meeting - 1999,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1999.htm
+1999-11-16,scheduled,yes,25,5.25,5.25,5.5,5.5,November 16 Meeting - 1999,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1999.htm
+1999-12-21,scheduled,yes,0,5.5,5.5,5.5,5.5,December 21 Meeting - 1999,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical1999.htm
+2000-02-02,scheduled,yes,25,5.5,5.5,5.75,5.75,February 1-2 Meeting - 2000,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2000.htm
+2000-03-21,scheduled,yes,25,5.75,5.75,6,6,March 21 Meeting - 2000,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2000.htm
+2000-05-16,scheduled,yes,50,6,6,6.5,6.5,May 16 Meeting - 2000,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2000.htm
+2000-06-28,scheduled,yes,0,6.5,6.5,6.5,6.5,June 27-28 Meeting - 2000,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2000.htm
+2000-08-22,scheduled,yes,0,6.5,6.5,6.5,6.5,August 22 Meeting - 2000,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2000.htm
+2000-10-03,scheduled,yes,0,6.5,6.5,6.5,6.5,October 3 Meeting - 2000,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2000.htm
+2000-11-15,scheduled,yes,0,6.5,6.5,6.5,6.5,November 15 Meeting - 2000,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2000.htm
+2000-12-19,scheduled,yes,0,6.5,6.5,6.5,6.5,December 19 Meeting - 2000,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2000.htm
+2001-01-03,unscheduled_rate_change,yes,-50,6.5,6.5,6,6,January 3 Conference Call - 2001,date of the call; announcement may have come the next morning,https://www.federalreserve.gov/monetarypolicy/fomchistorical2001.htm
+2001-01-31,scheduled,yes,-50,6,6,5.5,5.5,January 30-31 Meeting - 2001,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2001.htm
+2001-03-20,scheduled,yes,-50,5.5,5.5,5,5,March 20 Meeting - 2001,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2001.htm
+2001-04-18,unscheduled_rate_change,yes,-50,5,5,4.5,4.5,April 18 Conference Call - 2001,date of the call; announcement may have come the next morning,https://www.federalreserve.gov/monetarypolicy/fomchistorical2001.htm
+2001-05-15,scheduled,yes,-50,4.5,4.5,4,4,May 15 Meeting - 2001,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2001.htm
+2001-06-27,scheduled,yes,-25,4,4,3.75,3.75,June 26-27 Meeting - 2001,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2001.htm
+2001-08-21,scheduled,yes,-25,3.75,3.75,3.5,3.5,August 21 Meeting - 2001,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2001.htm
+2001-09-17,unscheduled_rate_change,yes,-50,3.5,3.5,3,3,September 17 Conference Call - 2001,date of the call; announcement may have come the next morning,https://www.federalreserve.gov/monetarypolicy/fomchistorical2001.htm
+2001-10-02,scheduled,yes,-50,3,3,2.5,2.5,October 2 Meeting - 2001,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2001.htm
+2001-11-06,scheduled,yes,-50,2.5,2.5,2,2,November 6 Meeting - 2001,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2001.htm
+2001-12-11,scheduled,yes,-25,2,2,1.75,1.75,December 11 Meeting - 2001,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2001.htm
+2002-01-30,scheduled,yes,0,1.75,1.75,1.75,1.75,January 29-30 Meeting - 2002,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2002.htm
+2002-03-19,scheduled,yes,0,1.75,1.75,1.75,1.75,March 19 Meeting - 2002,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2002.htm
+2002-05-07,scheduled,yes,0,1.75,1.75,1.75,1.75,May 7 Meeting - 2002,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2002.htm
+2002-06-26,scheduled,yes,0,1.75,1.75,1.75,1.75,June 25-26 Meeting - 2002,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2002.htm
+2002-08-13,scheduled,yes,0,1.75,1.75,1.75,1.75,August 13 Meeting - 2002,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2002.htm
+2002-09-24,scheduled,yes,0,1.75,1.75,1.75,1.75,September 24 Meeting - 2002,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2002.htm
+2002-11-06,scheduled,yes,-50,1.75,1.75,1.25,1.25,November 6 Meeting - 2002,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2002.htm
+2002-12-10,scheduled,yes,0,1.25,1.25,1.25,1.25,December 10 Meeting - 2002,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2002.htm
+2003-01-29,scheduled,yes,0,1.25,1.25,1.25,1.25,January 28-29 Meeting - 2003,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2003.htm
+2003-03-18,scheduled,yes,0,1.25,1.25,1.25,1.25,March 18 Meeting - 2003,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2003.htm
+2003-05-06,scheduled,yes,0,1.25,1.25,1.25,1.25,May 6 Meeting - 2003,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2003.htm
+2003-06-25,scheduled,yes,-25,1.25,1.25,1,1,June 24-25 Meeting - 2003,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2003.htm
+2003-08-12,scheduled,yes,0,1,1,1,1,August 12 Meeting - 2003,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2003.htm
+2003-09-15,scheduled,yes,0,1,1,1,1,September 15 Meeting - 2003,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2003.htm
+2003-09-16,scheduled,yes,0,1,1,1,1,September 16 Meeting - 2003,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2003.htm
+2003-10-28,scheduled,yes,0,1,1,1,1,October 28 Meeting - 2003,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2003.htm
+2003-12-09,scheduled,yes,0,1,1,1,1,December 9 Meeting - 2003,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2003.htm
+2004-01-28,scheduled,yes,0,1,1,1,1,January 27-28 Meeting - 2004,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2004.htm
+2004-03-16,scheduled,yes,0,1,1,1,1,March 16 Meeting - 2004,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2004.htm
+2004-05-04,scheduled,yes,0,1,1,1,1,May 4 Meeting - 2004,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2004.htm
+2004-06-30,scheduled,yes,25,1,1,1.25,1.25,June 29-30 Meeting - 2004,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2004.htm
+2004-08-10,scheduled,yes,25,1.25,1.25,1.5,1.5,August 10 Meeting - 2004,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2004.htm
+2004-09-21,scheduled,yes,25,1.5,1.5,1.75,1.75,September 21 Meeting - 2004,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2004.htm
+2004-11-10,scheduled,yes,25,1.75,1.75,2,2,November 10 Meeting - 2004,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2004.htm
+2004-12-14,scheduled,yes,25,2,2,2.25,2.25,December 14 Meeting - 2004,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2004.htm
+2005-02-02,scheduled,yes,25,2.25,2.25,2.5,2.5,February 1-2 Meeting - 2005,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2005.htm
+2005-03-22,scheduled,yes,25,2.5,2.5,2.75,2.75,March 22 Meeting - 2005,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2005.htm
+2005-05-03,scheduled,yes,25,2.75,2.75,3,3,May 3 Meeting - 2005,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2005.htm
+2005-06-30,scheduled,yes,25,3,3,3.25,3.25,June 29-30 Meeting - 2005,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2005.htm
+2005-08-09,scheduled,yes,25,3.25,3.25,3.5,3.5,August 9 Meeting - 2005,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2005.htm
+2005-09-20,scheduled,yes,25,3.5,3.5,3.75,3.75,September 20 Meeting - 2005,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2005.htm
+2005-11-01,scheduled,yes,25,3.75,3.75,4,4,November 1 Meeting - 2005,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2005.htm
+2005-12-13,scheduled,yes,25,4,4,4.25,4.25,December 13 Meeting - 2005,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2005.htm
+2006-01-31,scheduled,yes,25,4.25,4.25,4.5,4.5,January 31 Meeting - 2006,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2006.htm
+2006-03-28,scheduled,yes,25,4.5,4.5,4.75,4.75,March 27-28 Meeting - 2006,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2006.htm
+2006-05-10,scheduled,yes,25,4.75,4.75,5,5,May 10 Meeting - 2006,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2006.htm
+2006-06-29,scheduled,yes,25,5,5,5.25,5.25,June 28-29 Meeting - 2006,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2006.htm
+2006-08-08,scheduled,yes,0,5.25,5.25,5.25,5.25,August 8 Meeting - 2006,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2006.htm
+2006-09-20,scheduled,yes,0,5.25,5.25,5.25,5.25,September 20 Meeting - 2006,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2006.htm
+2006-10-25,scheduled,yes,0,5.25,5.25,5.25,5.25,October 24-25 Meeting - 2006,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2006.htm
+2006-12-12,scheduled,yes,0,5.25,5.25,5.25,5.25,December 12 Meeting - 2006,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2006.htm
+2007-01-31,scheduled,yes,0,5.25,5.25,5.25,5.25,January 30-31 Meeting - 2007,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2007.htm
+2007-03-21,scheduled,yes,0,5.25,5.25,5.25,5.25,March 20-21 Meeting - 2007,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2007.htm
+2007-05-09,scheduled,yes,0,5.25,5.25,5.25,5.25,May 9 Meeting - 2007,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2007.htm
+2007-06-28,scheduled,yes,0,5.25,5.25,5.25,5.25,June 27-28 Meeting - 2007,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2007.htm
+2007-08-07,scheduled,yes,0,5.25,5.25,5.25,5.25,August 7 Meeting - 2007,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2007.htm
+2007-08-10,unscheduled_statement,no,0,5.25,5.25,5.25,5.25,August 10 Conference Call - 2007,date of the call; announcement may have come the next morning,https://www.federalreserve.gov/monetarypolicy/fomchistorical2007.htm
+2007-08-16,unscheduled_statement,no,0,5.25,5.25,5.25,5.25,August 16 Conference Call - 2007,date of the call; announcement may have come the next morning,https://www.federalreserve.gov/monetarypolicy/fomchistorical2007.htm
+2007-09-18,scheduled,yes,-50,5.25,5.25,4.75,4.75,September 18 Meeting - 2007,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2007.htm
+2007-10-31,scheduled,yes,-25,4.75,4.75,4.5,4.5,October 30-31 Meeting - 2007,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2007.htm
+2007-12-11,scheduled,yes,-25,4.5,4.5,4.25,4.25,December 11 Meeting - 2007,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2007.htm
+2008-01-22,unscheduled_rate_change,yes,-75,4.25,4.25,3.5,3.5,January 21 Conference Call - 2008,day after the call (target changed then),https://www.federalreserve.gov/monetarypolicy/fomchistorical2008.htm
+2008-01-30,scheduled,yes,-50,3.5,3.5,3,3,January 29-30 Meeting - 2008,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2008.htm
+2008-03-10,unscheduled_statement,no,0,3,3,3,3,March 10 Conference Call - 2008,date of the call; announcement may have come the next morning,https://www.federalreserve.gov/monetarypolicy/fomchistorical2008.htm
+2008-03-18,scheduled,yes,-75,3,3,2.25,2.25,March 18 Meeting - 2008,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2008.htm
+2008-04-30,scheduled,yes,-25,2.25,2.25,2,2,April 29-30 Meeting - 2008,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2008.htm
+2008-06-25,scheduled,yes,0,2,2,2,2,June 24-25 Meeting - 2008,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2008.htm
+2008-08-05,scheduled,yes,0,2,2,2,2,August 5 Meeting - 2008,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2008.htm
+2008-09-16,scheduled,yes,0,2,2,2,2,September 16 Meeting - 2008,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2008.htm
+2008-10-08,unscheduled_rate_change,yes,-50,2,2,1.5,1.5,October 7 Conference Call - 2008,day after the call (target changed then),https://www.federalreserve.gov/monetarypolicy/fomchistorical2008.htm
+2008-10-29,scheduled,yes,-50,1.5,1.5,1,1,October 28-29 Meeting - 2008,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2008.htm
+2008-12-16,scheduled,yes,-75,1,1,0,0.25,December 15-16 Meeting - 2008,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2008.htm
+2009-01-28,scheduled,yes,0,0,0.25,0,0.25,January 27-28 Meeting - 2009,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2009.htm
+2009-03-18,scheduled,yes,0,0,0.25,0,0.25,March 17-18 Meeting - 2009,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2009.htm
+2009-04-29,scheduled,yes,0,0,0.25,0,0.25,April 28-29 Meeting - 2009,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2009.htm
+2009-06-24,scheduled,yes,0,0,0.25,0,0.25,June 23-24 Meeting - 2009,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2009.htm
+2009-08-12,scheduled,yes,0,0,0.25,0,0.25,August 11-12 Meeting - 2009,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2009.htm
+2009-09-23,scheduled,yes,0,0,0.25,0,0.25,September 22-23 Meeting - 2009,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2009.htm
+2009-11-04,scheduled,yes,0,0,0.25,0,0.25,November 3-4 Meeting - 2009,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2009.htm
+2009-12-16,scheduled,yes,0,0,0.25,0,0.25,December 15-16 Meeting - 2009,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2009.htm
+2010-01-27,scheduled,yes,0,0,0.25,0,0.25,January 26-27 Meeting - 2010,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2010.htm
+2010-03-16,scheduled,yes,0,0,0.25,0,0.25,March 16 Meeting - 2010,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2010.htm
+2010-04-28,scheduled,yes,0,0,0.25,0,0.25,April 27-28 Meeting - 2010,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2010.htm
+2010-05-09,unscheduled_statement,no,0,0,0.25,0,0.25,May 9 Conference Call - 2010,date of the call; announcement may have come the next morning,https://www.federalreserve.gov/monetarypolicy/fomchistorical2010.htm
+2010-06-23,scheduled,yes,0,0,0.25,0,0.25,June 22-23 Meeting - 2010,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2010.htm
+2010-08-10,scheduled,yes,0,0,0.25,0,0.25,August 10 Meeting - 2010,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2010.htm
+2010-09-21,scheduled,yes,0,0,0.25,0,0.25,September 21 Meeting - 2010,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2010.htm
+2010-11-03,scheduled,yes,0,0,0.25,0,0.25,November 2-3 Meeting - 2010,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2010.htm
+2010-12-14,scheduled,yes,0,0,0.25,0,0.25,December 14 Meeting - 2010,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2010.htm
+2011-01-26,scheduled,yes,0,0,0.25,0,0.25,January 25-26 Meeting - 2011,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2011.htm
+2011-03-15,scheduled,yes,0,0,0.25,0,0.25,March 15 Meeting - 2011,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2011.htm
+2011-04-27,scheduled,yes,0,0,0.25,0,0.25,April 26-27 Meeting - 2011,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2011.htm
+2011-06-22,scheduled,yes,0,0,0.25,0,0.25,June 21-22 Meeting - 2011,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2011.htm
+2011-08-09,scheduled,yes,0,0,0.25,0,0.25,August 9 Meeting - 2011,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2011.htm
+2011-09-21,scheduled,yes,0,0,0.25,0,0.25,September 20-21 Meeting - 2011,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2011.htm
+2011-11-02,scheduled,yes,0,0,0.25,0,0.25,November 1-2 Meeting - 2011,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2011.htm
+2011-12-13,scheduled,yes,0,0,0.25,0,0.25,December 13 Meeting - 2011,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2011.htm
+2012-01-25,scheduled,yes,0,0,0.25,0,0.25,January 24-25 Meeting - 2012,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2012.htm
+2012-03-13,scheduled,yes,0,0,0.25,0,0.25,March 13 Meeting - 2012,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2012.htm
+2012-04-25,scheduled,yes,0,0,0.25,0,0.25,April 24-25 Meeting - 2012,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2012.htm
+2012-06-20,scheduled,yes,0,0,0.25,0,0.25,June 19-20 Meeting - 2012,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2012.htm
+2012-08-01,scheduled,yes,0,0,0.25,0,0.25,July 31-August 1 Meeting - 2012,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2012.htm
+2012-09-13,scheduled,yes,0,0,0.25,0,0.25,September 12-13 Meeting - 2012,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2012.htm
+2012-10-24,scheduled,yes,0,0,0.25,0,0.25,October 23-24 Meeting - 2012,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2012.htm
+2012-12-12,scheduled,yes,0,0,0.25,0,0.25,December 11-12 Meeting - 2012,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2012.htm
+2013-01-30,scheduled,yes,0,0,0.25,0,0.25,January 29-30 Meeting - 2013,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2013.htm
+2013-03-20,scheduled,yes,0,0,0.25,0,0.25,March 19-20 Meeting - 2013,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2013.htm
+2013-06-19,scheduled,yes,0,0,0.25,0,0.25,June 18-19 Meeting - 2013,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2013.htm
+2013-07-31,scheduled,yes,0,0,0.25,0,0.25,July 30-31 Meeting - 2013,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2013.htm
+2013-09-18,scheduled,yes,0,0,0.25,0,0.25,September 17-18 Meeting - 2013,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2013.htm
+2013-10-30,scheduled,yes,0,0,0.25,0,0.25,October 29-30 Meeting - 2013,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2013.htm
+2013-12-18,scheduled,yes,0,0,0.25,0,0.25,December 17-18 Meeting - 2013,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2013.htm
+2014-01-29,scheduled,yes,0,0,0.25,0,0.25,January 28-29 Meeting - 2014,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2014.htm
+2014-03-19,scheduled,yes,0,0,0.25,0,0.25,March 18-19 Meeting - 2014,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2014.htm
+2014-04-30,scheduled,yes,0,0,0.25,0,0.25,April 29-30 Meeting - 2014,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2014.htm
+2014-06-18,scheduled,yes,0,0,0.25,0,0.25,June 17-18 Meeting - 2014,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2014.htm
+2014-07-30,scheduled,yes,0,0,0.25,0,0.25,July 29-30 Meeting - 2014,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2014.htm
+2014-09-17,scheduled,yes,0,0,0.25,0,0.25,September 16-17 Meeting - 2014,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2014.htm
+2014-10-29,scheduled,yes,0,0,0.25,0,0.25,October 28-29 Meeting - 2014,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2014.htm
+2014-12-17,scheduled,yes,0,0,0.25,0,0.25,December 16-17 Meeting - 2014,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2014.htm
+2015-01-28,scheduled,yes,0,0,0.25,0,0.25,January 27-28 Meeting - 2015,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2015.htm
+2015-03-18,scheduled,yes,0,0,0.25,0,0.25,March 17-18 Meeting - 2015,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2015.htm
+2015-04-29,scheduled,yes,0,0,0.25,0,0.25,April 28-29 Meeting - 2015,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2015.htm
+2015-06-17,scheduled,yes,0,0,0.25,0,0.25,June 16-17 Meeting - 2015,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2015.htm
+2015-07-29,scheduled,yes,0,0,0.25,0,0.25,July 28-29 Meeting - 2015,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2015.htm
+2015-09-17,scheduled,yes,0,0,0.25,0,0.25,September 16-17 Meeting - 2015,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2015.htm
+2015-10-28,scheduled,yes,0,0,0.25,0,0.25,October 27-28 Meeting - 2015,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2015.htm
+2015-12-16,scheduled,yes,25,0,0.25,0.25,0.5,December 15-16 Meeting - 2015,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2015.htm
+2016-01-27,scheduled,yes,0,0.25,0.5,0.25,0.5,January 26-27 Meeting - 2016,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2016.htm
+2016-03-16,scheduled,yes,0,0.25,0.5,0.25,0.5,March 15-16 Meeting - 2016,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2016.htm
+2016-04-27,scheduled,yes,0,0.25,0.5,0.25,0.5,April 26-27 Meeting - 2016,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2016.htm
+2016-06-15,scheduled,yes,0,0.25,0.5,0.25,0.5,June 14-15 Meeting - 2016,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2016.htm
+2016-07-27,scheduled,yes,0,0.25,0.5,0.25,0.5,July 26-27 Meeting - 2016,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2016.htm
+2016-09-21,scheduled,yes,0,0.25,0.5,0.25,0.5,September 20-21 Meeting - 2016,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2016.htm
+2016-11-02,scheduled,yes,0,0.25,0.5,0.25,0.5,November 1-2 Meeting - 2016,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2016.htm
+2016-12-14,scheduled,yes,25,0.25,0.5,0.5,0.75,December 13-14 Meeting - 2016,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2016.htm
+2017-03-15,scheduled,yes,25,0.5,0.75,0.75,1,March 14-15 Meeting - 2017,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2017.htm
+2017-05-03,scheduled,yes,0,0.75,1,0.75,1,May 2-3 Meeting - 2017,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2017.htm
+2017-06-14,scheduled,yes,25,0.75,1,1,1.25,June 13-14 Meeting - 2017,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2017.htm
+2017-07-26,scheduled,yes,0,1,1.25,1,1.25,July 25-26 Meeting - 2017,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2017.htm
+2017-09-20,scheduled,yes,0,1,1.25,1,1.25,September 19-20 Meeting - 2017,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2017.htm
+2017-12-13,scheduled,yes,25,1,1.25,1.25,1.5,December 12-13 Meeting - 2017,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2017.htm
+2018-01-31,scheduled,yes,0,1.25,1.5,1.25,1.5,January 30-31 Meeting - 2018,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2018.htm
+2018-03-21,scheduled,yes,25,1.25,1.5,1.5,1.75,March 20-21 Meeting - 2018,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2018.htm
+2018-05-02,scheduled,yes,0,1.5,1.75,1.5,1.75,May 1-2 Meeting - 2018,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2018.htm
+2018-06-13,scheduled,yes,25,1.5,1.75,1.75,2,June 12-13 Meeting - 2018,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2018.htm
+2018-09-26,scheduled,yes,25,1.75,2,2,2.25,September 25-26 Meeting - 2018,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2018.htm
+2018-11-08,scheduled,yes,0,2,2.25,2,2.25,November 7-8 Meeting - 2018,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2018.htm
+2018-12-19,scheduled,yes,25,2,2.25,2.25,2.5,December 18-19 Meeting - 2018,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2018.htm
+2019-01-30,scheduled,yes,0,2.25,2.5,2.25,2.5,January 29-30 Meeting - 2019,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2019.htm
+2019-03-20,scheduled,yes,0,2.25,2.5,2.25,2.5,March 19-20 Meeting - 2019,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2019.htm
+2019-06-19,scheduled,yes,0,2.25,2.5,2.25,2.5,June 18-19 Meeting - 2019,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2019.htm
+2019-07-31,scheduled,yes,-25,2.25,2.5,2,2.25,July 30-31 Meeting - 2019,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2019.htm
+2019-09-18,scheduled,yes,-25,2,2.25,1.75,2,September 17-18 Meeting - 2019,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2019.htm
+2019-10-11,unscheduled_statement,no,0,1.75,2,1.75,2,October 4 (unscheduled) - 2019,released date from the Fed page,https://www.federalreserve.gov/monetarypolicy/fomchistorical2019.htm
+2019-10-30,scheduled,yes,-25,1.75,2,1.5,1.75,October 29-30 Meeting - 2019,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2019.htm
+2019-12-11,scheduled,yes,0,1.5,1.75,1.5,1.75,December 10-11 Meeting - 2019,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2019.htm
+2020-01-29,scheduled,yes,0,1.5,1.75,1.5,1.75,January 28-29 Meeting - 2020,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2020.htm
+2020-03-03,unscheduled_rate_change,yes,-50,1.5,1.75,1,1.25,March 2 (unscheduled) Meeting - 2020,released date from the Fed page,https://www.federalreserve.gov/monetarypolicy/fomchistorical2020.htm
+2020-03-15,unscheduled_rate_change,yes,-100,1,1.25,0,0.25,March 15 (unscheduled) Meeting - 2020,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2020.htm
+2020-03-23,unscheduled_statement,no,0,0,0.25,0,0.25,March 23 (notation vote) - 2020,released date from the Fed page,https://www.federalreserve.gov/monetarypolicy/fomchistorical2020.htm
+2020-04-29,scheduled,yes,0,0,0.25,0,0.25,April 28-29 Meeting - 2020,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2020.htm
+2020-06-10,scheduled,yes,0,0,0.25,0,0.25,June 9-10 Meeting - 2020,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2020.htm
+2020-07-29,scheduled,yes,0,0,0.25,0,0.25,July 28-29 Meeting - 2020,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2020.htm
+2020-08-27,unscheduled_statement,no,0,0,0.25,0,0.25,August 27 (notation vote) - 2020,date of the vote,https://www.federalreserve.gov/monetarypolicy/fomchistorical2020.htm
+2020-09-16,scheduled,yes,0,0,0.25,0,0.25,September 15-16 Meeting - 2020,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2020.htm
+2020-11-05,scheduled,yes,0,0,0.25,0,0.25,November 4-5 Meeting - 2020,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2020.htm
+2020-12-16,scheduled,yes,0,0,0.25,0,0.25,December 15-16 Meeting - 2020,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomchistorical2020.htm
+2021-01-27,scheduled,yes,0,0,0.25,0,0.25,January 26-27 2021,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2021-03-17,scheduled,yes,0,0,0.25,0,0.25,March 16-17* 2021,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2021-04-28,scheduled,yes,0,0,0.25,0,0.25,April 27-28 2021,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2021-06-16,scheduled,yes,0,0,0.25,0,0.25,June 15-16* 2021,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2021-07-28,scheduled,yes,0,0,0.25,0,0.25,July 27-28 2021,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2021-09-22,scheduled,yes,0,0,0.25,0,0.25,September 21-22* 2021,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2021-11-03,scheduled,yes,0,0,0.25,0,0.25,November 2-3 2021,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2021-12-15,scheduled,yes,0,0,0.25,0,0.25,December 14-15* 2021,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2022-01-26,scheduled,yes,0,0,0.25,0,0.25,January 25-26 2022,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2022-03-16,scheduled,yes,25,0,0.25,0.25,0.5,March 15-16* 2022,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2022-05-04,scheduled,yes,50,0.25,0.5,0.75,1,May 3-4 2022,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2022-06-15,scheduled,yes,75,0.75,1,1.5,1.75,June 14-15* 2022,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2022-07-27,scheduled,yes,75,1.5,1.75,2.25,2.5,July 26-27 2022,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2022-09-21,scheduled,yes,75,2.25,2.5,3,3.25,September 20-21* 2022,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2022-11-02,scheduled,yes,75,3,3.25,3.75,4,November 1-2 2022,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2022-12-14,scheduled,yes,50,3.75,4,4.25,4.5,December 13-14* 2022,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2023-02-01,scheduled,yes,25,4.25,4.5,4.5,4.75,Jan/Feb 31-1 2023,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2023-03-22,scheduled,yes,25,4.5,4.75,4.75,5,March 21-22* 2023,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2023-05-03,scheduled,yes,25,4.75,5,5,5.25,May 2-3 2023,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2023-06-14,scheduled,yes,0,5,5.25,5,5.25,June 13-14* 2023,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2023-07-26,scheduled,yes,25,5,5.25,5.25,5.5,July 25-26 2023,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2023-09-20,scheduled,yes,0,5.25,5.5,5.25,5.5,September 19-20* 2023,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2023-11-01,scheduled,yes,0,5.25,5.5,5.25,5.5,Oct/Nov 31-1 2023,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2023-12-13,scheduled,yes,0,5.25,5.5,5.25,5.5,December 12-13* 2023,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2024-01-31,scheduled,yes,0,5.25,5.5,5.25,5.5,January 30-31 2024,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2024-03-20,scheduled,yes,0,5.25,5.5,5.25,5.5,March 19-20* 2024,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2024-05-01,scheduled,yes,0,5.25,5.5,5.25,5.5,Apr/May 30-1 2024,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2024-06-12,scheduled,yes,0,5.25,5.5,5.25,5.5,June 11-12* 2024,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2024-07-31,scheduled,yes,0,5.25,5.5,5.25,5.5,July 30-31 2024,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2024-09-18,scheduled,yes,-50,5.25,5.5,4.75,5,September 17-18* 2024,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2024-11-07,scheduled,yes,-25,4.75,5,4.5,4.75,November 6-7 2024,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2024-12-18,scheduled,yes,-25,4.5,4.75,4.25,4.5,December 17-18* 2024,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2025-01-29,scheduled,yes,0,4.25,4.5,4.25,4.5,January 28-29 2025,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2025-03-19,scheduled,yes,0,4.25,4.5,4.25,4.5,March 18-19* 2025,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2025-05-07,scheduled,yes,0,4.25,4.5,4.25,4.5,May 6-7 2025,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2025-06-18,scheduled,yes,0,4.25,4.5,4.25,4.5,June 17-18* 2025,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2025-07-30,scheduled,yes,0,4.25,4.5,4.25,4.5,July 29-30 2025,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2025-08-22,unscheduled_statement,no,0,4.25,4.5,4.25,4.5,August 22 (notation vote) 2025,date of the vote,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2025-09-17,scheduled,yes,-25,4.25,4.5,4,4.25,September 16-17* 2025,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2025-10-29,scheduled,yes,-25,4,4.25,3.75,4,October 28-29 2025,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2025-12-10,scheduled,yes,-25,3.75,4,3.5,3.75,December 9-10* 2025,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2026-01-28,scheduled,yes,0,3.5,3.75,3.5,3.75,January 27-28 2026,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2026-03-18,scheduled,yes,0,3.5,3.75,3.5,3.75,March 17-18* 2026,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2026-04-29,scheduled,yes,0,3.5,3.75,3.5,3.75,April 28-29 2026,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2026-06-17,scheduled,yes,0,3.5,3.75,3.5,3.75,June 16-17* 2026,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2026-07-29,scheduled,yes,0,3.5,3.75,3.5,3.75,July 28-29 2026,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2026-09-16,scheduled,yes,25,3.5,3.75,3.75,4,September 15-16* 2026,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm
+2026-10-28,scheduled,yes,0,3.75,4,3.75,4,October 27-28 2026,last day of the meeting,https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm

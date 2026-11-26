@@ -33,3 +33,7 @@ To add a FRED series, add a row to `config/fred_series.csv`.
 `scripts/rates_test.py` measures how each of French's 12 sectors moves against the market when the 2-year yield moves on Fed decision days, and compares the result with the Macro Exposure Scorecard v0's rates scores. It runs from the data already in `data/` and writes `results/rates_test/`. Write-up: `docs/rates-test.md`. With `--groups 49` it runs on French's 49 detailed groups instead and writes `results/rates_test_49/` (write-up: `docs/rates-test-49.md`); `--groups all` runs both.
 
 It uses the Fed decision days in `data/events/fomc_decisions.csv` (rows marked for the rates test), and falls back to the hand-entered list in `config/fomc_dates_provisional.csv` only if that file is missing.
+
+## Score review
+
+`config/macro_scorecard_v0_1.csv` is the v0 scorecard checked against the rates, inflation, spending and dollar tests: all 40 scores (10 company types × 4 factors) with their five channel scores, the v0 net, an evidence label, a confidence label and one line of evidence each. Write-up: `docs/score-review.md`. The original v0 scores stay in `config/v0_macro_scores.csv` and `config/v0_rates_scores.csv`, which the tests compare against.

@@ -67,6 +67,11 @@ MONTHS = ["January", "February", "March", "April", "May", "June", "July",
 MONTH_NUM = {m: i + 1 for i, m in enumerate(MONTHS)}
 MONTH_NUM.update({m[:3]: i + 1 for i, m in enumerate(MONTHS)})
 MONTH_RE = "|".join(MONTHS)
+# Full names first so "June" isn't read as "Jun" plus a stray "e".
+MONTH_ANY = "|".join(MONTHS + [m[:3] for m in MONTHS])
+# The FOMC has issued a statement after every meeting since May 1999. After
+# that, a past meeting with no statement on the Fed's page is not a decision.
+STATEMENT_EVERY_MEETING = dt.date(1999, 5, 18)
 
 
 # ------------------------------------------------------------------ helpers --
@@ -137,11 +142,15 @@ def html_lines(text: str) -> list[str]:
     return [" ".join(line.split()) for line in text.split("\n") if line.strip()]
 
 
+# Headings come as "March 19-20 Meeting - 2013", "January 31-February 1 ...",
+# and for meetings across a month end also "April/May 30-1 Meeting - 2013" or
+# "Jan/Feb 31-1 Meeting - 2017".
 HIST_HEAD = re.compile(
-    rf"^(?P<m1>{MONTH_RE})\s+(?P<d1>\d{{1,2}})"
-    rf"(?:\s*-\s*(?:(?P<m2>{MONTH_RE})\s+)?(?P<d2>\d{{1,2}}))?\s*"
+    rf"^(?P<m1>{MONTH_ANY})(?:/(?P<m1b>{MONTH_ANY}))?\s+(?P<d1>\d{{1,2}})"
+    rf"(?:\s*-\s*(?:(?P<m2>{MONTH_ANY})\s+)?(?P<d2>\d{{1,2}}))?\s*"
     r"(?:\((?P<flag>unscheduled|cancelled|notation vote)\)\s*)?"
     r"(?P<kind>Meeting|Conference Call)?\s*-\s*(?P<year>\d{4})$")
+HEAD_LIKE = re.compile(rf"^({MONTH_ANY})\b[^.]{{0,60}}-\s*\d{{4}}$")
 RELEASED = re.compile(rf"Released\s+(?P<m>{MONTH_RE})\s+(?P<d>\d{{1,2}}),\s*(?P<y>\d{{4}})")
 CAL_YEAR = re.compile(r"^(\d{4}) FOMC Meetings$")
 CAL_MONTH = re.compile(r"^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*"
@@ -164,6 +173,11 @@ def panel_info(body: list[str]) -> tuple[bool, str | None]:
 def parse_historical(text: str, year: int) -> list[dict]:
     lines, out = html_lines(text), []
     heads = [(i, HIST_HEAD.match(l)) for i, l in enumerate(lines)]
+    # Anything that looks like a meeting heading but doesn't parse would drop a
+    # meeting silently, so stop instead.
+    missed = [l for i, l in enumerate(lines) if HEAD_LIKE.match(l) and not heads[i][1]]
+    if missed:
+        raise RuntimeError(f"Unparsed headings on the Fed's {year} page: {missed}")
     heads = [(i, m) for i, m in heads if m]
     for n, (i, m) in enumerate(heads):
         if int(m["year"]) != year:
@@ -171,7 +185,7 @@ def parse_historical(text: str, year: int) -> list[dict]:
         end = heads[n + 1][0] if n + 1 < len(heads) else len(lines)
         statement, released = panel_info(lines[i + 1:end])
         start = dt.date(year, MONTH_NUM[m["m1"]], int(m["d1"]))
-        last = dt.date(year, MONTH_NUM[m["m2"] or m["m1"]], int(m["d2"] or m["d1"]))
+        last = dt.date(year, MONTH_NUM[m["m2"] or m["m1b"] or m["m1"]], int(m["d2"] or m["d1"]))
         if last < start:  # e.g. December 31-January 1 would cross the year
             last = last.replace(year=year + 1)
         kind = {"Meeting": "meeting", "Conference Call": "conference call"}.get(m["kind"] or "", "notation vote")
@@ -239,6 +253,17 @@ def target_series() -> dict[str, tuple[float, float]]:
     return out
 
 
+def no_statement_meeting(m: dict, today: dt.date) -> bool:
+    """A past scheduled meeting with no statement, after statements became routine.
+
+    The Fed's 2003 page lists a "September 15 Meeting" (agenda and minutes only)
+    as well as the September 16 meeting that issued the statement; the first is
+    not a decision day."""
+    end = d(m["end"])
+    return (m["kind"] == "meeting" and not m["flag"] and not m["statement"]
+            and STATEMENT_EVERY_MEETING <= end <= today)
+
+
 def build_decisions(meetings: list[dict], target: dict, today: dt.date) -> tuple[list[dict], list[str]]:
     one = dt.timedelta(days=1)
 
@@ -251,7 +276,7 @@ def build_decisions(meetings: list[dict], target: dict, today: dt.date) -> tuple
 
     decisions = []
     for m in meetings:
-        if m["flag"] == "cancelled":
+        if m["flag"] == "cancelled" or no_statement_meeting(m, today):
             continue
         end = d(m["end"])
         if m["released"]:
@@ -472,6 +497,13 @@ FOMC_SPOT = [  # (announcement date, target before, target after), from the Fed'
     ("2020-03-15", (1.00, 1.25), (0.00, 0.25)),
     ("2022-06-15", (0.75, 1.00), (1.50, 1.75)),
     ("2024-09-18", (5.25, 5.50), (4.75, 5.00)),
+    # meetings across a month end, and the Sep 2003 meeting (listed twice on the Fed page)
+    ("2003-09-16", (1.00, 1.00), (1.00, 1.00)),
+    ("2013-05-01", (0.00, 0.25), (0.00, 0.25)),
+    ("2017-02-01", (0.50, 0.75), (0.50, 0.75)),
+    ("2017-11-01", (1.00, 1.25), (1.00, 1.25)),
+    ("2018-08-01", (1.75, 2.00), (1.75, 2.00)),
+    ("2019-05-01", (2.25, 2.50), (2.25, 2.50)),
 ]
 PRINT_SPOT = [  # (series, release date, obs month, m/m as published, rounded to 0.1)
     ("CPIAUCSL", "2022-06-10", "2022-05", 1.0),
@@ -530,6 +562,28 @@ def report(meetings, decisions, unmatched, release_dates, first_prints, calendar
           "the call date unless the Fed page gives a release date):", ""]
     for r in by_type.get("unscheduled_statement", []):
         L.append(f"- {r['date']}: {r['fed_label']} ({r['date_note']})")
+    # Schedule check: the FOMC holds eight scheduled meetings a year.
+    sched = {}
+    for r in by_type.get("scheduled", []):
+        sched.setdefault(int(r["date"][:4]), []).append(r["date"])
+    off = []
+    for y in range(FIRST_FED_YEAR, today.year + 1):
+        held = len(sched.get(y, []))
+        if held == 8:
+            continue
+        cancelled = [m["label"] for m in meetings if m["flag"] == "cancelled" and m["start"][:4] == str(y)]
+        upcoming = [m["label"] for m in meetings if m["kind"] == "meeting" and not m["flag"]
+                    and m["start"][:4] == str(y) and d(m["end"]) > today]
+        why = "; ".join(filter(None, [f"cancelled: {', '.join(cancelled)}" if cancelled else "",
+                                      f"not held yet: {', '.join(upcoming)}" if upcoming else ""]))
+        off.append(f"- {y}: {held} scheduled decision days" + (f" ({why})" if why else " (CHECK)"))
+    skipped = [m["label"] for m in meetings if no_statement_meeting(m, today)]
+    L += ["", f"**Schedule check:** the FOMC holds eight scheduled meetings a year. Years with a different "
+          f"count of scheduled decision days ({FIRST_FED_YEAR} to {today.year}):", ""]
+    L += off or ["- None: every year has eight."]
+    L += ["", "Meetings on the Fed's pages with no statement, left out as not a decision day (statements "
+          "follow every meeting since May 1999):", ""]
+    L += [f"- {x}" for x in skipped] or ["- None."]
     L += ["", "**Cross-check against FRED's target rate:** every change in DFEDTAR / DFEDTARU / DFEDTARL "
           "since February 1994 should fall on a decision day or the day after.", ""]
     L += [f"- {u}" for u in unmatched] or ["- All target changes matched a decision day."]

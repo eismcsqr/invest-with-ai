@@ -1,0 +1,41 @@
+company_type,factor,revenue,costs,financing,currency,valuation,net,v0_net,v0_confidence,evidence,confidence,evidence_note
+Automaker,rates,-2,0,-2,0,0,-4,-4,High,confirmed,High,Durables (12) -0.31 and autos (49) -0.25 per +10 bp on Fed days; durables pass the false-discovery check
+Automaker,inflation,1,-2,0,0,-1,-2,-2,Medium,not supported,Low,"Durables lean the other way: +0.13 per +0.1 point core CPI surprise (range -0.03 to +0.32), same sign in every period"
+Automaker,spending,3,0,0,0,1,4,4,High,confirmed,High,"Durables beat the market on strong retail sales days, +0.09 per +10 bp (+0.40 beyond the rate effect)"
+Automaker,dollar,-1,1,0,-1,0,-1,-1,Medium,unverified,Medium,"Durables unclear: monthly +0.11 (range crosses zero), weekly -0.30; the two measures disagree"
+Packaged foods maker,rates,0,0,-1,0,-1,-2,-2,Medium,confirmed,Medium,"No worse than the market at 12 (staples +0.01) and 49 (food +0.02); a no-difference result, so only Medium"
+Packaged foods maker,inflation,1,-2,0,0,-1,-2,-2,High,unverified,Medium,Staples show no clear difference on CPI days (+0.08); a higher breakeven with yields held fixed does hurt staples (-0.15)
+Packaged foods maker,spending,0,0,0,0,-1,-1,-1,Medium,unverified,Medium,Staples show no clear difference on retail sales days (-0.02)
+Packaged foods maker,dollar,0,1,0,-3,0,-2,-2,High,confirmed,High,"A stronger dollar hurts staples: -0.36 per +1% with the market held fixed, every period, weekly too"
+Luxury brand,rates,-1,0,0,0,-1,-2,-2,Medium,unverified,Medium,"Staples flat, apparel (49) leans more hurt (-0.20, range crosses zero); US apparel makers aren't luxury brands"
+Luxury brand,inflation,1,0,0,0,-1,0,0,Medium,unverified,Medium,Staples group shows no clear difference on CPI days
+Luxury brand,spending,1,0,0,0,1,2,2,Medium,unverified,Medium,Staples show no clear difference on retail sales days
+Luxury brand,dollar,0,0,0,-2,0,-2,-2,High,confirmed,High,"A stronger dollar hurts staples: -0.36 per +1% with the market held fixed, every period, weekly too"
+Home improvement retailer,rates,-2,0,-1,0,-1,-4,-4,High,consistent,Medium,"Retail is among the most rate-hurt groups at 12 (-0.21) and 49 (-0.28), both pass correction; the group mixes store types"
+Home improvement retailer,inflation,1,-1,0,0,-1,-1,-1,Medium,unverified,Medium,Retail group shows no clear difference on CPI days (-0.01)
+Home improvement retailer,spending,2,0,0,0,1,3,3,High,consistent,Medium,"Retail group beats the market on strong retail sales days (+0.07), though flat to negative since 2008"
+Home improvement retailer,dollar,0,1,0,0,0,1,1,Medium,consistent,Medium,"A stronger dollar helps the retail group: +0.23 per +1%, every period, weekly too"
+Restaurant chain,rates,-1,0,-1,0,-1,-3,-3,Medium,not supported,Low,"Restaurants and hotels (49) -0.07, range -0.24 to +0.10, no worse than the market outside 2008-2015; kept until company data can test it"
+Restaurant chain,inflation,-1,-3,0,0,-1,-5,-5,High,unverified,Medium,"Net is -5, the sum of the scorecard page's channels (the repo copy said -6). Can't be checked at sector level: the retail group shows no clear difference (-0.01); needs company data or consensus surprises"
+Restaurant chain,spending,2,0,0,0,1,3,3,High,consistent,Medium,"Retail group beats the market on strong retail sales days (+0.07), though flat to negative since 2008"
+Restaurant chain,dollar,0,0,0,-1,0,-1,-1,Medium,unverified,Medium,"Runs against the retail group's gain from a strong dollar, but the group can't be split"
+Online marketplace,rates,-1,0,0,0,-2,-3,-3,Medium,consistent,Medium,Fits retail being among the most rate-hurt groups; e-commerce maps to the retail group only loosely
+Online marketplace,inflation,0,0,0,0,-2,-2,-2,Medium,unverified,Medium,Retail group shows no clear difference on CPI days
+Online marketplace,spending,2,0,0,0,1,3,3,High,consistent,Medium,Retail group beats the market on strong retail sales days; loose mapping
+Online marketplace,dollar,-1,0,0,-1,0,-2,-2,Medium,unverified,Medium,"Runs against the retail group's gain from a strong dollar, but the group can't be split"
+Grocery chain,rates,0,0,-1,0,-1,-2,-1,Medium,changed,Medium,"Retail stores, grocers included, lag the market when the 2-year yield jumps (49: -0.28, equal-weighted -0.22, passes correction); v0 gave grocers no valuation hit"
+Grocery chain,inflation,1,-1,0,0,0,0,0,Medium,unverified,Medium,Retail group shows no clear difference on CPI days
+Grocery chain,spending,0,0,0,0,-1,-1,-1,Medium,unverified,Medium,Group result can't be split by store type
+Grocery chain,dollar,0,1,0,0,0,1,1,Low,consistent,Medium,A stronger dollar helps the retail group: +0.23 per +1%
+Discount retailer,rates,-1,0,0,0,-1,-2,0,Medium,changed,Medium,"Same retail result; v0's trade-down offset doesn't show up, retail demand as a whole softens when yields jump. Which retail type v0 had wrong is judgment"
+Discount retailer,inflation,2,-1,0,0,0,1,1,Medium,unverified,Medium,Retail group shows no clear difference on CPI days
+Discount retailer,spending,0,0,0,0,0,0,0,Medium,unverified,Medium,Group result can't be split by store type
+Discount retailer,dollar,0,2,0,0,0,2,2,Medium,consistent,Medium,A stronger dollar helps the retail group: +0.23 per +1%
+Homebuilder,rates,-3,0,-1,0,-1,-5,-5,High,leans confirmed,Medium,"Construction (49) -0.25, negative in every period but range crosses zero; Other (12) -0.11 confirms with a loose mapping"
+Homebuilder,inflation,0,-2,0,0,-1,-3,-3,Medium,unverified,Medium,Other group shows no clear difference on CPI days (-0.00)
+Homebuilder,spending,2,0,0,0,1,3,3,Medium,confirmed,Medium,"Other group beats the market on strong retail sales days (+0.05, +0.16 beyond rates); loose mapping"
+Homebuilder,dollar,0,1,0,0,0,1,1,Low,"contradicted, kept",Low,"Other group is hurt by a stronger dollar (-0.24 per +1%, High) but also holds mining and services; needs the dollar test on detailed groups"
+Airline,rates,-1,0,-2,0,0,-3,-3,Medium,unverified,Medium,"Transportation (49) is mostly railroads, trucking and delivery and is flat (-0.03); needs company data"
+Airline,inflation,1,-3,0,0,0,-2,-2,High,unverified,Medium,Other group shows no clear difference on CPI days (-0.00)
+Airline,spending,3,0,0,0,1,4,4,High,confirmed,Medium,"Other group beats the market on strong retail sales days (+0.05, +0.16 beyond rates); loose mapping"
+Airline,dollar,0,0,0,-1,0,-1,-1,Low,consistent,Medium,Other group is hurt by a stronger dollar (-0.24 per +1%); loose mapping

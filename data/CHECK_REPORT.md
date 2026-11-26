@@ -1,6 +1,6 @@
 # Macro data check report
 
-Run date: 2026-11-25
+Run date: 2026-11-26
 
 **16 datasets pulled. 0 stale or empty. 3 with gaps over 7 days to review.**
 

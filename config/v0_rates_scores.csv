@@ -1,0 +1,11 @@
+company_type,rates_net,v0_confidence,french_group,mapping_fit
+Automaker,-4,High,Durbl,good
+Packaged foods maker,-2,Medium,NoDur,fair
+Luxury brand,-2,Medium,NoDur,fair
+Home improvement retailer,-4,High,Shops,mixed
+Restaurant chain,-3,Medium,Shops,mixed
+Online marketplace,-3,Medium,Shops,mixed
+Grocery chain,-1,Medium,Shops,mixed
+Discount retailer,0,Medium,Shops,mixed
+Homebuilder,-5,High,Other,loose
+Airline,-3,Medium,Other,loose

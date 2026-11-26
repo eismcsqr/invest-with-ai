@@ -1,0 +1,5 @@
+french_group,name,v0_types,v0_avg,mapping,xs_slope,xs_lo,xs_hi,raw_slope,raw_lo,raw_hi,direction,relative,confidence
+Durbl,"Consumer durables (cars, appliances)",Automaker (-4),-4.0000,good,-0.3069,-0.5381,-0.0854,-0.4567,-0.9467,0.0702,unclear,agrees,High
+Other,"Other (construction, transport, services)",Homebuilder (-5); Airline (-3),-4.0000,loose,-0.1120,-0.2231,-0.0205,-0.2618,-0.6355,0.1023,unclear,agrees,High
+Shops,"Retail, wholesale, restaurants",Home improvement retailer (-4); Restaurant chain (-3); Online marketplace (-3); Grocery chain (-1); Discount retailer (+0),-2.2000,mixed,-0.2056,-0.3441,-0.0787,-0.3554,-0.6895,0.0084,unclear,disagrees,High
+NoDur,"Consumer staples (food, drink, apparel)",Packaged foods maker (-2); Luxury brand (-2),-2.0000,fair,0.0097,-0.1764,0.1916,-0.1401,-0.3918,0.1084,unclear,agrees (no worse than market),Low

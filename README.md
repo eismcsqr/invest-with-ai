@@ -12,3 +12,9 @@ This repository holds the code for the Invest with AI framework, which helps ass
 - **Check report:** `data/CHECK_REPORT.md` lists each dataset's date range, missing values, long gaps and whether it is stale.
 
 To add a FRED series, add a row to `config/fred_series.csv`.
+
+## Rates test
+
+`scripts/rates_test.py` measures how each of French's 12 sectors moves against the market when the 2-year yield moves on Fed decision days, and compares the result with the Macro Exposure Scorecard v0's rates scores. It runs from the data already in `data/` and writes `results/rates_test/`. Write-up: `docs/rates-test.md`.
+
+It uses `data/events/fomc_decisions.csv` once the event calendar is merged, and the provisional list in `config/fomc_dates_provisional.csv` until then.

@@ -2,7 +2,7 @@
 
 Run date: 2026-11-26
 
-**266 Fed decision days for the rates test (1994-03-25 to 2026-11-18), 67 target changes without a decision day, 4 of 9 Fed spot checks and 5 of 5 first-print spot checks pass.**
+**267 Fed decision days for the rates test (1994-02-04 to 2026-10-28), 0 target changes without a decision day, 9 of 9 Fed spot checks and 5 of 5 first-print spot checks pass.**
 
 ## Fed decision days
 
@@ -10,9 +10,9 @@ Parsed 313 meetings, calls and notation votes from the Fed's FOMC pages (1994 on
 
 | Type | Count | With a rate change | In the rates test |
 |---|---|---|---|
-| scheduled | 258 | 17 | yes |
-| unscheduled rate change | 8 | 8 | yes |
-| unscheduled statement | 9 | 0 | no |
+| scheduled | 258 | 83 | yes |
+| unscheduled rate change | 9 | 9 | yes |
+| unscheduled statement | 8 | 0 | no |
 
 Unscheduled rate changes:
 
@@ -24,6 +24,7 @@ Unscheduled rate changes:
 - 2008-01-22: 4.25% to 3.50% (January 21 Conference Call - 2008)
 - 2008-10-08: 2.00% to 1.50% (October 7 Conference Call - 2008)
 - 2020-03-03: 1.50-1.75% to 1.00-1.25% (March 2 (unscheduled) Meeting - 2020)
+- 2020-03-15: 1.00-1.25% to 0.00-0.25% (March 15 (unscheduled) Meeting - 2020)
 
 Unscheduled statements with no rate change (kept, but left out of the rates test; dates are the call date unless the Fed page gives a release date):
 
@@ -33,101 +34,36 @@ Unscheduled statements with no rate change (kept, but left out of the rates test
 - 2010-05-09: May 9 Conference Call - 2010 (date of the call; announcement may have come the next morning)
 - 2019-10-11: October 4 (unscheduled) - 2019 (released date from the Fed page)
 - 2020-03-23: March 23 (notation vote) - 2020 (released date from the Fed page)
-- 2020-04-08: March 15 (unscheduled) Meeting - 2020 (released date from the Fed page)
-- 2020-08-27: August 27 (notation vote) - 2020 (date of the call; announcement may have come the next morning)
-- 2025-08-22: August 22 (notation vote) 2025 (date of the call; announcement may have come the next morning)
+- 2020-08-27: August 27 (notation vote) - 2020 (date of the vote)
+- 2025-08-22: August 22 (notation vote) 2025 (date of the vote)
 
 **Cross-check against FRED's target rate:** every change in DFEDTAR / DFEDTARU / DFEDTARL since February 1994 should fall on a decision day or the day after.
 
-- 1994-02-04: 3.00% to 3.25%
-- 1994-03-22: 3.25% to 3.50%
-- 1994-05-17: 3.75% to 4.25%
-- 1994-08-16: 4.25% to 4.75%
-- 1994-11-15: 4.75% to 5.50%
-- 1995-02-01: 5.50% to 6.00%
-- 1995-07-06: 6.00% to 5.75%
-- 1995-12-19: 5.75% to 5.50%
-- 1996-01-31: 5.50% to 5.25%
-- 1997-03-25: 5.25% to 5.50%
-- 1998-09-29: 5.50% to 5.25%
-- 1998-11-17: 5.00% to 4.75%
-- 1999-06-30: 4.75% to 5.00%
-- 1999-08-24: 5.00% to 5.25%
-- 1999-11-16: 5.25% to 5.50%
-- 2000-02-02: 5.50% to 5.75%
-- 2000-03-21: 5.75% to 6.00%
-- 2000-05-16: 6.00% to 6.50%
-- 2001-01-31: 6.00% to 5.50%
-- 2001-03-20: 5.50% to 5.00%
-- 2001-05-15: 4.50% to 4.00%
-- 2001-06-27: 4.00% to 3.75%
-- 2001-08-21: 3.75% to 3.50%
-- 2001-10-02: 3.00% to 2.50%
-- 2001-11-06: 2.50% to 2.00%
-- 2001-12-11: 2.00% to 1.75%
-- 2002-11-06: 1.75% to 1.25%
-- 2003-06-25: 1.25% to 1.00%
-- 2004-06-30: 1.00% to 1.25%
-- 2004-08-10: 1.25% to 1.50%
-- 2004-09-21: 1.50% to 1.75%
-- 2004-11-10: 1.75% to 2.00%
-- 2004-12-14: 2.00% to 2.25%
-- 2005-05-03: 2.75% to 3.00%
-- 2006-05-10: 4.75% to 5.00%
-- 2008-04-30: 2.25% to 2.00%
-- 2015-12-16: 0.00-0.25% to 0.25-0.50%
-- 2016-12-14: 0.25-0.50% to 0.50-0.75%
-- 2017-03-16: 0.50-0.75% to 0.75-1.00%
-- 2017-06-15: 0.75-1.00% to 1.00-1.25%
-- 2017-12-14: 1.00-1.25% to 1.25-1.50%
-- 2018-03-22: 1.25-1.50% to 1.50-1.75%
-- 2018-06-14: 1.50-1.75% to 1.75-2.00%
-- 2018-09-27: 1.75-2.00% to 2.00-2.25%
-- 2018-12-20: 2.00-2.25% to 2.25-2.50%
-- 2019-08-01: 2.25-2.50% to 2.00-2.25%
-- 2019-09-19: 2.00-2.25% to 1.75-2.00%
-- 2019-10-31: 1.75-2.00% to 1.50-1.75%
-- 2020-03-16: 1.00-1.25% to 0.00-0.25%
-- 2022-03-17: 0.00-0.25% to 0.25-0.50%
-- 2022-05-05: 0.25-0.50% to 0.75-1.00%
-- 2022-06-16: 0.75-1.00% to 1.50-1.75%
-- 2022-07-28: 1.50-1.75% to 2.25-2.50%
-- 2022-09-22: 2.25-2.50% to 3.00-3.25%
-- 2022-11-03: 3.00-3.25% to 3.75-4.00%
-- 2022-12-15: 3.75-4.00% to 4.25-4.50%
-- 2023-02-02: 4.25-4.50% to 4.50-4.75%
-- 2023-03-23: 4.50-4.75% to 4.75-5.00%
-- 2023-05-04: 4.75-5.00% to 5.00-5.25%
-- 2023-07-27: 5.00-5.25% to 5.25-5.50%
-- 2024-09-19: 5.25-5.50% to 4.75-5.00%
-- 2024-11-08: 4.75-5.00% to 4.50-4.75%
-- 2024-12-19: 4.50-4.75% to 4.25-4.50%
-- 2025-09-18: 4.25-4.50% to 4.00-4.25%
-- 2025-10-30: 4.00-4.25% to 3.75-4.00%
-- 2025-12-11: 3.75-4.00% to 3.50-3.75%
-- 2026-09-17: 3.50-3.75% to 3.75-4.00%
+- All target changes matched a decision day.
 
 **Spot checks** (target before and after, from the Fed's statements):
 
 | Date | Expected | Pass |
 |---|---|---|
-| 1994-02-04 | 3.00% to 3.25% | FAIL |
+| 1994-02-04 | 3.00% to 3.25% | pass |
 | 2001-01-03 | 6.50% to 6.00% | pass |
 | 2001-09-17 | 3.50% to 3.00% | pass |
 | 2008-12-16 | 1.00% to 0.00-0.25% | pass |
-| 2015-12-16 | 0.00-0.25% to 0.25-0.50% | FAIL |
+| 2015-12-16 | 0.00-0.25% to 0.25-0.50% | pass |
 | 2020-03-03 | 1.50-1.75% to 1.00-1.25% | pass |
-| 2020-03-15 | 1.00-1.25% to 0.00-0.25% | FAIL |
-| 2022-06-15 | 0.75-1.00% to 1.50-1.75% | FAIL |
-| 2024-09-18 | 5.25-5.50% to 4.75-5.00% | FAIL |
+| 2020-03-15 | 1.00-1.25% to 0.00-0.25% | pass |
+| 2022-06-15 | 0.75-1.00% to 1.50-1.75% | pass |
+| 2024-09-18 | 5.25-5.50% to 4.75-5.00% | pass |
 
 ## Data releases and first prints
 
-| Release | Release dates on file | First prints from | First prints | Late first prints | Dates with no new month | First-print dates missing from FRED's release calendar |
+| Release | Release dates on file | First prints from | First prints | Late first prints | Revision-only dates (no new month) | First-print dates missing from FRED's release calendar |
 |---|---|---|---|---|---|---|
 | Consumer price index | 625 (from 1976-06-22) | 1972-08-22 | 652 | 1 | 20 | 0 |
-| Personal income and outlays (PCE) | 618 (from 1976-06-16) | 2000-08-28 | 316 | 7 | 12 | 0 |
+| Personal income and outlays (PCE) | 618 (from 1976-06-16) | 1979-12-18 | 316 | 7 | 16 | 0 |
 | Advance retail sales | 633 (from 1976-06-10) | 2001-07-13 | 305 | 2 | 21 | 0 |
+
+First prints count the headline series (CPI, PCE prices, retail sales); the start date is the earliest first print of any series in the release (PCE spending goes back to 1979). Revision-only dates are publications that added no new month, such as CPI's February seasonal-factor update or annual retail sales revisions; they are labelled and left out of the averages below. Release dates before the vintage coverage can't be checked this way.
 
 Months with no first print (a skipped month in the vintage history):
 
@@ -178,10 +114,10 @@ Change in the 2-year Treasury yield from the previous trading day's close to the
 
 | Event | Days with a 2-year move | Average size on event days (bp) | Average size on ordinary days (bp) | Days sharing another event |
 |---|---|---|---|---|
-| Fed decision (rates test) | 266 | 4.5 | 3.6 | 36 |
-| Consumer price index | 625 | 5.1 | 4.7 | 75 |
-| Personal income and outlays (PCE) | 617 | 4.8 | 4.7 | 27 |
-| Advance retail sales | 633 | 5.6 | 4.7 | 77 |
+| Fed decision (rates test) | 267 | 5.3 | 3.6 | 36 |
+| Consumer price index | 605 | 5.2 | 4.7 | 78 |
+| Personal income and outlays (PCE) | 601 | 4.9 | 4.7 | 18 |
+| Advance retail sales | 612 | 5.6 | 4.7 | 73 |
 
 Event days without a 2-year move: 1 (latest: 2026-11-25 pce).
 Stock-market returns come from Kenneth French's daily file, which runs about two months behind, so recent events have no scenario label yet.
@@ -192,5 +128,6 @@ Examples:
 |---|---|---|---|---|---|
 | 2008-12-16 | cpi | CPI 2008-11: -1.68% m/m; Core CPI 2008-11: +0.02% m/m | -10 | 5.15 | easing or cooling inflation |
 | 2008-12-16 | fomc | Target 1.00% to 0.00-0.25% | -10 | 5.15 | easing or cooling inflation |
+| 2022-06-15 | fomc | Target 0.75-1.00% to 1.50-1.75% | -25 | 1.55 | easing or cooling inflation |
 | 2022-06-15 | retail_sales | Retail sales 2022-05: -0.27% m/m | -25 | 1.55 | easing or cooling inflation |
 | 2022-09-13 | cpi | CPI 2022-08: +0.12% m/m; Core CPI 2022-08: +0.57% m/m | 17 | -4.28 | tightening or inflation news |

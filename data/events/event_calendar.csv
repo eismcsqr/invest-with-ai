@@ -1076,7 +1076,6 @@ date,event,subtype,in_rates_test,trading_day,prev_trading_day,detail,change_bp,f
 2003-08-15,cpi,data release,no,2003-08-15,2003-08-14,CPI 2003-07: +0.16% m/m; Core CPI 2003-07: +0.21% m/m,,0.1634,-0.0113,1.86,1.85,-1,3,2,0.09,easing or cooling inflation,,first print
 2003-08-29,pce,data release,no,2003-08-29,2003-08-28,PCE prices 2003-07: +0.19% m/m; Core PCE prices 2003-07: +0.22% m/m; PCE spending 2003-07: +0.78% m/m,,0.1948,0.0479,1.93,1.95,2,1,3,0.53,growth news,,first print
 2003-09-12,retail_sales,data release,no,2003-09-12,2003-09-11,Retail sales 2003-08: +0.62% m/m,,0.6178,0.1699,1.71,1.66,-5,-4,-4,0.23,easing or cooling inflation,,first print
-2003-09-15,fomc,scheduled,yes,2003-09-15,2003-09-12,Target 1.00% to 1.00%,0,,,1.66,1.63,-3,-1,1,-0.35,weaker growth,,last day of the meeting
 2003-09-16,cpi,data release,no,2003-09-16,2003-09-15,CPI 2003-08: +0.33% m/m; Core CPI 2003-08: +0.10% m/m,,0.3263,0.1519,1.63,1.63,0,-7,-7,1.4,flat,fomc,first print
 2003-09-16,fomc,scheduled,yes,2003-09-16,2003-09-15,Target 1.00% to 1.00%,0,,,1.63,1.63,0,-7,-7,1.4,flat,cpi,last day of the meeting
 2003-09-29,pce,data release,no,2003-09-29,2003-09-26,PCE prices 2003-08: +0.26% m/m; Core PCE prices 2003-08: +0.12% m/m; PCE spending 2003-08: +0.77% m/m,,0.265,0.1087,1.6,1.61,1,0,1,0.99,growth news,,first print
@@ -1536,6 +1535,7 @@ date,event,subtype,in_rates_test,trading_day,prev_trading_day,detail,change_bp,f
 2013-04-12,retail_sales,data release,no,2013-04-12,2013-04-11,Retail sales 2013-03: -0.43% m/m,,-0.4323,-0.7905,0.24,0.22,-2,-1,-4,-0.28,weaker growth,,first print
 2013-04-16,cpi,data release,no,2013-04-16,2013-04-15,CPI 2013-03: -0.18% m/m; Core CPI 2013-03: +0.11% m/m,,-0.1847,-0.3485,0.22,0.24,2,0,-1,1.47,growth news,,first print
 2013-04-29,pce,data release,no,2013-04-29,2013-04-26,PCE prices 2013-03: -0.13% m/m; Core PCE prices 2013-03: +0.03% m/m; PCE spending 2013-03: +0.18% m/m,,-0.1318,-0.2429,0.22,0.2,-2,-1,-1,0.67,easing or cooling inflation,,first print
+2013-05-01,fomc,scheduled,yes,2013-05-01,2013-04-30,Target 0.00-0.25% to 0.00-0.25%,0,,,0.22,0.2,-2,-8,-4,-1.08,weaker growth,,last day of the meeting
 2013-05-13,retail_sales,data release,no,2013-05-13,2013-05-10,Retail sales 2013-04: +0.09% m/m,,0.0901,-0.1564,0.26,0.24,-2,-3,-2,-0.02,weaker growth,,first print
 2013-05-16,cpi,data release,no,2013-05-16,2013-05-15,CPI 2013-04: -0.37% m/m; Core CPI 2013-04: +0.05% m/m,,-0.368,-0.491,0.26,0.23,-3,-4,-3,-0.51,weaker growth,,first print
 2013-05-31,pce,data release,no,2013-05-31,2013-05-30,PCE prices 2013-04: -0.25% m/m; Core PCE prices 2013-04: +0.01% m/m; PCE spending 2013-04: -0.18% m/m,,-0.2501,-0.3339,0.31,0.3,-1,4,3,-1.32,weaker growth,retail_sales,first print
@@ -1704,6 +1704,7 @@ date,event,subtype,in_rates_test,trading_day,prev_trading_day,detail,change_bp,f
 2017-01-13,retail_sales,data release,no,2017-01-13,2017-01-12,Retail sales 2016-12: +0.63% m/m,,0.6275,0.3079,1.18,1.21,3,-2,1,0.29,growth news,,first print
 2017-01-18,cpi,data release,no,2017-01-18,2017-01-17,CPI 2016-12: +0.28% m/m; Core CPI 2016-12: +0.23% m/m,,0.2822,0.1417,1.17,1.23,6,2,3,0.24,growth news,,first print
 2017-01-30,pce,data release,no,2017-01-30,2017-01-27,PCE prices 2016-12: +0.16% m/m; Core PCE prices 2016-12: +0.11% m/m; PCE spending 2016-12: +0.49% m/m,,0.1579,0.0438,1.22,1.22,0,-1,-1,-0.68,flat,,first print
+2017-02-01,fomc,scheduled,yes,2017-02-01,2017-01-31,Target 0.50-0.75% to 0.50-0.75%,0,,,1.19,1.22,3,-2,0,0.03,growth news,,last day of the meeting
 2017-02-13,cpi,revision only,no,2017-02-13,2017-02-10,Consumer price index,,,,1.2,1.2,0,0,-1,0.49,flat,,revision only (no new month)
 2017-02-15,cpi,data release,no,2017-02-15,2017-02-14,CPI 2017-01: +0.55% m/m; Core CPI 2017-01: +0.31% m/m,,0.5506,0.3779,1.25,1.27,2,6,5,0.53,growth news,retail_sales,first print
 2017-02-15,retail_sales,data release,no,2017-02-15,2017-02-14,Retail sales 2017-01: +0.36% m/m,,0.3573,-0.0001,1.25,1.27,2,6,5,0.53,growth news,cpi,first print
@@ -1737,6 +1738,7 @@ date,event,subtype,in_rates_test,trading_day,prev_trading_day,detail,change_bp,f
 2017-10-13,cpi,data release,no,2017-10-13,2017-10-12,CPI 2017-09: +0.55% m/m; Core CPI 2017-09: +0.13% m/m,,0.5481,0.3884,1.51,1.51,0,-8,-4,0.04,flat,retail_sales,first print
 2017-10-13,retail_sales,data release,no,2017-10-13,2017-10-12,Retail sales 2017-09: +1.56% m/m,,1.5564,1.2657,1.51,1.51,0,-8,-4,0.04,flat,cpi,first print
 2017-10-30,pce,data release,no,2017-10-30,2017-10-27,PCE prices 2017-09: +0.37% m/m; Core PCE prices 2017-09: +0.13% m/m; PCE spending 2017-09: +1.02% m/m,,0.3747,0.2557,1.59,1.58,-1,1,-1,-0.46,weaker growth,,first print
+2017-11-01,fomc,scheduled,yes,2017-11-01,2017-10-31,Target 1.00-1.25% to 1.00-1.25%,0,,,1.6,1.61,1,-8,0,0.05,growth news,,last day of the meeting
 2017-11-15,cpi,data release,no,2017-11-15,2017-11-14,CPI 2017-10: +0.11% m/m; Core CPI 2017-10: +0.22% m/m,,0.108,-0.076,1.68,1.68,0,-1,-2,-0.52,flat,retail_sales,first print
 2017-11-15,retail_sales,data release,no,2017-11-15,2017-11-14,Retail sales 2017-10: +0.23% m/m,,0.2336,-0.1618,1.68,1.68,0,-1,-2,-0.52,flat,cpi,first print
 2017-11-30,pce,data release,no,2017-11-30,2017-11-29,PCE prices 2017-10: +0.14% m/m; Core PCE prices 2017-10: +0.21% m/m; PCE spending 2017-10: +0.25% m/m,,0.1441,0.0067,1.78,1.78,0,4,2,0.82,flat,,first print
@@ -1770,6 +1772,7 @@ date,event,subtype,in_rates_test,trading_day,prev_trading_day,detail,change_bp,f
 2018-07-12,cpi,data release,no,2018-07-12,2018-07-11,CPI 2018-06: +0.13% m/m; Core CPI 2018-06: +0.16% m/m,,0.1285,-0.0952,2.58,2.6,2,-1,-1,0.86,growth news,,first print
 2018-07-16,retail_sales,data release,no,2018-07-16,2018-07-13,Retail sales 2018-06: +0.49% m/m,,0.4852,-0.0391,2.59,2.59,0,-2,-1,-0.15,flat,,first print
 2018-07-31,pce,data release,no,2018-07-31,2018-07-30,PCE prices 2018-06: +0.10% m/m; Core PCE prices 2018-06: +0.11% m/m; PCE spending 2018-06: +0.41% m/m,,0.1027,-0.0802,2.66,2.67,1,-1,-1,0.52,growth news,,first print
+2018-08-01,fomc,scheduled,yes,2018-08-01,2018-07-31,Target 1.75-2.00% to 1.75-2.00%,0,,,2.67,2.67,0,0,1,-0.12,flat,,last day of the meeting
 2018-08-10,cpi,data release,no,2018-08-10,2018-08-09,CPI 2018-07: +0.17% m/m; Core CPI 2018-07: +0.24% m/m,,0.171,-0.0593,2.64,2.61,-3,1,-2,-0.59,weaker growth,,first print
 2018-08-15,retail_sales,data release,no,2018-08-15,2018-08-14,Retail sales 2018-07: +0.51% m/m,,0.5119,0.0185,2.63,2.61,-2,-2,-1,-0.9,weaker growth,,first print
 2018-08-30,pce,data release,no,2018-08-30,2018-08-29,PCE prices 2018-07: +0.12% m/m; Core PCE prices 2018-07: +0.16% m/m; PCE spending 2018-07: +0.35% m/m,,0.1239,-0.0617,2.67,2.64,-3,-1,-2,-0.4,weaker growth,,first print
@@ -1802,6 +1805,7 @@ date,event,subtype,in_rates_test,trading_day,prev_trading_day,detail,change_bp,f
 2019-04-10,cpi,data release,no,2019-04-10,2019-04-09,CPI 2019-03: +0.41% m/m; Core CPI 2019-03: +0.15% m/m,,0.4089,0.2846,2.35,2.31,-4,3,3,0.49,easing or cooling inflation,,first print
 2019-04-18,retail_sales,data release,no,2019-04-18,2019-04-17,Retail sales 2019-03: +1.57% m/m,,1.5684,1.3872,2.4,2.38,-2,2,1,0.12,easing or cooling inflation,,first print
 2019-04-29,pce,data release,no,2019-04-29,2019-04-26,PCE prices 2019-02: +0.10% m/m; PCE prices 2019-03: +0.20% m/m; Core PCE prices 2019-02: +0.06% m/m; Core PCE prices 2019-03: +0.05% m/m; PCE spending 2019-02: +0.08% m/m; PCE spending 2019-03: +0.87% m/m,,0.1038,-0.0104,2.28,2.3,2,0,-1,0.19,growth news,,first print
+2019-05-01,fomc,scheduled,yes,2019-05-01,2019-04-30,Target 2.25-2.50% to 2.25-2.50%,0,,,2.27,2.31,4,-2,-2,-0.82,tightening or inflation news,,last day of the meeting
 2019-05-10,cpi,data release,no,2019-05-10,2019-05-09,CPI 2019-04: +0.32% m/m; Core CPI 2019-04: +0.14% m/m,,0.3187,0.1646,2.26,2.26,0,2,3,0.36,flat,,first print
 2019-05-15,retail_sales,data release,no,2019-05-15,2019-05-14,Retail sales 2019-04: -0.19% m/m,,-0.1892,-0.501,2.2,2.16,-4,-1,-3,0.59,easing or cooling inflation,,first print
 2019-05-31,pce,data release,no,2019-05-31,2019-05-30,PCE prices 2019-04: +0.31% m/m; Core PCE prices 2019-04: +0.25% m/m; PCE spending 2019-04: +0.28% m/m,,0.3124,0.1935,2.06,1.95,-11,-1,0,-1.36,weaker growth,,first print

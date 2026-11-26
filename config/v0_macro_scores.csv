@@ -1,0 +1,31 @@
+company_type,factor,net,v0_confidence,french_group,mapping_fit
+Automaker,inflation,-2,Medium,Durbl,good
+Automaker,spending,4,High,Durbl,good
+Automaker,dollar,-1,Medium,Durbl,good
+Packaged foods maker,inflation,-2,High,NoDur,fair
+Packaged foods maker,spending,-1,Medium,NoDur,fair
+Packaged foods maker,dollar,-2,High,NoDur,fair
+Luxury brand,inflation,0,Medium,NoDur,fair
+Luxury brand,spending,2,Medium,NoDur,fair
+Luxury brand,dollar,-2,High,NoDur,fair
+Home improvement retailer,inflation,-1,Medium,Shops,mixed
+Home improvement retailer,spending,3,High,Shops,mixed
+Home improvement retailer,dollar,1,Medium,Shops,mixed
+Restaurant chain,inflation,-6,High,Shops,mixed
+Restaurant chain,spending,3,High,Shops,mixed
+Restaurant chain,dollar,-1,Medium,Shops,mixed
+Online marketplace,inflation,-2,Medium,Shops,mixed
+Online marketplace,spending,3,High,Shops,mixed
+Online marketplace,dollar,-2,Medium,Shops,mixed
+Grocery chain,inflation,0,Medium,Shops,mixed
+Grocery chain,spending,-1,Medium,Shops,mixed
+Grocery chain,dollar,1,Low,Shops,mixed
+Discount retailer,inflation,1,Medium,Shops,mixed
+Discount retailer,spending,0,Medium,Shops,mixed
+Discount retailer,dollar,2,Medium,Shops,mixed
+Homebuilder,inflation,-3,Medium,Other,loose
+Homebuilder,spending,3,Medium,Other,loose
+Homebuilder,dollar,1,Low,Other,loose
+Airline,inflation,-2,High,Other,loose
+Airline,spending,4,High,Other,loose
+Airline,dollar,-1,Low,Other,loose

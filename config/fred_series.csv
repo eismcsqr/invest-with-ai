@@ -9,3 +9,6 @@ CPIAUCSL,Consumer price index (seasonally adjusted),monthly,inflation,Official i
 PCEPI,PCE price index,monthly,inflation,Official inflation level (current vintage; ALFRED vintages still to add),75,no
 PCE,Personal consumption expenditures,monthly,consumer spending,Official spending level (current vintage; ALFRED vintages still to add),75,no
 RSAFS,Retail and food services sales,monthly,consumer spending,Official spending level (current vintage; ALFRED vintages still to add),75,no
+DFEDTAR,Federal funds target rate (1982-2008),daily,interest rates,Target before and after each Fed decision until Dec 15 2008; discontinued,0,yes
+DFEDTARU,Federal funds target range upper limit,daily,interest rates,Target range after each Fed decision since Dec 16 2008,7,no
+DFEDTARL,Federal funds target range lower limit,daily,interest rates,Target range after each Fed decision since Dec 16 2008,7,no

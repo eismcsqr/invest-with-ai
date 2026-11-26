@@ -1,8 +1,10 @@
 name: Macro data pull
 
 # Fetches the macro pillar's FRED series (config/fred_series.csv) and Kenneth
-# French's 12 industry portfolios and market factors, writes them under data/
-# with a check report, and commits any changes back to the branch it ran on.
+# French's 12 industry portfolios and market factors, builds the event calendar
+# (Fed decision days, data release dates, first prints and surprise series),
+# writes everything under data/ with check reports, and commits any changes
+# back to the branch it ran on.
 on:
   workflow_dispatch:
   schedule:
@@ -13,6 +15,7 @@ on:
       - "claude/**"
     paths:
       - scripts/fetch_macro_data.py
+      - scripts/build_event_calendar.py
       - config/fred_series.csv
       - .github/workflows/macro-data.yml
 
@@ -26,7 +29,9 @@ concurrency:
 jobs:
   pull:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
     steps:
       - uses: actions/checkout@v4
 
@@ -38,6 +43,11 @@ jobs:
         env:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
         run: python scripts/fetch_macro_data.py
+
+      - name: Build the event calendar and surprise series
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+        run: python scripts/build_event_calendar.py
 
       - name: Commit data changes
         run: |

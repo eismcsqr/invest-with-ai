@@ -110,10 +110,11 @@ def fred_api(path: str, api_key: str, **params) -> dict:
 
 
 def fred_all(path: str, key: str, api_key: str, **params) -> list[dict]:
-    """Page through a FRED list endpoint."""
+    """Page through a FRED list endpoint (observations allow 100,000 rows a page, other lists 10,000)."""
     rows, offset = [], 0
+    limit = 100000 if path.endswith("observations") else 10000
     while True:
-        res = fred_api(path, api_key, limit=100000, offset=offset, **params)
+        res = fred_api(path, api_key, limit=limit, offset=offset, **params)
         batch = res.get(key, [])
         rows += batch
         offset += len(batch)

@@ -1,0 +1,11 @@
+series_id,name,frequency,factors,role,max_lag_days,discontinued
+DGS2,2-year Treasury yield,daily,interest rates; inflation; consumer spending,Surprise measure on Fed decision days and on CPI and retail sales release days,7,no
+DGS10,10-year Treasury yield,daily,interest rates,Long-rate context,7,no
+T5YIE,5-year breakeven inflation,daily,inflation,Surprise measure on CPI release days,7,no
+T10YIE,10-year breakeven inflation,daily,inflation,Surprise measure on CPI release days,7,no
+DTWEXBGS,Broad trade-weighted US dollar index (since 2006),daily,US dollar,Daily dollar moves (no scheduled releases),14,no
+DTWEXB,Broad trade-weighted US dollar index (old version 1995-2019),daily,US dollar,History before 2006 for the time-period checks; discontinued by the Fed,0,yes
+CPIAUCSL,Consumer price index (seasonally adjusted),monthly,inflation,Official inflation level (current vintage; ALFRED vintages still to add),75,no
+PCEPI,PCE price index,monthly,inflation,Official inflation level (current vintage; ALFRED vintages still to add),75,no
+PCE,Personal consumption expenditures,monthly,consumer spending,Official spending level (current vintage; ALFRED vintages still to add),75,no
+RSAFS,Retail and food services sales,monthly,consumer spending,Official spending level (current vintage; ALFRED vintages still to add),75,no

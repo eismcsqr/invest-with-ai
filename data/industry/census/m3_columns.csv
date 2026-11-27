@@ -1,0 +1,379 @@
+column,category_code,data_type,meaning,adjustment
+11A_VS_NSA,11A,VS,shipments,NSA
+11A_VS_SA,11A,VS,shipments,SA
+11B_VS_NSA,11B,VS,shipments,NSA
+11B_VS_SA,11B,VS,shipments,SA
+11C_VS_NSA,11C,VS,shipments,NSA
+11C_VS_SA,11C,VS,shipments,SA
+11S_VS_NSA,11S,VS,shipments,NSA
+11S_VS_SA,11S,VS,shipments,SA
+12A_VS_NSA,12A,VS,shipments,NSA
+12A_VS_SA,12A,VS,shipments,SA
+12B_VS_NSA,12B,VS,shipments,NSA
+12B_VS_SA,12B,VS,shipments,SA
+12S_VS_NSA,12S,VS,shipments,NSA
+12S_VS_SA,12S,VS,shipments,SA
+13S_VS_NSA,13S,VS,shipments,NSA
+13S_VS_SA,13S,VS,shipments,SA
+14S_VS_NSA,14S,VS,shipments,NSA
+14S_VS_SA,14S,VS,shipments,SA
+15S_VS_NSA,15S,VS,shipments,NSA
+15S_VS_SA,15S,VS,shipments,SA
+16S_VS_NSA,16S,VS,shipments,NSA
+16S_VS_SA,16S,VS,shipments,SA
+21S_VS_NSA,21S,VS,shipments,NSA
+21S_VS_SA,21S,VS,shipments,SA
+22A_VS_NSA,22A,VS,shipments,NSA
+22A_VS_SA,22A,VS,shipments,SA
+22B_VS_NSA,22B,VS,shipments,NSA
+22B_VS_SA,22B,VS,shipments,SA
+22S_VS_NSA,22S,VS,shipments,NSA
+22S_VS_SA,22S,VS,shipments,SA
+23S_VS_NSA,23S,VS,shipments,NSA
+23S_VS_SA,23S,VS,shipments,SA
+24A_VS_NSA,24A,VS,shipments,NSA
+24A_VS_SA,24A,VS,shipments,SA
+24S_VS_NSA,24S,VS,shipments,NSA
+24S_VS_SA,24S,VS,shipments,SA
+25A_VS_NSA,25A,VS,shipments,NSA
+25A_VS_SA,25A,VS,shipments,SA
+25B_VS_NSA,25B,VS,shipments,NSA
+25B_VS_SA,25B,VS,shipments,SA
+25C_VS_NSA,25C,VS,shipments,NSA
+25C_VS_SA,25C,VS,shipments,SA
+25S_VS_NSA,25S,VS,shipments,NSA
+25S_VS_SA,25S,VS,shipments,SA
+26S_VS_NSA,26S,VS,shipments,NSA
+26S_VS_SA,26S,VS,shipments,SA
+27S_VS_NSA,27S,VS,shipments,NSA
+27S_VS_SA,27S,VS,shipments,SA
+31A_NO_NSA,31A,NO,new orders,NSA
+31A_NO_SA,31A,NO,new orders,SA
+31A_UO_NSA,31A,UO,unfilled orders,NSA
+31A_UO_SA,31A,UO,unfilled orders,SA
+31A_VS_NSA,31A,VS,shipments,NSA
+31A_VS_SA,31A,VS,shipments,SA
+31C_NO_NSA,31C,NO,new orders,NSA
+31C_NO_SA,31C,NO,new orders,SA
+31C_UO_NSA,31C,UO,unfilled orders,NSA
+31C_UO_SA,31C,UO,unfilled orders,SA
+31C_VS_NSA,31C,VS,shipments,NSA
+31C_VS_SA,31C,VS,shipments,SA
+31S_NO_NSA,31S,NO,new orders,NSA
+31S_NO_SA,31S,NO,new orders,SA
+31S_UO_NSA,31S,UO,unfilled orders,NSA
+31S_UO_SA,31S,UO,unfilled orders,SA
+31S_VS_NSA,31S,VS,shipments,NSA
+31S_VS_SA,31S,VS,shipments,SA
+32S_NO_NSA,32S,NO,new orders,NSA
+32S_NO_SA,32S,NO,new orders,SA
+32S_UO_NSA,32S,UO,unfilled orders,NSA
+32S_UO_SA,32S,UO,unfilled orders,SA
+32S_VS_NSA,32S,VS,shipments,NSA
+32S_VS_SA,32S,VS,shipments,SA
+33A_VS_NSA,33A,VS,shipments,NSA
+33A_VS_SA,33A,VS,shipments,SA
+33C_NO_NSA,33C,NO,new orders,NSA
+33C_NO_SA,33C,NO,new orders,SA
+33C_UO_NSA,33C,UO,unfilled orders,NSA
+33C_UO_SA,33C,UO,unfilled orders,SA
+33C_VS_NSA,33C,VS,shipments,NSA
+33C_VS_SA,33C,VS,shipments,SA
+33D_NO_NSA,33D,NO,new orders,NSA
+33D_NO_SA,33D,NO,new orders,SA
+33D_UO_NSA,33D,UO,unfilled orders,NSA
+33D_UO_SA,33D,UO,unfilled orders,SA
+33D_VS_NSA,33D,VS,shipments,NSA
+33D_VS_SA,33D,VS,shipments,SA
+33E_NO_NSA,33E,NO,new orders,NSA
+33E_NO_SA,33E,NO,new orders,SA
+33E_UO_NSA,33E,UO,unfilled orders,NSA
+33E_UO_SA,33E,UO,unfilled orders,SA
+33E_VS_NSA,33E,VS,shipments,NSA
+33E_VS_SA,33E,VS,shipments,SA
+33G_NO_NSA,33G,NO,new orders,NSA
+33G_NO_SA,33G,NO,new orders,SA
+33G_UO_NSA,33G,UO,unfilled orders,NSA
+33G_UO_SA,33G,UO,unfilled orders,SA
+33G_VS_NSA,33G,VS,shipments,NSA
+33G_VS_SA,33G,VS,shipments,SA
+33H_NO_NSA,33H,NO,new orders,NSA
+33H_NO_SA,33H,NO,new orders,SA
+33H_UO_NSA,33H,UO,unfilled orders,NSA
+33H_UO_SA,33H,UO,unfilled orders,SA
+33H_VS_NSA,33H,VS,shipments,NSA
+33H_VS_SA,33H,VS,shipments,SA
+33I_NO_NSA,33I,NO,new orders,NSA
+33I_NO_SA,33I,NO,new orders,SA
+33I_UO_NSA,33I,UO,unfilled orders,NSA
+33I_UO_SA,33I,UO,unfilled orders,SA
+33I_VS_NSA,33I,VS,shipments,NSA
+33I_VS_SA,33I,VS,shipments,SA
+33M_NO_NSA,33M,NO,new orders,NSA
+33M_NO_SA,33M,NO,new orders,SA
+33M_UO_NSA,33M,UO,unfilled orders,NSA
+33M_UO_SA,33M,UO,unfilled orders,SA
+33M_VS_NSA,33M,VS,shipments,NSA
+33M_VS_SA,33M,VS,shipments,SA
+33S_NO_NSA,33S,NO,new orders,NSA
+33S_NO_SA,33S,NO,new orders,SA
+33S_UO_NSA,33S,UO,unfilled orders,NSA
+33S_UO_SA,33S,UO,unfilled orders,SA
+33S_VS_NSA,33S,VS,shipments,NSA
+33S_VS_SA,33S,VS,shipments,SA
+34A_NO_NSA,34A,NO,new orders,NSA
+34A_NO_SA,34A,NO,new orders,SA
+34A_UO_NSA,34A,UO,unfilled orders,NSA
+34A_UO_SA,34A,UO,unfilled orders,SA
+34A_VS_NSA,34A,VS,shipments,NSA
+34A_VS_SA,34A,VS,shipments,SA
+34B_VS_NSA,34B,VS,shipments,NSA
+34B_VS_SA,34B,VS,shipments,SA
+34C_VS_NSA,34C,VS,shipments,NSA
+34C_VS_SA,34C,VS,shipments,SA
+34D_NO_NSA,34D,NO,new orders,NSA
+34D_NO_SA,34D,NO,new orders,SA
+34D_UO_NSA,34D,UO,unfilled orders,NSA
+34D_UO_SA,34D,UO,unfilled orders,SA
+34D_VS_NSA,34D,VS,shipments,NSA
+34D_VS_SA,34D,VS,shipments,SA
+34E_NO_NSA,34E,NO,new orders,NSA
+34E_NO_SA,34E,NO,new orders,SA
+34E_UO_NSA,34E,UO,unfilled orders,NSA
+34E_UO_SA,34E,UO,unfilled orders,SA
+34E_VS_NSA,34E,VS,shipments,NSA
+34E_VS_SA,34E,VS,shipments,SA
+34F_VS_NSA,34F,VS,shipments,NSA
+34F_VS_SA,34F,VS,shipments,SA
+34G_VS_NSA,34G,VS,shipments,NSA
+34G_VS_SA,34G,VS,shipments,SA
+34H_NO_NSA,34H,NO,new orders,NSA
+34H_NO_SA,34H,NO,new orders,SA
+34H_UO_NSA,34H,UO,unfilled orders,NSA
+34H_UO_SA,34H,UO,unfilled orders,SA
+34H_VS_NSA,34H,VS,shipments,NSA
+34H_VS_SA,34H,VS,shipments,SA
+34I_NO_NSA,34I,NO,new orders,NSA
+34I_NO_SA,34I,NO,new orders,SA
+34I_UO_NSA,34I,UO,unfilled orders,NSA
+34I_UO_SA,34I,UO,unfilled orders,SA
+34I_VS_NSA,34I,VS,shipments,NSA
+34I_VS_SA,34I,VS,shipments,SA
+34J_NO_NSA,34J,NO,new orders,NSA
+34J_NO_SA,34J,NO,new orders,SA
+34J_UO_NSA,34J,UO,unfilled orders,NSA
+34J_UO_SA,34J,UO,unfilled orders,SA
+34J_VS_NSA,34J,VS,shipments,NSA
+34J_VS_SA,34J,VS,shipments,SA
+34K_NO_NSA,34K,NO,new orders,NSA
+34K_NO_SA,34K,NO,new orders,SA
+34K_UO_NSA,34K,UO,unfilled orders,NSA
+34K_UO_SA,34K,UO,unfilled orders,SA
+34K_VS_NSA,34K,VS,shipments,NSA
+34K_VS_SA,34K,VS,shipments,SA
+34S_NO_NSA,34S,NO,new orders,NSA
+34S_NO_SA,34S,NO,new orders,SA
+34S_UO_NSA,34S,UO,unfilled orders,NSA
+34S_UO_SA,34S,UO,unfilled orders,SA
+34S_VS_NSA,34S,VS,shipments,NSA
+34S_VS_SA,34S,VS,shipments,SA
+34X_NO_NSA,34X,NO,new orders,NSA
+34X_NO_SA,34X,NO,new orders,SA
+34X_UO_NSA,34X,UO,unfilled orders,NSA
+34X_UO_SA,34X,UO,unfilled orders,SA
+34X_VS_NSA,34X,VS,shipments,NSA
+34X_VS_SA,34X,VS,shipments,SA
+35A_NO_NSA,35A,NO,new orders,NSA
+35A_NO_SA,35A,NO,new orders,SA
+35A_UO_NSA,35A,UO,unfilled orders,NSA
+35A_UO_SA,35A,UO,unfilled orders,SA
+35A_VS_NSA,35A,VS,shipments,NSA
+35A_VS_SA,35A,VS,shipments,SA
+35B_NO_NSA,35B,NO,new orders,NSA
+35B_NO_SA,35B,NO,new orders,SA
+35B_UO_NSA,35B,UO,unfilled orders,NSA
+35B_UO_SA,35B,UO,unfilled orders,SA
+35B_VS_NSA,35B,VS,shipments,NSA
+35B_VS_SA,35B,VS,shipments,SA
+35C_NO_NSA,35C,NO,new orders,NSA
+35C_NO_SA,35C,NO,new orders,SA
+35C_UO_NSA,35C,UO,unfilled orders,NSA
+35C_UO_SA,35C,UO,unfilled orders,SA
+35C_VS_NSA,35C,VS,shipments,NSA
+35C_VS_SA,35C,VS,shipments,SA
+35D_VS_NSA,35D,VS,shipments,NSA
+35D_VS_SA,35D,VS,shipments,SA
+35S_NO_NSA,35S,NO,new orders,NSA
+35S_NO_SA,35S,NO,new orders,SA
+35S_UO_NSA,35S,UO,unfilled orders,NSA
+35S_UO_SA,35S,UO,unfilled orders,SA
+35S_VS_NSA,35S,VS,shipments,NSA
+35S_VS_SA,35S,VS,shipments,SA
+36A_VS_NSA,36A,VS,shipments,NSA
+36A_VS_SA,36A,VS,shipments,SA
+36B_VS_NSA,36B,VS,shipments,NSA
+36B_VS_SA,36B,VS,shipments,SA
+36C_VS_NSA,36C,VS,shipments,NSA
+36C_VS_SA,36C,VS,shipments,SA
+36S_NO_NSA,36S,NO,new orders,NSA
+36S_NO_SA,36S,NO,new orders,SA
+36S_UO_NSA,36S,UO,unfilled orders,NSA
+36S_UO_SA,36S,UO,unfilled orders,SA
+36S_VS_NSA,36S,VS,shipments,NSA
+36S_VS_SA,36S,VS,shipments,SA
+36Z_NO_NSA,36Z,NO,new orders,NSA
+36Z_NO_SA,36Z,NO,new orders,SA
+36Z_UO_NSA,36Z,UO,unfilled orders,NSA
+36Z_UO_SA,36Z,UO,unfilled orders,SA
+36Z_VS_NSA,36Z,VS,shipments,NSA
+36Z_VS_SA,36Z,VS,shipments,SA
+37S_NO_NSA,37S,NO,new orders,NSA
+37S_NO_SA,37S,NO,new orders,SA
+37S_UO_NSA,37S,UO,unfilled orders,NSA
+37S_UO_SA,37S,UO,unfilled orders,SA
+37S_VS_NSA,37S,VS,shipments,NSA
+37S_VS_SA,37S,VS,shipments,SA
+39S_VS_NSA,39S,VS,shipments,NSA
+39S_VS_SA,39S,VS,shipments,SA
+ANM_NO_NSA,ANM,NO,new orders,NSA
+ANM_NO_SA,ANM,NO,new orders,SA
+ANM_UO_NSA,ANM,UO,unfilled orders,NSA
+ANM_UO_SA,ANM,UO,unfilled orders,SA
+ANM_VS_NSA,ANM,VS,shipments,NSA
+ANM_VS_SA,ANM,VS,shipments,SA
+BTP_NO_NSA,BTP,NO,new orders,NSA
+BTP_NO_SA,BTP,NO,new orders,SA
+BTP_UO_NSA,BTP,UO,unfilled orders,NSA
+BTP_UO_SA,BTP,UO,unfilled orders,SA
+BTP_VS_NSA,BTP,VS,shipments,NSA
+BTP_VS_SA,BTP,VS,shipments,SA
+CDG_NO_NSA,CDG,NO,new orders,NSA
+CDG_NO_SA,CDG,NO,new orders,SA
+CDG_UO_NSA,CDG,UO,unfilled orders,NSA
+CDG_UO_SA,CDG,UO,unfilled orders,SA
+CDG_VS_NSA,CDG,VS,shipments,NSA
+CDG_VS_SA,CDG,VS,shipments,SA
+CMS_NO_NSA,CMS,NO,new orders,NSA
+CMS_NO_SA,CMS,NO,new orders,SA
+CMS_UO_NSA,CMS,UO,unfilled orders,NSA
+CMS_UO_SA,CMS,UO,unfilled orders,SA
+CMS_VS_NSA,CMS,VS,shipments,NSA
+CMS_VS_SA,CMS,VS,shipments,SA
+CNG_VS_NSA,CNG,VS,shipments,NSA
+CNG_VS_SA,CNG,VS,shipments,SA
+COG_NO_NSA,COG,NO,new orders,NSA
+COG_NO_SA,COG,NO,new orders,SA
+COG_UO_NSA,COG,UO,unfilled orders,NSA
+COG_UO_SA,COG,UO,unfilled orders,SA
+COG_VS_NSA,COG,VS,shipments,NSA
+COG_VS_SA,COG,VS,shipments,SA
+CRP_NO_NSA,CRP,NO,new orders,NSA
+CRP_NO_SA,CRP,NO,new orders,SA
+CRP_UO_NSA,CRP,UO,unfilled orders,NSA
+CRP_UO_SA,CRP,UO,unfilled orders,SA
+CRP_VS_NSA,CRP,VS,shipments,NSA
+CRP_VS_SA,CRP,VS,shipments,SA
+DAP_NO_NSA,DAP,NO,new orders,NSA
+DAP_NO_SA,DAP,NO,new orders,SA
+DAP_UO_NSA,DAP,UO,unfilled orders,NSA
+DAP_UO_SA,DAP,UO,unfilled orders,SA
+DAP_VS_NSA,DAP,VS,shipments,NSA
+DAP_VS_SA,DAP,VS,shipments,SA
+DEF_NO_NSA,DEF,NO,new orders,NSA
+DEF_NO_SA,DEF,NO,new orders,SA
+DEF_UO_NSA,DEF,UO,unfilled orders,NSA
+DEF_UO_SA,DEF,UO,unfilled orders,SA
+DEF_VS_NSA,DEF,VS,shipments,NSA
+DEF_VS_SA,DEF,VS,shipments,SA
+DXD_NO_NSA,DXD,NO,new orders,NSA
+DXD_NO_SA,DXD,NO,new orders,SA
+DXD_UO_NSA,DXD,UO,unfilled orders,NSA
+DXD_UO_SA,DXD,UO,unfilled orders,SA
+DXD_VS_NSA,DXD,VS,shipments,NSA
+DXD_VS_SA,DXD,VS,shipments,SA
+DXT_NO_NSA,DXT,NO,new orders,NSA
+DXT_NO_SA,DXT,NO,new orders,SA
+DXT_UO_NSA,DXT,UO,unfilled orders,NSA
+DXT_UO_SA,DXT,UO,unfilled orders,SA
+DXT_VS_NSA,DXT,VS,shipments,NSA
+DXT_VS_SA,DXT,VS,shipments,SA
+ITI_NO_NSA,ITI,NO,new orders,NSA
+ITI_NO_SA,ITI,NO,new orders,SA
+ITI_UO_NSA,ITI,UO,unfilled orders,NSA
+ITI_UO_SA,ITI,UO,unfilled orders,SA
+ITI_VS_NSA,ITI,VS,shipments,NSA
+ITI_VS_SA,ITI,VS,shipments,SA
+MDM_NO_NSA,MDM,NO,new orders,NSA
+MDM_NO_SA,MDM,NO,new orders,SA
+MDM_UO_NSA,MDM,UO,unfilled orders,NSA
+MDM_UO_SA,MDM,UO,unfilled orders,SA
+MDM_VS_NSA,MDM,VS,shipments,NSA
+MDM_VS_SA,MDM,VS,shipments,SA
+MNM_NO_NSA,MNM,NO,new orders,NSA
+MNM_NO_SA,MNM,NO,new orders,SA
+MNM_VS_NSA,MNM,VS,shipments,NSA
+MNM_VS_SA,MNM,VS,shipments,SA
+MTM_NO_NSA,MTM,NO,new orders,NSA
+MTM_NO_SA,MTM,NO,new orders,SA
+MTM_UO_NSA,MTM,UO,unfilled orders,NSA
+MTM_UO_SA,MTM,UO,unfilled orders,SA
+MTM_VS_NSA,MTM,VS,shipments,NSA
+MTM_VS_SA,MTM,VS,shipments,SA
+MTU_NO_NSA,MTU,NO,new orders,NSA
+MTU_NO_SA,MTU,NO,new orders,SA
+MTU_VS_NSA,MTU,VS,shipments,NSA
+MTU_VS_SA,MTU,VS,shipments,SA
+MVP_NO_NSA,MVP,NO,new orders,NSA
+MVP_NO_SA,MVP,NO,new orders,SA
+MVP_UO_NSA,MVP,UO,unfilled orders,NSA
+MVP_UO_SA,MVP,UO,unfilled orders,SA
+MVP_VS_NSA,MVP,VS,shipments,NSA
+MVP_VS_SA,MVP,VS,shipments,SA
+MXD_NO_NSA,MXD,NO,new orders,NSA
+MXD_NO_SA,MXD,NO,new orders,SA
+MXD_UO_NSA,MXD,UO,unfilled orders,NSA
+MXD_UO_SA,MXD,UO,unfilled orders,SA
+MXD_VS_NSA,MXD,VS,shipments,NSA
+MXD_VS_SA,MXD,VS,shipments,SA
+MXT_NO_NSA,MXT,NO,new orders,NSA
+MXT_NO_SA,MXT,NO,new orders,SA
+MXT_UO_NSA,MXT,UO,unfilled orders,NSA
+MXT_UO_SA,MXT,UO,unfilled orders,SA
+MXT_VS_NSA,MXT,VS,shipments,NSA
+MXT_VS_SA,MXT,VS,shipments,SA
+NAP_NO_NSA,NAP,NO,new orders,NSA
+NAP_NO_SA,NAP,NO,new orders,SA
+NAP_UO_NSA,NAP,UO,unfilled orders,NSA
+NAP_UO_SA,NAP,UO,unfilled orders,SA
+NAP_VS_NSA,NAP,VS,shipments,NSA
+NAP_VS_SA,NAP,VS,shipments,SA
+NDE_NO_NSA,NDE,NO,new orders,NSA
+NDE_NO_SA,NDE,NO,new orders,SA
+NDE_UO_NSA,NDE,UO,unfilled orders,NSA
+NDE_UO_SA,NDE,UO,unfilled orders,SA
+NDE_VS_NSA,NDE,VS,shipments,NSA
+NDE_VS_SA,NDE,VS,shipments,SA
+NXA_NO_NSA,NXA,NO,new orders,NSA
+NXA_NO_SA,NXA,NO,new orders,SA
+NXA_UO_NSA,NXA,UO,unfilled orders,NSA
+NXA_UO_SA,NXA,UO,unfilled orders,SA
+NXA_VS_NSA,NXA,VS,shipments,NSA
+NXA_VS_SA,NXA,VS,shipments,SA
+ODG_NO_NSA,ODG,NO,new orders,NSA
+ODG_NO_SA,ODG,NO,new orders,SA
+ODG_UO_NSA,ODG,UO,unfilled orders,NSA
+ODG_UO_SA,ODG,UO,unfilled orders,SA
+ODG_VS_NSA,ODG,VS,shipments,NSA
+ODG_VS_SA,ODG,VS,shipments,SA
+TCG_NO_NSA,TCG,NO,new orders,NSA
+TCG_NO_SA,TCG,NO,new orders,SA
+TCG_UO_NSA,TCG,UO,unfilled orders,NSA
+TCG_UO_SA,TCG,UO,unfilled orders,SA
+TCG_VS_NSA,TCG,VS,shipments,NSA
+TCG_VS_SA,TCG,VS,shipments,SA
+TGP_NO_NSA,TGP,NO,new orders,NSA
+TGP_NO_SA,TGP,NO,new orders,SA
+TGP_UO_NSA,TGP,UO,unfilled orders,NSA
+TGP_UO_SA,TGP,UO,unfilled orders,SA
+TGP_VS_NSA,TGP,VS,shipments,NSA
+TGP_VS_SA,TGP,VS,shipments,SA

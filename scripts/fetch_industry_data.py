@@ -530,6 +530,14 @@ def pull_concentration(key: str, year: int) -> dict:
     head, body = rows[0], rows[1:]
     ix = {h: i for i, h in enumerate(head)}
     keep = [[r[ix[f]] for f in fields] for r in body]
+    # Census shows 0 where it publishes no HHI (it gives one only on the
+    # 50-largest-firms row, mostly for manufacturing) and where a cell is
+    # withheld or empty (revenue 0). Blank those so 0 never reads as a value.
+    for r in keep:
+        if num(r[11]) and float(num(r[11])) == 0:
+            r[11] = ""
+        if num(r[9]) in ("", "0") or (num(r[9]) and float(num(r[9])) == 0):
+            r[10] = ""
     keep.sort(key=lambda r: (r[0], r[4], r[6]))
     write_csv(OUT / "census" / f"concentration_{year}.csv",
               ["naics", "naics_label", "level", "sector", "type_of_operation",
@@ -544,12 +552,14 @@ def pull_concentration(key: str, year: int) -> dict:
         issues.append(f"{len(bad)} rows with HHI outside 0 to 10,000 or share outside 0 to 100")
     industries = len({r[0] for r in keep})
     with_hhi = len({r[0] for r, h in zip(keep, hhi) if h})
+    with_share = len({r[0] for r, p in zip(keep, pct) if p and r[6] != "001"})
     print(f"Census concentration {year}: {len(keep)} rows, {industries} industries")
     return {"name": f"concentration_{year}", "source": "Census", "status": "ok" if keep else "EMPTY",
             "series": industries, "first": str(year), "last": str(year), "rows": len(keep),
-            "missing": sum(1 for h in hhi if not h), "issues": issues,
-            "note": f"{with_hhi} of {industries} NAICS industries have an HHI; the rest give only "
-                    "the largest firms' share of revenue (or are withheld)."}
+            "missing": sum(1 for r, p in zip(keep, pct) if not p), "issues": issues,
+            "note": f"{with_share} of {industries} NAICS industries give the largest firms' share "
+                    f"of revenue; {with_hhi} also have an HHI (Census publishes it for the 50 "
+                    "largest firms, mostly in manufacturing). Missing counts withheld shares."}
 
 
 # ------------------------------------------------------------------- report --

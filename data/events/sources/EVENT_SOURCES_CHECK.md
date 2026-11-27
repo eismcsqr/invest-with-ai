@@ -42,11 +42,11 @@ Run: 2026-11-27. One row per candidate source for the 12 agreed event types (doc
 - **sharadar:** Actions table columns: date, action, ticker, name, value, contraticker, contraname
 - **sharadar:** Sample acquisitionby rows (date, ticker, other party): 2026-11-19 UTZ (UTZ BRANDS INC) acquisitionby N/A (Intersnack Group GmbH & Co); 2026-11-18 SSTI (SOUNDTHINKING INC) acquisitionby N/A (Transom Capital Group LLC); 2026-11-18 LXFR (LUXFER HOLDINGS PLC) acquisitionby N/A (WYNNCHURCH CAPITAL PARTNERS LP)
 - **sharadar:** Sharadar code 34 rows with no matching 8-K item: SC 13G/A 98, SCHEDULE 13G/A 46, 424B2 29, FWP 27, SCHEDULE 13G 22 (SEC forms that company filed that day)
-- **sharadar:** Sharadar code 35 rows with no matching 8-K item: 4 18, SC 13D/A 17, SCHEDULE 13D/A 7, 424B2 4, FWP 4 (SEC forms that company filed that day)
-- **sharadar:** Sharadar code 37 rows with no matching 8-K item: SC TO-T/A 19, 8-K 8, SC TO-C 8, 4 5, 425 5 (SEC forms that company filed that day)
-- **sharadar:** Sharadar code 52 rows with no matching 8-K item: 8-K/A 7, 10-Q 2, (nothing filed that day) 2, 3 1, 4 1 (SEC forms that company filed that day)
-- **sharadar:** Sharadar code 41 rows with no matching 8-K item: 8-K/A 1, S-4 1, 4 1, S-8 1, 10-K 1 (SEC forms that company filed that day)
-- **sharadar:** Sharadar code 57 rows with no matching 8-K item: 8-K/A 2, 10-Q 1, 4 1 (SEC forms that company filed that day)
+- **sharadar:** Sharadar code 35 rows with no matching 8-K item: 4 18, SC 13D/A 17, SCHEDULE 13D/A 7, FWP 4, 424B2 4 (SEC forms that company filed that day)
+- **sharadar:** Sharadar code 37 rows with no matching 8-K item: SC TO-T/A 19, SC TO-C 8, 8-K 8, 4 5, 425 5 (SEC forms that company filed that day)
+- **sharadar:** Sharadar code 52 rows with no matching 8-K item: 8-K/A 7, 10-Q 2, (nothing filed that day) 2, 4 1, 3 1 (SEC forms that company filed that day)
+- **sharadar:** Sharadar code 41 rows with no matching 8-K item: 10-K 1, 13F-HR 1, 4 1, CORRESP 1, POS AM 1 (SEC forms that company filed that day)
+- **sharadar:** Sharadar code 57 rows with no matching 8-K item: 8-K/A 2, 4 1, 10-Q 1 (SEC forms that company filed that day)
 - **sharadar:** Sharadar code 81 rows with no matching 8-K item: 424B2 1 (SEC forms that company filed that day)
 - **edgar:** Ownership filings listed under the 8 companies' own SEC numbers: SCHEDULE 13G/A 129, SC 13G/A 116, SCHEDULE 13G 54, SC 13G 22, SC 13D/A 18, SCHEDULE 13D/A 15, SCHEDULE 13D 3, SC 13D 2
 - **edgar:** Quarterly index files (complete list from 1993): www.sec.gov: HTTP 403. SEC wants a contact in the User-Agent; set the SEC_USER_AGENT secret to read them.

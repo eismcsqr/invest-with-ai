@@ -62,6 +62,9 @@ jobs:
             exit 0
           fi
           git commit -m "Update company measured check ($(date -u +%Y-%m-%d))"
+          # The data download rewrites other committed reports; only the check
+          # results are committed here, so drop the rest before rebasing.
+          git checkout -- . && git clean -fdq -e raw/
           for attempt in 1 2 3; do
             if git push; then exit 0; fi
             git pull --rebase

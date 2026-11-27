@@ -14,16 +14,15 @@ Scored readings that aren't neutral (score = reading × exposure, on the −3 to
 
 | Group | Factor | What the data shows | Score | Range | Confidence |
 |---|---|---|---|---|---|
-| Manufacturing | Capacity cycle | Plants 79% used in October, top fifth of the last 20 years | +3 | 0 to +3 | Low |
-| Energy | Coping with shocks | Energy prices rose 30 points faster than all prices over the year to Q2 2026 | +2 | 0 to +2 | Low (this is the oil shock, which belongs in macro) |
+| Manufacturing | Capacity cycle | Plants 79% used in October, top fifth of the last 20 years | +2 | 0 to +2 | Low |
+| Energy | Coping with shocks | Energy prices rose 30 points faster than all prices over the year to Q2 2026 | +1 | 0 to +1 | Low (this is the oil shock, which belongs in macro) |
 | Retail and wholesale | Demand cycle | Real output up 5.7% over the year to Q2 2026, top fifth | +2 | 0 to +2 | Low |
-| Consumer staples | Coping with shocks | Prices rising 1.8 points slower than all prices; producer prices in their bottom 1% | −3 | −3 to 0 | Low |
+| Consumer staples | Coping with shocks | Prices rising 1.8 points slower than all prices; producer prices in their bottom 1% | −2 | −2 to 0 | Low |
 | Chemicals | Capacity cycle | Plants 71% used, bottom fifth | −3 | −3 to 0 | Low |
 | Telecom | Demand cycle | Real output down 0.5% over the year | −1 | −1 to 0 | Medium |
-| Utilities | Capacity cycle | 69% used, the lowest in 20 years | −1 | −1 to 0 | Medium |
 | Healthcare | Coping with shocks | Prices rising 1.2 points slower than all prices | −1 | −1 to 0 | Low |
 
-Everything else scored is neutral today; durables demand (76th percentile), business equipment demand (76th) and healthcare demand (78th) sit just under the tailwind line, so their ranges reach up to the full exposure. Full table: `results/industry_run/scores.csv`.
+Everything else scored is neutral today, and utilities capacity (69% used, the lowest in 20 years) scores 0 because its exposure is 0; durables demand (76th percentile), business equipment demand (76th) and healthcare demand (78th) sit just under the tailwind line, so their ranges reach up to the full exposure. Full table: `results/industry_run/scores.csv`.
 
 ## How it was built
 
@@ -33,7 +32,7 @@ Everything else scored is neutral today; durables demand (76th percentile), busi
    - **Capacity cycle:** Fed G.17 capacity use (monthly, to October). Scored only where the series cover at least half the group's output: staples, durables, manufacturing, energy, chemicals, utilities. Tech hardware is only 16% of the tech group (software and services are the rest), so tech isn't scored.
    - **Coping with shocks:** BEA output prices, growth over a year, minus the same for all industries: is the group raising prices faster than the economy. Cross-check: producer prices against the average of all mapped indexes (monthly, to October).
    - A cross-check counts only where it covers at least 80% of the group.
-3. **Exposure.** `config/industry_exposure_v0.csv` is a v0 judgment, like the macro scorecard: each factor's channel scores (revenue, costs, financing, currency, valuation, competitive position) added up and capped at 3. It hasn't been reviewed; see the calls below.
+3. **Exposure.** `config/industry_exposure_v0.csv` is a v0 judgment, like the macro scorecard: each factor's channel scores (revenue, costs, financing, currency, valuation, competitive position) added up and capped at 3. On Nov 27 the eight exposures behind today's non-neutral readings were reviewed and four lowered by one: manufacturing capacity (3 to 2), energy coping (2 to 1), staples coping (3 to 2) and utilities capacity (1 to 0, since regulated returns don't depend on plant use). The rest are unreviewed.
 4. **Measured check.** Each group's monthly return after the market, the 2-year yield and the dollar are taken out (betas from the prior 60 months, so nothing is fitted on the future). The reading is then compared with that leftover return two ways: over the same period ("moves with"), and over the period after the figure is published ("leads"). Readings in the check use only the history known at the time. 95% bootstrap ranges, Benjamini-Hochberg at 10% across all tests of a kind, and a sign-flip check between the first and second half.
 5. **Confidence.** High needs the "moves with" check to agree with a range that excludes zero, pass the false-discovery check, hold in both halves, and the data to cover 80% of a well-mapped group. Medium: agrees but not past the false-discovery check, or agrees in both halves with good coverage. Low otherwise. Energy's coping score is capped at Low because energy prices are the oil shock itself.
 6. **Range.** The score range takes in the next band when a reading is within 5 points of a band edge or its cross-check is in another band, and allows a smaller exposure when confidence is below High (Medium: one less; Low: down to zero).
@@ -54,11 +53,11 @@ Why the check is weak: the BEA data starts in 2005, so its tests cover about 15 
 - **Technology:** PatentsView isn't pulled yet.
 - **Capacity** for telecom, retail, healthcare, finance, tech and other: no free measure covers most of these groups.
 
-## Calls for you
+## Calls made (Nov 27)
 
-1. **Capacity's direction.** The method says top-fifth capacity is a tailwind. The check leans the other way (not significant). Options: keep it as is with Low confidence (my pick until a 49-group or company test), or read top-fifth capacity as a late-cycle warning.
-2. **Exposure review.** The v0 exposures are untested judgment. They could get the same review the macro scorecard got, once the check has more power.
-3. **Next data.** Regulation (QuantGov, free bulk file) and technology (PatentsView) would fill two more factors; a 49-group run would test with less mixing, though Decisions keeps the industry pillar on 12 groups for now.
+1. **Capacity's direction: kept.** Top-fifth capacity stays a tailwind, at Low confidence, until a 49-group or company test settles it (Decisions sheet).
+2. **Exposure review: the eight non-neutral scores.** Four lowered by one (see How it was built, step 3); the other 64 exposures are still unreviewed.
+3. **Next data, still open.** Regulation (QuantGov, free bulk file) and technology (PatentsView) would fill two more factors; a 49-group run would test with less mixing, though Decisions keeps the industry pillar on 12 groups for now.
 
 ## Limits
 

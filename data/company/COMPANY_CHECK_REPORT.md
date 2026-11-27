@@ -34,10 +34,10 @@ Run: 2026-11-27. Source: Sharadar (direct API, bulk download of each table).
 - BHC: 42 quarters missing
 - AVDL: 39 quarters missing
 
-## Owner-signal tables (latest year only)
+## Owner-signal tables (optional)
 
-- insiders: downloaded as 'insiders' (latest 1 year), 1 MB in 0s
-- holdings: downloaded as 'holdings' (latest 1 year), 0 MB in 0s
+- insiders: downloaded as 'insiders' (whole table), 248 MB in 2s
+- holdings: downloaded as 'holdings' (whole table), 717 MB in 5s
 
 ## Not committed
 

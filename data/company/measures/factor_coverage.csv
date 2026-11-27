@@ -7,289 +7,289 @@ detailed_group,factor,companies,with_reading,with_reading_pct,plus1,plus_half,ze
 (none),owner,97,97,100.0,0,7,78,6,6,0,0,97
 Agriculture,growth,22,18,81.8,2,6,4,4,2,0,0,18
 Agriculture,profitability,22,20,90.9,0,7,5,5,3,0,0,20
-Agriculture,balance,22,19,86.4,1,4,6,7,1,0,0,19
-Agriculture,capital,22,20,90.9,0,5,5,3,7,0,0,20
+Agriculture,balance,22,19,86.4,1,4,6,7,1,0,13,6
+Agriculture,capital,22,20,90.9,0,5,5,3,7,0,13,7
 Agriculture,surprise,22,19,86.4,2,4,7,3,3,0,0,19
 Agriculture,owner,22,22,100.0,0,3,8,6,5,0,0,22
 Aircraft,growth,38,26,68.4,1,7,12,4,2,0,3,23
 Aircraft,profitability,38,29,76.3,0,10,8,5,6,0,22,7
-Aircraft,balance,38,26,68.4,0,6,9,8,3,0,23,3
-Aircraft,capital,38,33,86.8,2,6,12,4,9,0,27,6
+Aircraft,balance,38,26,68.4,0,6,9,8,3,23,0,3
+Aircraft,capital,38,33,86.8,2,6,12,4,9,27,0,6
 Aircraft,surprise,38,37,97.4,6,6,9,9,7,0,31,6
 Aircraft,owner,38,38,100.0,0,5,18,11,4,0,31,7
 Almost Nothing,growth,15,13,86.7,0,2,4,5,2,0,0,13
 Almost Nothing,profitability,15,13,86.7,0,3,4,1,5,0,0,13
-Almost Nothing,balance,15,12,80.0,0,2,5,1,4,0,0,12
-Almost Nothing,capital,15,13,86.7,0,1,6,2,4,0,0,13
+Almost Nothing,balance,15,12,80.0,0,2,5,1,4,0,8,4
+Almost Nothing,capital,15,13,86.7,0,1,6,2,4,0,8,5
 Almost Nothing,surprise,15,13,86.7,4,1,4,1,3,0,0,13
 Almost Nothing,owner,15,15,100.0,0,5,3,6,1,0,0,15
 Apparel,growth,41,40,97.6,3,9,12,10,6,0,33,7
 Apparel,profitability,41,40,97.6,0,10,15,8,7,0,32,8
-Apparel,balance,41,40,97.6,0,10,18,10,2,0,33,7
-Apparel,capital,41,40,97.6,2,7,14,11,6,0,33,7
+Apparel,balance,41,40,97.6,0,10,18,10,2,33,0,7
+Apparel,capital,41,40,97.6,2,7,14,11,6,33,0,7
 Apparel,surprise,41,40,97.6,8,9,8,8,7,0,34,6
 Apparel,owner,41,41,100.0,0,10,11,16,4,0,33,8
 Automobiles and Trucks,growth,85,77,90.6,6,22,21,23,5,0,62,15
 Automobiles and Trucks,profitability,85,79,92.9,6,15,20,27,11,0,52,27
-Automobiles and Trucks,balance,85,79,92.9,2,17,26,24,10,0,61,18
-Automobiles and Trucks,capital,85,81,95.3,6,17,21,18,19,0,63,18
+Automobiles and Trucks,balance,85,79,92.9,2,17,26,24,10,61,0,18
+Automobiles and Trucks,capital,85,81,95.3,6,17,21,18,19,63,0,18
 Automobiles and Trucks,surprise,85,79,92.9,14,12,22,16,15,0,63,16
 Automobiles and Trucks,owner,85,85,100.0,0,19,33,27,6,0,65,20
 Banking,growth,466,409,87.8,22,101,159,86,41,0,369,40
 Banking,profitability,466,425,91.2,23,124,143,77,58,0,402,23
-Banking,balance,466,438,94.0,65,87,132,117,37,0,413,25
-Banking,capital,466,438,94.0,62,84,111,121,60,0,403,35
+Banking,balance,466,438,94.0,65,87,132,117,37,413,0,25
+Banking,capital,466,438,94.0,62,84,111,121,60,403,10,25
 Banking,surprise,466,424,91.0,81,85,87,87,84,0,399,25
 Banking,owner,466,465,99.8,0,68,208,152,37,0,413,52
 Beer & Liquor,growth,23,18,78.3,0,5,6,4,3,0,0,18
 Beer & Liquor,profitability,23,18,78.3,0,4,4,7,3,0,0,18
-Beer & Liquor,balance,23,19,82.6,0,4,4,6,5,0,0,19
-Beer & Liquor,capital,23,19,82.6,1,3,4,5,6,0,0,19
+Beer & Liquor,balance,23,19,82.6,0,4,4,6,5,0,11,8
+Beer & Liquor,capital,23,19,82.6,1,3,4,5,6,0,12,7
 Beer & Liquor,surprise,23,20,87.0,3,2,8,3,4,0,0,20
 Beer & Liquor,owner,23,23,100.0,0,4,12,5,2,0,0,23
 Business Services,growth,690,599,86.8,39,158,198,128,76,0,437,162
 Business Services,profitability,690,639,92.6,12,164,176,170,117,0,461,178
-Business Services,balance,690,611,88.6,45,110,212,143,101,0,360,251
-Business Services,capital,690,659,95.5,30,134,205,166,124,0,467,192
+Business Services,balance,690,611,88.6,45,110,212,143,101,360,94,157
+Business Services,capital,690,659,95.5,30,134,205,166,124,467,14,178
 Business Services,surprise,690,654,94.8,106,118,162,155,113,0,485,169
 Business Services,owner,690,690,100.0,0,100,321,215,54,0,492,198
 Business Supplies,growth,18,18,100.0,0,7,3,7,1,0,0,18
 Business Supplies,profitability,18,18,100.0,0,5,4,7,2,0,0,18
-Business Supplies,balance,18,18,100.0,0,5,5,1,7,0,0,18
-Business Supplies,capital,18,18,100.0,0,3,8,4,3,0,0,18
+Business Supplies,balance,18,18,100.0,0,5,5,1,7,0,14,4
+Business Supplies,capital,18,18,100.0,0,3,8,4,3,0,14,4
 Business Supplies,surprise,18,17,94.4,3,3,5,3,3,0,0,17
 Business Supplies,owner,18,18,100.0,0,3,7,6,2,0,0,18
 Candy & Soda,growth,11,8,72.7,0,3,1,3,1,0,0,8
 Candy & Soda,profitability,11,8,72.7,0,5,0,2,1,0,0,8
-Candy & Soda,balance,11,7,63.6,1,1,4,0,1,0,0,7
-Candy & Soda,capital,11,8,72.7,0,1,4,2,1,0,0,8
+Candy & Soda,balance,11,7,63.6,1,1,4,0,1,0,4,3
+Candy & Soda,capital,11,8,72.7,0,1,4,2,1,0,7,1
 Candy & Soda,surprise,11,8,72.7,2,2,2,1,1,0,0,8
 Candy & Soda,owner,11,11,100.0,0,1,6,4,0,0,0,11
 Chemicals,growth,83,77,92.8,11,17,19,18,12,0,64,13
 Chemicals,profitability,83,78,94.0,1,23,22,23,9,0,64,14
-Chemicals,balance,83,77,92.8,2,19,24,20,12,0,66,11
-Chemicals,capital,83,81,97.6,1,19,31,10,20,0,66,15
+Chemicals,balance,83,77,92.8,2,19,24,20,12,66,0,11
+Chemicals,capital,83,81,97.6,1,19,31,10,20,66,0,15
 Chemicals,surprise,83,80,96.4,14,15,19,16,16,0,66,14
 Chemicals,owner,83,83,100.0,0,16,35,26,6,0,66,17
 Coal,growth,8,8,100.0,1,0,2,5,0,0,0,8
 Coal,profitability,8,8,100.0,0,2,2,4,0,0,0,8
-Coal,balance,8,8,100.0,0,1,4,3,0,0,0,8
-Coal,capital,8,8,100.0,0,3,4,0,1,0,0,8
+Coal,balance,8,8,100.0,0,1,4,3,0,0,7,1
+Coal,capital,8,8,100.0,0,3,4,0,1,0,8,0
 Coal,surprise,8,8,100.0,3,2,1,1,1,0,0,8
 Coal,owner,8,8,100.0,0,0,1,6,1,0,0,8
 Communication,growth,82,64,78.0,2,20,17,17,8,0,50,14
 Communication,profitability,82,71,86.6,1,19,25,11,15,0,53,18
-Communication,balance,82,67,81.7,2,12,29,12,12,0,54,13
-Communication,capital,82,73,89.0,3,18,24,16,12,0,55,18
+Communication,balance,82,67,81.7,2,12,29,12,12,54,0,13
+Communication,capital,82,73,89.0,3,18,24,16,12,55,0,18
 Communication,surprise,82,72,87.8,11,15,13,19,14,0,54,18
 Communication,owner,82,82,100.0,0,15,42,21,4,0,55,27
 Computers,growth,93,86,92.5,10,16,31,22,7,0,63,23
 Computers,profitability,93,86,92.5,0,18,30,31,7,0,66,20
-Computers,balance,93,86,92.5,1,18,35,14,18,0,58,28
-Computers,capital,93,91,97.8,7,13,32,24,15,0,67,24
+Computers,balance,93,86,92.5,1,18,35,14,18,58,8,20
+Computers,capital,93,91,97.8,7,13,32,24,15,67,4,20
 Computers,surprise,93,91,97.8,15,18,21,20,17,0,72,19
 Computers,owner,93,93,100.0,0,14,35,34,10,0,73,20
 Construction,growth,67,58,86.6,8,11,17,15,7,0,45,13
 Construction,profitability,67,62,92.5,5,11,16,20,10,0,48,14
-Construction,balance,67,52,77.6,4,8,20,10,10,0,38,14
-Construction,capital,67,62,92.5,1,13,24,15,9,0,48,14
+Construction,balance,67,52,77.6,4,8,20,10,10,38,0,14
+Construction,capital,67,62,92.5,1,13,24,15,9,48,0,14
 Construction,surprise,67,64,95.5,14,11,14,15,10,0,50,14
 Construction,owner,67,67,100.0,0,9,29,23,6,0,50,17
 Construction Materials,growth,60,53,88.3,5,12,13,20,3,0,44,9
 Construction Materials,profitability,60,55,91.7,0,18,16,11,10,0,44,11
-Construction Materials,balance,60,54,90.0,5,8,21,13,7,0,46,8
-Construction Materials,capital,60,55,91.7,5,14,13,13,10,0,46,9
+Construction Materials,balance,60,54,90.0,5,8,21,13,7,46,0,8
+Construction Materials,capital,60,55,91.7,5,14,13,13,10,46,0,9
 Construction Materials,surprise,60,57,95.0,8,10,15,14,10,0,46,11
 Construction Materials,owner,60,60,100.0,0,11,26,18,5,0,47,13
 Consumer Goods,growth,59,56,94.9,7,13,21,11,4,0,45,11
 Consumer Goods,profitability,59,56,94.9,0,21,14,12,9,0,44,12
-Consumer Goods,balance,59,56,94.9,4,7,27,13,5,0,44,12
-Consumer Goods,capital,59,57,96.6,1,16,19,11,10,0,45,12
+Consumer Goods,balance,59,56,94.9,4,7,27,13,5,44,1,11
+Consumer Goods,capital,59,57,96.6,1,16,19,11,10,45,0,12
 Consumer Goods,surprise,59,55,93.2,11,9,15,10,10,0,44,11
 Consumer Goods,owner,59,59,100.0,0,10,26,19,4,0,46,13
 Defense,growth,16,12,75.0,2,0,6,4,0,0,0,12
 Defense,profitability,16,15,93.8,1,4,4,5,1,0,0,15
-Defense,balance,16,14,87.5,1,7,1,4,1,0,0,14
-Defense,capital,16,15,93.8,1,4,3,5,2,0,0,15
+Defense,balance,16,14,87.5,1,7,1,4,1,0,14,0
+Defense,capital,16,15,93.8,1,4,3,5,2,0,15,0
 Defense,surprise,16,15,93.8,3,3,3,3,3,0,0,15
 Defense,owner,16,16,100.0,0,2,7,5,2,0,0,16
 Electrical Equipment,growth,75,64,85.3,5,16,19,14,10,0,29,35
 Electrical Equipment,profitability,75,67,89.3,1,17,17,23,9,0,22,45
-Electrical Equipment,balance,75,69,92.0,4,10,22,21,12,0,38,31
-Electrical Equipment,capital,75,71,94.7,4,15,12,19,21,0,25,46
+Electrical Equipment,balance,75,69,92.0,4,10,22,21,12,38,5,26
+Electrical Equipment,capital,75,71,94.7,4,15,12,19,21,25,20,26
 Electrical Equipment,surprise,75,71,94.7,9,16,24,11,11,0,47,24
 Electrical Equipment,owner,75,75,100.0,0,18,23,29,5,0,47,28
 Electronic Equipment,growth,198,185,93.4,9,53,49,49,25,0,146,39
 Electronic Equipment,profitability,198,188,94.9,3,54,54,49,28,0,149,39
-Electronic Equipment,balance,198,186,93.9,6,35,83,44,18,0,133,53
-Electronic Equipment,capital,198,191,96.5,8,54,52,44,33,0,148,43
+Electronic Equipment,balance,198,186,93.9,6,35,83,44,18,133,16,37
+Electronic Equipment,capital,198,191,96.5,8,54,52,44,33,148,4,39
 Electronic Equipment,surprise,198,191,96.5,34,39,37,44,37,0,154,37
 Electronic Equipment,owner,198,198,100.0,0,25,86,64,23,0,153,45
 Entertainment,growth,69,59,85.5,1,13,20,16,9,0,39,20
 Entertainment,profitability,69,64,92.8,3,12,18,17,14,0,41,23
-Entertainment,balance,69,60,87.0,3,11,20,17,9,0,41,19
-Entertainment,capital,69,65,94.2,3,10,22,17,13,0,44,21
+Entertainment,balance,69,60,87.0,3,11,20,17,9,41,0,19
+Entertainment,capital,69,65,94.2,3,10,22,17,13,44,0,21
 Entertainment,surprise,69,64,92.8,12,10,19,11,12,0,44,20
 Entertainment,owner,69,69,100.0,0,10,27,30,2,0,44,25
 Fabricated Products,growth,9,7,77.8,1,1,3,1,1,0,0,7
 Fabricated Products,profitability,9,6,66.7,0,2,2,2,0,0,0,6
-Fabricated Products,balance,9,8,88.9,1,0,4,2,1,0,0,8
-Fabricated Products,capital,9,8,88.9,0,1,2,3,2,0,0,8
+Fabricated Products,balance,9,8,88.9,1,0,4,2,1,0,8,0
+Fabricated Products,capital,9,8,88.9,0,1,2,3,2,0,8,0
 Fabricated Products,surprise,9,8,88.9,0,2,4,1,1,0,0,8
 Fabricated Products,owner,9,9,100.0,0,2,4,2,1,0,0,9
 Food Products,growth,58,54,93.1,8,10,10,18,8,0,37,17
 Food Products,profitability,58,55,94.8,2,11,19,13,10,0,39,16
-Food Products,balance,58,58,100.0,0,6,29,16,7,0,39,19
-Food Products,capital,58,58,100.0,3,11,15,12,17,0,40,18
+Food Products,balance,58,58,100.0,0,6,29,16,7,39,1,18
+Food Products,capital,58,58,100.0,3,11,15,12,17,40,0,18
 Food Products,surprise,58,56,96.6,9,16,14,9,8,0,40,16
 Food Products,owner,58,58,100.0,0,19,18,18,3,0,40,18
 Healthcare,growth,84,74,88.1,4,21,23,20,6,0,60,14
 Healthcare,profitability,84,82,97.6,0,29,18,21,14,0,64,18
-Healthcare,balance,84,83,98.8,1,19,32,24,7,0,66,17
-Healthcare,capital,84,83,98.8,5,19,22,23,14,0,66,17
+Healthcare,balance,84,83,98.8,1,19,32,24,7,66,0,17
+Healthcare,capital,84,83,98.8,5,19,22,23,14,66,0,17
 Healthcare,surprise,84,78,92.9,13,15,21,15,14,0,66,12
 Healthcare,owner,84,84,100.0,0,9,37,33,5,0,66,18
 Insurance,growth,135,121,89.6,10,26,38,37,10,0,110,11
 Insurance,profitability,135,128,94.8,14,29,30,35,20,0,116,12
-Insurance,balance,135,133,98.5,10,38,40,31,14,0,121,12
-Insurance,capital,135,133,98.5,15,31,36,30,21,0,121,12
+Insurance,balance,135,133,98.5,10,38,40,31,14,121,0,12
+Insurance,capital,135,133,98.5,15,31,36,30,21,121,0,12
 Insurance,surprise,135,130,96.3,24,26,28,26,26,0,120,10
 Insurance,owner,135,135,100.0,0,17,56,49,13,0,121,14
 Machinery,growth,125,112,89.6,7,26,42,24,13,0,98,14
 Machinery,profitability,125,114,91.2,4,33,36,24,17,0,98,16
-Machinery,balance,125,111,88.8,6,24,41,22,18,0,96,15
-Machinery,capital,125,121,96.8,6,32,36,25,22,0,104,17
+Machinery,balance,125,111,88.8,6,24,41,22,18,96,1,14
+Machinery,capital,125,121,96.8,6,32,36,25,22,104,0,17
 Machinery,surprise,125,118,94.4,22,23,26,25,22,0,103,15
 Machinery,owner,125,125,100.0,0,22,50,38,15,0,106,19
 Measuring and Control Equipment,growth,73,67,91.8,6,16,19,19,7,0,52,15
 Measuring and Control Equipment,profitability,73,71,97.3,2,17,20,18,14,0,54,17
-Measuring and Control Equipment,balance,73,69,94.5,0,14,33,15,7,0,46,23
-Measuring and Control Equipment,capital,73,71,97.3,1,17,18,25,10,0,54,17
+Measuring and Control Equipment,balance,73,69,94.5,0,14,33,15,7,46,8,15
+Measuring and Control Equipment,capital,73,71,97.3,1,17,18,25,10,54,1,16
 Measuring and Control Equipment,surprise,73,70,95.9,13,15,16,13,13,0,54,16
 Measuring and Control Equipment,owner,73,73,100.0,0,17,26,25,5,0,56,17
 Medical Equipment,growth,189,162,85.7,12,32,64,35,19,0,111,51
 Medical Equipment,profitability,189,180,95.2,6,40,37,60,37,0,113,67
-Medical Equipment,balance,189,180,95.2,8,31,52,46,43,0,107,73
-Medical Equipment,capital,189,183,96.8,7,41,36,41,58,0,121,62
+Medical Equipment,balance,189,180,95.2,8,31,52,46,43,107,11,62
+Medical Equipment,capital,189,183,96.8,7,41,36,41,58,121,0,62
 Medical Equipment,surprise,189,182,96.3,28,28,50,43,33,0,122,60
 Medical Equipment,owner,189,188,99.5,0,32,71,70,15,0,122,66
 Non-Metallic and Industrial Metal Mining,growth,76,35,46.1,3,9,11,9,3,0,33,2
 Non-Metallic and Industrial Metal Mining,profitability,76,64,84.2,3,17,18,13,13,0,40,24
-Non-Metallic and Industrial Metal Mining,balance,76,60,78.9,5,11,27,12,5,0,52,8
-Non-Metallic and Industrial Metal Mining,capital,76,68,89.5,10,11,14,19,14,0,59,9
+Non-Metallic and Industrial Metal Mining,balance,76,60,78.9,5,11,27,12,5,51,1,8
+Non-Metallic and Industrial Metal Mining,capital,76,68,89.5,10,11,14,19,14,59,0,9
 Non-Metallic and Industrial Metal Mining,surprise,76,71,93.4,13,12,16,16,14,0,63,8
 Non-Metallic and Industrial Metal Mining,owner,76,76,100.0,0,18,30,21,7,0,63,13
 Personal Services,growth,75,66,88.0,9,12,23,12,10,0,39,27
 Personal Services,profitability,75,71,94.7,2,17,17,19,16,0,38,33
-Personal Services,balance,75,63,84.0,5,11,21,14,12,0,36,27
-Personal Services,capital,75,72,96.0,5,9,22,18,18,0,42,30
+Personal Services,balance,75,63,84.0,5,11,21,14,12,36,2,25
+Personal Services,capital,75,72,96.0,5,9,22,18,18,42,0,30
 Personal Services,surprise,75,71,94.7,10,22,18,12,9,0,41,30
 Personal Services,owner,75,75,100.0,0,13,43,12,7,0,42,33
 Petroleum and Natural Gas,growth,134,118,88.1,15,28,33,31,11,0,107,11
 Petroleum and Natural Gas,profitability,134,121,90.3,3,36,37,31,14,0,109,12
-Petroleum and Natural Gas,balance,134,119,88.8,4,30,48,27,10,0,109,10
-Petroleum and Natural Gas,capital,134,123,91.8,5,28,52,24,14,0,112,11
+Petroleum and Natural Gas,balance,134,119,88.8,4,30,48,27,10,109,0,10
+Petroleum and Natural Gas,capital,134,123,91.8,5,28,52,24,14,112,0,11
 Petroleum and Natural Gas,surprise,134,125,93.3,24,25,28,23,25,0,115,10
 Petroleum and Natural Gas,owner,134,134,100.0,0,25,57,46,6,0,116,18
 Pharmaceutical Products,growth,682,382,56.0,42,81,134,79,46,0,291,91
 Pharmaceutical Products,profitability,682,561,82.3,31,114,136,191,89,0,312,249
-Pharmaceutical Products,balance,682,646,94.7,38,140,191,203,74,0,311,335
-Pharmaceutical Products,capital,682,650,95.3,41,121,176,168,144,0,442,208
+Pharmaceutical Products,balance,682,646,94.7,38,140,191,203,74,311,128,207
+Pharmaceutical Products,capital,682,650,95.3,41,121,176,168,144,442,0,208
 Pharmaceutical Products,surprise,682,627,91.9,103,117,142,131,134,0,445,182
 Pharmaceutical Products,owner,682,682,100.0,0,111,284,245,42,0,456,226
 Precious Metals,growth,72,34,47.2,4,9,11,7,3,0,33,1
 Precious Metals,profitability,72,61,84.7,1,17,16,15,12,0,40,21
-Precious Metals,balance,72,59,81.9,10,9,27,8,5,0,54,5
-Precious Metals,capital,72,63,87.5,8,14,13,21,7,0,58,5
+Precious Metals,balance,72,59,81.9,10,9,27,8,5,54,0,5
+Precious Metals,capital,72,63,87.5,8,14,13,21,7,58,0,5
 Precious Metals,surprise,72,65,90.3,13,14,12,14,12,0,61,4
 Precious Metals,owner,72,72,100.0,0,18,32,21,1,0,63,9
 Printing and Publishing,growth,17,15,88.2,1,5,4,3,2,0,0,15
 Printing and Publishing,profitability,17,17,100.0,1,3,8,5,0,0,0,17
-Printing and Publishing,balance,17,16,94.1,1,1,10,2,2,0,0,16
-Printing and Publishing,capital,17,17,100.0,2,4,5,3,3,0,0,17
+Printing and Publishing,balance,17,16,94.1,1,1,10,2,2,0,12,4
+Printing and Publishing,capital,17,17,100.0,2,4,5,3,3,0,15,2
 Printing and Publishing,surprise,17,17,100.0,4,3,4,3,3,0,0,17
 Printing and Publishing,owner,17,17,100.0,0,5,7,4,1,0,0,17
 Real Estate,growth,61,58,95.1,4,13,20,11,10,0,47,11
 Real Estate,profitability,61,59,96.7,2,15,16,17,9,0,49,10
-Real Estate,balance,61,51,83.6,3,12,12,12,12,0,25,26
-Real Estate,capital,61,61,100.0,3,17,14,16,11,0,50,11
+Real Estate,balance,61,51,83.6,3,12,12,12,12,25,18,8
+Real Estate,capital,61,61,100.0,3,17,14,16,11,50,0,11
 Real Estate,surprise,61,58,95.1,11,12,13,12,10,0,48,10
 Real Estate,owner,61,61,100.0,0,14,21,24,2,0,50,11
 Recreation,growth,29,26,89.7,2,6,5,11,2,0,0,26
 Recreation,profitability,29,28,96.6,0,6,8,9,5,0,0,28
-Recreation,balance,29,28,96.6,0,6,10,8,4,0,0,28
-Recreation,capital,29,28,96.6,3,2,6,14,3,0,0,28
+Recreation,balance,29,28,96.6,0,6,10,8,4,0,17,11
+Recreation,capital,29,28,96.6,3,2,6,14,3,0,18,10
 Recreation,surprise,29,28,96.6,4,3,4,12,5,0,0,28
 Recreation,owner,29,29,100.0,0,4,14,8,3,0,0,29
 Restaraunts Hotels Motels,growth,83,74,89.2,6,18,22,19,9,0,59,15
 Restaraunts Hotels Motels,profitability,83,80,96.4,1,19,31,19,10,0,64,16
-Restaraunts Hotels Motels,balance,83,80,96.4,0,16,28,30,6,0,63,17
-Restaraunts Hotels Motels,capital,83,80,96.4,5,15,26,24,10,0,64,16
+Restaraunts Hotels Motels,balance,83,80,96.4,0,16,28,30,6,63,1,16
+Restaraunts Hotels Motels,capital,83,80,96.4,5,15,26,24,10,64,0,16
 Restaraunts Hotels Motels,surprise,83,78,94.0,15,16,14,16,17,0,64,14
 Restaraunts Hotels Motels,owner,83,83,100.0,0,14,37,24,8,0,64,19
 Retail,growth,174,162,93.1,15,43,50,36,18,0,133,29
 Retail,profitability,174,169,97.1,0,42,69,40,18,0,138,31
-Retail,balance,174,167,96.0,1,36,77,42,11,0,135,32
-Retail,capital,174,170,97.7,6,40,59,38,27,0,138,32
+Retail,balance,174,167,96.0,1,36,77,42,11,135,1,31
+Retail,capital,174,170,97.7,6,40,59,38,27,138,0,32
 Retail,surprise,174,166,95.4,27,37,38,32,32,0,136,30
 Retail,owner,174,174,100.0,0,28,66,58,22,0,140,34
 Rubber and Plastic Products,growth,16,16,100.0,0,7,2,5,2,0,0,16
 Rubber and Plastic Products,profitability,16,16,100.0,0,5,6,3,2,0,0,16
-Rubber and Plastic Products,balance,16,15,93.8,1,3,8,1,2,0,0,15
-Rubber and Plastic Products,capital,16,16,100.0,1,5,7,1,2,0,0,16
+Rubber and Plastic Products,balance,16,15,93.8,1,3,8,1,2,0,14,1
+Rubber and Plastic Products,capital,16,16,100.0,1,5,7,1,2,0,15,1
 Rubber and Plastic Products,surprise,16,16,100.0,3,3,4,3,3,0,0,16
 Rubber and Plastic Products,owner,16,16,100.0,0,3,7,5,1,0,0,16
 Shipbuilding Railroad Equipment,growth,12,11,91.7,0,5,3,1,2,0,0,11
 Shipbuilding Railroad Equipment,profitability,12,12,100.0,0,4,1,4,3,0,0,12
-Shipbuilding Railroad Equipment,balance,12,11,91.7,0,3,2,3,3,0,0,11
-Shipbuilding Railroad Equipment,capital,12,12,100.0,0,2,5,2,3,0,0,12
+Shipbuilding Railroad Equipment,balance,12,11,91.7,0,3,2,3,3,0,8,3
+Shipbuilding Railroad Equipment,capital,12,12,100.0,0,2,5,2,3,0,8,4
 Shipbuilding Railroad Equipment,surprise,12,11,91.7,2,2,1,4,2,0,0,11
 Shipbuilding Railroad Equipment,owner,12,12,100.0,0,1,5,6,0,0,0,12
 Shipping Containers,growth,13,13,100.0,0,6,2,4,1,0,0,13
 Shipping Containers,profitability,13,13,100.0,0,5,4,2,2,0,0,13
-Shipping Containers,balance,13,13,100.0,1,4,4,3,1,0,0,13
-Shipping Containers,capital,13,13,100.0,1,1,5,5,1,0,0,13
+Shipping Containers,balance,13,13,100.0,1,4,4,3,1,0,11,2
+Shipping Containers,capital,13,13,100.0,1,1,5,5,1,0,11,2
 Shipping Containers,surprise,13,13,100.0,2,4,3,2,2,0,0,13
 Shipping Containers,owner,13,13,100.0,0,2,6,2,3,0,0,13
 Steel Works Etc,growth,44,38,86.4,3,9,12,11,3,0,35,3
 Steel Works Etc,profitability,44,38,86.4,2,12,11,7,6,0,35,3
-Steel Works Etc,balance,44,37,84.1,1,10,14,8,4,0,34,3
-Steel Works Etc,capital,44,39,88.6,1,10,16,9,3,0,35,4
+Steel Works Etc,balance,44,37,84.1,1,10,14,8,4,34,0,3
+Steel Works Etc,capital,44,39,88.6,1,10,16,9,3,35,0,4
 Steel Works Etc,surprise,44,39,88.6,7,8,9,8,7,0,35,4
 Steel Works Etc,owner,44,44,100.0,0,7,20,13,4,0,36,8
 Textiles,growth,6,6,100.0,1,2,3,0,0,0,0,6
 Textiles,profitability,6,6,100.0,0,1,3,2,0,0,0,6
-Textiles,balance,6,6,100.0,0,2,3,1,0,0,0,6
-Textiles,capital,6,6,100.0,0,2,2,2,0,0,0,6
+Textiles,balance,6,6,100.0,0,2,3,1,0,0,4,2
+Textiles,capital,6,6,100.0,0,2,2,2,0,0,4,2
 Textiles,surprise,6,0,0.0,0,0,0,0,0,0,0,0
 Textiles,owner,6,6,100.0,0,2,1,3,0,0,0,6
 Tobacco Products,growth,8,7,87.5,1,1,3,1,1,0,0,7
 Tobacco Products,profitability,8,7,87.5,2,1,1,1,2,0,0,7
-Tobacco Products,balance,8,6,75.0,0,1,3,0,2,0,0,6
-Tobacco Products,capital,8,8,100.0,0,0,3,3,2,0,0,8
+Tobacco Products,balance,8,6,75.0,0,1,3,0,2,0,4,2
+Tobacco Products,capital,8,8,100.0,0,0,3,3,2,0,7,1
 Tobacco Products,surprise,8,8,100.0,2,1,2,3,0,0,0,8
 Tobacco Products,owner,8,8,100.0,0,2,5,1,0,0,0,8
 Trading,growth,619,305,49.3,23,77,106,57,42,0,271,34
 Trading,profitability,619,332,53.6,4,114,111,57,46,0,275,57
-Trading,balance,619,406,65.6,10,66,191,70,69,0,363,43
-Trading,capital,619,515,83.2,37,126,180,131,41,0,466,49
+Trading,balance,619,406,65.6,10,66,191,70,69,363,0,43
+Trading,capital,619,515,83.2,37,126,180,131,41,466,0,49
 Trading,surprise,619,604,97.6,115,116,119,126,128,0,557,47
 Trading,owner,619,619,100.0,0,127,273,197,22,0,542,77
 Transportation,growth,163,131,80.4,21,18,36,42,14,0,109,22
 Transportation,profitability,163,139,85.3,1,43,44,28,23,0,112,27
-Transportation,balance,163,134,82.2,8,25,56,24,21,0,108,26
-Transportation,capital,163,141,86.5,6,36,42,37,20,0,114,27
+Transportation,balance,163,134,82.2,8,25,56,24,21,108,0,26
+Transportation,capital,163,141,86.5,6,36,42,37,20,114,0,27
 Transportation,surprise,163,141,86.5,23,27,32,34,25,0,113,28
 Transportation,owner,163,163,100.0,0,27,67,64,5,0,117,46
 Utilities,growth,125,106,84.8,10,20,38,30,8,0,103,3
 Utilities,profitability,125,111,88.8,2,28,52,18,11,0,105,6
 Utilities,balance,125,109,87.2,6,29,38,28,8,0,104,5
-Utilities,capital,125,115,92.0,6,31,34,30,14,0,110,5
+Utilities,capital,125,115,92.0,6,31,34,30,14,110,0,5
 Utilities,surprise,125,113,90.4,22,21,25,23,22,0,108,5
 Utilities,owner,125,125,100.0,0,21,54,44,6,0,111,14
 Wholesale,growth,105,92,87.6,8,20,26,25,13,0,68,24
 Wholesale,profitability,105,99,94.3,1,20,34,22,22,0,70,29
-Wholesale,balance,105,98,93.3,2,20,34,29,13,0,70,28
-Wholesale,capital,105,100,95.2,5,28,27,20,20,0,71,29
+Wholesale,balance,105,98,93.3,2,20,34,29,13,70,0,28
+Wholesale,capital,105,100,95.2,5,28,27,20,20,71,0,29
 Wholesale,surprise,105,100,95.2,15,18,30,22,15,0,72,28
 Wholesale,owner,105,105,100.0,0,21,50,27,7,0,71,34

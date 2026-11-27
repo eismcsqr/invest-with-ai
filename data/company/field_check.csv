@@ -1,0 +1,40 @@
+field,used_for,in_sharadar
+ticker,key,Y
+dimension,key,Y
+calendardate,key,Y
+date,point in time (filing date),Y
+reportperiod,point in time,Y
+lastupdated,point in time,Y
+revenue,growth,Y
+netinc,growth,Y
+epsdil,growth,Y
+grossmargin,profitability,Y
+gp,profitability,Y
+opinc,profitability,Y
+ebitda,profitability,Y
+invcap,profitability,Y
+roe,profitability,Y
+debt,balance sheet,Y
+debtc,balance sheet,Y
+debtnc,balance sheet,Y
+cashneq,balance sheet,Y
+equity,balance sheet,Y
+ebit,balance sheet,Y
+intexp,balance sheet,Y
+workingcapital,balance sheet,Y
+ncfo,capital use,Y
+fcf,capital use,Y
+capex,capital use,Y
+depamor,capital use,Y
+ncfcommon,capital use,Y
+ncfdiv,capital use,Y
+dps,capital use,Y
+shareswa,capital use,Y
+sbcomp,capital use,Y
+marketcap,capital use and peer size,Y
+revenueusd,exposure profile,Y
+pe,valuation baseline,Y
+pb,valuation baseline (financials),Y
+intangibles,valuation baseline (financials),Y
+deposits,financials,Y
+investments,financials,Y

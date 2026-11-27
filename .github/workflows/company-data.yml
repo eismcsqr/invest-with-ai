@@ -1,0 +1,66 @@
+name: Company data pull
+
+# Downloads Sharadar's company tables (tickers, fundamentals, daily prices,
+# 8-K events, corporate actions) with the bulk route, runs the six data
+# checks agreed on Nov 25, and commits the small files built from them to
+# data/company/. The raw tables stay on the runner: too big for the
+# repository, and the personal licence does not allow redistributing them.
+#
+# Needs the SHARADAR_API_KEY repository secret. SEC_USER_AGENT is optional
+# (a name and contact for SEC's API, used by the EDGAR cross-check).
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 16 * * 6"   # Saturdays 16:00 UTC (8 AM Pacific), after the industry pull
+  push:
+    branches:
+      - main
+      - "claude/**"
+    paths:
+      - scripts/fetch_company_data.py
+      - .github/workflows/company-data.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: company-data-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Download Sharadar tables and run the checks
+        env:
+          SHARADAR_API_KEY: ${{ secrets.SHARADAR_API_KEY }}
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+        run: python scripts/fetch_company_data.py
+
+      - name: Commit data changes
+        if: ${{ !cancelled() }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          [ -d data/company ] || { echo "No data folder to commit."; exit 0; }
+          git add data/company
+          if git diff --cached --quiet; then
+            echo "No data changes."
+            exit 0
+          fi
+          git commit -m "Update company data checks ($(date -u +%Y-%m-%d))"
+          for attempt in 1 2 3; do
+            if git push; then exit 0; fi
+            git pull --rebase
+          done
+          echo "::error::Could not push the data commit."
+          exit 1

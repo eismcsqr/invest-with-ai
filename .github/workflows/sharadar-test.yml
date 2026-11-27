@@ -1,0 +1,74 @@
+name: Sharadar key test
+
+# Checks that the SHARADAR_API_KEY repository secret works on the direct
+# Sharadar API (api.sharadar.com/v1.0). Prints only HTTP status codes and
+# row counts, never the key or the data itself.
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/project-thread-uwts5c
+    paths:
+      - .github/workflows/sharadar-test.yml
+
+permissions:
+  contents: read
+
+jobs:
+  sharadar-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      SHARADAR_API_KEY: ${{ secrets.SHARADAR_API_KEY }}
+    steps:
+      - name: Check the secret is set
+        run: |
+          if [ -z "$SHARADAR_API_KEY" ]; then
+            echo "::error::Repository secret SHARADAR_API_KEY is missing or empty."
+            exit 1
+          fi
+          echo "SHARADAR_API_KEY is set (length ${#SHARADAR_API_KEY})."
+
+      - name: Query one slice of each table
+        run: |
+          set -u
+          base=https://api.sharadar.com/v1.0/data
+          fail=0
+          echo "| Check | HTTP | Rows |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| --- | --- | --- |" >> "$GITHUB_STEP_SUMMARY"
+          check() {
+            label="$1"; shift
+            status=$(curl -sS -G -o resp.csv -w '%{http_code}' \
+              -H "x-api-key: ${SHARADAR_API_KEY}" "$@" --data-urlencode "format=csv")
+            if [ "$status" = "200" ]; then
+              rows=$(( $(grep -c . resp.csv) - 1 ))
+              [ "$rows" -lt 0 ] && rows=0
+            else
+              rows="-"
+              fail=1
+            fi
+            echo "${label}: HTTP ${status}, rows ${rows}"
+            echo "| ${label} | ${status} | ${rows} |" >> "$GITHUB_STEP_SUMMARY"
+            if [ "$status" = "200" ] && [ "$rows" = "0" ]; then fail=1; fi
+            rm -f resp.csv
+          }
+          # ETSY is outside the free sample universe, so a 200 here means a paid key.
+          check "Fundamentals, ETSY, as first reported quarterly" "$base/fundamentals" \
+            --data-urlencode "ticker=ETSY" --data-urlencode "dimension=ARQ" \
+            --data-urlencode "fields=ticker,dimension,calendardate,datekey,revenue"
+          check "Daily prices, ETSY, Jan 2024" "$base/stocks" \
+            --data-urlencode "ticker=ETSY" --data-urlencode "from=2024-01-01" --data-urlencode "to=2024-01-31"
+          # Full history: prices from 1998.
+          check "Daily prices, IBM, Jan 1998" "$base/stocks" \
+            --data-urlencode "ticker=IBM" --data-urlencode "from=1998-01-01" --data-urlencode "to=1998-01-31"
+          check "Insider trades, ETSY, 2024" "$base/insiders" \
+            --data-urlencode "ticker=ETSY" --data-urlencode "from=2024-01-01" --data-urlencode "to=2024-12-31"
+          check "Institutional holdings, ETSY" "$base/holdings" \
+            --data-urlencode "ticker=ETSY" --data-urlencode "limit=50"
+          check "8-K events, ETSY" "$base/events" \
+            --data-urlencode "ticker=ETSY" --data-urlencode "limit=50"
+          if [ "$fail" != "0" ]; then
+            echo "::error::At least one Sharadar check failed (401 = bad key, 403 = free tier or table not in plan)."
+            exit 1
+          fi
+          echo "### Sharadar key works" >> "$GITHUB_STEP_SUMMARY"

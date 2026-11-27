@@ -52,7 +52,9 @@ For the run date, using only filings dated on or before it and prices on or befo
 
 **Edge cases (method section 2):** negative equity makes return on equity missing and puts the company at the bottom on leverage; a company with no debt ranks top on interest cover and debt due soon; a company not burning cash ranks top on cash runway; a zero or negative denominator elsewhere is missing.
 
-**Computed but not scored:** R&D ÷ revenue (business equipment, healthcare), capex ÷ depreciation (manufacturing), reinvestment rate (energy), capex ÷ revenue (telecom) and dividend payout ratio (utilities). The factors doc names them, but which way is better isn't settled: more R&D can be investment or waste, and a high payout ratio can be confidence or strain. They're kept in the per-company results until the measured check shows a direction.
+**Computed but not scored:** R&D ÷ revenue (business equipment, healthcare), capex ÷ depreciation (manufacturing), reinvestment rate (energy), capex ÷ revenue (telecom) and dividend payout ratio (utilities). The factors doc names them, but which way is better isn't settled: more R&D can be investment or waste, and a high payout ratio can be confidence or strain. They're kept in the per-company results; the measured check's proposed directions are in `docs/company-check.md`, waiting on a decision.
+
+**Insider buying is ranked from zero out (changed Nov 27 after the first run).** Most companies have no open-market insider trades in six months, so their value is exactly zero. Ranked plainly, that tie sat around the 60th percentile and read +0.5, which made "nothing happened" look like a mild plus and tilted owner signals positive. Now zero reads 50 (neutral), net buyers rank among buyers from 50 to 100, and net sellers among sellers from 0 to 50.
 
 **Owner signals need whole tables.** Insider trades and institutional holdings are pulled as whole tables (skipped with a note if a zip is over 6 GB). Insider buying is scored only when the insider table covers the full 6 months to the run date; institutional change only when there are two complete recent quarters (a quarter is complete when it holds at least half as many companies as the fullest quarter, and at least 1,000), counted 46 days after quarter end. Otherwise the measure is left out of that run and the check report says why.
 
@@ -67,14 +69,13 @@ For the run date, using only filings dated on or before it and prices on or befo
 - **Industry-specific measures with fewer than 10 peers** get no reading for now. The method pools the group's last three years instead; that needs the historical runs that come with the measured check.
 - **Share count change** is worked out from market value and split-adjusted price at each filing, so splits don't show as dilution.
 - **Exposure profile** multipliers stay at 1 (filing-level data not parsed yet), as the method says.
-- **Confidence:** nothing goes above Medium until the measured check runs.
+- **Confidence:** check 3 (the measured check) comes from `data/company/check/factor_check.csv`, written by the monthly check (`docs/company-check.md`). A factor is High only when all three checks pass; the company takes the lowest confidence among the factors carrying most of its weight.
 
 ## Not built yet
 
 - **EDGAR measures:** loan losses and capital ratios for banks, combined ratio for insurers, remaining performance obligations, pension shortfall, advertising, warranty and environmental liabilities. Banks' capital and credit factor rests on tangible equity alone until then.
 - **Other free sources:** FERC Form 1 (utilities' rate base), FDA Orange Book and ClinicalTrials.gov (healthcare).
 - **Text-only measures** (same-store sales, subscribers, production volumes): second phase, as agreed.
-- **The measured check** (method section 9): needs a run for each month back to 1998.
 
 ## Point in time
 

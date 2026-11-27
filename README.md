@@ -13,6 +13,26 @@ This repository holds the code for the Invest with AI framework, which helps ass
 
 To add a FRED series, add a row to `config/fred_series.csv`.
 
+## Industry data pull
+
+`.github/workflows/industry-data.yml` runs `scripts/fetch_industry_data.py` every Saturday an hour after the macro pull, on demand from the Actions tab, and whenever the script or workflow changes. It commits the results to `data/industry/`. These are the free sources agreed for the industry pillar on Nov 25.
+
+Each source has its own repository secret. A source whose secret is missing is skipped with a warning and its earlier files are kept, so keys can be added one at a time.
+
+| Factor | Source | Secret | Files |
+|---|---|---|---|
+| Demand cycle | BEA gross output by industry, quarterly (current dollars, real, and price index; tables found by name in BEA's table list) | `BEA_API_KEY` | `bea/gross_output_*.csv`, `bea/industries.csv`, `bea/tables.csv` |
+| Demand cycle (manufacturing) | Census M3: new orders, shipments and unfilled orders by M3 category, monthly, from 1992, seasonally adjusted and not | `CENSUS_API_KEY` | `census/m3.csv`, `census/m3_columns.csv` |
+| Competition (cross-check) | Census Economic Census concentration of largest firms, 2017 and 2022: HHI and the largest firms' share of revenue by NAICS industry | `CENSUS_API_KEY` | `census/concentration_<year>.csv` |
+| Coping with shocks | BLS producer price indexes by NAICS industry, monthly, from 1985, not seasonally adjusted | `BLS_API_KEY` (and `FRED_API_KEY` for the series list) | `bls/ppi_industry.csv`, `bls/ppi_series.csv` |
+| Capacity cycle | Fed G.17 capacity utilization by industry, monthly, seasonally adjusted, from FRED | `FRED_API_KEY` | `fed_g17/capacity_utilization.csv`, `fed_g17/series.csv` |
+
+- **Layout:** time series files are wide: one `date` column and one column per industry, category or index. Quarterly BEA rows are dated to the quarter's first month (`2026-01` is Q1 2026).
+- **PPI series list:** BLS's own list files block automated downloads, so the job takes the list of industry-level indexes from FRED's copy of the PPI (ids like `PCU325325`) and pulls each one from BLS (`PCU325---325---`). The list is saved, so later runs can reuse it if FRED is down.
+- **Check report:** `data/industry/INDUSTRY_CHECK_REPORT.md` lists each dataset's series count, date range, missing values, stale or likely discontinued series, out-of-range values (capacity use outside 0 to 110, HHI outside 0 to 10,000) and which sources were skipped.
+- **Not covered yet:** services capacity (no free measure), Sharadar revenue shares (paid), QuantGov RegData and the Federal Register (regulation), PatentsView (technology), and the NAICS-to-French-group crosswalk.
+- **Keyless check:** `python scripts/fetch_industry_data.py --smoke` reads three PPI indexes from BLS's keyless API and writes nothing.
+
 ## Event calendar
 
 `scripts/build_event_calendar.py` runs right after the data pull in the same workflow and writes `data/events/`:

@@ -237,20 +237,35 @@ def failed(name: str, source: str, err: Exception) -> dict:
 # --------------------------------------------------------------------- FRED --
 
 def fred_search_ids(pattern: str, key: str) -> list[dict]:
-    """Every FRED series whose id matches pattern (FRED wildcard search)."""
-    out, offset = [], 0
-    while True:
+    """Every FRED series whose id matches prefix* (FRED wildcard search).
+
+    FRED returns at most 5,000 results per search, so a prefix with more
+    matches is split by its next character and searched again.
+    """
+    prefix = pattern.rstrip("*")
+
+    def page(offset: int) -> dict:
         raw, _ = http_get(FRED_BASE + "series/search", {
-            "search_text": pattern, "search_type": "series_id", "api_key": key,
+            "search_text": prefix + "*", "search_type": "series_id", "api_key": key,
             "file_type": "json", "limit": 1000, "offset": offset,
-        }, label=f"FRED search {pattern}")
-        d = json.loads(raw)
-        batch = d.get("seriess", [])
-        out += batch
-        offset += len(batch)
-        if not batch or offset >= int(d.get("count", 0)) or offset >= 20000:
-            return out
+        }, label=f"FRED search {prefix}*")
         time.sleep(0.6)
+        return json.loads(raw)
+
+    first = page(0)
+    count = int(first.get("count", 0))
+    if count > 5000:
+        out = []
+        for c in "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ":
+            out += fred_search_ids(prefix + c, key)
+        return out
+    out = list(first.get("seriess", []))
+    while len(out) < count:
+        batch = page(len(out)).get("seriess", [])
+        if not batch:
+            break
+        out += batch
+    return [s for s in out if s["id"].startswith(prefix)]
 
 
 def fred_observations(series_id: str, key: str) -> dict[str, str]:

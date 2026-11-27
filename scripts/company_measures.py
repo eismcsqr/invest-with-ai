@@ -73,6 +73,22 @@ FACTOR_NAMES = {"growth": "Growth", "profitability": "Profitability",
                 "balance": "Balance sheet", "capital": "Capital use",
                 "surprise": "Earnings surprise", "owner": "Owner signals"}
 BANDS = [(80, 1.0), (60, 0.5), (40, 0.0), (20, -0.5), (-1, -1.0)]
+CHECK_FILE = ROOT / "data" / "company" / "check" / "factor_check.csv"
+CONF_ORDER = {"Low": 0, "Medium": 1, "High": 2}
+
+
+def load_check() -> tuple[set, str]:
+    """(factor, broad group) pairs that pass the measured check, from the
+    latest committed check (scripts/company_check.py), and its run date."""
+    if not CHECK_FILE.exists():
+        return set(), ""
+    passed, run_date = set(), ""
+    with CHECK_FILE.open(newline="") as f:
+        for r in csv.DictReader(f):
+            run_date = r.get("check_run", run_date)
+            if r.get("passes") == "Y":
+                passed.add((r["factor"], r["broad_group"]))
+    return passed, run_date
 
 # French's 12 broad groups from SIC codes (his Siccodes12 definitions).
 SIC12 = [
@@ -172,6 +188,30 @@ FUND_FIELDS = ["revenue", "netinc", "equity", "assets", "intangibles", "debt",
                "payoutratio"]
 
 
+FIX = {f: i for i, f in enumerate(FUND_FIELDS)}
+NAN = float("nan")
+
+
+class FRow:
+    """One filing's fields, stored compactly (the measured check loads every
+    filing since 1998, so a dict per row would use several gigabytes)."""
+    __slots__ = ("a",)
+
+    def __init__(self, values: dict):
+        a = array("d", [NAN]) * len(FUND_FIELDS)
+        for f, v in values.items():
+            if v is not None:
+                a[FIX[f]] = v
+        self.a = a
+
+    def get(self, field, default=None):
+        i = FIX.get(field)
+        if i is None:
+            return default
+        x = self.a[i]
+        return default if x != x else x
+
+
 class Data:
     """Everything the measures need, cut to a window around the run date."""
 
@@ -214,8 +254,13 @@ class Data:
         return t
 
 
-def load(today: int) -> Data:
+def load(today: int, start: int | None = None) -> Data:
+    """Read the tables. By default only the window the weekly run needs;
+    `start` (a date ordinal) keeps everything from that date on instead,
+    for the measured check's history runs."""
     data = Data()
+    fund_start = start if start is not None else today - 366 * HISTORY_YEARS
+    px_start = start if start is not None else today - PRICE_DAYS
     tick_p = find_table("tickers")
     fund_p = find_table("fundamentals", "sf1")
     if not tick_p or not fund_p:
@@ -243,7 +288,7 @@ def load(today: int) -> Data:
     print(f"tickers: {len(data.info):,} common stocks in {time.time() - t0:,.0f}s")
 
     t0 = time.time()
-    start_cal = today - 366 * HISTORY_YEARS
+    start_cal = fund_start
     header, rows = open_rows(fund_p)
     ix = {h: i for i, h in enumerate(header)}
     i_key = ix.get("datekey", ix.get("date"))
@@ -266,7 +311,7 @@ def load(today: int) -> Data:
         if cal is None or filed is None or cal < start_cal:
             continue
         if dim == "ART":
-            data.art[t].append((cal, filed, {f: num(r[i]) for f, i in fields}))
+            data.art[t].append((cal, filed, FRow({f: num(r[i]) for f, i in fields})))
         else:
             data.arq[t].append((cal, filed, num(r[i_rev]) if i_rev is not None else None,
                                 num(r[i_op]) if i_op is not None else None))
@@ -284,7 +329,7 @@ def load(today: int) -> Data:
     sep = find_table("stocks", "sep")
     if sep:
         t0 = time.time()
-        start = today - PRICE_DAYS
+        start = px_start
         header, rows = open_rows(sep)
         ix = {h: i for i, h in enumerate(header)}
         i_t, i_d, i_c = ix["ticker"], ix["date"], ix["close"]
@@ -314,7 +359,7 @@ def load(today: int) -> Data:
     if ev:
         header, rows = open_rows(ev)
         ix = {h: i for i, h in enumerate(header)}
-        start = today - PRICE_DAYS
+        start = px_start
         for r in rows:
             if len(r) < len(header) or r[ix["ticker"]] not in data.info:
                 continue
@@ -330,12 +375,12 @@ def load(today: int) -> Data:
         data.notes.append("8-K events not found: results days fall back to "
                           "quarterly filing dates.")
 
-    load_insiders(data, today)
-    load_holdings(data, today)
+    load_insiders(data, px_start)
+    load_holdings(data, px_start)
     return data
 
 
-def load_insiders(data: Data, today: int) -> None:
+def load_insiders(data: Data, start: int) -> None:
     p = find_table("insiders", "sf2")
     if not p:
         data.notes.append("Insider trades not downloaded: insider buying is missing.")
@@ -351,7 +396,6 @@ def load_insiders(data: Data, today: int) -> None:
         return
     i_sec = ix.get("securityadcode")
     i_form = ix.get("formtype")
-    start = today - PRICE_DAYS
     n = total = 0
     first = last = ""
     codes = Counter()
@@ -386,7 +430,7 @@ def load_insiders(data: Data, today: int) -> None:
                       f"{n:,} open-market buys and sales kept.")
 
 
-def load_holdings(data: Data, today: int) -> None:
+def load_holdings(data: Data, start: int) -> None:
     p = find_table("holdings", "sf3")
     if not p:
         data.notes.append("Institutional holdings not downloaded: change in "
@@ -401,7 +445,6 @@ def load_holdings(data: Data, today: int) -> None:
                           + ", ".join(header[:15]) + "...): institutional change is missing.")
         return
     i_type = ix.get("securitytype")
-    start = today - PRICE_DAYS
     agg = defaultdict(float)
     total = 0
     quarters = Counter()
@@ -441,11 +484,15 @@ def close_on(data: Data, t: str, day: int) -> tuple[int, float] | None:
     return ds[i], data.px_c[t][i]
 
 
-def daily_returns(data: Data, t: str) -> dict:
+def daily_returns(data: Data, t: str, lo: int | None = None,
+                  hi: int | None = None) -> dict:
+    """Daily returns by date, optionally only for days in [lo, hi]."""
     ds, cs = data.px_d.get(t), data.px_c.get(t)
     if not ds:
         return {}
-    return {ds[i]: cs[i] / cs[i - 1] - 1 for i in range(1, len(ds))
+    a = 1 if lo is None else max(1, bisect_left(ds, lo))
+    b = len(ds) if hi is None else bisect_right(ds, hi)
+    return {ds[i]: cs[i] / cs[i - 1] - 1 for i in range(a, b)
             if ds[i] - ds[i - 1] <= 5}
 
 
@@ -505,7 +552,7 @@ class Ctx:
         r = self.row(lag)
         if not r or r[2].get("marketcap") is None:
             return None
-        m = r[2]["marketcap"]
+        m = r[2].get("marketcap")
         if lag > 0:
             return m
         then, now = self.price(r[1]), self.price(self.asof)
@@ -745,8 +792,12 @@ def m_payout_ratio(c, lag):
 
 class M:
     def __init__(self, key, factor, label, fn, direction=1, trend=True,
-                 core=False, scored=True, where=None):
+                 core=False, scored=True, where=None, signed=False):
         self.key, self.factor, self.label, self.fn = key, factor, label, fn
+        # Signed: zero means "nothing happened" and reads neutral (50th
+        # percentile); positive values rank among positives (50 to 100) and
+        # negative among negatives (0 to 50).
+        self.signed = signed
         self.direction, self.trend, self.core = direction, trend, core
         self.scored, self.where = scored, where   # where: predicate on info
         # Core and generic measures fall back to the broad group when the
@@ -830,7 +881,7 @@ MEASURES = [
     M("results_move", "surprise", "Results-day move beyond peers", None,
       trend=False, core=True),
     M("insider_buying", "owner", "Net insider buying, 6 months", None,
-      trend=False, core=True),
+      trend=False, core=True, signed=True),
     M("inst_change", "owner", "Change in institutional ownership", None,
       trend=False, core=True),
 ]
@@ -846,14 +897,16 @@ def applies(m: M, info: dict) -> bool:
 def results_moves(data: Data, asof: int, universe: dict, peer_sets: dict) -> dict:
     """Latest results-day move beyond peers ÷ normal daily volatility."""
     # Median daily return of each detailed group's peer set, by day.
-    rets = {t: daily_returns(data, t) for t in universe}
+    # Only the days the moves need: peers' results days from the past year
+    # and the 60 trading days before each (well inside 160 calendar days).
+    lo = asof - PEER_SURPRISE_DAYS - 160
+    rets = {t: daily_returns(data, t, lo, asof) for t in universe}
     by_group_day = defaultdict(lambda: defaultdict(list))
     for t, info in universe.items():
         if not info["peer"]:
             continue
         for d, r in rets[t].items():
-            if asof - PRICE_DAYS <= d <= asof:
-                by_group_day[info["group"]][d].append(r)
+            by_group_day[info["group"]][d].append(r)
     med = {g: {d: statistics.median(v) for d, v in days.items() if len(v) >= 5}
            for g, days in by_group_day.items()}
     out = {}
@@ -946,6 +999,22 @@ def percentile(value: float, peers: list[float]) -> float:
     return 100.0 * (lo + 0.5 * (hi - lo)) / max(1, len(peers))
 
 
+def signed_percentile(value: float, peers: list[float]) -> float:
+    """Zero reads 50; positives rank among positive peers into 50 to 100,
+    negatives among negative peers into 0 to 50."""
+    if value == 0:
+        return 50.0
+    if value > 0:
+        pos = peers[bisect_right(peers, 0):]
+        return 50.0 + 0.5 * percentile(value, pos) if pos else 75.0
+    neg = peers[:bisect_left(peers, 0)]
+    return 0.5 * percentile(value, neg) if neg else 25.0
+
+
+def rank(m: "M", value: float, peers: list[float]) -> float:
+    return (signed_percentile if m.signed else percentile)(value, peers)
+
+
 def band(p: float) -> float:
     for cut, r in BANDS:
         if p >= cut:
@@ -953,8 +1022,11 @@ def band(p: float) -> float:
     return -1.0
 
 
-def run(data: Data, asof: int) -> dict:
-    """Measures, percentiles, readings and scores for every company on asof."""
+def run(data: Data, asof: int, check: set | None = None) -> dict:
+    """Measures, percentiles, readings and scores for every company on asof.
+    `check` holds the (factor, broad group) pairs that pass the measured
+    check (confidence check 3); none pass when it is empty or None."""
+    check = check or set()
     universe = {}
     for t, info in data.info.items():
         last = close_on(data, t, asof)
@@ -1044,11 +1116,11 @@ def run(data: Data, asof: int) -> dict:
                     pct[t][m.key] = {"value": lvl, "pct": None, "peers": len(peers),
                                      "fallback": "too few peers"}
                     continue
-            p_lvl = percentile(m.direction * lvl, peers)
+            p_lvl = rank(m, m.direction * lvl, peers)
             p = p_lvl
             p_chg = None
             if chg is not None and len(cpeers) >= MIN_PEERS:
-                p_chg = percentile(m.direction * chg, cpeers)
+                p_chg = rank(m, m.direction * chg, cpeers)
                 p = 2 / 3 * p_lvl + 1 / 3 * p_chg
             pct[t][m.key] = {"value": lvl, "change": chg, "pct": p,
                              "pct_level": p_lvl, "pct_change": p_chg,
@@ -1072,8 +1144,10 @@ def run(data: Data, asof: int) -> dict:
             data_ok = len(got) >= 2 / 3 * len(ms)
             peers_ok = (not u["small"] and all(g["peers"] >= GOOD_PEERS and not g["fallback"]
                                                for g in got))
-            checks = data_ok + peers_ok        # measured check not passed yet
-            conf = "Low" if u["small"] else ("Medium" if checks >= 2 else "Low")
+            measured_ok = (f, u["broad"]) in check
+            checks = data_ok + peers_ok + measured_ok
+            conf = ("Low" if u["small"] else "High" if checks == 3 else
+                    "Medium" if checks == 2 else "Low")
             facs[f] = {"reading": band(fp), "pct": fp, "low": min(reads),
                        "high": max(reads), "measures": len(ms), "have": len(got),
                        "confidence": conf,
@@ -1086,7 +1160,7 @@ def run(data: Data, asof: int) -> dict:
             hi = 3 * sum(w[f] * facs[f]["high"] for f in scored) / sw
             top = max(w[f] for f in scored)
             confs = [facs[f]["confidence"] for f in scored if w[f] == top]
-            conf = "Low" if "Low" in confs else "Medium"
+            conf = min(confs, key=CONF_ORDER.__getitem__)
         else:
             score = lo = hi = None
             conf = ""
@@ -1202,11 +1276,13 @@ def report(res: dict, data: Data, tests: list, spot: list) -> None:
             frows.append([g, f, len(members), len(got),
                           f"{100 * len(got) / max(1, len(members)):.1f}",
                           *[bands.get(b, 0) for b in (1.0, 0.5, 0.0, -0.5, -1.0)],
-                          confs.get("Medium", 0), confs.get("Low", 0)])
+                          confs.get("High", 0), confs.get("Medium", 0),
+                          confs.get("Low", 0)])
     write_csv(OUT / "factor_coverage.csv",
               ["detailed_group", "factor", "companies", "with_reading",
                "with_reading_pct", "plus1", "plus_half", "zero", "minus_half",
-               "minus1", "medium_confidence", "low_confidence"], frows)
+               "minus1", "high_confidence", "medium_confidence",
+               "low_confidence"], frows)
 
     n = len(U)
     peers_n = sum(u["peer"] for u in U.values())
@@ -1234,8 +1310,8 @@ def report(res: dict, data: Data, tests: list, spot: list) -> None:
               "codes."]
     # Factor coverage overall.
     lines += ["", "## Factor coverage (all companies)", "",
-              "| Factor | With a reading | +1 | +0.5 | 0 | −0.5 | −1 | Medium | Low |",
-              "|---|---|---|---|---|---|---|---|---|"]
+              "| Factor | With a reading | +1 | +0.5 | 0 | −0.5 | −1 | High | Medium | Low |",
+              "|---|---|---|---|---|---|---|---|---|---|"]
     for f in FACTORS:
         rs = [c["factors"][f] for c in C.values()]
         got = [r for r in rs if r["reading"] is not None]
@@ -1244,11 +1320,25 @@ def report(res: dict, data: Data, tests: list, spot: list) -> None:
         lines.append(f"| {FACTOR_NAMES[f]} | {100 * len(got) / max(1, n):.0f}% "
                      f"({len(got):,}) | " + " | ".join(
                          str(b.get(x, 0)) for x in (1.0, 0.5, 0.0, -0.5, -1.0))
-                     + f" | {cf.get('Medium', 0):,} | {cf.get('Low', 0):,} |")
+                     + f" | {cf.get('High', 0):,} | {cf.get('Medium', 0):,} | "
+                     f"{cf.get('Low', 0):,} |")
+    # Same, peer sets only: companies under the size floor are ranked against
+    # bigger peers and lean to the bottom, which skews the table above.
+    lines += ["", "Peer-set companies only (above the size floor), share in each band:", "",
+              "| Factor | +1 | +0.5 | 0 | −0.5 | −1 |", "|---|---|---|---|---|---|"]
+    for f in FACTORS:
+        got = [c["factors"][f]["reading"] for c in C.values()
+               if c["info"]["peer"] and c["factors"][f]["reading"] is not None]
+        b = Counter(got)
+        lines.append(f"| {FACTOR_NAMES[f]} | " + " | ".join(
+            f"{100 * b.get(x, 0) / max(1, len(got)):.0f}%"
+            for x in (1.0, 0.5, 0.0, -0.5, -1.0)) + " |")
     sc = Counter(c["confidence"] for c in C.values() if c["score"] is not None)
-    lines += ["", f"Company confidence: Medium {sc.get('Medium', 0):,}, Low "
-              f"{sc.get('Low', 0):,}, High 0 (High needs the measured check, "
-              "which hasn't run)."]
+    check_note = (f"the measured check of {res['check_run']} sets check 3"
+                  if res.get("check_run") else
+                  "no measured check yet, so nothing goes above Medium")
+    lines += ["", f"Company confidence: High {sc.get('High', 0):,}, Medium "
+              f"{sc.get('Medium', 0):,}, Low {sc.get('Low', 0):,} ({check_note})."]
     # Measure missing rates overall.
     lines += ["", "## Measures: missing rates among companies they apply to", "",
               "| Measure | Factor | Scored | Applies to | Missing | Broad fallback |",
@@ -1306,9 +1396,11 @@ def main() -> int:
     t0 = time.time()
     data = load(today)
     print(f"loaded in {time.time() - t0:,.0f}s")
+    check, check_run = load_check()
 
     t0 = time.time()
-    res = run(data, today)
+    res = run(data, today, check)
+    res["check_run"] = check_run
     print(f"run for {dt.date.fromordinal(today)} in {time.time() - t0:,.0f}s: "
           f"{len(res['companies']):,} companies")
 
@@ -1335,8 +1427,10 @@ def main() -> int:
                   f"{len(gone):,} companies listed on {dt.date.fromordinal(back)} "
                   "aren't listed now and are still in that run"))
     # Ranks behave: percentiles spread evenly within peer sets.
-    allp = [p["pct_level"] for t in res["pct"] for p in res["pct"][t].values()
-            if p.get("pct") is not None and res["universe"][t]["peer"]]
+    signed = {m.key for m in MEASURES if m.signed}
+    allp = [p["pct_level"] for t in res["pct"] for k, p in res["pct"][t].items()
+            if p.get("pct") is not None and res["universe"][t]["peer"]
+            and k not in signed]
     if allp:
         top = sum(p >= 80 for p in allp) / len(allp)
         tests.append(("Peer ranks spread evenly", 0.15 <= top <= 0.25,

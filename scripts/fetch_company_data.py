@@ -76,7 +76,7 @@ TABLES = ["tickers", "fundamentals", "stocks", "events", "actions"]
 # table), with the factor that uses each.
 NEEDED_FIELDS = {
     "ticker": "key", "dimension": "key", "calendardate": "key",
-    "datekey": "point in time", "reportperiod": "point in time",
+    "date": "point in time (filing date)", "reportperiod": "point in time",
     "lastupdated": "point in time",
     "revenue": "growth", "netinc": "growth", "epsdil": "growth",
     "grossmargin": "profitability", "gp": "profitability",
@@ -212,8 +212,9 @@ def open_rows(path: Path):
     """Yield (header, row iterator) for the CSV inside a zip (or a bare CSV)."""
     if zipfile.is_zipfile(path):
         zf = zipfile.ZipFile(path)
-        name = next((n for n in zf.namelist() if n.lower().endswith(".csv")),
-                    zf.namelist()[0])
+        csvs = [i for i in zf.infolist() if i.filename.lower().endswith(".csv")]
+        name = (max(csvs, key=lambda i: i.file_size).filename if csvs
+                else zf.namelist()[0])
         f = io.TextIOWrapper(zf.open(name), encoding="utf-8", newline="")
     else:
         f = path.open(encoding="utf-8", newline="")
@@ -304,9 +305,13 @@ def scan_tickers(path: Path) -> dict:
 def scan_fundamentals(path: Path, domestic: set) -> dict:
     header, rows = open_rows(path)
     ix = {h: i for i, h in enumerate(header)}
+    # The direct API calls the SEC filing date "date" (older exports: "datekey").
+    if "datekey" not in ix and "date" in ix:
+        ix["datekey"] = ix["date"]
     for c in ("ticker", "dimension", "calendardate", "datekey", "reportperiod"):
         if c not in ix:
-            raise SourceError(f"fundamentals: column {c} missing")
+            raise SourceError(f"fundamentals: column {c} missing; "
+                              f"columns are {', '.join(header[:12])}...")
     i_t, i_dim, i_cal = ix["ticker"], ix["dimension"], ix["calendardate"]
     i_key, i_rep = ix["datekey"], ix["reportperiod"]
     keep = [c for c in ("revenue", "netinc", "equity") if c in ix]

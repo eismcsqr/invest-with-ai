@@ -51,6 +51,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          [ -d data/company ] || { echo "No data folder to commit."; exit 0; }
           git add data/company
           if git diff --cached --quiet; then
             echo "No data changes."

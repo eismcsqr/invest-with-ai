@@ -72,6 +72,12 @@ SEC_FACTS = "https://data.sec.gov/api/xbrl/companyfacts/CIK{cik}.json"
 USER_AGENT = "invest-with-ai-data-pull"
 
 TABLES = ["tickers", "fundamentals", "stocks", "events", "actions"]
+# Owner signals (company measures): only the latest year is needed, so these
+# are tried with years=1 under each name Sharadar might use. Optional: a
+# failure is noted and the run carries on.
+OPTIONAL_TABLES = {"insiders": ["insiders", "sf2"],
+                   "holdings": ["holdings", "sf3", "institutional"]}
+OPTIONAL_YEARS = "1"
 
 # Fields named in docs/company-factors.md (section 3 and the financials
 # table), with the factor that uses each.
@@ -158,11 +164,12 @@ def _error_text(e: urllib.error.HTTPError) -> str:
     return f"HTTP {e.code}{hints.get(e.code, '')}: {str(body)[:200]}"
 
 
-def download_table(table: str, key: str) -> Path:
-    """Bulk-download one table to raw/sharadar/<table>.zip."""
+def download_table(table: str, key: str, years: str = "full",
+                   dest_name: str | None = None) -> Path:
+    """Bulk-download one table to raw/sharadar/<dest_name or table>.zip."""
     RAW.mkdir(parents=True, exist_ok=True)
-    dest = RAW / f"{table}.zip"
-    url = f"{API}/data/{table}?" + urllib.parse.urlencode({"years": "full"})
+    dest = RAW / f"{dest_name or table}.zip"
+    url = f"{API}/data/{table}?" + urllib.parse.urlencode({"years": years})
     opener = urllib.request.build_opener(_NoRedirect)
     location = None
     last = ""
@@ -577,6 +584,22 @@ def main() -> int:
         except SourceError as e:
             failures.append(str(e))
             print(f"::error::{e}")
+    optional_notes = []
+    for dest, names in OPTIONAL_TABLES.items():
+        t0 = time.time()
+        errors = []
+        for name in names:
+            try:
+                p = download_table(name, key, years=OPTIONAL_YEARS, dest_name=dest)
+                optional_notes.append(
+                    f"{dest}: downloaded as '{name}' (latest {OPTIONAL_YEARS} year), "
+                    f"{p.stat().st_size / 1e6:,.0f} MB in {time.time() - t0:,.0f}s")
+                break
+            except SourceError as e:
+                errors.append(str(e))
+        else:
+            optional_notes.append(f"{dest}: not downloaded ({'; '.join(errors)})")
+        print(optional_notes[-1])
     del key
     if "tickers" not in paths or "fundamentals" not in paths:
         print("::error::tickers and fundamentals are needed for the checks; stopping.")
@@ -727,9 +750,9 @@ def main() -> int:
     if fund["worst_gaps"]:
         lines += ["", "## Largest gaps in quarterly data", ""]
         lines += [f"- {t}: {g} quarters missing" for g, t in fund["worst_gaps"]]
-    lines += ["", "## Not pulled yet", "",
-              "- Insider trades and institutional holdings (owner signals): very "
-              "large in bulk; pulled when the owner-signal measure is built.",
+    lines += ["", "## Owner-signal tables (latest year only)", ""]
+    lines += [f"- {n}" for n in optional_notes]
+    lines += ["", "## Not committed", "",
               "- Raw tables stay on the runner and are not committed (size and "
               "licence)."]
     if failures:

@@ -3,7 +3,8 @@ name: Company data pull
 # Downloads Sharadar's company tables (tickers, fundamentals, daily prices,
 # 8-K events, corporate actions) with the bulk route, runs the six data
 # checks agreed on Nov 25, and commits the small files built from them to
-# data/company/. The raw tables stay on the runner: too big for the
+# data/company/, then builds the company factor measures and peer ranks
+# (scripts/company_measures.py). The raw tables stay on the runner: too big for the
 # repository, and the personal licence does not allow redistributing them.
 #
 # Needs the SHARADAR_API_KEY repository secret. SEC_USER_AGENT is optional
@@ -18,6 +19,7 @@ on:
       - "claude/**"
     paths:
       - scripts/fetch_company_data.py
+      - scripts/company_measures.py
       - .github/workflows/company-data.yml
 
 permissions:
@@ -45,6 +47,13 @@ jobs:
           SHARADAR_API_KEY: ${{ secrets.SHARADAR_API_KEY }}
           SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
         run: python scripts/fetch_company_data.py
+
+      # The six company factor measures and peer ranks, from the tables the
+      # pull left on the runner. Only aggregate checks are committed
+      # (data/company/measures/); per-company results stay on the runner.
+      - name: Company factor measures and peer ranks
+        if: ${{ !cancelled() }}
+        run: python scripts/company_measures.py
 
       - name: Commit data changes
         if: ${{ !cancelled() }}

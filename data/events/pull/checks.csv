@@ -1,0 +1,21 @@
+check,status,detail
+Source: Federal Register: tariff actions,fail,RuntimeError: www.federalregister.gov: HTTP 400
+Source: Federal Register: significant final rules,fail,RuntimeError: www.federalregister.gov: HTTP 400
+Dates: market-wide events,pass,525 events; 0 dated after today; 0 public after day 0; 0 with day 0 before the event date; 0 with no trading day within 5 days (no returns)
+Dates: regulatory events,pass,0 events; 0 dated after today; 0 public after day 0; 0 with day 0 before the event date; 0 with no trading day within 5 days (no returns)
+Spot check: known events present,fail,Russia invades Ukraine (2022-02-24): not found; oil price war crash (2020-03-09): found; oil jump (2008-09-22): found; 2016 election (2016-11-08): found; reciprocal tariffs (2025-04-02): not found; steel and aluminum tariffs (Section 232) (2018-03-08): not found
+"Spot check: energy on the Mar 9, 2020 oil crash",pass,energy minus market -11.9% that day
+EDGAR search pulled,pass,"4665 query-months fetched, 0 from cache, 0 missing, in 1,348s"
+Dates: company events,pass,0 events; 0 dated after today; 0 public after day 0; 0 with day 0 before the event date; 0 with no trading day within 5 days (no returns)
+No look-ahead: Geopolitical risk spikes,pass,"138 events up to 2025-11-27 with all data, 138 with data cut at 2025-11-27; identical"
+No look-ahead: Policy uncertainty spikes,pass,"200 events up to 2025-11-27 with all data, 200 with data cut at 2025-11-27; identical"
+No look-ahead: Oil price moves,pass,"111 events up to 2025-11-27 with all data, 111 with data cut at 2025-11-27; identical"
+No look-ahead: off-cycle guidance,pass,"3,000 companies' off-cycle 2.02 days up to 2025-11-27 (6,791 events) rerun with later filings deleted: 0 companies differ"
+No look-ahead: dividend breaks,pass,"3,000 payers' breaks up to 2025-11-27 (1,081 events) rerun with later payments and prices deleted: 0 payers differ"
+Count: Geopolitical shocks (risk index spike),pass,145 episodes (write-up: 135 with whole-sample top-5% days; this rule uses only earlier days)
+Count: Elections and policy shocks (policy uncertainty spike),pass,202 episodes (write-up: 131 with whole-sample top-5% days; this rule uses only earlier days)
+Count: elections,pass,"8 presidential and 9 midterm since 1994 (write-up: 8 and 9, before the Nov 3, 2026 midterm)"
+Count: Energy and commodity supply shocks,pass,123 big one-day oil moves since 1988
+Count: Trade and tariff actions,fail,0 days with tariff actions (main)
+Count: EDGAR SC 13D,pass,"about 1,483 documents a quarter (write-up: about 1,586)"
+Count: EDGAR SC TO-T,pass,about 143 documents a quarter (write-up: about 200)

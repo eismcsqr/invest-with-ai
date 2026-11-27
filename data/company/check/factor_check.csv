@@ -35,18 +35,18 @@ balance,Shops,Y,passes,102,+1.12,2026-11-27
 balance,Hlth,Y,passes,102,+1.69,2026-11-27
 balance,Money,Y,passes,102,+0.31,2026-11-27
 balance,Other,Y,passes,102,+1.50,2026-11-27
-capital,NoDur,Y,passes,102,+1.46,2026-11-27
-capital,Durbl,Y,passes,102,+4.31,2026-11-27
-capital,Manuf,Y,passes,102,+1.58,2026-11-27
+capital,NoDur,Y,passes,102,+1.49,2026-11-27
+capital,Durbl,Y,passes,102,+4.11,2026-11-27
+capital,Manuf,Y,passes,102,+1.50,2026-11-27
 capital,Enrgy,Y,passes,102,+2.20,2026-11-27
-capital,Chems,Y,passes,102,+3.64,2026-11-27
-capital,BusEq,Y,passes,102,+2.25,2026-11-27
-capital,Telcm,Y,passes,102,+1.82,2026-11-27
-capital,Utils,Y,passes,102,+2.42,2026-11-27
+capital,Chems,Y,passes,102,+3.60,2026-11-27
+capital,BusEq,Y,passes,102,+2.24,2026-11-27
+capital,Telcm,Y,passes,102,+1.94,2026-11-27
+capital,Utils,Y,passes,102,+2.44,2026-11-27
 capital,Shops,Y,passes,102,+2.65,2026-11-27
 capital,Hlth,Y,passes,102,+2.13,2026-11-27
 capital,Money,Y,passes,102,+0.26,2026-11-27
-capital,Other,Y,passes,102,+2.13,2026-11-27
+capital,Other,Y,passes,102,+2.12,2026-11-27
 surprise,NoDur,N,pooled test not passed,102,+0.47,2026-11-27
 surprise,Durbl,N,pooled test not passed; negative in this group; positive in 1 of 3 periods in this group,102,-0.23,2026-11-27
 surprise,Manuf,N,pooled test not passed; negative in this group; positive in 1 of 3 periods in this group,102,-0.46,2026-11-27

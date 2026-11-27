@@ -866,15 +866,17 @@ MEASURES = [
     M("fcf_yield", "capital", "Free cash flow yield", m_fcf_yield, where=std),
     M("sbc_share", "capital", "Share-based pay ÷ revenue", m_sbc_share,
       direction=-1, where=broad_in("BusEq")),
+    # Lower is better, from the measured check (agreed Nov 27): heavy
+    # spenders lagged their peers in both halves since 2001.
+    M("capex_depr", "capital", "Capex ÷ depreciation", m_capex_depr,
+      direction=-1, where=broad_in("Manuf")),
+    M("capex_rev", "capital", "Capex ÷ revenue", m_capex_rev,
+      direction=-1, where=broad_in("Telcm")),
     # Computed but not scored: which way is better isn't settled
     M("rnd_share", "profitability", "R&D ÷ revenue", m_rnd_share, scored=False,
       where=broad_in("BusEq", "Hlth")),
-    M("capex_depr", "capital", "Capex ÷ depreciation", m_capex_depr, scored=False,
-      where=broad_in("Manuf")),
     M("reinvest_rate", "capital", "Reinvestment rate (capex ÷ operating cash)",
       m_reinvest, scored=False, where=broad_in("Enrgy")),
-    M("capex_rev", "capital", "Capex ÷ revenue", m_capex_rev, scored=False,
-      where=broad_in("Telcm")),
     M("payout_ratio", "capital", "Dividend payout ratio", m_payout_ratio,
       scored=False, where=broad_in("Utils")),
     # Market-based measures, filled in by their own functions below

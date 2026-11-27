@@ -14,11 +14,11 @@ balance,0.5,102,+1.65
 balance,0.0,102,+1.65
 balance,-0.5,102,+1.26
 balance,-1.0,102,-0.47
-capital,1.0,102,+2.20
+capital,1.0,102,+2.21
 capital,0.5,102,+1.86
-capital,0.0,102,+1.54
-capital,-0.5,102,+1.02
-capital,-1.0,102,-0.61
+capital,0.0,102,+1.55
+capital,-0.5,102,+0.98
+capital,-1.0,102,-0.59
 surprise,1.0,102,+1.76
 surprise,0.5,102,+1.52
 surprise,0.0,102,+1.04

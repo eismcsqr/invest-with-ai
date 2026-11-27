@@ -26,7 +26,7 @@ Run: 2026-11-27 (every filing and price on or before this date). Source: Sharada
 | Growth | 77% (4,254) | 353 | 1016 | 1379 | 1014 | 492 | 0 | 3,225 | 1,029 |
 | Profitability | 85% (4,705) | 144 | 1231 | 1383 | 1197 | 750 | 0 | 3,371 | 1,334 |
 | Balance sheet | 87% (4,787) | 269 | 953 | 1747 | 1176 | 642 | 3,242 | 549 | 996 |
-| Capital use | 92% (5,077) | 319 | 1096 | 1507 | 1262 | 893 | 3,804 | 216 | 1,057 |
+| Capital use | 92% (5,077) | 306 | 1098 | 1546 | 1256 | 871 | 3,788 | 232 | 1,057 |
 | Earnings surprise | 92% (5,072) | 887 | 976 | 1168 | 1078 | 963 | 0 | 3,952 | 1,120 |
 | Owner signals | 100% (5,501) | 0 | 936 | 2383 | 1789 | 393 | 0 | 3,997 | 1,504 |
 
@@ -37,7 +37,7 @@ Peer-set companies only (above the size floor), share in each band:
 | Growth | 8% | 25% | 35% | 24% | 8% |
 | Profitability | 4% | 31% | 33% | 23% | 9% |
 | Balance sheet | 5% | 23% | 42% | 23% | 8% |
-| Capital use | 8% | 26% | 33% | 24% | 9% |
+| Capital use | 7% | 26% | 34% | 24% | 9% |
 | Earnings surprise | 20% | 20% | 20% | 20% | 20% |
 | Owner signals | 0% | 17% | 41% | 35% | 7% |
 
@@ -73,10 +73,10 @@ Company confidence: High 710, Medium 3,065, Low 1,726 (the measured check of 202
 | Change in share count | Capital use | yes | 5,503 | 8% | 90 |
 | Free cash flow yield | Capital use | yes | 4,902 | 12% | 84 |
 | Share-based pay ÷ revenue | Capital use | yes | 821 | 15% | 0 |
+| Capex ÷ depreciation | Capital use | yes | 394 | 10% | 0 |
+| Capex ÷ revenue | Capital use | yes | 91 | 15% | 0 |
 | R&D ÷ revenue | Profitability | no | 1,784 | 21% | 0 |
-| Capex ÷ depreciation | Capital use | no | 394 | 10% | 0 |
 | Reinvestment rate (capex ÷ operating cash) | Capital use | no | 145 | 20% | 0 |
-| Capex ÷ revenue | Capital use | no | 91 | 15% | 0 |
 | Dividend payout ratio | Capital use | no | 131 | 33% | 0 |
 | Results-day move beyond peers | Earnings surprise | yes | 5,503 | 8% | 56 |
 | Net insider buying, 6 months | Owner signals | yes | 5,503 | 0% | 166 |
@@ -110,8 +110,8 @@ Readings on the −1 to +1 scale and the company score (−3 to +3). No Sharadar
 | KO | Beer & Liquor | 0.0 | 0.5 | 0.5 | -0.5 | 0.5 | -0.5 | +0.3 (-0.5 to +1.6) | Low |
 | PGR | Insurance | -0.5 | 0.5 | 0.0 | 0.0 | -1.0 | -0.5 | -0.7 (-0.9 to -0.2) | High |
 | NEE | Utilities | 0.5 | 0.5 | 0.0 | 0.5 | 0.5 | 0.5 | +1.1 (-0.2 to +2.2) | Medium |
-| T | Communication | 0.0 | 0.0 | 0.0 | 0.5 | -1.0 | -0.5 | -0.5 (-1.3 to +0.5) | High |
-| CAT | Machinery | 0.5 | 0.5 | 0.0 | 0.5 | -1.0 | 0.0 | +0.2 (-0.8 to +1.5) | Medium |
+| T | Communication | 0.0 | 0.0 | 0.0 | 0.5 | -1.0 | -0.5 | -0.5 (-1.5 to +0.5) | High |
+| CAT | Machinery | 0.5 | 0.5 | 0.0 | 0.0 | -1.0 | 0.0 | +0.0 (-1.0 to +1.5) | Medium |
 | MRNA | Pharmaceutical Products | 0.5 | 0.0 | 0.0 | 0.5 | 0.0 | -1.0 | +0.1 (-0.5 to +1.2) | Medium |
 
 ## Notes

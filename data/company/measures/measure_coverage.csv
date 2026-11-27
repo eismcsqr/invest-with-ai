@@ -18,8 +18,8 @@ detailed_group,broad_group,measure,factor,scored,companies,with_value,missing_pc
 (none),Manuf,share_change,Capital use,Y,97,27,72.2,27,27,1043
 (none),Manuf,fcf_yield,Capital use,Y,97,22,77.3,22,22,562
 (none),BusEq,sbc_share,Capital use,Y,9,4,55.6,0,0,0
+(none),Manuf,capex_depr,Capital use,Y,4,0,100.0,0,0,0
 (none),BusEq,rnd_share,Profitability,N,23,5,78.3,0,0,0
-(none),Manuf,capex_depr,Capital use,N,4,0,100.0,0,0,0
 (none),Utils,payout_ratio,Capital use,N,2,0,100.0,0,0,0
 (none),Manuf,results_move,Earnings surprise,Y,97,0,100.0,0,0,0
 (none),Manuf,insider_buying,Owner signals,Y,97,97,0.0,97,97,1168
@@ -56,7 +56,7 @@ Aircraft,Manuf,short_debt,Balance sheet,Y,38,36,5.3,36,0,30
 Aircraft,Manuf,payout_yield,Capital use,Y,38,37,2.6,37,0,31
 Aircraft,Manuf,share_change,Capital use,Y,38,33,13.2,33,0,27
 Aircraft,Manuf,fcf_yield,Capital use,Y,38,33,13.2,33,0,27
-Aircraft,Manuf,capex_depr,Capital use,N,37,30,18.9,30,0,25
+Aircraft,Manuf,capex_depr,Capital use,Y,37,30,18.9,30,0,25
 Aircraft,Manuf,results_move,Earnings surprise,Y,38,37,2.6,37,0,31
 Aircraft,Manuf,insider_buying,Owner signals,Y,38,38,0.0,38,0,31
 Aircraft,Manuf,inst_change,Owner signals,Y,38,38,0.0,38,0,31
@@ -95,8 +95,8 @@ Apparel,NoDur,payout_yield,Capital use,Y,41,41,0.0,41,0,34
 Apparel,NoDur,share_change,Capital use,Y,41,40,2.4,40,0,33
 Apparel,NoDur,fcf_yield,Capital use,Y,41,40,2.4,40,0,33
 Apparel,BusEq,sbc_share,Capital use,Y,1,1,0.0,0,0,0
+Apparel,Manuf,capex_depr,Capital use,Y,4,4,0.0,0,0,0
 Apparel,BusEq,rnd_share,Profitability,N,2,2,0.0,0,0,0
-Apparel,Manuf,capex_depr,Capital use,N,4,4,0.0,0,0,0
 Apparel,NoDur,results_move,Earnings surprise,Y,41,40,2.4,40,0,34
 Apparel,NoDur,insider_buying,Owner signals,Y,41,41,0.0,41,0,34
 Apparel,NoDur,inst_change,Owner signals,Y,41,40,2.4,40,0,33
@@ -118,8 +118,8 @@ Automobiles and Trucks,Durbl,payout_yield,Capital use,Y,85,84,1.2,84,0,65
 Automobiles and Trucks,Durbl,share_change,Capital use,Y,85,81,4.7,81,0,63
 Automobiles and Trucks,Durbl,fcf_yield,Capital use,Y,85,76,10.6,76,0,59
 Automobiles and Trucks,BusEq,sbc_share,Capital use,Y,5,4,20.0,0,0,0
+Automobiles and Trucks,Manuf,capex_depr,Capital use,Y,13,12,7.7,12,0,10
 Automobiles and Trucks,BusEq,rnd_share,Profitability,N,5,5,0.0,0,0,0
-Automobiles and Trucks,Manuf,capex_depr,Capital use,N,13,12,7.7,12,0,10
 Automobiles and Trucks,Enrgy,reinvest_rate,Capital use,N,1,1,0.0,0,0,0
 Automobiles and Trucks,Utils,payout_ratio,Capital use,N,1,0,100.0,0,0,0
 Automobiles and Trucks,Durbl,results_move,Earnings surprise,Y,85,79,7.1,79,0,63
@@ -176,9 +176,9 @@ Business Services,Other,payout_yield,Capital use,Y,690,678,1.7,678,0,496
 Business Services,Other,share_change,Capital use,Y,690,659,4.5,659,0,481
 Business Services,Other,fcf_yield,Capital use,Y,690,627,9.1,627,0,462
 Business Services,BusEq,sbc_share,Capital use,Y,404,329,18.6,329,0,254
+Business Services,Manuf,capex_depr,Capital use,Y,7,6,14.3,0,0,0
+Business Services,Telcm,capex_rev,Capital use,Y,2,2,0.0,0,0,0
 Business Services,BusEq,rnd_share,Profitability,N,411,382,7.1,382,0,284
-Business Services,Manuf,capex_depr,Capital use,N,7,6,14.3,0,0,0
-Business Services,Telcm,capex_rev,Capital use,N,2,2,0.0,0,0,0
 Business Services,Other,results_move,Earnings surprise,Y,690,654,5.2,654,0,486
 Business Services,Other,insider_buying,Owner signals,Y,690,690,0.0,690,0,496
 Business Services,Other,inst_change,Owner signals,Y,690,683,1.0,683,0,492
@@ -196,7 +196,7 @@ Business Supplies,Manuf,short_debt,Balance sheet,Y,18,18,0.0,18,0,14
 Business Supplies,Manuf,payout_yield,Capital use,Y,18,18,0.0,18,0,14
 Business Supplies,Manuf,share_change,Capital use,Y,18,18,0.0,18,0,14
 Business Supplies,Manuf,fcf_yield,Capital use,Y,18,18,0.0,18,0,14
-Business Supplies,Manuf,capex_depr,Capital use,N,18,18,0.0,18,0,14
+Business Supplies,Manuf,capex_depr,Capital use,Y,18,18,0.0,18,0,14
 Business Supplies,Manuf,results_move,Earnings surprise,Y,18,17,5.6,17,0,14
 Business Supplies,Manuf,insider_buying,Owner signals,Y,18,18,0.0,18,0,14
 Business Supplies,Manuf,inst_change,Owner signals,Y,18,18,0.0,18,0,14
@@ -234,8 +234,8 @@ Chemicals,Hlth,cash_runway,Balance sheet,Y,1,1,0.0,0,0,0
 Chemicals,Chems,payout_yield,Capital use,Y,83,82,1.2,82,0,67
 Chemicals,Chems,share_change,Capital use,Y,83,81,2.4,81,0,66
 Chemicals,Chems,fcf_yield,Capital use,Y,83,79,4.8,79,0,66
+Chemicals,Manuf,capex_depr,Capital use,Y,1,1,0.0,0,0,0
 Chemicals,Hlth,rnd_share,Profitability,N,1,0,100.0,0,0,0
-Chemicals,Manuf,capex_depr,Capital use,N,1,1,0.0,0,0,0
 Chemicals,Chems,results_move,Earnings surprise,Y,83,80,3.6,80,0,66
 Chemicals,Chems,insider_buying,Owner signals,Y,83,83,0.0,83,0,67
 Chemicals,Chems,inst_change,Owner signals,Y,83,82,1.2,82,0,66
@@ -275,8 +275,8 @@ Communication,Telcm,payout_yield,Capital use,Y,82,73,11.0,73,0,55
 Communication,Telcm,share_change,Capital use,Y,82,73,11.0,73,0,55
 Communication,Telcm,fcf_yield,Capital use,Y,82,71,13.4,71,0,55
 Communication,BusEq,sbc_share,Capital use,Y,1,1,0.0,0,0,0
+Communication,Telcm,capex_rev,Capital use,Y,81,69,14.8,69,0,55
 Communication,BusEq,rnd_share,Profitability,N,1,1,0.0,0,0,0
-Communication,Telcm,capex_rev,Capital use,N,81,69,14.8,69,0,55
 Communication,Telcm,results_move,Earnings surprise,Y,82,72,12.2,72,0,54
 Communication,Telcm,insider_buying,Owner signals,Y,82,82,0.0,82,0,55
 Communication,Telcm,inst_change,Owner signals,Y,82,82,0.0,82,0,55
@@ -334,8 +334,8 @@ Construction Materials,Durbl,inventory_turns,Balance sheet,Y,1,1,0.0,0,0,0
 Construction Materials,Manuf,payout_yield,Capital use,Y,60,58,3.3,58,0,47
 Construction Materials,Manuf,share_change,Capital use,Y,60,55,8.3,55,0,46
 Construction Materials,Manuf,fcf_yield,Capital use,Y,60,53,11.7,53,0,45
-Construction Materials,Manuf,capex_depr,Capital use,N,46,41,10.9,41,0,34
-Construction Materials,Telcm,capex_rev,Capital use,N,1,0,100.0,0,0,0
+Construction Materials,Manuf,capex_depr,Capital use,Y,46,41,10.9,41,0,34
+Construction Materials,Telcm,capex_rev,Capital use,Y,1,0,100.0,0,0,0
 Construction Materials,Manuf,results_move,Earnings surprise,Y,60,57,5.0,57,0,47
 Construction Materials,Manuf,insider_buying,Owner signals,Y,60,60,0.0,60,0,47
 Construction Materials,Manuf,inst_change,Owner signals,Y,60,60,0.0,60,0,47
@@ -355,7 +355,7 @@ Consumer Goods,Durbl,inventory_turns,Balance sheet,Y,26,25,3.8,25,0,21
 Consumer Goods,Durbl,payout_yield,Capital use,Y,59,58,1.7,58,0,46
 Consumer Goods,Durbl,share_change,Capital use,Y,59,57,3.4,57,0,45
 Consumer Goods,Durbl,fcf_yield,Capital use,Y,59,55,6.8,55,0,43
-Consumer Goods,Manuf,capex_depr,Capital use,N,8,8,0.0,0,0,0
+Consumer Goods,Manuf,capex_depr,Capital use,Y,8,8,0.0,0,0,0
 Consumer Goods,Enrgy,reinvest_rate,Capital use,N,1,1,0.0,0,0,0
 Consumer Goods,Durbl,results_move,Earnings surprise,Y,59,55,6.8,55,0,44
 Consumer Goods,Durbl,insider_buying,Owner signals,Y,59,59,0.0,59,0,46
@@ -376,7 +376,7 @@ Defense,NoDur,inventory_turns,Balance sheet,Y,1,1,0.0,0,0,0
 Defense,NoDur,payout_yield,Capital use,Y,16,16,0.0,16,0,16
 Defense,NoDur,share_change,Capital use,Y,16,15,6.2,15,0,15
 Defense,NoDur,fcf_yield,Capital use,Y,16,15,6.2,15,0,15
-Defense,Manuf,capex_depr,Capital use,N,14,13,7.1,13,0,13
+Defense,Manuf,capex_depr,Capital use,Y,14,13,7.1,13,0,13
 Defense,NoDur,results_move,Earnings surprise,Y,16,15,6.2,15,0,16
 Defense,NoDur,insider_buying,Owner signals,Y,16,16,0.0,16,0,16
 Defense,NoDur,inst_change,Owner signals,Y,16,16,0.0,16,0,16
@@ -399,8 +399,8 @@ Electrical Equipment,BusEq,payout_yield,Capital use,Y,75,73,2.7,73,0,47
 Electrical Equipment,BusEq,share_change,Capital use,Y,75,71,5.3,71,0,45
 Electrical Equipment,BusEq,fcf_yield,Capital use,Y,75,69,8.0,69,0,44
 Electrical Equipment,BusEq,sbc_share,Capital use,Y,36,30,16.7,30,0,19
+Electrical Equipment,Manuf,capex_depr,Capital use,Y,28,25,10.7,25,0,20
 Electrical Equipment,BusEq,rnd_share,Profitability,N,37,33,10.8,33,0,20
-Electrical Equipment,Manuf,capex_depr,Capital use,N,28,25,10.7,25,0,20
 Electrical Equipment,Utils,payout_ratio,Capital use,N,1,0,100.0,0,0,0
 Electrical Equipment,BusEq,results_move,Earnings surprise,Y,75,71,5.3,71,0,47
 Electrical Equipment,BusEq,insider_buying,Owner signals,Y,75,75,0.0,75,0,47
@@ -423,8 +423,8 @@ Electronic Equipment,BusEq,payout_yield,Capital use,Y,198,193,2.5,193,0,154
 Electronic Equipment,BusEq,share_change,Capital use,Y,198,191,3.5,191,0,152
 Electronic Equipment,BusEq,fcf_yield,Capital use,Y,198,182,8.1,182,0,147
 Electronic Equipment,BusEq,sbc_share,Capital use,Y,186,164,11.8,164,0,136
+Electronic Equipment,Telcm,capex_rev,Capital use,Y,5,5,0.0,0,0,0
 Electronic Equipment,BusEq,rnd_share,Profitability,N,186,175,5.9,175,0,144
-Electronic Equipment,Telcm,capex_rev,Capital use,N,5,5,0.0,0,0,0
 Electronic Equipment,BusEq,results_move,Earnings surprise,Y,198,191,3.5,191,0,154
 Electronic Equipment,BusEq,insider_buying,Owner signals,Y,198,198,0.0,198,0,154
 Electronic Equipment,BusEq,inst_change,Owner signals,Y,198,197,0.5,197,0,153
@@ -464,7 +464,7 @@ Fabricated Products,Manuf,short_debt,Balance sheet,Y,9,9,0.0,9,9,319
 Fabricated Products,Manuf,payout_yield,Capital use,Y,9,9,0.0,9,9,324
 Fabricated Products,Manuf,share_change,Capital use,Y,9,8,11.1,8,8,311
 Fabricated Products,Manuf,fcf_yield,Capital use,Y,9,8,11.1,8,8,305
-Fabricated Products,Manuf,capex_depr,Capital use,N,9,8,11.1,0,0,0
+Fabricated Products,Manuf,capex_depr,Capital use,Y,9,8,11.1,0,0,0
 Fabricated Products,Manuf,results_move,Earnings surprise,Y,9,8,11.1,8,8,320
 Fabricated Products,Manuf,insider_buying,Owner signals,Y,9,9,0.0,9,9,324
 Fabricated Products,Manuf,inst_change,Owner signals,Y,9,9,0.0,9,9,324
@@ -534,8 +534,8 @@ Machinery,Manuf,payout_yield,Capital use,Y,125,123,1.6,123,0,106
 Machinery,Manuf,share_change,Capital use,Y,125,121,3.2,121,0,104
 Machinery,Manuf,fcf_yield,Capital use,Y,125,118,5.6,118,0,101
 Machinery,BusEq,sbc_share,Capital use,Y,2,2,0.0,0,0,0
+Machinery,Manuf,capex_depr,Capital use,Y,120,113,5.8,113,0,97
 Machinery,Hlth,rnd_share,Profitability,N,3,3,0.0,0,0,0
-Machinery,Manuf,capex_depr,Capital use,N,120,113,5.8,113,0,97
 Machinery,Manuf,results_move,Earnings surprise,Y,125,118,5.6,118,0,104
 Machinery,Manuf,insider_buying,Owner signals,Y,125,125,0.0,125,0,106
 Machinery,Manuf,inst_change,Owner signals,Y,125,125,0.0,125,0,106
@@ -791,8 +791,8 @@ Rubber and Plastic Products,Hlth,cash_runway,Balance sheet,Y,1,1,0.0,0,0,0
 Rubber and Plastic Products,Manuf,payout_yield,Capital use,Y,16,16,0.0,16,0,15
 Rubber and Plastic Products,Manuf,share_change,Capital use,Y,16,16,0.0,16,0,15
 Rubber and Plastic Products,Manuf,fcf_yield,Capital use,Y,16,16,0.0,16,0,15
+Rubber and Plastic Products,Manuf,capex_depr,Capital use,Y,14,14,0.0,14,0,13
 Rubber and Plastic Products,Hlth,rnd_share,Profitability,N,1,1,0.0,0,0,0
-Rubber and Plastic Products,Manuf,capex_depr,Capital use,N,14,14,0.0,14,0,13
 Rubber and Plastic Products,Manuf,results_move,Earnings surprise,Y,16,16,0.0,16,0,15
 Rubber and Plastic Products,Manuf,insider_buying,Owner signals,Y,16,16,0.0,16,0,15
 Rubber and Plastic Products,Manuf,inst_change,Owner signals,Y,16,16,0.0,16,0,15
@@ -810,7 +810,7 @@ Shipbuilding Railroad Equipment,Manuf,short_debt,Balance sheet,Y,12,10,16.7,10,1
 Shipbuilding Railroad Equipment,Manuf,payout_yield,Capital use,Y,12,12,0.0,12,12,324
 Shipbuilding Railroad Equipment,Manuf,share_change,Capital use,Y,12,12,0.0,12,12,311
 Shipbuilding Railroad Equipment,Manuf,fcf_yield,Capital use,Y,12,12,0.0,12,12,305
-Shipbuilding Railroad Equipment,Manuf,capex_depr,Capital use,N,12,12,0.0,0,0,0
+Shipbuilding Railroad Equipment,Manuf,capex_depr,Capital use,Y,12,12,0.0,0,0,0
 Shipbuilding Railroad Equipment,Manuf,results_move,Earnings surprise,Y,12,11,8.3,11,11,320
 Shipbuilding Railroad Equipment,Manuf,insider_buying,Owner signals,Y,12,12,0.0,12,12,324
 Shipbuilding Railroad Equipment,Manuf,inst_change,Owner signals,Y,12,12,0.0,12,12,324
@@ -829,8 +829,8 @@ Shipping Containers,Hlth,cash_runway,Balance sheet,Y,1,1,0.0,0,0,0
 Shipping Containers,Manuf,payout_yield,Capital use,Y,13,13,0.0,13,0,11
 Shipping Containers,Manuf,share_change,Capital use,Y,13,13,0.0,13,0,11
 Shipping Containers,Manuf,fcf_yield,Capital use,Y,13,13,0.0,13,0,11
+Shipping Containers,Manuf,capex_depr,Capital use,Y,12,11,8.3,0,0,0
 Shipping Containers,Hlth,rnd_share,Profitability,N,1,1,0.0,0,0,0
-Shipping Containers,Manuf,capex_depr,Capital use,N,12,11,8.3,0,0,0
 Shipping Containers,Manuf,results_move,Earnings surprise,Y,13,13,0.0,13,0,11
 Shipping Containers,Manuf,insider_buying,Owner signals,Y,13,13,0.0,13,0,11
 Shipping Containers,Manuf,inst_change,Owner signals,Y,13,12,7.7,12,0,11
@@ -850,7 +850,7 @@ Steel Works Etc,Shops,inventory_turns,Balance sheet,Y,1,1,0.0,0,0,0
 Steel Works Etc,Manuf,payout_yield,Capital use,Y,44,40,9.1,40,0,36
 Steel Works Etc,Manuf,share_change,Capital use,Y,44,39,11.4,39,0,35
 Steel Works Etc,Manuf,fcf_yield,Capital use,Y,44,38,13.6,38,0,34
-Steel Works Etc,Manuf,capex_depr,Capital use,N,41,34,17.1,34,0,31
+Steel Works Etc,Manuf,capex_depr,Capital use,Y,41,34,17.1,34,0,31
 Steel Works Etc,Manuf,results_move,Earnings surprise,Y,44,39,11.4,39,0,35
 Steel Works Etc,Manuf,insider_buying,Owner signals,Y,44,44,0.0,44,0,36
 Steel Works Etc,Manuf,inst_change,Owner signals,Y,44,44,0.0,44,0,36
@@ -909,9 +909,9 @@ Trading,Money,payout_yield,Capital use,Y,619,616,0.5,616,0,566
 Trading,Money,share_change,Capital use,Y,619,499,19.4,499,0,450
 Trading,Money,fcf_yield,Capital use,Y,619,457,26.2,457,0,410
 Trading,BusEq,sbc_share,Capital use,Y,2,0,100.0,0,0,0
+Trading,Manuf,capex_depr,Capital use,Y,5,4,20.0,0,0,0
+Trading,Telcm,capex_rev,Capital use,Y,2,1,50.0,0,0,0
 Trading,BusEq,rnd_share,Profitability,N,2,0,100.0,0,0,0
-Trading,Manuf,capex_depr,Capital use,N,5,4,20.0,0,0,0
-Trading,Telcm,capex_rev,Capital use,N,2,1,50.0,0,0,0
 Trading,Money,results_move,Earnings surprise,Y,619,604,2.4,604,0,561
 Trading,Money,insider_buying,Owner signals,Y,619,619,0.0,619,0,566
 Trading,Money,inst_change,Owner signals,Y,619,595,3.9,595,0,542
@@ -929,7 +929,7 @@ Transportation,Other,short_debt,Balance sheet,Y,163,141,13.5,141,0,114
 Transportation,Other,payout_yield,Capital use,Y,163,146,10.4,146,0,117
 Transportation,Other,share_change,Capital use,Y,163,141,13.5,141,0,114
 Transportation,Other,fcf_yield,Capital use,Y,163,133,18.4,133,0,109
-Transportation,Manuf,capex_depr,Capital use,N,1,0,100.0,0,0,0
+Transportation,Manuf,capex_depr,Capital use,Y,1,0,100.0,0,0,0
 Transportation,Other,results_move,Earnings surprise,Y,163,141,13.5,141,0,113
 Transportation,Other,insider_buying,Owner signals,Y,163,163,0.0,163,0,117
 Transportation,Other,inst_change,Owner signals,Y,163,163,0.0,163,0,117

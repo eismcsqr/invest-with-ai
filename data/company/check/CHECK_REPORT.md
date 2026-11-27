@@ -19,10 +19,10 @@ Percent per quarter. Range: 95% bootstrap. FDR: Benjamini-Hochberg at 10% across
 | Growth | 102 | +0.36% | -0.39 to +1.06 | no | 69% | +1.07 | -0.11 | +0.45 |
 | Profitability | 102 | +1.28% | -0.13 to +2.69 | no | 64% | +1.63 | +1.04 | +1.35 |
 | Balance sheet | 102 | +1.03% | +0.05 to +1.99 | pass | 68% | +1.04 | +0.69 | +1.65 |
-| Capital use | 102 | +1.75% | +0.64 to +2.86 | pass | 63% | +2.06 | +1.18 | +2.49 |
+| Capital use | 102 | +1.76% | +0.65 to +2.84 | pass | 61% | +2.02 | +1.20 | +2.49 |
 | Earnings surprise | 102 | +0.40% | -0.10 to +0.81 | no | 60% | -0.02 | +0.51 | +0.63 |
 | Owner signals | 71 | -0.54% | -1.10 to +0.01 | no | 41% | – | -0.31 | -0.93 |
-| Company score | 102 | +1.49% | +0.33 to +2.63 | – | 71% | +1.65 | +1.16 | +1.93 |
+| Company score | 102 | +1.50% | +0.34 to +2.64 | – | 70% | +1.66 | +1.16 | +1.96 |
 
 ## Average next-quarter return relative to peers, by reading
 
@@ -31,7 +31,7 @@ Percent per quarter. Range: 95% bootstrap. FDR: Benjamini-Hochberg at 10% across
 | Growth | +1.24% | +1.74% | +1.62% | +1.38% | +1.05% |
 | Profitability | +1.33% | +1.77% | +1.70% | +1.25% | -0.34% |
 | Balance sheet | +1.38% | +1.65% | +1.65% | +1.26% | -0.47% |
-| Capital use | +2.20% | +1.86% | +1.54% | +1.02% | -0.61% |
+| Capital use | +2.21% | +1.86% | +1.55% | +0.98% | -0.59% |
 | Earnings surprise | +1.76% | +1.52% | +1.04% | +1.25% | +1.36% |
 | Owner signals | – | +0.04% | +1.35% | +1.68% | +0.99% |
 
@@ -57,9 +57,7 @@ Direction read from 2001 to 2013 only, then tested on 2014 on.
 | Measure | Applies to | Quarters | 2001-13 | 2014 on | 2014-on range | Call |
 |---|---|---|---|---|---|---|
 | R&D ÷ revenue | business equipment, healthcare | 102 | -0.87 | +0.46 | -1.28 to +2.31 | no direction: the two halves disagree |
-| Capex ÷ depreciation | manufacturing | 102 | -1.32 | -0.84 | -2.23 to +0.53 | leans lower is better; second half agrees but its range crosses zero |
 | Reinvestment rate (capex ÷ operating cash) | energy | 102 | +0.37 | +0.19 | -2.02 to +2.49 | leans higher is better; second half agrees but its range crosses zero |
-| Capex ÷ revenue | telecom | 102 | -2.61 | -0.92 | -3.66 to +1.81 | leans lower is better; second half agrees but its range crosses zero |
 | Dividend payout ratio | utilities | 102 | +0.39 | -1.07 | -3.56 to +1.48 | no direction: the two halves disagree |
 
 Spreads here are higher value minus lower value, so a positive number means higher is better.
@@ -94,10 +92,10 @@ Spreads here are higher value minus lower value, so a positive number means high
 | Change in share count | yes | 102 | +1.80 | +0.83 to +2.77 | +1.68 | +1.41 | +2.65 |
 | Free cash flow yield | yes | 102 | +2.01 | +1.12 to +2.95 | +2.44 | +1.46 | +2.56 |
 | Share-based pay ÷ revenue | yes | 102 | +0.12 | -1.12 to +1.33 | +0.75 | -0.64 | +0.82 |
+| Capex ÷ depreciation | yes | 102 | +1.00 | +0.00 to +1.97 | +0.37 | +0.82 | +1.99 |
+| Capex ÷ revenue | yes | 102 | +1.81 | -0.63 to +4.28 | +1.72 | +1.71 | +2.11 |
 | R&D ÷ revenue | no | 102 | -0.22 | -1.67 to +1.29 | -1.46 | +0.34 | +0.08 |
-| Capex ÷ depreciation | no | 102 | -1.08 | -2.04 to -0.11 | -0.56 | -0.89 | -2.00 |
 | Reinvestment rate (capex ÷ operating cash) | no | 102 | +0.28 | -1.15 to +1.84 | -0.81 | +0.08 | +1.81 |
-| Capex ÷ revenue | no | 102 | -1.78 | -4.21 to +0.63 | -1.56 | -1.69 | -2.19 |
 | Dividend payout ratio | no | 102 | -0.32 | -1.80 to +1.16 | -0.26 | -0.90 | +0.67 |
 | Results-day move beyond peers | yes | 102 | +0.40 | -0.10 to +0.81 | -0.02 | +0.51 | +0.63 |
 | Net insider buying, 6 months | yes | 72 | -0.54 | -1.35 to +0.36 | – | -0.13 | -1.27 |

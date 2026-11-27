@@ -13,7 +13,7 @@ takes out the market and the industry, which is the layering the method
 asks for; differences in macro sensitivity inside a group are not taken out.
 
 Tests, for each factor, the company score, and every measure (including the
-five whose direction isn't settled):
+measures whose direction isn't settled):
 
   Spread     Within each detailed group, companies are sorted by the item;
              the top fifth's average peer-relative return minus the bottom
@@ -25,7 +25,7 @@ five whose direction isn't settled):
   FDR        Benjamini-Hochberg at 10% across the six factor tests.
 
 Out of sample: the scored factors' directions were fixed in advance, so
-nothing is fitted. For the five held-out measures, the direction is read
+nothing is fitted. For the held-out measures, the direction is read
 from the first half only and then tested on the second half.
 
 Confidence check 3 (written to data/company/check/factor_check.csv, read by

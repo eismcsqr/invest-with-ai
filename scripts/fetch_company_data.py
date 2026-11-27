@@ -109,6 +109,11 @@ REVENUE_TAGS = [
     "RevenueFromContractWithCustomerIncludingAssessedTax",
 ]
 EDGAR_TAGS = {"netinc": ["NetIncomeLoss"], "equity": ["StockholdersEquity"]}
+# Older SEC numbers (CIKs) to try when a company's current one has no match.
+# Exxon became a Texas holding company, ExxonMobil Holdings, on 2026-07-01.
+# The new registrant has its own CIK, which Sharadar links, and no 10-K yet;
+# the 10-K history stays under the old Exxon Mobil Corporation CIK.
+PREDECESSOR_CIKS = {"XOM": ["0000034088"]}
 
 # Known splits for the split check: ticker, last day before, first day after,
 # split ratio (new shares per old share).
@@ -467,25 +472,20 @@ def edgar_check(fund: dict, ciks: dict) -> tuple[list[list], str]:
             out.append([ticker, "", "", "", "", "", "", "", "", "",
                         "no CIK or no yearly rows in Sharadar"])
             continue
-        req = urllib.request.Request(SEC_FACTS.format(cik=cik),
-                                     headers={"User-Agent": ua,
-                                              "Accept-Encoding": "identity"})
-        try:
-            with urllib.request.urlopen(req, timeout=90) as resp:
-                facts = json.load(resp)
-        except urllib.error.HTTPError as e:
-            if e.code == 403:
+        sources = []   # (cik, us-gaap facts), current CIK first
+        failed = ""
+        for c in [cik] + [p for p in PREDECESSOR_CIKS.get(ticker, []) if p != cik]:
+            gaap, err = _fetch_gaap(c, ua)
+            if err == "403":
                 return [], ("SEC refused the request (HTTP 403). Add a "
                             "SEC_USER_AGENT secret with a name and contact.")
-            out.append([ticker, cik, "", "", "", "", "", "", "", "",
-                        f"SEC HTTP {e.code}"])
+            if err:
+                failed = failed or err
+                continue
+            sources.append((c, gaap))
+        if not sources:
+            out.append([ticker, cik, "", "", "", "", "", "", "", "", failed])
             continue
-        except (urllib.error.URLError, TimeoutError, ValueError) as e:
-            out.append([ticker, cik, "", "", "", "", "", "", "", "",
-                        f"SEC {type(e).__name__}"])
-            continue
-        time.sleep(0.2)
-        gaap = facts.get("facts", {}).get("us-gaap", {})
         measures = dict(EDGAR_TAGS)
         if ticker not in FINANCIALS:
             measures = {"revenue": REVENUE_TAGS, **measures}
@@ -493,8 +493,13 @@ def edgar_check(fund: dict, ciks: dict) -> tuple[list[list], str]:
             end = row["reportperiod"]
             for measure, tags in measures.items():
                 shar = to_float(row.get(measure, ""))
-                fact, tag_used = _first_filed(gaap, tags, end,
-                                              instant=(measure == "equity"))
+                fact, tag_used, used_cik = None, "", cik
+                for c, gaap in sources:
+                    fact, tag_used = _first_filed(gaap, tags, end,
+                                                  instant=(measure == "equity"))
+                    if fact is not None:
+                        used_cik = c
+                        break
                 if fact is None:
                     out.append([ticker, cik, end, measure, shar, "", "", "",
                                 row["datekey"], "", "no matching SEC fact"])
@@ -506,12 +511,31 @@ def edgar_check(fund: dict, ciks: dict) -> tuple[list[list], str]:
                 kd, fd = to_date(row["datekey"]), to_date(filed)
                 if kd and fd:
                     lag = (kd - fd).days
-                out.append([ticker, cik, end, measure, shar, edgar,
+                if used_cik != cik:
+                    tag_used += f" (older SEC number {used_cik})"
+                out.append([ticker, used_cik, end, measure, shar, edgar,
                             "" if diff is None else f"{100 * diff:.3f}",
                             "" if diff is None else
                             ("Y" if abs(diff) <= EDGAR_TOLERANCE else "N"),
                             row["datekey"], filed, f"{tag_used}; lag {lag} days"])
     return out, ""
+
+
+def _fetch_gaap(cik: str, ua: str) -> tuple[dict, str]:
+    """A company's us-gaap facts from SEC, or an error note ("403" if refused)."""
+    req = urllib.request.Request(SEC_FACTS.format(cik=cik),
+                                 headers={"User-Agent": ua,
+                                          "Accept-Encoding": "identity"})
+    try:
+        with urllib.request.urlopen(req, timeout=90) as resp:
+            facts = json.load(resp)
+    except urllib.error.HTTPError as e:
+        return {}, "403" if e.code == 403 else f"SEC HTTP {e.code}"
+    except (urllib.error.URLError, TimeoutError, ValueError) as e:
+        return {}, f"SEC {type(e).__name__}"
+    finally:
+        time.sleep(0.2)
+    return facts.get("facts", {}).get("us-gaap", {}), ""
 
 
 def _first_filed(gaap: dict, tags: list[str], end: str, instant: bool):

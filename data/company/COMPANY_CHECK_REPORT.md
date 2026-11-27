@@ -6,7 +6,7 @@ Run: 2026-11-27. Source: Sharadar (direct API, bulk download of each table).
 
 | Check | Result | Detail |
 |---|---|---|
-| Matches EDGAR within 1% | pass | 65 of 65 numbers within 1% (100.00%) across 6 companies; see edgar_check.csv |
+| Matches EDGAR within 1% | pass | 79 of 80 numbers within 1% (98.75%) across 6 companies; see edgar_check.csv |
 | No number dated before its filing | pass | 0 of 686,995 as-first-reported quarterly rows have a filing date before the period end |
 | Splits handled | pass | AAPL 4-for-1 on 2020-08-31: adjusted close moved 1.034x, unadjusted 0.258x (ok); AAPL 7-for-1 on 2014-06-09: adjusted close moved 1.016x, unadjusted 0.145x (ok); NVDA 10-for-1 on 2024-06-10: adjusted close moved 1.007x, unadjusted 0.101x (ok) |
 | Delisted names present | pass | 12,392 of 17,893 companies with fundamentals are delisted; 14,747 delisted tickers have daily prices |

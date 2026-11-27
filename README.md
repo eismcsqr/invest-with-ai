@@ -33,6 +33,15 @@ Each source has its own repository secret. A source whose secret is missing is s
 - **Not covered yet:** services capacity (no free measure), Sharadar revenue shares (paid), QuantGov RegData and the Federal Register (regulation) and PatentsView (technology). The NAICS-to-French-group crosswalk is in `config/industry_crosswalk.csv` (see Industry run).
 - **Keyless check:** `python scripts/fetch_industry_data.py --smoke` reads three PPI indexes from BLS's keyless API and writes nothing.
 
+## Company data pull
+
+`.github/workflows/company-data.yml` runs `scripts/fetch_company_data.py` every Saturday an hour after the industry pull, on demand from the Actions tab, and whenever the script or workflow changes. It needs the `SHARADAR_API_KEY` repository secret (Sharadar personal bundle, bought Nov 27). It uses Sharadar's direct API (`api.sharadar.com/v1.0`), not Nasdaq Data Link.
+
+- **Tables:** tickers, fundamentals, daily prices, 8-K events and corporate actions, each downloaded whole with the bulk route. Insider trades and institutional holdings come later, with the owner-signal measure.
+- **What's committed:** only small files built from the tables, in `data/company/`: `fields.csv` (every column Sharadar sends), `field_check.csv` (the fields the company factors doc names), `coverage_by_group.csv` (companies per French industry group, delisted and domestic counts), `edgar_check.csv` (six companies' yearly revenue, net income and equity against their first SEC filing) and `COMPANY_CHECK_REPORT.md`. The raw tables stay on the runner: too big for the repository, and the personal licence doesn't allow redistributing them.
+- **The six checks:** matches EDGAR within 1%, no number dated before its filing, splits handled, delisted names present, under 2% missing quarters (domestic common stocks), and the newest filing in the data within 5 days.
+- **SEC contact:** SEC asks scripts to name a contact. If SEC refuses the generic one, add a `SEC_USER_AGENT` secret such as `Your Name you@example.com`; until then the EDGAR check is skipped with a note.
+
 ## Industry run
 
 `scripts/industry_assessment.py` runs the industry pillar on French's 12 groups from the data already in the repo and writes `results/industry_run/` (write-up: `docs/industry-run.md`). Standard library only; about a minute.

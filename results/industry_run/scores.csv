@@ -1,0 +1,73 @@
+group,name,factor,exposure,channels,status,reading,percentile,latest_period,score,score_low,score_high,confidence,evidence,cross_check,note
+NoDur,Consumer staples,Demand cycle,1,revenue 1,scored,0,44,2026 Q2,0,0,0,Medium,"backs, not past the false-discovery check","demand_m3 2026-09: +1.3, percentile 80",
+NoDur,Consumer staples,Capacity cycle,1,revenue 1,scored,0,71,2026-10,0,0,0,Low,doesn't back,,the published reading has gone the other way in the next period
+NoDur,Consumer staples,Competition,3,"revenue 1, position 2",not scored,,,,,,,,,,needs company revenue shares (Sharadar); Census concentration shown as context only
+NoDur,Consumer staples,Regulation,2,"revenue 1, costs 1",not scored,,,,,,,,,,QuantGov RegData not pulled yet
+NoDur,Consumer staples,Technology shifts,1,position 1,not scored,,,,,,,,,,PatentsView not pulled yet
+NoDur,Consumer staples,Coping with shocks,3,"revenue 1, costs 2",scored,-1,18,2026 Q2,-3,-3,0,Low,weak (halves disagree),"coping_ppi 2026-10: -4.9, percentile 1",
+Durbl,Consumer durables,Demand cycle,3,revenue 3,scored,0,76,2026 Q2,0,0,3,Low,doesn't back,"demand_m3 2026-09: +6.7, percentile 71",the published reading has gone the other way in the next period
+Durbl,Consumer durables,Capacity cycle,2,"revenue 1, costs 1",scored,0,33,2026-10,0,0,0,Low,doesn't back,,the published reading has gone the other way in the next period
+Durbl,Consumer durables,Competition,3,"revenue 1, position 2",not scored,,,,,,,,,,needs company revenue shares (Sharadar); Census concentration shown as context only
+Durbl,Consumer durables,Regulation,2,costs 2,not scored,,,,,,,,,,QuantGov RegData not pulled yet
+Durbl,Consumer durables,Technology shifts,3,"valuation 1, position 2",not scored,,,,,,,,,,PatentsView not pulled yet
+Durbl,Consumer durables,Coping with shocks,2,costs 2,scored,0,21,2026 Q2,0,-2,0,Low,doesn't back,"coping_ppi 2026-10: -5.4, percentile 7",the published reading has gone the other way in the next period
+Manuf,Manufacturing,Demand cycle,3,revenue 3,scored,0,68,2026 Q2,0,0,0,Medium,leans,"demand_m3 2026-09: +1.7, percentile 68",the published reading has gone the other way in the next period
+Manuf,Manufacturing,Capacity cycle,3,"revenue 2, costs 1",scored,1,84,2026-10,3,0,3,Low,doesn't back,,the published reading has gone the other way in the next period
+Manuf,Manufacturing,Competition,2,"revenue 1, position 1",not scored,,,,,,,,,,needs company revenue shares (Sharadar); Census concentration shown as context only
+Manuf,Manufacturing,Regulation,1,costs 1,not scored,,,,,,,,,,QuantGov RegData not pulled yet
+Manuf,Manufacturing,Technology shifts,1,position 1,not scored,,,,,,,,,,PatentsView not pulled yet
+Manuf,Manufacturing,Coping with shocks,3,"revenue 1, costs 2",scored,0,78,2026 Q2,0,0,3,Low,weak (halves disagree),"coping_ppi 2026-10: -0.8, percentile 21",
+Enrgy,Energy,Demand cycle,2,revenue 2,scored,0,57,2026 Q2,0,0,0,Low,weak (halves disagree),,the published reading has gone the other way in the next period
+Enrgy,Energy,Capacity cycle,3,"revenue 2, costs 1",scored,0,74,2026-10,0,0,0,Medium,leans,,
+Enrgy,Energy,Competition,1,position 1,not scored,,,,,,,,,,needs company revenue shares (Sharadar); Census concentration shown as context only
+Enrgy,Energy,Regulation,3,"revenue 1, costs 2",not scored,,,,,,,,,,QuantGov RegData not pulled yet
+Enrgy,Energy,Technology shifts,2,"valuation 1, position 1",not scored,,,,,,,,,,PatentsView not pulled yet
+Enrgy,Energy,Coping with shocks,2,revenue 2,scored,1,86,2026 Q2,2,0,2,Low,leans,"coping_ppi 2026-10: +49.5, percentile 94","energy's output prices are the oil shock itself, which belongs in macro"
+Chems,Chemicals,Demand cycle,2,revenue 2,scored,0,63,2026 Q2,0,0,2,Low,doesn't back,"demand_m3 2026-09: +5.5, percentile 86",the published reading has gone the other way in the next period
+Chems,Chemicals,Capacity cycle,3,"revenue 2, costs 1",scored,-1,19,2026-10,-3,-3,0,Low,doesn't back,,mapping fit partial; the published reading has gone the other way in the next period
+Chems,Chemicals,Competition,2,"revenue 1, position 1",not scored,,,,,,,,,,needs company revenue shares (Sharadar); Census concentration shown as context only
+Chems,Chemicals,Regulation,2,costs 2,not scored,,,,,,,,,,QuantGov RegData not pulled yet
+Chems,Chemicals,Technology shifts,1,position 1,not scored,,,,,,,,,,PatentsView not pulled yet
+Chems,Chemicals,Coping with shocks,3,"revenue 1, costs 2",scored,0,68,2026 Q2,0,-3,0,Medium,leans,"coping_ppi 2026-10: -2.0, percentile 14",
+BusEq,Business equipment and tech,Demand cycle,2,revenue 2,scored,0,76,2026 Q2,0,0,2,Medium,leans,,
+BusEq,Business equipment and tech,Capacity cycle,1,revenue 1,not scored,,,,,,,,,,capacity series cover only 16% of the group's output
+BusEq,Business equipment and tech,Competition,3,"revenue 1, position 2",not scored,,,,,,,,,,needs company revenue shares (Sharadar); Census concentration shown as context only
+BusEq,Business equipment and tech,Regulation,2,"revenue 1, position 1",not scored,,,,,,,,,,QuantGov RegData not pulled yet
+BusEq,Business equipment and tech,Technology shifts,3,"valuation 1, position 2",not scored,,,,,,,,,,PatentsView not pulled yet
+BusEq,Business equipment and tech,Coping with shocks,1,costs 1,scored,0,54,2026 Q2,0,0,0,Low,doesn't back,,the published reading has gone the other way in the next period
+Telcm,Telecom,Demand cycle,1,revenue 1,scored,-1,18,2026 Q2,-1,-1,0,Medium,leans,,
+Telcm,Telecom,Capacity cycle,1,costs 1,not scored,,,,,,,,,,no capacity series for this group
+Telcm,Telecom,Competition,3,"revenue 1, position 2",not scored,,,,,,,,,,needs company revenue shares (Sharadar); Census concentration shown as context only
+Telcm,Telecom,Regulation,2,"revenue 1, costs 1",not scored,,,,,,,,,,QuantGov RegData not pulled yet
+Telcm,Telecom,Technology shifts,2,"costs 1, position 1",not scored,,,,,,,,,,PatentsView not pulled yet
+Telcm,Telecom,Coping with shocks,1,costs 1,scored,0,26,2026 Q2,0,-1,0,Medium,leans,"coping_ppi 2026-10: -5.5, percentile 12",
+Utils,Utilities,Demand cycle,1,revenue 1,scored,0,56,2026 Q2,0,0,0,Low,doesn't back,,
+Utils,Utilities,Capacity cycle,1,revenue 1,scored,-1,1,2026-10,-1,-1,0,Medium,leans,,the published reading has gone the other way in the next period
+Utils,Utilities,Competition,0,,not scored,,,,,,,,,,needs company revenue shares (Sharadar); Census concentration shown as context only
+Utils,Utilities,Regulation,3,"revenue 2, financing 1",not scored,,,,,,,,,,QuantGov RegData not pulled yet
+Utils,Utilities,Technology shifts,1,costs 1,not scored,,,,,,,,,,PatentsView not pulled yet
+Utils,Utilities,Coping with shocks,2,"revenue 1, costs 1",scored,0,31,2026 Q2,0,0,0,Medium,leans,"coping_ppi 2026-10: -1.1, percentile 43",the published reading has gone the other way in the next period
+Shops,Retail and wholesale,Demand cycle,2,revenue 2,scored,1,88,2026 Q2,2,0,2,Low,doesn't back,,mapping fit partial
+Shops,Retail and wholesale,Capacity cycle,1,costs 1,not scored,,,,,,,,,,no capacity series for this group
+Shops,Retail and wholesale,Competition,3,"revenue 1, position 2",not scored,,,,,,,,,,needs company revenue shares (Sharadar); Census concentration shown as context only
+Shops,Retail and wholesale,Regulation,1,costs 1,not scored,,,,,,,,,,QuantGov RegData not pulled yet
+Shops,Retail and wholesale,Technology shifts,2,position 2,not scored,,,,,,,,,,PatentsView not pulled yet
+Shops,Retail and wholesale,Coping with shocks,3,"revenue 1, costs 2",scored,0,26,2026 Q2,0,0,0,Medium,leans,,mapping fit partial; the published reading has gone the other way in the next period
+Hlth,Healthcare,Demand cycle,1,revenue 1,scored,0,78,2026 Q2,0,0,1,Low,doesn't back,,mapping fit partial; the published reading has gone the other way in the next period
+Hlth,Healthcare,Capacity cycle,1,costs 1,not scored,,,,,,,,,,capacity series cover only 12% of the group's output
+Hlth,Healthcare,Competition,2,"revenue 1, position 1",not scored,,,,,,,,,,needs company revenue shares (Sharadar); Census concentration shown as context only
+Hlth,Healthcare,Regulation,3,"revenue 2, valuation 1",not scored,,,,,,,,,,QuantGov RegData not pulled yet
+Hlth,Healthcare,Technology shifts,2,position 2,not scored,,,,,,,,,,PatentsView not pulled yet
+Hlth,Healthcare,Coping with shocks,1,costs 1,scored,-1,9,2026 Q2,-1,-1,0,Low,doesn't back,"coping_ppi 2026-10: -6.0, percentile 8",mapping fit partial; the published reading has gone the other way in the next period
+Money,Finance,Demand cycle,2,revenue 2,scored,0,74,2026 Q2,0,0,0,Medium,leans,,mapping fit partial; the published reading has gone the other way in the next period
+Money,Finance,Capacity cycle,1,revenue 1,not scored,,,,,,,,,,no capacity series for this group
+Money,Finance,Competition,2,"revenue 1, position 1",not scored,,,,,,,,,,needs company revenue shares (Sharadar); Census concentration shown as context only
+Money,Finance,Regulation,3,"costs 1, financing 2",not scored,,,,,,,,,,QuantGov RegData not pulled yet
+Money,Finance,Technology shifts,1,position 1,not scored,,,,,,,,,,PatentsView not pulled yet
+Money,Finance,Coping with shocks,1,revenue 1,scored,0,32,2026 Q2,0,0,0,Medium,leans,,mapping fit partial
+Other,Other,Demand cycle,3,revenue 3,scored,0,22,2026 Q2,0,-3,0,Low,doesn't back,,mapping fit loose
+Other,Other,Capacity cycle,2,"revenue 1, costs 1",not scored,,,,,,,,,,capacity series cover only 2% of the group's output
+Other,Other,Competition,2,"revenue 1, position 1",not scored,,,,,,,,,,needs company revenue shares (Sharadar); Census concentration shown as context only
+Other,Other,Regulation,1,costs 1,not scored,,,,,,,,,,QuantGov RegData not pulled yet
+Other,Other,Technology shifts,1,position 1,not scored,,,,,,,,,,PatentsView not pulled yet
+Other,Other,Coping with shocks,2,costs 2,scored,0,32,2026 Q2,0,0,0,Low,leans,,mapping fit loose

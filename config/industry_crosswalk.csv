@@ -1,0 +1,163 @@
+source,code,name,group,bea_code,share,deflator,basis
+bea,311FT,Food and beverage and tobacco products,NoDur,311FT,1,,SIC 2000-2199 food and tobacco
+bea,313TT,Textile mills and textile product mills,NoDur,313TT,1,,SIC 2200-2299 textiles
+bea,315AL,Apparel and leather and allied products,NoDur,315AL,1,,SIC 2300-2399 and 3100-3199
+bea,511,"Publishing industries, except internet (includes software)",NoDur,511,0.25,,"SIC 2700-2749 newspapers, periodicals, books (software share goes to BusEq)"
+bea,339,Miscellaneous manufacturing,NoDur,339,0.2,,"SIC 3940-3989 toys, sporting goods"
+bea,3361MV,"Motor vehicles, bodies and trailers, and parts",Durbl,3361MV,1,,"SIC 3710-3716 cars and parts (trucks 3713 sit in Manuf, small)"
+bea,337,Furniture and related products,Durbl,337,0.6,,SIC 2500-2519 household furniture
+bea,339,Miscellaneous manufacturing,Durbl,339,0.3,,"SIC 3900-3939 and 3990-3999 jewelry, musical instruments, misc"
+bea,335,"Electrical equipment, appliances, and components",Durbl,335,0.25,,SIC 3630-3639 household appliances
+bea,333,Machinery,Manuf,333,1,,SIC 3500-3569 and 3580-3599 machinery
+bea,3364OT,Other transportation equipment,Manuf,3364OT,1,,"SIC 3720-3749 and 3790-3799 planes, ships, railcars"
+bea,332,Fabricated metal products,Manuf,332,1,,SIC 3400-3499
+bea,335,"Electrical equipment, appliances, and components",Manuf,335,0.75,,SIC 3600-3629 electrical equipment
+bea,322,Paper products,Manuf,322,1,,SIC 2600-2699 paper
+bea,323,Printing and related support activities,Manuf,323,1,,SIC 2750-2769 commercial printing
+bea,326,Plastics and rubber products,Manuf,326,1,,SIC 3000-3099 rubber and plastics
+bea,327,Nonmetallic mineral products,Manuf,327,1,,"SIC 3200-3299 stone, clay, glass"
+bea,331,Primary metals,Manuf,331,1,,SIC 3300-3399 primary metals
+bea,337,Furniture and related products,Manuf,337,0.4,,SIC 2520-2589 office furniture and fixtures
+bea,211,Oil and gas extraction,Enrgy,211,1,,SIC 1300-1399 oil and gas
+bea,213,Support activities for mining,Enrgy,213,1,,SIC 1380-1389 oilfield services
+bea,324,Petroleum and coal products,Enrgy,324,1,,SIC 2900-2999 refining
+bea,212,"Mining, except oil and gas",Enrgy,212,0.3,,SIC 1200-1299 coal
+bea,325,Chemical products,Chems,325,0.65,,SIC 2800-2829 and 2840-2899 (drugs go to Hlth)
+bea,334,Computer and electronic products,BusEq,334,1,,"SIC 3570-3579, 3660-3699, 3810-3829"
+bea,511,"Publishing industries, except internet (includes software)",BusEq,511,0.75,,SIC 7372 software
+bea,514,"Data processing, internet publishing, and other information services",BusEq,514,1,,SIC 7370-7379 computer services
+bea,5415,Computer systems design and related services,BusEq,5415,1,,SIC 7370-7379 computer services
+bea,513,Broadcasting and telecommunications,Telcm,513,1,,SIC 4800-4899
+bea,22,Utilities,Utils,22,1,,SIC 4900-4949
+bea,42,Wholesale trade,Shops,42,1,,SIC 5000-5199
+bea,441,Motor vehicle and parts dealers,Shops,441,1,,SIC 5500-5599
+bea,445,Food and beverage stores,Shops,445,1,,SIC 5400-5499
+bea,452,General merchandise stores,Shops,452,1,,SIC 5300-5399
+bea,4A0,Other retail,Shops,4A0,1,,SIC 5200-5999 other retail
+bea,722,Food services and drinking places,Shops,722,1,,SIC 5812-5813 eating and drinking places
+bea,81,"Other services, except government",Shops,81,0.5,,"SIC 7200-7299 personal services, 7600-7699 repair"
+bea,621,Ambulatory health care services,Hlth,621,1,,SIC 8000-8099
+bea,622,Hospitals,Hlth,622,1,,SIC 8060-8069
+bea,623,Nursing and residential care facilities,Hlth,623,1,,SIC 8050-8059
+bea,325,Chemical products,Hlth,325,0.35,,SIC 2830-2839 drugs (about a third of chemicals output)
+bea,339,Miscellaneous manufacturing,Hlth,339,0.5,,SIC 3840-3859 medical instruments and supplies
+bea,521CI,"Federal Reserve banks, credit intermediation, and related activities",Money,521CI,1,,SIC 6000-6199 banks and lenders
+bea,523,"Securities, commodity contracts, and investments",Money,523,1,,SIC 6200-6299
+bea,524,Insurance carriers and related activities,Money,524,1,,SIC 6300-6499
+bea,525,"Funds, trusts, and other financial vehicles",Money,525,1,,SIC 6700-6799
+bea,ORE,Other real estate (excludes owner-occupied housing),Money,ORE,1,,SIC 6500-6599 real estate and 6798 REITs
+bea,212,"Mining, except oil and gas",Other,212,0.7,,SIC 1000-1199 and 1400-1499 metal and mineral mining
+bea,23,Construction,Other,23,1,,SIC 1500-1799
+bea,321,Wood products,Other,321,1,,SIC 2400-2499 (not in any named group)
+bea,481,Air transportation,Other,481,1,,SIC 4500-4599
+bea,482,Rail transportation,Other,482,1,,SIC 4000-4099
+bea,483,Water transportation,Other,483,1,,SIC 4400-4499
+bea,484,Truck transportation,Other,484,1,,SIC 4200-4299
+bea,485,Transit and ground passenger transportation,Other,485,1,,SIC 4100-4199
+bea,486,Pipeline transportation,Other,486,1,,SIC 4600-4699
+bea,487OS,Other transportation and support activities,Other,487OS,1,,SIC 4700-4799
+bea,493,Warehousing and storage,Other,493,1,,SIC 4220-4229
+bea,512,Motion picture and sound recording industries,Other,512,1,,SIC 7800-7899
+bea,532RL,Rental and leasing services and lessors of intangible assets,Other,532RL,1,,SIC 7350-7359 and 7500-7549
+bea,5411,Legal services,Other,5411,1,,SIC 8100-8199
+bea,5412OP,"Miscellaneous professional, scientific, and technical services",Other,5412OP,1,,SIC 8700-8799
+bea,55,Management of companies and enterprises,Other,55,1,,SIC 6700s holding offices and 8741
+bea,561,Administrative and support services,Other,561,1,,SIC 7300-7369 business services
+bea,562,Waste management and remediation services,Other,562,1,,SIC 4950-4999 sanitary services
+bea,61,Educational services,Other,61,1,,SIC 8200-8299
+bea,624,Social assistance,Other,624,1,,SIC 8300-8399
+bea,711AS,"Performing arts, spectator sports, museums, and related activities",Other,711AS,1,,SIC 7900-7999
+bea,713,"Amusements, gambling, and recreation industries",Other,713,1,,SIC 7900-7999
+bea,721,Accommodation,Other,721,1,,SIC 7000-7099 hotels
+bea,81,"Other services, except government",Other,81,0.5,,SIC 8600-8699 and other services
+g17,CAPUTLG311A2S,"Food, beverage and tobacco",NoDur,311FT,,,
+g17,CAPUTLG313A4S,Textiles and products,NoDur,313TT,,,
+g17,CAPUTLG315A6S,Apparel and leather goods,NoDur,315AL,,,
+g17,CAPUTLG3361T3S,Motor vehicles and parts,Durbl,3361MV,,,
+g17,CAPUTLG337S,Furniture and related products,Durbl,337,,,
+g17,CAPUTLG339S,Miscellaneous manufacturing,Durbl,339,,,
+g17,CAPUTLG3364T9S,Aerospace and miscellaneous transportation equipment,Manuf,3364OT,,,
+g17,CAPUTLG333S,Machinery,Manuf,333,,,
+g17,CAPUTLG332S,Fabricated metal products,Manuf,332,,,
+g17,CAPUTLG335S,"Electrical equipment, appliances and components",Manuf,335,,,
+g17,CAPUTLG322S,Paper,Manuf,322,,,
+g17,CAPUTLG323S,Printing,Manuf,323,,,
+g17,CAPUTLG326S,Plastics and rubber products,Manuf,326,,,
+g17,CAPUTLG327S,Nonmetallic mineral products,Manuf,327,,,
+g17,CAPUTLG331S,Primary metals,Manuf,331,,,
+g17,CAPUTLG337S,Furniture and related products,Manuf,337,,,
+g17,CAPUTLG211S,Oil and gas extraction,Enrgy,211,,,
+g17,CAPUTLG213S,Support activities for mining,Enrgy,213,,,
+g17,CAPUTLG324S,Petroleum and coal products,Enrgy,324,,,
+g17,CAPUTLN2121S,Coal mining,Enrgy,212,,,
+g17,CAPUTLG325S,Chemicals (includes drugs),Chems,325,,,
+g17,CAPUTLG334S,Computer and electronic products,BusEq,334,,,
+g17,CAPUTLG2211A2S,Electric and gas utilities,Utils,22,,,
+g17,CAPUTLG325S,Chemicals (includes drugs),Hlth,325,,,
+g17,CAPUTLG339S,Miscellaneous manufacturing (medical supplies inside),Hlth,339,,,
+g17,CAPUTLG212S,Mining except oil and gas,Other,212,,,
+g17,CAPUTLG321S,Wood products,Other,321,,,
+m3,11S,Food products,NoDur,311FT,,PCU311---311---,
+m3,12S,Beverage and tobacco products,NoDur,311FT,,PCU312---312---,
+m3,13S,Textile mills,NoDur,313TT,,PCU313---313---,
+m3,14S,Textile products,NoDur,313TT,,PCU314---314---,
+m3,15S,Apparel,NoDur,315AL,,PCU315---315---,
+m3,16S,Leather and allied products,NoDur,315AL,,PCU315---315---,
+m3,MVP,Motor vehicles and parts,Durbl,3361MV,,PCU3361--3361--,
+m3,37S,Furniture and related products,Durbl,337,,PCU337---337---,
+m3,33S,Machinery,Manuf,333,,PCU333---333---,
+m3,36S-MVP,Transportation equipment except motor vehicles and parts,Manuf,3364OT,,PCU3364--3364--,
+m3,32S,Fabricated metal products,Manuf,332,,PCU332---332---,
+m3,35S,"Electrical equipment, appliances and components",Manuf,335,,PCU335---335---,
+m3,22S,Paper,Manuf,322,,PCU322---322---,
+m3,23S,Printing,Manuf,323,,PCU323---323---,
+m3,26S,Plastics and rubber products,Manuf,326,,PCU326---326---,
+m3,27S,Nonmetallic mineral products,Manuf,327,,PCU327---327---,
+m3,31S,Primary metals,Manuf,331,,PCU331---331---,
+m3,37S,Furniture and related products,Manuf,337,,PCU337---337---,
+m3,24S,Petroleum and coal products,Enrgy,324,,PCU324---324---,
+m3,25S,Chemical products (includes drugs),Chems,325,,PCU325---325---,
+m3,34S,Computer and electronic products,BusEq,334,,PCU334---334---,
+ppi,PCU311---311---,Food manufacturing,NoDur,311FT,,,
+ppi,PCU312---312---,Beverage and tobacco,NoDur,311FT,,,
+ppi,PCU313---313---,Textile mills,NoDur,313TT,,,
+ppi,PCU315---315---,Apparel,NoDur,315AL,,,
+ppi,PCU3361--3361--,Motor vehicles,Durbl,3361MV,,,
+ppi,PCU3363--3363--,Motor vehicle parts,Durbl,3361MV,,,
+ppi,PCU3371--3371--,Household furniture,Durbl,337,,,
+ppi,PCU3352--3352--,Household appliances,Durbl,335,,,
+ppi,PCU333---333---,Machinery,Manuf,333,,,
+ppi,PCU3364--3364--,Aerospace,Manuf,3364OT,,,
+ppi,PCU332---332---,Fabricated metal,Manuf,332,,,
+ppi,PCU335---335---,Electrical equipment,Manuf,335,,,
+ppi,PCU322---322---,Paper,Manuf,322,,,
+ppi,PCU326---326---,Plastics and rubber,Manuf,326,,,
+ppi,PCU327---327---,Nonmetallic minerals,Manuf,327,,,
+ppi,PCU331---331---,Primary metals,Manuf,331,,,
+ppi,PCU211---211---,Oil and gas extraction,Enrgy,211,,,
+ppi,PCU213---213---,Mining support,Enrgy,213,,,
+ppi,PCU324---324---,Petroleum and coal products,Enrgy,324,,,
+ppi,PCU2121--2121--,Coal mining,Enrgy,212,,,
+ppi,PCU325---325---,Chemicals (includes drugs),Chems,325,,,
+ppi,PCU334---334---,Computer and electronic products,BusEq,334,,,
+ppi,PCU517---517---,Telecommunications,Telcm,513,,,
+ppi,PCU221---221---,Utilities,Utils,22,,,
+ppi,PCU423---423---,Durable goods wholesalers (margins),Shops,42,,,
+ppi,PCU424---424---,Nondurable goods wholesalers (margins),Shops,42,,,
+ppi,PCU441---441---,Motor vehicle dealers (margins),Shops,441,,,
+ppi,PCU445---445---,Food and beverage stores (margins),Shops,445,,,
+ppi,PCU3254--3254--,Pharmaceuticals,Hlth,325,,,
+ppi,PCU3391--3391--,Medical equipment and supplies,Hlth,339,,,
+ppi,PCU6211--6211--,Physician offices,Hlth,621,,,
+ppi,PCU6221--6221--,General hospitals,Hlth,622,,,
+ppi,PCU5221--5221--,Banking (depository credit),Money,521CI,,,
+ppi,PCU523---523---,Securities and investments,Money,523,,,
+ppi,PCU5241--5241--,Insurance carriers,Money,524,,,
+ppi,PCU212---212---,Mining except oil and gas,Other,212,,,
+ppi,PCU321---321---,Wood products,Other,321,,,
+ppi,PCU481---481---,Air transportation,Other,481,,,
+ppi,PCU482---482---,Rail transportation,Other,482,,,
+ppi,PCU484---484---,Truck transportation,Other,484,,,
+ppi,PCU493---493---,Warehousing,Other,493,,,
+ppi,PCU721---721---,Accommodation,Other,721,,,
+ppi,PCU5413--5413--,Architecture and engineering services,Other,5412OP,,,

@@ -1,0 +1,52 @@
+group,name,factor,measure,description,latest_period,value,unit,percentile_vs_own_history,reading,history_from,coverage_of_group_output,scored
+NoDur,Consumer staples,Demand cycle,demand,"Real gross output, growth over a year (BEA)",2026 Q2,-0.07,%,44,0,2006 Q3,100%,yes
+NoDur,Consumer staples,Coping with shocks,coping,"Output prices vs all industries, growth over a year (BEA)",2026 Q2,-1.75,pts,18,-1,2006 Q3,100%,yes
+NoDur,Consumer staples,Capacity cycle,capacity,Capacity use (Fed G.17),2026-10,+78.87,%,71,0,2006-11,85%,yes
+NoDur,Consumer staples,Demand cycle,demand_m3,"Real factory shipments, growth over a year (Census M3 / BLS)",2026-09,+1.28,%,80,0,2006-10,85%,cross-check
+NoDur,Consumer staples,Coping with shocks,coping_ppi,"Producer prices vs all mapped industries, growth over a year (BLS)",2026-10,-4.91,pts,1,-1,2006-11,85%,cross-check
+Durbl,Consumer durables,Demand cycle,demand,"Real gross output, growth over a year (BEA)",2026 Q2,+5.29,%,76,0,2006 Q3,100%,yes
+Durbl,Consumer durables,Coping with shocks,coping,"Output prices vs all industries, growth over a year (BEA)",2026 Q2,-1.83,pts,21,0,2006 Q3,100%,yes
+Durbl,Consumer durables,Capacity cycle,capacity,Capacity use (Fed G.17),2026-10,+68.22,%,33,0,2006-11,95%,yes
+Durbl,Consumer durables,Demand cycle,demand_m3,"Real factory shipments, growth over a year (Census M3 / BLS)",2026-09,+6.66,%,71,0,2006-10,89%,cross-check
+Durbl,Consumer durables,Coping with shocks,coping_ppi,"Producer prices vs all mapped industries, growth over a year (BLS)",2026-10,-5.43,pts,7,-1,2006-11,94%,cross-check
+Manuf,Manufacturing,Demand cycle,demand,"Real gross output, growth over a year (BEA)",2026 Q2,+1.85,%,68,0,2006 Q3,100%,yes
+Manuf,Manufacturing,Coping with shocks,coping,"Output prices vs all industries, growth over a year (BEA)",2026 Q2,+1.23,pts,78,0,2006 Q3,100%,yes
+Manuf,Manufacturing,Capacity cycle,capacity,Capacity use (Fed G.17),2026-10,+79.32,%,84,1,2006-11,100%,yes
+Manuf,Manufacturing,Demand cycle,demand_m3,"Real factory shipments, growth over a year (Census M3 / BLS)",2026-09,+1.75,%,68,0,2006-10,100%,cross-check
+Manuf,Manufacturing,Coping with shocks,coping_ppi,"Producer prices vs all mapped industries, growth over a year (BLS)",2026-10,-0.76,pts,21,0,2006-11,96%,cross-check
+Enrgy,Energy,Demand cycle,demand,"Real gross output, growth over a year (BEA)",2026 Q2,+3.20,%,57,0,2006 Q3,100%,yes
+Enrgy,Energy,Coping with shocks,coping,"Output prices vs all industries, growth over a year (BEA)",2026 Q2,+29.85,pts,86,1,2006 Q3,100%,yes
+Enrgy,Energy,Capacity cycle,capacity,Capacity use (Fed G.17),2026-10,+87.72,%,74,0,2006-11,100%,yes
+Enrgy,Energy,Demand cycle,demand_m3,"Real factory shipments, growth over a year (Census M3 / BLS)",2026-09,-19.96,%,3,-1,2006-10,50%,shown only (cross-check covers under 80%)
+Enrgy,Energy,Coping with shocks,coping_ppi,"Producer prices vs all mapped industries, growth over a year (BLS)",2026-10,+49.50,pts,94,1,2006-11,100%,cross-check
+Chems,Chemicals,Demand cycle,demand,"Real gross output, growth over a year (BEA)",2026 Q2,+2.47,%,63,0,2006 Q3,100%,yes
+Chems,Chemicals,Coping with shocks,coping,"Output prices vs all industries, growth over a year (BEA)",2026 Q2,+1.89,pts,68,0,2006 Q3,100%,yes
+Chems,Chemicals,Capacity cycle,capacity,Capacity use (Fed G.17),2026-10,+71.45,%,19,-1,2006-11,100%,yes
+Chems,Chemicals,Demand cycle,demand_m3,"Real factory shipments, growth over a year (Census M3 / BLS)",2026-09,+5.53,%,86,1,2006-10,100%,cross-check
+Chems,Chemicals,Coping with shocks,coping_ppi,"Producer prices vs all mapped industries, growth over a year (BLS)",2026-10,-2.03,pts,14,-1,2006-11,100%,cross-check
+BusEq,Business equipment and tech,Demand cycle,demand,"Real gross output, growth over a year (BEA)",2026 Q2,+9.61,%,76,0,2006 Q3,100%,yes
+BusEq,Business equipment and tech,Coping with shocks,coping,"Output prices vs all industries, growth over a year (BEA)",2026 Q2,-2.74,pts,54,0,2006 Q3,100%,yes
+BusEq,Business equipment and tech,Capacity cycle,capacity,Capacity use (Fed G.17),2026-10,+76.77,%,80,0,2006-11,16%,no (coverage under half)
+BusEq,Business equipment and tech,Demand cycle,demand_m3,"Real factory shipments, growth over a year (Census M3 / BLS)",2026-09,-2.87,%,23,0,2006-10,16%,no (coverage under half)
+BusEq,Business equipment and tech,Coping with shocks,coping_ppi,"Producer prices vs all mapped industries, growth over a year (BLS)",2026-10,+6.64,pts,97,1,2006-11,16%,no (coverage under half)
+Telcm,Telecom,Demand cycle,demand,"Real gross output, growth over a year (BEA)",2026 Q2,-0.45,%,18,-1,2006 Q3,100%,yes
+Telcm,Telecom,Coping with shocks,coping,"Output prices vs all industries, growth over a year (BEA)",2026 Q2,-3.83,pts,26,0,2006 Q3,100%,yes
+Telcm,Telecom,Coping with shocks,coping_ppi,"Producer prices vs all mapped industries, growth over a year (BLS)",2026-10,-5.54,pts,12,-1,2006-11,100%,cross-check
+Utils,Utilities,Demand cycle,demand,"Real gross output, growth over a year (BEA)",2026 Q2,+1.32,%,56,0,2006 Q3,100%,yes
+Utils,Utilities,Coping with shocks,coping,"Output prices vs all industries, growth over a year (BEA)",2026 Q2,-2.89,pts,31,0,2006 Q3,100%,yes
+Utils,Utilities,Capacity cycle,capacity,Capacity use (Fed G.17),2026-10,+69.47,%,1,-1,2006-11,100%,yes
+Utils,Utilities,Coping with shocks,coping_ppi,"Producer prices vs all mapped industries, growth over a year (BLS)",2026-10,-1.13,pts,43,0,2006-11,100%,cross-check
+Shops,Retail and wholesale,Demand cycle,demand,"Real gross output, growth over a year (BEA)",2026 Q2,+5.68,%,88,1,2006 Q3,100%,yes
+Shops,Retail and wholesale,Coping with shocks,coping,"Output prices vs all industries, growth over a year (BEA)",2026 Q2,-0.79,pts,26,0,2006 Q3,100%,yes
+Shops,Retail and wholesale,Coping with shocks,coping_ppi,"Producer prices vs all mapped industries, growth over a year (BLS)",2026-10,+0.09,pts,42,0,2006-11,51%,shown only (cross-check covers under 80%)
+Hlth,Healthcare,Demand cycle,demand,"Real gross output, growth over a year (BEA)",2026 Q2,+4.07,%,78,0,2006 Q3,100%,yes
+Hlth,Healthcare,Coping with shocks,coping,"Output prices vs all industries, growth over a year (BEA)",2026 Q2,-1.20,pts,9,-1,2006 Q3,100%,yes
+Hlth,Healthcare,Capacity cycle,capacity,Capacity use (Fed G.17),2026-10,+73.81,%,29,0,2006-11,12%,no (coverage under half)
+Hlth,Healthcare,Coping with shocks,coping_ppi,"Producer prices vs all mapped industries, growth over a year (BLS)",2026-10,-6.03,pts,8,-1,2006-11,91%,cross-check
+Money,Finance,Demand cycle,demand,"Real gross output, growth over a year (BEA)",2026 Q2,+3.12,%,74,0,2006 Q3,100%,yes
+Money,Finance,Coping with shocks,coping,"Output prices vs all industries, growth over a year (BEA)",2026 Q2,-0.63,pts,32,0,2006 Q3,100%,yes
+Money,Finance,Coping with shocks,coping_ppi,"Producer prices vs all mapped industries, growth over a year (BLS)",2026-10,-4.28,pts,13,-1,2006-11,65%,shown only (cross-check covers under 80%)
+Other,Other,Demand cycle,demand,"Real gross output, growth over a year (BEA)",2026 Q2,+0.42,%,22,0,2006 Q3,100%,yes
+Other,Other,Coping with shocks,coping,"Output prices vs all industries, growth over a year (BEA)",2026 Q2,-0.27,pts,32,0,2006 Q3,100%,yes
+Other,Other,Capacity cycle,capacity,Capacity use (Fed G.17),2026-10,+74.83,%,49,0,2006-11,2%,no (coverage under half)
+Other,Other,Coping with shocks,coping_ppi,"Producer prices vs all mapped industries, growth over a year (BLS)",2026-10,-1.57,pts,16,-1,2006-11,32%,no (coverage under half)

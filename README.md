@@ -30,8 +30,17 @@ Each source has its own repository secret. A source whose secret is missing is s
 - **Layout:** time series files are wide: one `date` column and one column per industry, category or index. Quarterly BEA rows are dated to the quarter's first month (`2026-01` is Q1 2026).
 - **PPI series list:** BLS's own list files block automated downloads, so the job takes the list of industry-level indexes from FRED's copy of the PPI (ids like `PCU325325`) and pulls each one from BLS (`PCU325---325---`). The list is saved, so later runs can reuse it if FRED is down.
 - **Check report:** `data/industry/INDUSTRY_CHECK_REPORT.md` lists each dataset's series count, date range, missing values, stale or likely discontinued series, out-of-range values (capacity use outside 0 to 125, HHI outside 0 to 10,000) and which sources were skipped.
-- **Not covered yet:** services capacity (no free measure), Sharadar revenue shares (paid), QuantGov RegData and the Federal Register (regulation), PatentsView (technology), and the NAICS-to-French-group crosswalk.
+- **Not covered yet:** services capacity (no free measure), Sharadar revenue shares (paid), QuantGov RegData and the Federal Register (regulation) and PatentsView (technology). The NAICS-to-French-group crosswalk is in `config/industry_crosswalk.csv` (see Industry run).
 - **Keyless check:** `python scripts/fetch_industry_data.py --smoke` reads three PPI indexes from BLS's keyless API and writes nothing.
+
+## Industry run
+
+`scripts/industry_assessment.py` runs the industry pillar on French's 12 groups from the data already in the repo and writes `results/industry_run/` (write-up: `docs/industry-run.md`). Standard library only; about a minute.
+
+- **Mapping:** `config/industry_crosswalk.csv` maps BEA industries, Fed capacity series, Census M3 categories and BLS producer price indexes to French's groups, following French's SIC definitions; BEA industries that span groups are split by rough output shares.
+- **Exposure:** `config/industry_exposure_v0.csv`, a v0 judgment: each factor's channel scores (revenue, costs, financing, currency, valuation, competitive position) added up, capped at 3.
+- **Readings:** demand (BEA real gross output), capacity (G.17, where it covers half the group) and coping with shocks (BEA output prices against all industries), each ranked against the group's last 20 years: top fifth = tailwind, bottom fifth = headwind. Competition, regulation and technology aren't scored yet.
+- **Outputs:** `scores.csv` (score, range, confidence per group and factor), `readings.csv` (latest value, percentile, coverage), `checks.csv` and `pooled_checks.csv` (the measured check), `concentration.csv` (Census context), `measure_series.csv` (every measure's history).
 
 ## Event calendar
 

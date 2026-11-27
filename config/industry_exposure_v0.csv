@@ -1,0 +1,73 @@
+group,factor,revenue,costs,financing,currency,valuation,position,exposure,why
+NoDur,demand,1,0,0,0,0,0,1,Staples demand barely moves with the cycle
+NoDur,capacity,1,0,0,0,0,0,1,Tight plants let food makers hold prices
+NoDur,competition,1,0,0,0,0,2,3,Brand share and retailer private labels decide margins
+NoDur,regulation,1,1,0,0,0,0,2,"Tobacco, food labeling and ingredient rules"
+NoDur,technology,0,0,0,0,0,1,1,"Slow-moving, but new brands and weight-loss drugs can shift demand"
+NoDur,coping,1,2,0,0,0,0,3,Profits hinge on passing commodity costs through
+Durbl,demand,3,0,0,0,0,0,3,"Cars, furniture and appliances are bought when times are good"
+Durbl,capacity,1,1,0,0,0,0,2,High plant use lifts pricing and spreads fixed costs
+Durbl,competition,1,0,0,0,0,2,3,Share fights and imports set car and appliance prices
+Durbl,regulation,0,2,0,0,0,0,2,Emissions and safety rules raise costs
+Durbl,technology,0,0,0,0,1,2,3,Electric and self-driving cars reshuffle winners
+Durbl,coping,0,2,0,0,0,0,2,"Steel, chips and parts costs are hard to pass on"
+Manuf,demand,3,0,0,0,0,0,3,Machinery and parts orders swing hard with the cycle
+Manuf,capacity,2,1,0,0,0,0,3,"Full order books and plants mean pricing power and operating leverage"
+Manuf,competition,1,0,0,0,0,1,2,Fragmented in parts; concentrated in aerospace
+Manuf,regulation,0,1,0,0,0,0,1,Environmental and safety costs
+Manuf,technology,0,0,0,0,0,1,1,Automation shifts share slowly
+Manuf,coping,1,2,0,0,0,0,3,Metal and energy input costs pass through with a lag
+Enrgy,demand,2,0,0,0,0,0,2,"Fuel demand matters, but global prices matter more (macro shock)"
+Enrgy,capacity,2,1,0,0,0,0,3,Refinery and rig use drive margins
+Enrgy,competition,0,0,0,0,0,1,1,Commodity sellers take the market price
+Enrgy,regulation,1,2,0,0,0,0,3,"Drilling permits, emissions and fuel rules"
+Enrgy,technology,0,0,0,0,1,1,2,Shale and the energy transition move value
+Enrgy,coping,2,0,0,0,0,0,2,Output prices are the oil shock itself; hedging softens it
+Chems,demand,2,0,0,0,0,0,2,Industrial and consumer demand both feed chemicals
+Chems,capacity,2,1,0,0,0,0,3,Chemical margins move with plant use
+Chems,competition,1,0,0,0,0,1,2,Specialty firms hold share; commodity chemicals don't
+Chems,regulation,0,2,0,0,0,0,2,EPA and chemical safety rules
+Chems,technology,0,0,0,0,0,1,1,New materials shift share slowly
+Chems,coping,1,2,0,0,0,0,3,Feedstock costs pass through to customers with a lag
+BusEq,demand,2,0,0,0,0,0,2,"Chips and hardware are cyclical; software less so"
+BusEq,capacity,1,0,0,0,0,0,1,Chip plant use matters for semiconductors
+BusEq,competition,1,0,0,0,0,2,3,Platform and share battles decide winners
+BusEq,regulation,1,0,0,0,0,1,2,Export controls and antitrust
+BusEq,technology,0,0,0,0,1,2,3,Platform shifts (cloud and AI) make and break firms
+BusEq,coping,0,1,0,0,0,0,1,High margins absorb input costs
+Telcm,demand,1,0,0,0,0,0,1,Subscriptions are steady
+Telcm,capacity,0,1,0,0,0,0,1,Network buildouts are costly
+Telcm,competition,1,0,0,0,0,2,3,Price wars between carriers and cable
+Telcm,regulation,1,1,0,0,0,0,2,Spectrum and FCC rules
+Telcm,technology,0,1,0,0,0,1,2,New network generations cost money and shift share
+Telcm,coping,0,1,0,0,0,0,1,Price plans are sticky either way
+Utils,demand,1,0,0,0,0,0,1,"Regulated returns; load growth (data centers) matters at the margin"
+Utils,capacity,1,0,0,0,0,0,1,Tight power supply lifts wholesale prices
+Utils,competition,0,0,0,0,0,0,0,Mostly regulated local monopolies
+Utils,regulation,2,0,1,0,0,0,3,Allowed returns are set by regulators
+Utils,technology,0,1,0,0,0,0,1,Renewables and storage change costs
+Utils,coping,1,1,0,0,0,0,2,Fuel clauses pass most costs through
+Shops,demand,2,0,0,0,0,0,2,Retail sales follow spending
+Shops,capacity,0,1,0,0,0,0,1,Store space and warehouses (no data)
+Shops,competition,1,0,0,0,0,2,3,Online giants squeeze others
+Shops,regulation,0,1,0,0,0,0,1,"Wage rules, tariffs at the border are macro"
+Shops,technology,0,0,0,0,0,2,2,Online shopping shifts share
+Shops,coping,1,2,0,0,0,0,3,Thin margins depend on passing costs and wages on
+Hlth,demand,1,0,0,0,0,0,1,Healthcare demand is steady
+Hlth,capacity,0,1,0,0,0,0,1,Hospital beds and staff
+Hlth,competition,1,0,0,0,0,1,2,Generics and patent cliffs
+Hlth,regulation,2,0,0,0,1,0,3,Drug pricing and Medicare payment rules
+Hlth,technology,0,0,0,0,0,2,2,New drugs and devices make winners
+Hlth,coping,0,1,0,0,0,0,1,Prices are set by payers more than costs
+Money,demand,2,0,0,0,0,0,2,Loan demand and deal flow
+Money,capacity,1,0,0,0,0,0,1,Lending room set by capital
+Money,competition,1,0,0,0,0,1,2,Big banks and fintech squeeze margins
+Money,regulation,0,1,2,0,0,0,3,Capital and liquidity rules
+Money,technology,0,0,0,0,0,1,1,Fintech shifts share slowly
+Money,coping,1,0,0,0,0,0,1,Fees and spreads adjust slowly
+Other,demand,3,0,0,0,0,0,3,"Construction, freight and travel swing with the cycle"
+Other,capacity,1,1,0,0,0,0,2,Trucking and airline capacity set pricing
+Other,competition,1,0,0,0,0,1,2,Mixed group
+Other,regulation,0,1,0,0,0,0,1,Safety and environmental rules
+Other,technology,0,0,0,0,0,1,1,Mixed group
+Other,coping,0,2,0,0,0,0,2,Fuel and wage costs pass through unevenly

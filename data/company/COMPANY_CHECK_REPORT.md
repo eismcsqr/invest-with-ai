@@ -34,7 +34,11 @@ Run: 2026-11-27. Source: Sharadar (direct API, bulk download of each table).
 - BHC: 42 quarters missing
 - AVDL: 39 quarters missing
 
-## Not pulled yet
+## Owner-signal tables (optional)
 
-- Insider trades and institutional holdings (owner signals): very large in bulk; pulled when the owner-signal measure is built.
+- insiders: downloaded as 'insiders' (whole table), 248 MB in 2s
+- holdings: downloaded as 'holdings' (whole table), 717 MB in 5s
+
+## Not committed
+
 - Raw tables stay on the runner and are not committed (size and licence).

@@ -1,0 +1,974 @@
+detailed_group,broad_group,measure,factor,scored,companies,with_value,missing_pct,ranked,broad_fallback,peers_used
+(none),Manuf,rev_growth,Growth,Y,97,15,84.5,15,15,829
+(none),Manuf,rev_accel,Growth,Y,97,12,87.6,12,12,805
+(none),Manuf,earn_growth,Growth,Y,97,13,86.6,13,13,549
+(none),BusEq,deferred_growth,Growth,Y,9,3,66.7,0,0,0
+(none),Manuf,roe,Profitability,Y,97,24,75.3,24,24,877
+(none),Manuf,op_margin,Profitability,Y,97,23,76.3,23,23,576
+(none),Manuf,roic,Profitability,Y,97,26,73.2,26,26,572
+(none),Manuf,margin_stability,Profitability,Y,97,12,87.6,12,12,537
+(none),BusEq,gross_margin,Profitability,Y,23,12,47.8,0,0,0
+(none),Manuf,incr_margin,Profitability,Y,4,0,100.0,0,0,0
+(none),Manuf,net_debt_ebitda,Balance sheet,Y,97,19,80.4,19,19,479
+(none),Manuf,interest_cover,Balance sheet,Y,97,20,79.4,20,20,492
+(none),Manuf,short_debt,Balance sheet,Y,97,86,11.3,86,86,649
+(none),BusEq,inventory_turns,Balance sheet,Y,23,10,56.5,0,0,0
+(none),Hlth,cash_runway,Balance sheet,Y,14,0,100.0,0,0,0
+(none),Manuf,payout_yield,Capital use,Y,97,73,24.7,73,73,1168
+(none),Manuf,share_change,Capital use,Y,97,27,72.2,27,27,1043
+(none),Manuf,fcf_yield,Capital use,Y,97,22,77.3,22,22,562
+(none),BusEq,sbc_share,Capital use,Y,9,4,55.6,0,0,0
+(none),BusEq,rnd_share,Profitability,N,23,5,78.3,0,0,0
+(none),Manuf,capex_depr,Capital use,N,4,0,100.0,0,0,0
+(none),Utils,payout_ratio,Capital use,N,2,0,100.0,0,0,0
+(none),Manuf,results_move,Earnings surprise,Y,97,0,100.0,0,0,0
+(none),Manuf,insider_buying,Owner signals,Y,97,97,0.0,97,97,1168
+(none),Manuf,inst_change,Owner signals,Y,97,25,74.2,25,25,1144
+Agriculture,NoDur,rev_growth,Growth,Y,22,18,18.2,18,0,12
+Agriculture,NoDur,rev_accel,Growth,Y,22,18,18.2,18,0,12
+Agriculture,NoDur,earn_growth,Growth,Y,22,17,22.7,17,0,12
+Agriculture,NoDur,roe,Profitability,Y,22,19,13.6,19,0,13
+Agriculture,NoDur,op_margin,Profitability,Y,22,20,9.1,20,0,13
+Agriculture,NoDur,roic,Profitability,Y,22,20,9.1,20,0,13
+Agriculture,NoDur,margin_stability,Profitability,Y,22,17,22.7,17,0,12
+Agriculture,NoDur,gross_margin,Profitability,Y,21,19,9.5,19,0,12
+Agriculture,NoDur,net_debt_ebitda,Balance sheet,Y,22,17,22.7,17,0,12
+Agriculture,NoDur,interest_cover,Balance sheet,Y,22,18,18.2,18,0,12
+Agriculture,NoDur,short_debt,Balance sheet,Y,22,20,9.1,20,0,13
+Agriculture,NoDur,inventory_turns,Balance sheet,Y,21,14,33.3,14,0,10
+Agriculture,NoDur,payout_yield,Capital use,Y,22,20,9.1,20,0,13
+Agriculture,NoDur,share_change,Capital use,Y,22,20,9.1,20,0,13
+Agriculture,NoDur,fcf_yield,Capital use,Y,22,19,13.6,19,0,12
+Agriculture,NoDur,results_move,Earnings surprise,Y,22,19,13.6,19,0,12
+Agriculture,NoDur,insider_buying,Owner signals,Y,22,22,0.0,22,0,13
+Agriculture,NoDur,inst_change,Owner signals,Y,22,21,4.5,21,0,13
+Aircraft,Manuf,rev_growth,Growth,Y,38,26,31.6,26,0,21
+Aircraft,Manuf,rev_accel,Growth,Y,38,23,39.5,23,0,18
+Aircraft,Manuf,earn_growth,Growth,Y,38,29,23.7,29,0,24
+Aircraft,Manuf,roe,Profitability,Y,38,29,23.7,29,0,24
+Aircraft,Manuf,op_margin,Profitability,Y,38,29,23.7,29,0,24
+Aircraft,Manuf,roic,Profitability,Y,38,33,13.2,33,0,27
+Aircraft,Manuf,margin_stability,Profitability,Y,38,24,36.8,24,0,21
+Aircraft,Manuf,incr_margin,Profitability,Y,37,26,29.7,26,0,21
+Aircraft,Manuf,net_debt_ebitda,Balance sheet,Y,38,23,39.5,23,0,21
+Aircraft,Manuf,interest_cover,Balance sheet,Y,38,24,36.8,24,0,21
+Aircraft,Manuf,short_debt,Balance sheet,Y,38,36,5.3,36,0,30
+Aircraft,Manuf,payout_yield,Capital use,Y,38,37,2.6,37,0,31
+Aircraft,Manuf,share_change,Capital use,Y,38,33,13.2,33,0,27
+Aircraft,Manuf,fcf_yield,Capital use,Y,38,33,13.2,33,0,27
+Aircraft,Manuf,capex_depr,Capital use,N,37,30,18.9,30,0,25
+Aircraft,Manuf,results_move,Earnings surprise,Y,38,37,2.6,37,0,31
+Aircraft,Manuf,insider_buying,Owner signals,Y,38,38,0.0,38,0,31
+Aircraft,Manuf,inst_change,Owner signals,Y,38,38,0.0,38,0,31
+Almost Nothing,Other,rev_growth,Growth,Y,15,13,13.3,13,13,500
+Almost Nothing,Other,rev_accel,Growth,Y,15,11,26.7,11,11,481
+Almost Nothing,Other,earn_growth,Growth,Y,15,13,13.3,13,13,533
+Almost Nothing,Other,roe,Profitability,Y,15,13,13.3,13,13,525
+Almost Nothing,Other,op_margin,Profitability,Y,15,13,13.3,13,13,531
+Almost Nothing,Other,roic,Profitability,Y,15,13,13.3,13,13,557
+Almost Nothing,Other,margin_stability,Profitability,Y,15,11,26.7,11,11,486
+Almost Nothing,Other,net_debt_ebitda,Balance sheet,Y,15,11,26.7,11,11,479
+Almost Nothing,Other,interest_cover,Balance sheet,Y,15,12,20.0,12,12,492
+Almost Nothing,Other,short_debt,Balance sheet,Y,15,14,6.7,14,14,563
+Almost Nothing,Other,payout_yield,Capital use,Y,15,14,6.7,14,14,600
+Almost Nothing,Other,share_change,Capital use,Y,15,13,13.3,13,13,578
+Almost Nothing,Other,fcf_yield,Capital use,Y,15,13,13.3,13,13,557
+Almost Nothing,Other,results_move,Earnings surprise,Y,15,13,13.3,13,13,586
+Almost Nothing,Other,insider_buying,Owner signals,Y,15,15,0.0,15,15,600
+Almost Nothing,Other,inst_change,Owner signals,Y,15,15,0.0,15,15,596
+Apparel,NoDur,rev_growth,Growth,Y,41,40,2.4,40,0,33
+Apparel,NoDur,rev_accel,Growth,Y,41,40,2.4,40,0,33
+Apparel,NoDur,earn_growth,Growth,Y,41,40,2.4,40,0,33
+Apparel,BusEq,deferred_growth,Growth,Y,1,1,0.0,0,0,0
+Apparel,NoDur,roe,Profitability,Y,41,39,4.9,39,0,32
+Apparel,NoDur,op_margin,Profitability,Y,41,40,2.4,40,0,33
+Apparel,NoDur,roic,Profitability,Y,41,40,2.4,40,0,33
+Apparel,NoDur,margin_stability,Profitability,Y,41,34,17.1,34,0,31
+Apparel,NoDur,gross_margin,Profitability,Y,36,35,2.8,35,0,29
+Apparel,Manuf,incr_margin,Profitability,Y,4,3,25.0,0,0,0
+Apparel,NoDur,net_debt_ebitda,Balance sheet,Y,41,37,9.8,37,0,33
+Apparel,NoDur,interest_cover,Balance sheet,Y,41,33,19.5,33,0,27
+Apparel,NoDur,short_debt,Balance sheet,Y,41,41,0.0,41,0,34
+Apparel,NoDur,inventory_turns,Balance sheet,Y,36,33,8.3,33,0,29
+Apparel,Hlth,cash_runway,Balance sheet,Y,1,1,0.0,0,0,0
+Apparel,NoDur,payout_yield,Capital use,Y,41,41,0.0,41,0,34
+Apparel,NoDur,share_change,Capital use,Y,41,40,2.4,40,0,33
+Apparel,NoDur,fcf_yield,Capital use,Y,41,40,2.4,40,0,33
+Apparel,BusEq,sbc_share,Capital use,Y,1,1,0.0,0,0,0
+Apparel,BusEq,rnd_share,Profitability,N,2,2,0.0,0,0,0
+Apparel,Manuf,capex_depr,Capital use,N,4,4,0.0,0,0,0
+Apparel,NoDur,results_move,Earnings surprise,Y,41,40,2.4,40,0,34
+Apparel,NoDur,insider_buying,Owner signals,Y,41,41,0.0,41,0,34
+Apparel,NoDur,inst_change,Owner signals,Y,41,40,2.4,40,0,33
+Automobiles and Trucks,Durbl,rev_growth,Growth,Y,85,77,9.4,77,0,62
+Automobiles and Trucks,Durbl,rev_accel,Growth,Y,85,75,11.8,75,0,60
+Automobiles and Trucks,Durbl,earn_growth,Growth,Y,85,78,8.2,78,0,62
+Automobiles and Trucks,BusEq,deferred_growth,Growth,Y,5,4,20.0,0,0,0
+Automobiles and Trucks,Durbl,roe,Profitability,Y,85,70,17.6,70,0,56
+Automobiles and Trucks,Durbl,op_margin,Profitability,Y,85,78,8.2,78,0,61
+Automobiles and Trucks,Durbl,roic,Profitability,Y,85,78,8.2,78,0,62
+Automobiles and Trucks,Durbl,margin_stability,Profitability,Y,85,76,10.6,76,0,62
+Automobiles and Trucks,Durbl,gross_margin,Profitability,Y,69,63,8.7,63,0,50
+Automobiles and Trucks,Manuf,incr_margin,Profitability,Y,13,13,0.0,13,0,10
+Automobiles and Trucks,Durbl,net_debt_ebitda,Balance sheet,Y,85,66,22.4,66,0,52
+Automobiles and Trucks,Durbl,interest_cover,Balance sheet,Y,85,76,10.6,76,0,60
+Automobiles and Trucks,Durbl,short_debt,Balance sheet,Y,85,82,3.5,82,0,63
+Automobiles and Trucks,Durbl,inventory_turns,Balance sheet,Y,69,62,10.1,62,0,50
+Automobiles and Trucks,Durbl,payout_yield,Capital use,Y,85,84,1.2,84,0,65
+Automobiles and Trucks,Durbl,share_change,Capital use,Y,85,81,4.7,81,0,63
+Automobiles and Trucks,Durbl,fcf_yield,Capital use,Y,85,76,10.6,76,0,59
+Automobiles and Trucks,BusEq,sbc_share,Capital use,Y,5,4,20.0,0,0,0
+Automobiles and Trucks,BusEq,rnd_share,Profitability,N,5,5,0.0,0,0,0
+Automobiles and Trucks,Manuf,capex_depr,Capital use,N,13,12,7.7,12,0,10
+Automobiles and Trucks,Enrgy,reinvest_rate,Capital use,N,1,1,0.0,0,0,0
+Automobiles and Trucks,Utils,payout_ratio,Capital use,N,1,0,100.0,0,0,0
+Automobiles and Trucks,Durbl,results_move,Earnings surprise,Y,85,79,7.1,79,0,63
+Automobiles and Trucks,Durbl,insider_buying,Owner signals,Y,85,85,0.0,85,0,65
+Automobiles and Trucks,Durbl,inst_change,Owner signals,Y,85,85,0.0,85,0,65
+Banking,Money,rev_growth,Growth,Y,466,395,15.2,395,0,375
+Banking,Money,rev_accel,Growth,Y,466,384,17.6,384,0,366
+Banking,Money,deposit_growth,Growth,Y,466,329,29.4,329,0,326
+Banking,Money,tbvps_growth,Growth,Y,466,411,11.8,411,0,394
+Banking,Money,roe,Profitability,Y,466,421,9.7,421,0,399
+Banking,Money,roa,Profitability,Y,466,428,8.2,428,0,404
+Banking,Money,efficiency,Profitability,Y,466,418,10.3,418,0,397
+Banking,Money,tangible_equity,Balance sheet,Y,466,438,6.0,438,0,413
+Banking,Money,payout_yield,Capital use,Y,466,438,6.0,438,0,413
+Banking,Money,share_change,Capital use,Y,466,427,8.4,427,0,403
+Banking,Money,results_move,Earnings surprise,Y,466,424,9.0,424,0,401
+Banking,Money,insider_buying,Owner signals,Y,466,465,0.2,465,0,413
+Banking,Money,inst_change,Owner signals,Y,466,464,0.4,464,0,413
+Beer & Liquor,NoDur,rev_growth,Growth,Y,23,18,21.7,18,0,12
+Beer & Liquor,NoDur,rev_accel,Growth,Y,23,17,26.1,17,0,12
+Beer & Liquor,NoDur,earn_growth,Growth,Y,23,18,21.7,18,0,12
+Beer & Liquor,NoDur,roe,Profitability,Y,23,17,26.1,17,0,11
+Beer & Liquor,NoDur,op_margin,Profitability,Y,23,17,26.1,17,0,12
+Beer & Liquor,NoDur,roic,Profitability,Y,23,18,21.7,18,0,12
+Beer & Liquor,NoDur,margin_stability,Profitability,Y,23,16,30.4,16,0,10
+Beer & Liquor,NoDur,gross_margin,Profitability,Y,22,16,27.3,16,0,12
+Beer & Liquor,NoDur,net_debt_ebitda,Balance sheet,Y,23,16,30.4,16,0,11
+Beer & Liquor,NoDur,interest_cover,Balance sheet,Y,23,15,34.8,15,15,120
+Beer & Liquor,NoDur,short_debt,Balance sheet,Y,23,21,8.7,21,0,13
+Beer & Liquor,NoDur,inventory_turns,Balance sheet,Y,22,17,22.7,17,0,12
+Beer & Liquor,NoDur,payout_yield,Capital use,Y,23,21,8.7,21,0,13
+Beer & Liquor,NoDur,share_change,Capital use,Y,23,19,17.4,19,0,12
+Beer & Liquor,NoDur,fcf_yield,Capital use,Y,23,18,21.7,18,0,12
+Beer & Liquor,NoDur,results_move,Earnings surprise,Y,23,20,13.0,20,0,13
+Beer & Liquor,NoDur,insider_buying,Owner signals,Y,23,23,0.0,23,0,13
+Beer & Liquor,NoDur,inst_change,Owner signals,Y,23,23,0.0,23,0,13
+Business Services,Other,rev_growth,Growth,Y,690,600,13.0,600,0,441
+Business Services,Other,rev_accel,Growth,Y,690,559,19.0,559,0,425
+Business Services,Other,earn_growth,Growth,Y,690,608,11.9,608,0,446
+Business Services,BusEq,deferred_growth,Growth,Y,404,293,27.5,293,0,228
+Business Services,Other,roe,Profitability,Y,690,594,13.9,594,0,439
+Business Services,Other,op_margin,Profitability,Y,690,642,7.0,642,0,471
+Business Services,Other,roic,Profitability,Y,690,587,14.9,587,0,449
+Business Services,Other,margin_stability,Profitability,Y,690,529,23.3,529,0,432
+Business Services,BusEq,gross_margin,Profitability,Y,406,381,6.2,381,0,282
+Business Services,Manuf,incr_margin,Profitability,Y,7,6,14.3,0,0,0
+Business Services,Telcm,ebitda_margin,Profitability,Y,2,2,0.0,0,0,0
+Business Services,Other,net_debt_ebitda,Balance sheet,Y,690,482,30.1,482,0,391
+Business Services,Other,interest_cover,Balance sheet,Y,690,510,26.1,510,0,369
+Business Services,Other,short_debt,Balance sheet,Y,690,663,3.9,663,0,483
+Business Services,BusEq,inventory_turns,Balance sheet,Y,405,77,81.0,77,0,49
+Business Services,Hlth,cash_runway,Balance sheet,Y,7,7,0.0,0,0,0
+Business Services,Other,payout_yield,Capital use,Y,690,678,1.7,678,0,496
+Business Services,Other,share_change,Capital use,Y,690,659,4.5,659,0,481
+Business Services,Other,fcf_yield,Capital use,Y,690,627,9.1,627,0,462
+Business Services,BusEq,sbc_share,Capital use,Y,404,329,18.6,329,0,254
+Business Services,BusEq,rnd_share,Profitability,N,411,382,7.1,382,0,284
+Business Services,Manuf,capex_depr,Capital use,N,7,6,14.3,0,0,0
+Business Services,Telcm,capex_rev,Capital use,N,2,2,0.0,0,0,0
+Business Services,Other,results_move,Earnings surprise,Y,690,654,5.2,654,0,486
+Business Services,Other,insider_buying,Owner signals,Y,690,690,0.0,690,0,496
+Business Services,Other,inst_change,Owner signals,Y,690,683,1.0,683,0,492
+Business Supplies,Manuf,rev_growth,Growth,Y,18,18,0.0,18,0,14
+Business Supplies,Manuf,rev_accel,Growth,Y,18,18,0.0,18,0,14
+Business Supplies,Manuf,earn_growth,Growth,Y,18,18,0.0,18,0,14
+Business Supplies,Manuf,roe,Profitability,Y,18,17,5.6,17,0,14
+Business Supplies,Manuf,op_margin,Profitability,Y,18,18,0.0,18,0,14
+Business Supplies,Manuf,roic,Profitability,Y,18,18,0.0,18,0,14
+Business Supplies,Manuf,margin_stability,Profitability,Y,18,16,11.1,16,0,14
+Business Supplies,Manuf,incr_margin,Profitability,Y,18,17,5.6,17,0,13
+Business Supplies,Manuf,net_debt_ebitda,Balance sheet,Y,18,17,5.6,17,0,14
+Business Supplies,Manuf,interest_cover,Balance sheet,Y,18,17,5.6,17,0,13
+Business Supplies,Manuf,short_debt,Balance sheet,Y,18,18,0.0,18,0,14
+Business Supplies,Manuf,payout_yield,Capital use,Y,18,18,0.0,18,0,14
+Business Supplies,Manuf,share_change,Capital use,Y,18,18,0.0,18,0,14
+Business Supplies,Manuf,fcf_yield,Capital use,Y,18,18,0.0,18,0,14
+Business Supplies,Manuf,capex_depr,Capital use,N,18,18,0.0,18,0,14
+Business Supplies,Manuf,results_move,Earnings surprise,Y,18,17,5.6,17,0,14
+Business Supplies,Manuf,insider_buying,Owner signals,Y,18,18,0.0,18,0,14
+Business Supplies,Manuf,inst_change,Owner signals,Y,18,18,0.0,18,0,14
+Candy & Soda,NoDur,rev_growth,Growth,Y,11,8,27.3,8,8,129
+Candy & Soda,NoDur,rev_accel,Growth,Y,11,8,27.3,8,8,126
+Candy & Soda,NoDur,earn_growth,Growth,Y,11,8,27.3,8,8,129
+Candy & Soda,NoDur,roe,Profitability,Y,11,6,45.5,6,6,123
+Candy & Soda,NoDur,op_margin,Profitability,Y,11,8,27.3,8,8,135
+Candy & Soda,NoDur,roic,Profitability,Y,11,7,36.4,7,7,134
+Candy & Soda,NoDur,margin_stability,Profitability,Y,11,7,36.4,7,7,120
+Candy & Soda,NoDur,gross_margin,Profitability,Y,11,8,27.3,0,0,0
+Candy & Soda,NoDur,net_debt_ebitda,Balance sheet,Y,11,7,36.4,7,7,123
+Candy & Soda,NoDur,interest_cover,Balance sheet,Y,11,5,54.5,5,5,120
+Candy & Soda,NoDur,short_debt,Balance sheet,Y,11,8,27.3,8,8,138
+Candy & Soda,NoDur,inventory_turns,Balance sheet,Y,11,8,27.3,0,0,0
+Candy & Soda,NoDur,payout_yield,Capital use,Y,11,8,27.3,8,8,138
+Candy & Soda,NoDur,share_change,Capital use,Y,11,8,27.3,8,8,136
+Candy & Soda,NoDur,fcf_yield,Capital use,Y,11,8,27.3,8,8,133
+Candy & Soda,NoDur,results_move,Earnings surprise,Y,11,8,27.3,8,8,133
+Candy & Soda,NoDur,insider_buying,Owner signals,Y,11,11,0.0,11,11,138
+Candy & Soda,NoDur,inst_change,Owner signals,Y,11,11,0.0,11,11,137
+Chemicals,Chems,rev_growth,Growth,Y,83,77,7.2,77,0,64
+Chemicals,Chems,rev_accel,Growth,Y,83,74,10.8,74,0,62
+Chemicals,Chems,earn_growth,Growth,Y,83,78,6.0,78,0,64
+Chemicals,Chems,roe,Profitability,Y,83,73,12.0,73,0,61
+Chemicals,Chems,op_margin,Profitability,Y,83,77,7.2,77,0,65
+Chemicals,Chems,roic,Profitability,Y,83,79,4.8,79,0,66
+Chemicals,Chems,margin_stability,Profitability,Y,83,72,13.3,72,0,62
+Chemicals,Chems,gross_margin,Profitability,Y,80,75,6.2,75,0,64
+Chemicals,Manuf,incr_margin,Profitability,Y,1,1,0.0,0,0,0
+Chemicals,Chems,net_debt_ebitda,Balance sheet,Y,83,67,19.3,67,0,60
+Chemicals,Chems,interest_cover,Balance sheet,Y,83,75,9.6,75,0,64
+Chemicals,Chems,short_debt,Balance sheet,Y,83,82,1.2,82,0,67
+Chemicals,Hlth,cash_runway,Balance sheet,Y,1,1,0.0,0,0,0
+Chemicals,Chems,payout_yield,Capital use,Y,83,82,1.2,82,0,67
+Chemicals,Chems,share_change,Capital use,Y,83,81,2.4,81,0,66
+Chemicals,Chems,fcf_yield,Capital use,Y,83,79,4.8,79,0,66
+Chemicals,Hlth,rnd_share,Profitability,N,1,0,100.0,0,0,0
+Chemicals,Manuf,capex_depr,Capital use,N,1,1,0.0,0,0,0
+Chemicals,Chems,results_move,Earnings surprise,Y,83,80,3.6,80,0,66
+Chemicals,Chems,insider_buying,Owner signals,Y,83,83,0.0,83,0,67
+Chemicals,Chems,inst_change,Owner signals,Y,83,82,1.2,82,0,66
+Coal,Enrgy,rev_growth,Growth,Y,8,8,0.0,8,8,117
+Coal,Enrgy,rev_accel,Growth,Y,8,8,0.0,8,8,113
+Coal,Enrgy,earn_growth,Growth,Y,8,8,0.0,8,8,119
+Coal,Enrgy,roe,Profitability,Y,8,8,0.0,8,8,118
+Coal,Enrgy,op_margin,Profitability,Y,8,8,0.0,8,8,118
+Coal,Enrgy,roic,Profitability,Y,8,8,0.0,8,8,120
+Coal,Enrgy,margin_stability,Profitability,Y,8,8,0.0,8,8,115
+Coal,Enrgy,net_debt_ebitda,Balance sheet,Y,8,8,0.0,8,8,118
+Coal,Enrgy,interest_cover,Balance sheet,Y,8,8,0.0,8,8,117
+Coal,Enrgy,short_debt,Balance sheet,Y,8,8,0.0,8,8,125
+Coal,Enrgy,payout_yield,Capital use,Y,8,8,0.0,8,8,126
+Coal,Enrgy,share_change,Capital use,Y,8,8,0.0,8,8,122
+Coal,Enrgy,fcf_yield,Capital use,Y,8,8,0.0,8,8,120
+Coal,Enrgy,reinvest_rate,Capital use,N,7,6,14.3,0,0,0
+Coal,Utils,payout_ratio,Capital use,N,1,0,100.0,0,0,0
+Coal,Enrgy,results_move,Earnings surprise,Y,8,8,0.0,8,8,124
+Coal,Enrgy,insider_buying,Owner signals,Y,8,8,0.0,8,8,126
+Coal,Enrgy,inst_change,Owner signals,Y,8,8,0.0,8,8,126
+Communication,Telcm,rev_growth,Growth,Y,82,64,22.0,64,0,50
+Communication,Telcm,rev_accel,Growth,Y,82,61,25.6,61,0,47
+Communication,Telcm,earn_growth,Growth,Y,82,65,20.7,65,0,50
+Communication,BusEq,deferred_growth,Growth,Y,1,1,0.0,0,0,0
+Communication,Telcm,roe,Profitability,Y,82,61,25.6,61,0,50
+Communication,Telcm,op_margin,Profitability,Y,82,71,13.4,71,0,55
+Communication,Telcm,roic,Profitability,Y,82,70,14.6,70,0,55
+Communication,Telcm,margin_stability,Profitability,Y,82,63,23.2,63,0,48
+Communication,BusEq,gross_margin,Profitability,Y,1,1,0.0,0,0,0
+Communication,Telcm,ebitda_margin,Profitability,Y,81,66,18.5,66,0,52
+Communication,Telcm,net_debt_ebitda,Balance sheet,Y,82,59,28.0,59,0,50
+Communication,Telcm,interest_cover,Balance sheet,Y,82,60,26.8,60,0,47
+Communication,Telcm,short_debt,Balance sheet,Y,82,73,11.0,73,0,55
+Communication,BusEq,inventory_turns,Balance sheet,Y,1,0,100.0,0,0,0
+Communication,Telcm,payout_yield,Capital use,Y,82,73,11.0,73,0,55
+Communication,Telcm,share_change,Capital use,Y,82,73,11.0,73,0,55
+Communication,Telcm,fcf_yield,Capital use,Y,82,71,13.4,71,0,55
+Communication,BusEq,sbc_share,Capital use,Y,1,1,0.0,0,0,0
+Communication,BusEq,rnd_share,Profitability,N,1,1,0.0,0,0,0
+Communication,Telcm,capex_rev,Capital use,N,81,69,14.8,69,0,55
+Communication,Telcm,results_move,Earnings surprise,Y,82,72,12.2,72,0,54
+Communication,Telcm,insider_buying,Owner signals,Y,82,82,0.0,82,0,55
+Communication,Telcm,inst_change,Owner signals,Y,82,82,0.0,82,0,55
+Computers,BusEq,rev_growth,Growth,Y,93,86,7.5,86,0,67
+Computers,BusEq,rev_accel,Growth,Y,93,75,19.4,75,0,59
+Computers,BusEq,earn_growth,Growth,Y,93,87,6.5,87,0,69
+Computers,BusEq,deferred_growth,Growth,Y,92,54,41.3,54,0,47
+Computers,BusEq,roe,Profitability,Y,93,74,20.4,74,0,59
+Computers,BusEq,op_margin,Profitability,Y,93,89,4.3,89,0,69
+Computers,BusEq,roic,Profitability,Y,93,85,8.6,85,0,68
+Computers,BusEq,margin_stability,Profitability,Y,93,80,14.0,80,0,67
+Computers,BusEq,gross_margin,Profitability,Y,92,88,4.3,88,0,68
+Computers,BusEq,net_debt_ebitda,Balance sheet,Y,93,69,25.8,69,0,57
+Computers,BusEq,interest_cover,Balance sheet,Y,93,64,31.2,64,0,50
+Computers,BusEq,short_debt,Balance sheet,Y,93,93,0.0,93,0,73
+Computers,BusEq,inventory_turns,Balance sheet,Y,92,61,33.7,61,0,49
+Computers,BusEq,payout_yield,Capital use,Y,93,93,0.0,93,0,73
+Computers,BusEq,share_change,Capital use,Y,93,91,2.2,91,0,71
+Computers,BusEq,fcf_yield,Capital use,Y,93,85,8.6,85,0,67
+Computers,BusEq,sbc_share,Capital use,Y,92,81,12.0,81,0,64
+Computers,BusEq,rnd_share,Profitability,N,92,88,4.3,88,0,68
+Computers,BusEq,results_move,Earnings surprise,Y,93,91,2.2,91,0,73
+Computers,BusEq,insider_buying,Owner signals,Y,93,93,0.0,93,0,73
+Computers,BusEq,inst_change,Owner signals,Y,93,92,1.1,92,0,73
+Construction,Other,rev_growth,Growth,Y,67,58,13.4,58,0,45
+Construction,Other,rev_accel,Growth,Y,67,54,19.4,54,0,44
+Construction,Other,earn_growth,Growth,Y,67,58,13.4,58,0,45
+Construction,Other,roe,Profitability,Y,67,58,13.4,58,0,47
+Construction,Other,op_margin,Profitability,Y,67,62,7.5,62,0,48
+Construction,Other,roic,Profitability,Y,67,61,9.0,61,0,47
+Construction,Other,margin_stability,Profitability,Y,67,45,32.8,45,0,43
+Construction,Other,net_debt_ebitda,Balance sheet,Y,67,57,14.9,57,0,46
+Construction,Other,interest_cover,Balance sheet,Y,67,50,25.4,50,0,36
+Construction,Other,short_debt,Balance sheet,Y,67,50,25.4,50,0,36
+Construction,Other,payout_yield,Capital use,Y,67,64,4.5,64,0,50
+Construction,Other,share_change,Capital use,Y,67,62,7.5,62,0,48
+Construction,Other,fcf_yield,Capital use,Y,67,62,7.5,62,0,48
+Construction,Other,results_move,Earnings surprise,Y,67,64,4.5,64,0,50
+Construction,Other,insider_buying,Owner signals,Y,67,67,0.0,67,0,50
+Construction,Other,inst_change,Owner signals,Y,67,66,1.5,66,0,50
+Construction Materials,Manuf,rev_growth,Growth,Y,60,53,11.7,53,0,44
+Construction Materials,Manuf,rev_accel,Growth,Y,60,51,15.0,51,0,42
+Construction Materials,Manuf,earn_growth,Growth,Y,60,54,10.0,54,0,45
+Construction Materials,Manuf,roe,Profitability,Y,60,53,11.7,53,0,43
+Construction Materials,Manuf,op_margin,Profitability,Y,60,54,10.0,54,0,46
+Construction Materials,Manuf,roic,Profitability,Y,60,56,6.7,56,0,46
+Construction Materials,Manuf,margin_stability,Profitability,Y,60,46,23.3,46,0,42
+Construction Materials,Durbl,gross_margin,Profitability,Y,1,1,0.0,0,0,0
+Construction Materials,Manuf,incr_margin,Profitability,Y,46,35,23.9,35,0,29
+Construction Materials,Telcm,ebitda_margin,Profitability,Y,1,0,100.0,0,0,0
+Construction Materials,Manuf,net_debt_ebitda,Balance sheet,Y,60,48,20.0,48,0,44
+Construction Materials,Manuf,interest_cover,Balance sheet,Y,60,50,16.7,50,0,42
+Construction Materials,Manuf,short_debt,Balance sheet,Y,60,58,3.3,58,0,47
+Construction Materials,Durbl,inventory_turns,Balance sheet,Y,1,1,0.0,0,0,0
+Construction Materials,Manuf,payout_yield,Capital use,Y,60,58,3.3,58,0,47
+Construction Materials,Manuf,share_change,Capital use,Y,60,55,8.3,55,0,46
+Construction Materials,Manuf,fcf_yield,Capital use,Y,60,53,11.7,53,0,45
+Construction Materials,Manuf,capex_depr,Capital use,N,46,41,10.9,41,0,34
+Construction Materials,Telcm,capex_rev,Capital use,N,1,0,100.0,0,0,0
+Construction Materials,Manuf,results_move,Earnings surprise,Y,60,57,5.0,57,0,47
+Construction Materials,Manuf,insider_buying,Owner signals,Y,60,60,0.0,60,0,47
+Construction Materials,Manuf,inst_change,Owner signals,Y,60,60,0.0,60,0,47
+Consumer Goods,Durbl,rev_growth,Growth,Y,59,56,5.1,56,0,45
+Consumer Goods,Durbl,rev_accel,Growth,Y,59,54,8.5,54,0,45
+Consumer Goods,Durbl,earn_growth,Growth,Y,59,56,5.1,56,0,45
+Consumer Goods,Durbl,roe,Profitability,Y,59,53,10.2,53,0,42
+Consumer Goods,Durbl,op_margin,Profitability,Y,59,57,3.4,57,0,45
+Consumer Goods,Durbl,roic,Profitability,Y,59,55,6.8,55,0,43
+Consumer Goods,Durbl,margin_stability,Profitability,Y,59,50,15.3,50,0,44
+Consumer Goods,Durbl,gross_margin,Profitability,Y,48,46,4.2,46,0,36
+Consumer Goods,Manuf,incr_margin,Profitability,Y,8,8,0.0,0,0,0
+Consumer Goods,Durbl,net_debt_ebitda,Balance sheet,Y,59,49,16.9,49,0,41
+Consumer Goods,Durbl,interest_cover,Balance sheet,Y,59,50,15.3,50,0,40
+Consumer Goods,Durbl,short_debt,Balance sheet,Y,59,57,3.4,57,0,45
+Consumer Goods,Durbl,inventory_turns,Balance sheet,Y,26,25,3.8,25,0,21
+Consumer Goods,Durbl,payout_yield,Capital use,Y,59,58,1.7,58,0,46
+Consumer Goods,Durbl,share_change,Capital use,Y,59,57,3.4,57,0,45
+Consumer Goods,Durbl,fcf_yield,Capital use,Y,59,55,6.8,55,0,43
+Consumer Goods,Manuf,capex_depr,Capital use,N,8,8,0.0,0,0,0
+Consumer Goods,Enrgy,reinvest_rate,Capital use,N,1,1,0.0,0,0,0
+Consumer Goods,Durbl,results_move,Earnings surprise,Y,59,55,6.8,55,0,44
+Consumer Goods,Durbl,insider_buying,Owner signals,Y,59,59,0.0,59,0,46
+Consumer Goods,Durbl,inst_change,Owner signals,Y,59,58,1.7,58,0,46
+Defense,NoDur,rev_growth,Growth,Y,16,12,25.0,12,0,12
+Defense,NoDur,rev_accel,Growth,Y,16,11,31.2,11,0,11
+Defense,NoDur,earn_growth,Growth,Y,16,12,25.0,12,0,12
+Defense,NoDur,roe,Profitability,Y,16,15,6.2,15,0,15
+Defense,NoDur,op_margin,Profitability,Y,16,15,6.2,15,0,15
+Defense,NoDur,roic,Profitability,Y,16,15,6.2,15,0,15
+Defense,NoDur,margin_stability,Profitability,Y,16,12,25.0,12,0,12
+Defense,NoDur,gross_margin,Profitability,Y,1,1,0.0,0,0,0
+Defense,Manuf,incr_margin,Profitability,Y,14,10,28.6,10,0,10
+Defense,NoDur,net_debt_ebitda,Balance sheet,Y,16,9,43.8,9,9,479
+Defense,NoDur,interest_cover,Balance sheet,Y,16,13,18.8,13,0,13
+Defense,NoDur,short_debt,Balance sheet,Y,16,16,0.0,16,0,16
+Defense,NoDur,inventory_turns,Balance sheet,Y,1,1,0.0,0,0,0
+Defense,NoDur,payout_yield,Capital use,Y,16,16,0.0,16,0,16
+Defense,NoDur,share_change,Capital use,Y,16,15,6.2,15,0,15
+Defense,NoDur,fcf_yield,Capital use,Y,16,15,6.2,15,0,15
+Defense,Manuf,capex_depr,Capital use,N,14,13,7.1,13,0,13
+Defense,NoDur,results_move,Earnings surprise,Y,16,15,6.2,15,0,16
+Defense,NoDur,insider_buying,Owner signals,Y,16,16,0.0,16,0,16
+Defense,NoDur,inst_change,Owner signals,Y,16,16,0.0,16,0,16
+Electrical Equipment,BusEq,rev_growth,Growth,Y,75,64,14.7,64,0,39
+Electrical Equipment,BusEq,rev_accel,Growth,Y,75,57,24.0,57,0,36
+Electrical Equipment,BusEq,earn_growth,Growth,Y,75,68,9.3,68,0,42
+Electrical Equipment,BusEq,deferred_growth,Growth,Y,36,18,50.0,18,0,10
+Electrical Equipment,BusEq,roe,Profitability,Y,75,60,20.0,60,0,39
+Electrical Equipment,BusEq,op_margin,Profitability,Y,75,67,10.7,67,0,42
+Electrical Equipment,BusEq,roic,Profitability,Y,75,63,16.0,63,0,41
+Electrical Equipment,BusEq,margin_stability,Profitability,Y,75,54,28.0,54,0,39
+Electrical Equipment,BusEq,gross_margin,Profitability,Y,43,40,7.0,40,0,23
+Electrical Equipment,Manuf,incr_margin,Profitability,Y,28,24,14.3,24,0,18
+Electrical Equipment,BusEq,net_debt_ebitda,Balance sheet,Y,75,49,34.7,49,0,34
+Electrical Equipment,BusEq,interest_cover,Balance sheet,Y,75,58,22.7,58,0,36
+Electrical Equipment,BusEq,short_debt,Balance sheet,Y,75,73,2.7,73,0,47
+Electrical Equipment,BusEq,inventory_turns,Balance sheet,Y,43,38,11.6,38,0,22
+Electrical Equipment,Hlth,cash_runway,Balance sheet,Y,1,0,100.0,0,0,0
+Electrical Equipment,BusEq,payout_yield,Capital use,Y,75,73,2.7,73,0,47
+Electrical Equipment,BusEq,share_change,Capital use,Y,75,71,5.3,71,0,45
+Electrical Equipment,BusEq,fcf_yield,Capital use,Y,75,69,8.0,69,0,44
+Electrical Equipment,BusEq,sbc_share,Capital use,Y,36,30,16.7,30,0,19
+Electrical Equipment,BusEq,rnd_share,Profitability,N,37,33,10.8,33,0,20
+Electrical Equipment,Manuf,capex_depr,Capital use,N,28,25,10.7,25,0,20
+Electrical Equipment,Utils,payout_ratio,Capital use,N,1,0,100.0,0,0,0
+Electrical Equipment,BusEq,results_move,Earnings surprise,Y,75,71,5.3,71,0,47
+Electrical Equipment,BusEq,insider_buying,Owner signals,Y,75,75,0.0,75,0,47
+Electrical Equipment,BusEq,inst_change,Owner signals,Y,75,75,0.0,75,0,47
+Electronic Equipment,BusEq,rev_growth,Growth,Y,198,185,6.6,185,0,147
+Electronic Equipment,BusEq,rev_accel,Growth,Y,198,178,10.1,178,0,144
+Electronic Equipment,BusEq,earn_growth,Growth,Y,198,185,6.6,185,0,147
+Electronic Equipment,BusEq,deferred_growth,Growth,Y,186,87,53.2,87,0,68
+Electronic Equipment,BusEq,roe,Profitability,Y,198,183,7.6,183,0,148
+Electronic Equipment,BusEq,op_margin,Profitability,Y,198,186,6.1,186,0,150
+Electronic Equipment,BusEq,roic,Profitability,Y,198,187,5.6,187,0,151
+Electronic Equipment,BusEq,margin_stability,Profitability,Y,198,177,10.6,177,0,147
+Electronic Equipment,BusEq,gross_margin,Profitability,Y,186,175,5.9,175,0,144
+Electronic Equipment,Telcm,ebitda_margin,Profitability,Y,5,4,20.0,0,0,0
+Electronic Equipment,BusEq,net_debt_ebitda,Balance sheet,Y,198,138,30.3,138,0,118
+Electronic Equipment,BusEq,interest_cover,Balance sheet,Y,198,151,23.7,151,0,122
+Electronic Equipment,BusEq,short_debt,Balance sheet,Y,198,193,2.5,193,0,154
+Electronic Equipment,BusEq,inventory_turns,Balance sheet,Y,186,168,9.7,168,0,139
+Electronic Equipment,BusEq,payout_yield,Capital use,Y,198,193,2.5,193,0,154
+Electronic Equipment,BusEq,share_change,Capital use,Y,198,191,3.5,191,0,152
+Electronic Equipment,BusEq,fcf_yield,Capital use,Y,198,182,8.1,182,0,147
+Electronic Equipment,BusEq,sbc_share,Capital use,Y,186,164,11.8,164,0,136
+Electronic Equipment,BusEq,rnd_share,Profitability,N,186,175,5.9,175,0,144
+Electronic Equipment,Telcm,capex_rev,Capital use,N,5,5,0.0,0,0,0
+Electronic Equipment,BusEq,results_move,Earnings surprise,Y,198,191,3.5,191,0,154
+Electronic Equipment,BusEq,insider_buying,Owner signals,Y,198,198,0.0,198,0,154
+Electronic Equipment,BusEq,inst_change,Owner signals,Y,198,197,0.5,197,0,153
+Entertainment,Other,rev_growth,Growth,Y,69,59,14.5,59,0,39
+Entertainment,Other,rev_accel,Growth,Y,69,53,23.2,53,0,35
+Entertainment,Other,earn_growth,Growth,Y,69,59,14.5,59,0,39
+Entertainment,BusEq,deferred_growth,Growth,Y,2,2,0.0,0,0,0
+Entertainment,Other,roe,Profitability,Y,69,53,23.2,53,0,35
+Entertainment,Other,op_margin,Profitability,Y,69,65,5.8,65,0,44
+Entertainment,Other,roic,Profitability,Y,69,62,10.1,62,0,43
+Entertainment,Other,margin_stability,Profitability,Y,69,52,24.6,52,0,37
+Entertainment,BusEq,gross_margin,Profitability,Y,3,3,0.0,0,0,0
+Entertainment,Other,net_debt_ebitda,Balance sheet,Y,69,51,26.1,51,0,38
+Entertainment,Other,interest_cover,Balance sheet,Y,69,57,17.4,57,0,40
+Entertainment,Other,short_debt,Balance sheet,Y,69,64,7.2,64,0,43
+Entertainment,BusEq,inventory_turns,Balance sheet,Y,3,1,66.7,0,0,0
+Entertainment,Other,payout_yield,Capital use,Y,69,66,4.3,66,0,45
+Entertainment,Other,share_change,Capital use,Y,69,65,5.8,65,0,44
+Entertainment,Other,fcf_yield,Capital use,Y,69,64,7.2,64,0,43
+Entertainment,BusEq,sbc_share,Capital use,Y,2,2,0.0,0,0,0
+Entertainment,BusEq,rnd_share,Profitability,N,2,2,0.0,0,0,0
+Entertainment,Enrgy,reinvest_rate,Capital use,N,1,1,0.0,0,0,0
+Entertainment,Other,results_move,Earnings surprise,Y,69,64,7.2,64,0,44
+Entertainment,Other,insider_buying,Owner signals,Y,69,69,0.0,69,0,45
+Entertainment,Other,inst_change,Owner signals,Y,69,67,2.9,67,0,44
+Fabricated Products,Manuf,rev_growth,Growth,Y,9,7,22.2,7,7,288
+Fabricated Products,Manuf,rev_accel,Growth,Y,9,6,33.3,6,6,275
+Fabricated Products,Manuf,earn_growth,Growth,Y,9,8,11.1,8,8,294
+Fabricated Products,Manuf,roe,Profitability,Y,9,7,22.2,7,7,291
+Fabricated Products,Manuf,op_margin,Profitability,Y,9,6,33.3,6,6,303
+Fabricated Products,Manuf,roic,Profitability,Y,9,8,11.1,8,8,305
+Fabricated Products,Manuf,margin_stability,Profitability,Y,9,6,33.3,6,6,278
+Fabricated Products,Manuf,incr_margin,Profitability,Y,9,6,33.3,0,0,0
+Fabricated Products,Manuf,net_debt_ebitda,Balance sheet,Y,9,7,22.2,7,7,274
+Fabricated Products,Manuf,interest_cover,Balance sheet,Y,9,8,11.1,8,8,271
+Fabricated Products,Manuf,short_debt,Balance sheet,Y,9,9,0.0,9,9,319
+Fabricated Products,Manuf,payout_yield,Capital use,Y,9,9,0.0,9,9,324
+Fabricated Products,Manuf,share_change,Capital use,Y,9,8,11.1,8,8,311
+Fabricated Products,Manuf,fcf_yield,Capital use,Y,9,8,11.1,8,8,305
+Fabricated Products,Manuf,capex_depr,Capital use,N,9,8,11.1,0,0,0
+Fabricated Products,Manuf,results_move,Earnings surprise,Y,9,8,11.1,8,8,320
+Fabricated Products,Manuf,insider_buying,Owner signals,Y,9,9,0.0,9,9,324
+Fabricated Products,Manuf,inst_change,Owner signals,Y,9,9,0.0,9,9,324
+Food Products,NoDur,rev_growth,Growth,Y,58,54,6.9,54,0,37
+Food Products,NoDur,rev_accel,Growth,Y,58,51,12.1,51,0,35
+Food Products,NoDur,earn_growth,Growth,Y,58,55,5.2,55,0,37
+Food Products,NoDur,roe,Profitability,Y,58,49,15.5,49,0,36
+Food Products,NoDur,op_margin,Profitability,Y,58,56,3.4,56,0,40
+Food Products,NoDur,roic,Profitability,Y,58,55,5.2,55,0,40
+Food Products,NoDur,margin_stability,Profitability,Y,58,45,22.4,45,0,35
+Food Products,NoDur,gross_margin,Profitability,Y,56,54,3.6,54,0,40
+Food Products,NoDur,net_debt_ebitda,Balance sheet,Y,58,51,12.1,51,0,38
+Food Products,NoDur,interest_cover,Balance sheet,Y,58,53,8.6,53,0,38
+Food Products,NoDur,short_debt,Balance sheet,Y,58,58,0.0,58,0,40
+Food Products,NoDur,inventory_turns,Balance sheet,Y,56,54,3.6,54,0,40
+Food Products,NoDur,payout_yield,Capital use,Y,58,58,0.0,58,0,40
+Food Products,NoDur,share_change,Capital use,Y,58,58,0.0,58,0,40
+Food Products,NoDur,fcf_yield,Capital use,Y,58,56,3.4,56,0,39
+Food Products,NoDur,results_move,Earnings surprise,Y,58,56,3.4,56,0,40
+Food Products,NoDur,insider_buying,Owner signals,Y,58,58,0.0,58,0,40
+Food Products,NoDur,inst_change,Owner signals,Y,58,58,0.0,58,0,40
+Healthcare,Hlth,rev_growth,Growth,Y,84,74,11.9,74,0,60
+Healthcare,Hlth,rev_accel,Growth,Y,84,67,20.2,67,0,54
+Healthcare,Hlth,earn_growth,Growth,Y,84,78,7.1,78,0,62
+Healthcare,Hlth,roe,Profitability,Y,84,72,14.3,72,0,58
+Healthcare,Hlth,op_margin,Profitability,Y,84,82,2.4,82,0,65
+Healthcare,Hlth,roic,Profitability,Y,84,78,7.1,78,0,65
+Healthcare,Hlth,margin_stability,Profitability,Y,84,69,17.9,69,0,58
+Healthcare,Hlth,net_debt_ebitda,Balance sheet,Y,84,68,19.0,68,0,58
+Healthcare,Hlth,interest_cover,Balance sheet,Y,84,74,11.9,74,0,58
+Healthcare,Hlth,short_debt,Balance sheet,Y,84,83,1.2,83,0,66
+Healthcare,Hlth,cash_runway,Balance sheet,Y,82,80,2.4,80,0,65
+Healthcare,Hlth,payout_yield,Capital use,Y,84,83,1.2,83,0,66
+Healthcare,Hlth,share_change,Capital use,Y,84,83,1.2,83,0,66
+Healthcare,Hlth,fcf_yield,Capital use,Y,84,82,2.4,82,0,66
+Healthcare,Hlth,rnd_share,Profitability,N,82,80,2.4,80,0,64
+Healthcare,Hlth,results_move,Earnings surprise,Y,84,78,7.1,78,0,66
+Healthcare,Hlth,insider_buying,Owner signals,Y,84,84,0.0,84,0,66
+Healthcare,Hlth,inst_change,Owner signals,Y,84,83,1.2,83,0,66
+Insurance,Money,rev_growth,Growth,Y,135,123,8.9,123,0,112
+Insurance,Money,rev_accel,Growth,Y,135,118,12.6,118,0,109
+Insurance,Money,tbvps_growth,Growth,Y,135,111,17.8,111,0,100
+Insurance,Money,roe,Profitability,Y,135,128,5.2,128,0,116
+Insurance,Money,tangible_equity,Balance sheet,Y,135,133,1.5,133,0,121
+Insurance,Money,debt_equity,Balance sheet,Y,135,133,1.5,133,0,121
+Insurance,Money,payout_yield,Capital use,Y,135,133,1.5,133,0,121
+Insurance,Money,share_change,Capital use,Y,135,133,1.5,133,0,121
+Insurance,Money,results_move,Earnings surprise,Y,135,130,3.7,130,0,121
+Insurance,Money,insider_buying,Owner signals,Y,135,135,0.0,135,0,121
+Insurance,Money,inst_change,Owner signals,Y,135,135,0.0,135,0,121
+Machinery,Manuf,rev_growth,Growth,Y,125,113,9.6,113,0,99
+Machinery,Manuf,rev_accel,Growth,Y,125,107,14.4,107,0,95
+Machinery,Manuf,earn_growth,Growth,Y,125,114,8.8,114,0,98
+Machinery,BusEq,deferred_growth,Growth,Y,2,0,100.0,0,0,0
+Machinery,Manuf,roe,Profitability,Y,125,116,7.2,116,0,101
+Machinery,Manuf,op_margin,Profitability,Y,125,117,6.4,117,0,102
+Machinery,Manuf,roic,Profitability,Y,125,115,8.0,115,0,102
+Machinery,Manuf,margin_stability,Profitability,Y,125,105,16.0,105,0,94
+Machinery,BusEq,gross_margin,Profitability,Y,3,3,0.0,0,0,0
+Machinery,Manuf,incr_margin,Profitability,Y,120,101,15.8,101,0,88
+Machinery,Manuf,net_debt_ebitda,Balance sheet,Y,125,102,18.4,102,0,92
+Machinery,Manuf,interest_cover,Balance sheet,Y,125,100,20.0,100,0,88
+Machinery,Manuf,short_debt,Balance sheet,Y,125,121,3.2,121,0,104
+Machinery,BusEq,inventory_turns,Balance sheet,Y,2,2,0.0,0,0,0
+Machinery,Hlth,cash_runway,Balance sheet,Y,1,1,0.0,0,0,0
+Machinery,Manuf,payout_yield,Capital use,Y,125,123,1.6,123,0,106
+Machinery,Manuf,share_change,Capital use,Y,125,121,3.2,121,0,104
+Machinery,Manuf,fcf_yield,Capital use,Y,125,118,5.6,118,0,101
+Machinery,BusEq,sbc_share,Capital use,Y,2,2,0.0,0,0,0
+Machinery,Hlth,rnd_share,Profitability,N,3,3,0.0,0,0,0
+Machinery,Manuf,capex_depr,Capital use,N,120,113,5.8,113,0,97
+Machinery,Manuf,results_move,Earnings surprise,Y,125,118,5.6,118,0,104
+Machinery,Manuf,insider_buying,Owner signals,Y,125,125,0.0,125,0,106
+Machinery,Manuf,inst_change,Owner signals,Y,125,125,0.0,125,0,106
+Measuring and Control Equipment,BusEq,rev_growth,Growth,Y,73,67,8.2,67,0,52
+Measuring and Control Equipment,BusEq,rev_accel,Growth,Y,73,66,9.6,66,0,51
+Measuring and Control Equipment,BusEq,earn_growth,Growth,Y,73,68,6.8,68,0,54
+Measuring and Control Equipment,BusEq,deferred_growth,Growth,Y,69,38,44.9,38,0,32
+Measuring and Control Equipment,BusEq,roe,Profitability,Y,73,70,4.1,70,0,54
+Measuring and Control Equipment,BusEq,op_margin,Profitability,Y,73,69,5.5,69,0,54
+Measuring and Control Equipment,BusEq,roic,Profitability,Y,73,68,6.8,68,0,55
+Measuring and Control Equipment,BusEq,margin_stability,Profitability,Y,73,67,8.2,67,0,52
+Measuring and Control Equipment,BusEq,gross_margin,Profitability,Y,69,67,2.9,67,0,52
+Measuring and Control Equipment,BusEq,net_debt_ebitda,Balance sheet,Y,73,51,30.1,51,0,45
+Measuring and Control Equipment,BusEq,interest_cover,Balance sheet,Y,73,52,28.8,52,0,41
+Measuring and Control Equipment,BusEq,short_debt,Balance sheet,Y,73,73,0.0,73,0,56
+Measuring and Control Equipment,BusEq,inventory_turns,Balance sheet,Y,69,65,5.8,65,0,51
+Measuring and Control Equipment,Hlth,cash_runway,Balance sheet,Y,3,2,33.3,0,0,0
+Measuring and Control Equipment,BusEq,payout_yield,Capital use,Y,73,73,0.0,73,0,56
+Measuring and Control Equipment,BusEq,share_change,Capital use,Y,73,71,2.7,71,0,55
+Measuring and Control Equipment,BusEq,fcf_yield,Capital use,Y,73,69,5.5,69,0,53
+Measuring and Control Equipment,BusEq,sbc_share,Capital use,Y,69,66,4.3,66,0,51
+Measuring and Control Equipment,BusEq,rnd_share,Profitability,N,72,69,4.2,69,0,54
+Measuring and Control Equipment,BusEq,results_move,Earnings surprise,Y,73,70,4.1,70,0,54
+Measuring and Control Equipment,BusEq,insider_buying,Owner signals,Y,73,73,0.0,73,0,56
+Measuring and Control Equipment,BusEq,inst_change,Owner signals,Y,73,73,0.0,73,0,56
+Medical Equipment,Hlth,rev_growth,Growth,Y,189,162,14.3,162,0,111
+Medical Equipment,Hlth,rev_accel,Growth,Y,189,151,20.1,151,0,103
+Medical Equipment,Hlth,earn_growth,Growth,Y,189,174,7.9,174,0,114
+Medical Equipment,BusEq,deferred_growth,Growth,Y,2,2,0.0,0,0,0
+Medical Equipment,Hlth,roe,Profitability,Y,189,169,10.6,169,0,115
+Medical Equipment,Hlth,op_margin,Profitability,Y,189,164,13.2,164,0,116
+Medical Equipment,Hlth,roic,Profitability,Y,189,172,9.0,172,0,117
+Medical Equipment,Hlth,margin_stability,Profitability,Y,189,151,20.1,151,0,107
+Medical Equipment,BusEq,gross_margin,Profitability,Y,2,2,0.0,0,0,0
+Medical Equipment,Hlth,net_debt_ebitda,Balance sheet,Y,189,121,36.0,121,0,90
+Medical Equipment,Hlth,interest_cover,Balance sheet,Y,189,141,25.4,141,0,93
+Medical Equipment,Hlth,short_debt,Balance sheet,Y,189,186,1.6,186,0,123
+Medical Equipment,BusEq,inventory_turns,Balance sheet,Y,2,1,50.0,0,0,0
+Medical Equipment,Hlth,cash_runway,Balance sheet,Y,181,173,4.4,173,0,115
+Medical Equipment,Hlth,payout_yield,Capital use,Y,189,186,1.6,186,0,123
+Medical Equipment,Hlth,share_change,Capital use,Y,189,183,3.2,183,0,121
+Medical Equipment,Hlth,fcf_yield,Capital use,Y,189,181,4.2,181,0,120
+Medical Equipment,BusEq,sbc_share,Capital use,Y,2,2,0.0,0,0,0
+Medical Equipment,Hlth,rnd_share,Profitability,N,183,159,13.1,159,0,113
+Medical Equipment,Hlth,results_move,Earnings surprise,Y,189,182,3.7,182,0,123
+Medical Equipment,Hlth,insider_buying,Owner signals,Y,189,188,0.5,188,0,123
+Medical Equipment,Hlth,inst_change,Owner signals,Y,189,187,1.1,187,0,122
+Non-Metallic and Industrial Metal Mining,Other,rev_growth,Growth,Y,76,35,53.9,35,0,33
+Non-Metallic and Industrial Metal Mining,Other,rev_accel,Growth,Y,76,34,55.3,34,0,32
+Non-Metallic and Industrial Metal Mining,Other,earn_growth,Growth,Y,76,58,23.7,58,0,51
+Non-Metallic and Industrial Metal Mining,Other,roe,Profitability,Y,76,65,14.5,65,0,57
+Non-Metallic and Industrial Metal Mining,Other,op_margin,Profitability,Y,76,42,44.7,42,0,40
+Non-Metallic and Industrial Metal Mining,Other,roic,Profitability,Y,76,65,14.5,65,0,58
+Non-Metallic and Industrial Metal Mining,Other,margin_stability,Profitability,Y,76,34,55.3,34,0,32
+Non-Metallic and Industrial Metal Mining,Other,net_debt_ebitda,Balance sheet,Y,76,37,51.3,37,0,35
+Non-Metallic and Industrial Metal Mining,Other,interest_cover,Balance sheet,Y,76,53,30.3,53,0,46
+Non-Metallic and Industrial Metal Mining,Other,short_debt,Balance sheet,Y,76,73,3.9,73,0,64
+Non-Metallic and Industrial Metal Mining,Other,payout_yield,Capital use,Y,76,73,3.9,73,0,64
+Non-Metallic and Industrial Metal Mining,Other,share_change,Capital use,Y,76,68,10.5,68,0,59
+Non-Metallic and Industrial Metal Mining,Other,fcf_yield,Capital use,Y,76,66,13.2,66,0,57
+Non-Metallic and Industrial Metal Mining,Enrgy,reinvest_rate,Capital use,N,1,1,0.0,0,0,0
+Non-Metallic and Industrial Metal Mining,Utils,payout_ratio,Capital use,N,1,1,0.0,0,0,0
+Non-Metallic and Industrial Metal Mining,Other,results_move,Earnings surprise,Y,76,71,6.6,71,0,63
+Non-Metallic and Industrial Metal Mining,Other,insider_buying,Owner signals,Y,76,76,0.0,76,0,64
+Non-Metallic and Industrial Metal Mining,Other,inst_change,Owner signals,Y,76,75,1.3,75,0,63
+Personal Services,Other,rev_growth,Growth,Y,75,67,10.7,67,0,40
+Personal Services,Other,rev_accel,Growth,Y,75,61,18.7,61,0,37
+Personal Services,Other,earn_growth,Growth,Y,75,66,12.0,66,0,39
+Personal Services,BusEq,deferred_growth,Growth,Y,2,2,0.0,0,0,0
+Personal Services,Other,roe,Profitability,Y,75,62,17.3,62,0,36
+Personal Services,Other,op_margin,Profitability,Y,75,70,6.7,70,0,41
+Personal Services,Other,roic,Profitability,Y,75,69,8.0,69,0,41
+Personal Services,Other,margin_stability,Profitability,Y,75,51,32.0,51,0,38
+Personal Services,Shops,gross_margin,Profitability,Y,16,16,0.0,0,0,0
+Personal Services,Other,net_debt_ebitda,Balance sheet,Y,75,54,28.0,54,0,35
+Personal Services,Other,interest_cover,Balance sheet,Y,75,55,26.7,55,0,33
+Personal Services,Other,short_debt,Balance sheet,Y,75,72,4.0,72,0,41
+Personal Services,Shops,inventory_turns,Balance sheet,Y,16,11,31.2,0,0,0
+Personal Services,Other,payout_yield,Capital use,Y,75,74,1.3,74,0,43
+Personal Services,Other,share_change,Capital use,Y,75,72,4.0,72,0,42
+Personal Services,Other,fcf_yield,Capital use,Y,75,63,16.0,63,0,38
+Personal Services,BusEq,sbc_share,Capital use,Y,2,2,0.0,0,0,0
+Personal Services,BusEq,rnd_share,Profitability,N,2,2,0.0,0,0,0
+Personal Services,Enrgy,reinvest_rate,Capital use,N,1,0,100.0,0,0,0
+Personal Services,Other,results_move,Earnings surprise,Y,75,71,5.3,71,0,41
+Personal Services,Other,insider_buying,Owner signals,Y,75,75,0.0,75,0,43
+Personal Services,Other,inst_change,Owner signals,Y,75,73,2.7,73,0,42
+Petroleum and Natural Gas,Enrgy,rev_growth,Growth,Y,134,118,11.9,118,0,107
+Petroleum and Natural Gas,Enrgy,rev_accel,Growth,Y,134,113,15.7,113,0,103
+Petroleum and Natural Gas,Enrgy,earn_growth,Growth,Y,134,120,10.4,120,0,109
+Petroleum and Natural Gas,Enrgy,roe,Profitability,Y,134,119,11.2,119,0,108
+Petroleum and Natural Gas,Enrgy,op_margin,Profitability,Y,134,120,10.4,120,0,109
+Petroleum and Natural Gas,Enrgy,roic,Profitability,Y,134,121,9.7,121,0,110
+Petroleum and Natural Gas,Enrgy,margin_stability,Profitability,Y,134,114,14.9,114,0,105
+Petroleum and Natural Gas,Enrgy,net_debt_ebitda,Balance sheet,Y,134,115,14.2,115,0,108
+Petroleum and Natural Gas,Enrgy,interest_cover,Balance sheet,Y,134,117,12.7,117,0,107
+Petroleum and Natural Gas,Enrgy,short_debt,Balance sheet,Y,134,127,5.2,127,0,116
+Petroleum and Natural Gas,Enrgy,payout_yield,Capital use,Y,134,127,5.2,127,0,116
+Petroleum and Natural Gas,Enrgy,share_change,Capital use,Y,134,123,8.2,123,0,112
+Petroleum and Natural Gas,Enrgy,fcf_yield,Capital use,Y,134,121,9.7,121,0,110
+Petroleum and Natural Gas,Enrgy,reinvest_rate,Capital use,N,133,106,20.3,106,0,103
+Petroleum and Natural Gas,Enrgy,results_move,Earnings surprise,Y,134,125,6.7,125,0,115
+Petroleum and Natural Gas,Enrgy,insider_buying,Owner signals,Y,134,134,0.0,134,0,116
+Petroleum and Natural Gas,Enrgy,inst_change,Owner signals,Y,134,134,0.0,134,0,116
+Pharmaceutical Products,Hlth,rev_growth,Growth,Y,682,382,44.0,382,0,291
+Pharmaceutical Products,Hlth,rev_accel,Growth,Y,682,346,49.3,346,0,266
+Pharmaceutical Products,Hlth,earn_growth,Growth,Y,682,622,8.8,622,0,424
+Pharmaceutical Products,BusEq,deferred_growth,Growth,Y,3,1,66.7,0,0,0
+Pharmaceutical Products,Hlth,roe,Profitability,Y,682,559,18.0,559,0,385
+Pharmaceutical Products,Hlth,op_margin,Profitability,Y,682,400,41.3,400,0,299
+Pharmaceutical Products,Hlth,roic,Profitability,Y,682,519,23.9,519,0,393
+Pharmaceutical Products,Hlth,margin_stability,Profitability,Y,682,374,45.2,374,0,289
+Pharmaceutical Products,BusEq,gross_margin,Profitability,Y,4,4,0.0,0,0,0
+Pharmaceutical Products,Hlth,net_debt_ebitda,Balance sheet,Y,682,273,60.0,273,0,209
+Pharmaceutical Products,Hlth,interest_cover,Balance sheet,Y,682,408,40.2,408,0,265
+Pharmaceutical Products,Hlth,short_debt,Balance sheet,Y,682,672,1.5,672,0,461
+Pharmaceutical Products,BusEq,inventory_turns,Balance sheet,Y,4,4,0.0,0,0,0
+Pharmaceutical Products,Hlth,cash_runway,Balance sheet,Y,667,629,5.7,629,0,432
+Pharmaceutical Products,Hlth,payout_yield,Capital use,Y,682,673,1.3,673,0,462
+Pharmaceutical Products,Hlth,share_change,Capital use,Y,682,648,5.0,648,0,441
+Pharmaceutical Products,Hlth,fcf_yield,Capital use,Y,682,645,5.4,645,0,437
+Pharmaceutical Products,BusEq,sbc_share,Capital use,Y,3,3,0.0,0,0,0
+Pharmaceutical Products,Hlth,rnd_share,Profitability,N,670,390,41.8,390,0,295
+Pharmaceutical Products,Utils,payout_ratio,Capital use,N,1,0,100.0,0,0,0
+Pharmaceutical Products,Hlth,results_move,Earnings surprise,Y,682,627,8.1,627,0,454
+Pharmaceutical Products,Hlth,insider_buying,Owner signals,Y,682,682,0.0,682,0,462
+Pharmaceutical Products,Hlth,inst_change,Owner signals,Y,682,674,1.2,674,0,456
+Precious Metals,Other,rev_growth,Growth,Y,72,34,52.8,34,0,33
+Precious Metals,Other,rev_accel,Growth,Y,72,32,55.6,32,0,32
+Precious Metals,Other,earn_growth,Growth,Y,72,55,23.6,55,0,51
+Precious Metals,Other,roe,Profitability,Y,72,61,15.3,61,0,57
+Precious Metals,Other,op_margin,Profitability,Y,72,41,43.1,41,0,39
+Precious Metals,Other,roic,Profitability,Y,72,62,13.9,62,0,57
+Precious Metals,Other,margin_stability,Profitability,Y,72,34,52.8,34,0,34
+Precious Metals,Chems,gross_margin,Profitability,Y,1,1,0.0,0,0,0
+Precious Metals,Other,net_debt_ebitda,Balance sheet,Y,72,39,45.8,39,0,39
+Precious Metals,Other,interest_cover,Balance sheet,Y,72,55,23.6,55,0,50
+Precious Metals,Other,short_debt,Balance sheet,Y,72,68,5.6,68,0,63
+Precious Metals,Other,payout_yield,Capital use,Y,72,68,5.6,68,0,63
+Precious Metals,Other,share_change,Capital use,Y,72,63,12.5,63,0,58
+Precious Metals,Other,fcf_yield,Capital use,Y,72,62,13.9,62,0,57
+Precious Metals,Other,results_move,Earnings surprise,Y,72,65,9.7,65,0,62
+Precious Metals,Other,insider_buying,Owner signals,Y,72,72,0.0,72,0,63
+Precious Metals,Other,inst_change,Owner signals,Y,72,72,0.0,72,0,63
+Printing and Publishing,NoDur,rev_growth,Growth,Y,17,15,11.8,15,0,13
+Printing and Publishing,NoDur,rev_accel,Growth,Y,17,13,23.5,13,0,12
+Printing and Publishing,NoDur,earn_growth,Growth,Y,17,15,11.8,15,0,13
+Printing and Publishing,NoDur,roe,Profitability,Y,17,16,5.9,16,0,14
+Printing and Publishing,NoDur,op_margin,Profitability,Y,17,17,0.0,17,0,15
+Printing and Publishing,NoDur,roic,Profitability,Y,17,17,0.0,17,0,15
+Printing and Publishing,NoDur,margin_stability,Profitability,Y,17,12,29.4,12,0,12
+Printing and Publishing,NoDur,gross_margin,Profitability,Y,14,14,0.0,14,0,13
+Printing and Publishing,NoDur,net_debt_ebitda,Balance sheet,Y,17,13,23.5,13,0,12
+Printing and Publishing,NoDur,interest_cover,Balance sheet,Y,17,16,5.9,16,0,14
+Printing and Publishing,NoDur,short_debt,Balance sheet,Y,17,16,5.9,16,0,14
+Printing and Publishing,NoDur,inventory_turns,Balance sheet,Y,14,9,35.7,0,0,0
+Printing and Publishing,NoDur,payout_yield,Capital use,Y,17,17,0.0,17,0,15
+Printing and Publishing,NoDur,share_change,Capital use,Y,17,17,0.0,17,0,15
+Printing and Publishing,NoDur,fcf_yield,Capital use,Y,17,16,5.9,16,0,15
+Printing and Publishing,NoDur,results_move,Earnings surprise,Y,17,17,0.0,17,0,15
+Printing and Publishing,NoDur,insider_buying,Owner signals,Y,17,17,0.0,17,0,15
+Printing and Publishing,NoDur,inst_change,Owner signals,Y,17,17,0.0,17,0,15
+Real Estate,Money,rev_growth,Growth,Y,61,58,4.9,58,0,47
+Real Estate,Money,rev_accel,Growth,Y,61,55,9.8,55,0,46
+Real Estate,Money,earn_growth,Growth,Y,61,57,6.6,57,0,47
+Real Estate,Money,roe,Profitability,Y,61,55,9.8,55,0,47
+Real Estate,Money,op_margin,Profitability,Y,61,61,0.0,61,0,50
+Real Estate,Money,roic,Profitability,Y,61,58,4.9,58,0,49
+Real Estate,Money,margin_stability,Profitability,Y,61,55,9.8,55,0,45
+Real Estate,Money,net_debt_ebitda,Balance sheet,Y,61,52,14.8,52,0,45
+Real Estate,Money,interest_cover,Balance sheet,Y,61,50,18.0,50,0,43
+Real Estate,Money,short_debt,Balance sheet,Y,61,29,52.5,29,0,19
+Real Estate,Hlth,cash_runway,Balance sheet,Y,1,1,0.0,0,0,0
+Real Estate,Money,payout_yield,Capital use,Y,61,61,0.0,61,0,50
+Real Estate,Money,share_change,Capital use,Y,61,60,1.6,60,0,49
+Real Estate,Money,fcf_yield,Capital use,Y,61,59,3.3,59,0,49
+Real Estate,Hlth,rnd_share,Profitability,N,1,1,0.0,0,0,0
+Real Estate,Money,results_move,Earnings surprise,Y,61,58,4.9,58,0,48
+Real Estate,Money,insider_buying,Owner signals,Y,61,61,0.0,61,0,50
+Real Estate,Money,inst_change,Owner signals,Y,61,61,0.0,61,0,50
+Recreation,Other,rev_growth,Growth,Y,29,26,10.3,26,0,17
+Recreation,Other,rev_accel,Growth,Y,29,26,10.3,26,0,17
+Recreation,Other,earn_growth,Growth,Y,29,26,10.3,26,0,17
+Recreation,BusEq,deferred_growth,Growth,Y,2,0,100.0,0,0,0
+Recreation,Other,roe,Profitability,Y,29,25,13.8,25,0,16
+Recreation,Other,op_margin,Profitability,Y,29,28,3.4,28,0,18
+Recreation,Other,roic,Profitability,Y,29,24,17.2,24,0,18
+Recreation,Other,margin_stability,Profitability,Y,29,23,20.7,23,0,17
+Recreation,NoDur,gross_margin,Profitability,Y,28,27,3.6,27,0,17
+Recreation,Other,net_debt_ebitda,Balance sheet,Y,29,20,31.0,20,0,15
+Recreation,Other,interest_cover,Balance sheet,Y,29,25,13.8,25,0,16
+Recreation,Other,short_debt,Balance sheet,Y,29,28,3.4,28,0,18
+Recreation,NoDur,inventory_turns,Balance sheet,Y,28,25,10.7,25,0,17
+Recreation,Other,payout_yield,Capital use,Y,29,28,3.4,28,0,18
+Recreation,Other,share_change,Capital use,Y,29,28,3.4,28,0,18
+Recreation,Other,fcf_yield,Capital use,Y,29,27,6.9,27,0,18
+Recreation,BusEq,sbc_share,Capital use,Y,2,2,0.0,0,0,0
+Recreation,BusEq,rnd_share,Profitability,N,2,2,0.0,0,0,0
+Recreation,Other,results_move,Earnings surprise,Y,29,28,3.4,28,0,18
+Recreation,Other,insider_buying,Owner signals,Y,29,29,0.0,29,0,18
+Recreation,Other,inst_change,Owner signals,Y,29,29,0.0,29,0,18
+Restaraunts Hotels Motels,Shops,rev_growth,Growth,Y,83,75,9.6,75,0,59
+Restaraunts Hotels Motels,Shops,rev_accel,Growth,Y,83,72,13.3,72,0,58
+Restaraunts Hotels Motels,Shops,earn_growth,Growth,Y,83,74,10.8,74,0,59
+Restaraunts Hotels Motels,Shops,roe,Profitability,Y,83,60,27.7,60,0,50
+Restaraunts Hotels Motels,Shops,op_margin,Profitability,Y,83,80,3.6,80,0,64
+Restaraunts Hotels Motels,Shops,roic,Profitability,Y,83,79,4.8,79,0,64
+Restaraunts Hotels Motels,Shops,margin_stability,Profitability,Y,83,74,10.8,74,0,61
+Restaraunts Hotels Motels,Shops,gross_margin,Profitability,Y,52,51,1.9,51,0,38
+Restaraunts Hotels Motels,Shops,net_debt_ebitda,Balance sheet,Y,83,72,13.3,72,0,58
+Restaraunts Hotels Motels,Shops,interest_cover,Balance sheet,Y,83,74,10.8,74,0,58
+Restaraunts Hotels Motels,Shops,short_debt,Balance sheet,Y,83,76,8.4,76,0,60
+Restaraunts Hotels Motels,Shops,inventory_turns,Balance sheet,Y,52,46,11.5,46,0,34
+Restaraunts Hotels Motels,Shops,payout_yield,Capital use,Y,83,81,2.4,81,0,65
+Restaraunts Hotels Motels,Shops,share_change,Capital use,Y,83,80,3.6,80,0,64
+Restaraunts Hotels Motels,Shops,fcf_yield,Capital use,Y,83,76,8.4,76,0,61
+Restaraunts Hotels Motels,Shops,results_move,Earnings surprise,Y,83,78,6.0,78,0,64
+Restaraunts Hotels Motels,Shops,insider_buying,Owner signals,Y,83,83,0.0,83,0,65
+Restaraunts Hotels Motels,Shops,inst_change,Owner signals,Y,83,81,2.4,81,0,64
+Retail,Shops,rev_growth,Growth,Y,174,162,6.9,162,0,133
+Retail,Shops,rev_accel,Growth,Y,174,159,8.6,159,0,132
+Retail,Shops,earn_growth,Growth,Y,174,163,6.3,163,0,133
+Retail,BusEq,deferred_growth,Growth,Y,1,1,0.0,0,0,0
+Retail,Shops,roe,Profitability,Y,174,153,12.1,153,0,128
+Retail,Shops,op_margin,Profitability,Y,174,170,2.3,170,0,138
+Retail,Shops,roic,Profitability,Y,174,163,6.3,163,0,137
+Retail,Shops,margin_stability,Profitability,Y,174,151,13.2,151,0,133
+Retail,Shops,gross_margin,Profitability,Y,174,170,2.3,170,0,138
+Retail,Shops,net_debt_ebitda,Balance sheet,Y,174,139,20.1,139,0,123
+Retail,Shops,interest_cover,Balance sheet,Y,174,137,21.3,137,0,110
+Retail,Shops,short_debt,Balance sheet,Y,174,170,2.3,170,0,140
+Retail,Shops,inventory_turns,Balance sheet,Y,173,158,8.7,158,0,132
+Retail,Shops,payout_yield,Capital use,Y,174,172,1.1,172,0,140
+Retail,Shops,share_change,Capital use,Y,174,169,2.9,169,0,137
+Retail,Shops,fcf_yield,Capital use,Y,174,162,6.9,162,0,133
+Retail,BusEq,sbc_share,Capital use,Y,1,1,0.0,0,0,0
+Retail,BusEq,rnd_share,Profitability,N,1,1,0.0,0,0,0
+Retail,Shops,results_move,Earnings surprise,Y,174,166,4.6,166,0,137
+Retail,Shops,insider_buying,Owner signals,Y,174,174,0.0,174,0,140
+Retail,Shops,inst_change,Owner signals,Y,174,173,0.6,173,0,140
+Rubber and Plastic Products,Manuf,rev_growth,Growth,Y,16,16,0.0,16,0,15
+Rubber and Plastic Products,Manuf,rev_accel,Growth,Y,16,16,0.0,16,0,15
+Rubber and Plastic Products,Manuf,earn_growth,Growth,Y,16,16,0.0,16,0,15
+Rubber and Plastic Products,Manuf,roe,Profitability,Y,16,16,0.0,16,0,15
+Rubber and Plastic Products,Manuf,op_margin,Profitability,Y,16,16,0.0,16,0,15
+Rubber and Plastic Products,Manuf,roic,Profitability,Y,16,16,0.0,16,0,15
+Rubber and Plastic Products,Manuf,margin_stability,Profitability,Y,16,15,6.2,15,0,14
+Rubber and Plastic Products,Manuf,incr_margin,Profitability,Y,14,13,7.1,13,0,12
+Rubber and Plastic Products,Manuf,net_debt_ebitda,Balance sheet,Y,16,15,6.2,15,0,14
+Rubber and Plastic Products,Manuf,interest_cover,Balance sheet,Y,16,15,6.2,15,0,14
+Rubber and Plastic Products,Manuf,short_debt,Balance sheet,Y,16,16,0.0,16,0,15
+Rubber and Plastic Products,Hlth,cash_runway,Balance sheet,Y,1,1,0.0,0,0,0
+Rubber and Plastic Products,Manuf,payout_yield,Capital use,Y,16,16,0.0,16,0,15
+Rubber and Plastic Products,Manuf,share_change,Capital use,Y,16,16,0.0,16,0,15
+Rubber and Plastic Products,Manuf,fcf_yield,Capital use,Y,16,16,0.0,16,0,15
+Rubber and Plastic Products,Hlth,rnd_share,Profitability,N,1,1,0.0,0,0,0
+Rubber and Plastic Products,Manuf,capex_depr,Capital use,N,14,14,0.0,14,0,13
+Rubber and Plastic Products,Manuf,results_move,Earnings surprise,Y,16,16,0.0,16,0,15
+Rubber and Plastic Products,Manuf,insider_buying,Owner signals,Y,16,16,0.0,16,0,15
+Rubber and Plastic Products,Manuf,inst_change,Owner signals,Y,16,16,0.0,16,0,15
+Shipbuilding Railroad Equipment,Manuf,rev_growth,Growth,Y,12,11,8.3,11,11,288
+Shipbuilding Railroad Equipment,Manuf,rev_accel,Growth,Y,12,11,8.3,11,11,275
+Shipbuilding Railroad Equipment,Manuf,earn_growth,Growth,Y,12,11,8.3,11,11,294
+Shipbuilding Railroad Equipment,Manuf,roe,Profitability,Y,12,12,0.0,12,12,291
+Shipbuilding Railroad Equipment,Manuf,op_margin,Profitability,Y,12,12,0.0,12,12,303
+Shipbuilding Railroad Equipment,Manuf,roic,Profitability,Y,12,12,0.0,12,12,305
+Shipbuilding Railroad Equipment,Manuf,margin_stability,Profitability,Y,12,10,16.7,10,10,278
+Shipbuilding Railroad Equipment,Manuf,incr_margin,Profitability,Y,12,11,8.3,0,0,0
+Shipbuilding Railroad Equipment,Manuf,net_debt_ebitda,Balance sheet,Y,12,11,8.3,11,11,274
+Shipbuilding Railroad Equipment,Manuf,interest_cover,Balance sheet,Y,12,11,8.3,11,11,271
+Shipbuilding Railroad Equipment,Manuf,short_debt,Balance sheet,Y,12,10,16.7,10,10,319
+Shipbuilding Railroad Equipment,Manuf,payout_yield,Capital use,Y,12,12,0.0,12,12,324
+Shipbuilding Railroad Equipment,Manuf,share_change,Capital use,Y,12,12,0.0,12,12,311
+Shipbuilding Railroad Equipment,Manuf,fcf_yield,Capital use,Y,12,12,0.0,12,12,305
+Shipbuilding Railroad Equipment,Manuf,capex_depr,Capital use,N,12,12,0.0,0,0,0
+Shipbuilding Railroad Equipment,Manuf,results_move,Earnings surprise,Y,12,11,8.3,11,11,320
+Shipbuilding Railroad Equipment,Manuf,insider_buying,Owner signals,Y,12,12,0.0,12,12,324
+Shipbuilding Railroad Equipment,Manuf,inst_change,Owner signals,Y,12,12,0.0,12,12,324
+Shipping Containers,Manuf,rev_growth,Growth,Y,13,13,0.0,13,0,11
+Shipping Containers,Manuf,rev_accel,Growth,Y,13,12,7.7,12,0,10
+Shipping Containers,Manuf,earn_growth,Growth,Y,13,13,0.0,13,0,11
+Shipping Containers,Manuf,roe,Profitability,Y,13,11,15.4,11,0,10
+Shipping Containers,Manuf,op_margin,Profitability,Y,13,13,0.0,13,0,11
+Shipping Containers,Manuf,roic,Profitability,Y,13,13,0.0,13,0,11
+Shipping Containers,Manuf,margin_stability,Profitability,Y,13,12,7.7,12,0,11
+Shipping Containers,Manuf,incr_margin,Profitability,Y,12,10,16.7,0,0,0
+Shipping Containers,Manuf,net_debt_ebitda,Balance sheet,Y,13,12,7.7,12,0,10
+Shipping Containers,Manuf,interest_cover,Balance sheet,Y,13,13,0.0,13,0,11
+Shipping Containers,Manuf,short_debt,Balance sheet,Y,13,13,0.0,13,0,11
+Shipping Containers,Hlth,cash_runway,Balance sheet,Y,1,1,0.0,0,0,0
+Shipping Containers,Manuf,payout_yield,Capital use,Y,13,13,0.0,13,0,11
+Shipping Containers,Manuf,share_change,Capital use,Y,13,13,0.0,13,0,11
+Shipping Containers,Manuf,fcf_yield,Capital use,Y,13,13,0.0,13,0,11
+Shipping Containers,Hlth,rnd_share,Profitability,N,1,1,0.0,0,0,0
+Shipping Containers,Manuf,capex_depr,Capital use,N,12,11,8.3,0,0,0
+Shipping Containers,Manuf,results_move,Earnings surprise,Y,13,13,0.0,13,0,11
+Shipping Containers,Manuf,insider_buying,Owner signals,Y,13,13,0.0,13,0,11
+Shipping Containers,Manuf,inst_change,Owner signals,Y,13,12,7.7,12,0,11
+Steel Works Etc,Manuf,rev_growth,Growth,Y,44,38,13.6,38,0,35
+Steel Works Etc,Manuf,rev_accel,Growth,Y,44,37,15.9,37,0,35
+Steel Works Etc,Manuf,earn_growth,Growth,Y,44,39,11.4,39,0,35
+Steel Works Etc,Manuf,roe,Profitability,Y,44,39,11.4,39,0,35
+Steel Works Etc,Manuf,op_margin,Profitability,Y,44,38,13.6,38,0,35
+Steel Works Etc,Manuf,roic,Profitability,Y,44,39,11.4,39,0,35
+Steel Works Etc,Manuf,margin_stability,Profitability,Y,44,34,22.7,34,0,33
+Steel Works Etc,Chems,gross_margin,Profitability,Y,2,2,0.0,0,0,0
+Steel Works Etc,Manuf,incr_margin,Profitability,Y,41,35,14.6,35,0,33
+Steel Works Etc,Manuf,net_debt_ebitda,Balance sheet,Y,44,35,20.5,35,0,33
+Steel Works Etc,Manuf,interest_cover,Balance sheet,Y,44,35,20.5,35,0,32
+Steel Works Etc,Manuf,short_debt,Balance sheet,Y,44,40,9.1,40,0,36
+Steel Works Etc,Shops,inventory_turns,Balance sheet,Y,1,1,0.0,0,0,0
+Steel Works Etc,Manuf,payout_yield,Capital use,Y,44,40,9.1,40,0,36
+Steel Works Etc,Manuf,share_change,Capital use,Y,44,39,11.4,39,0,35
+Steel Works Etc,Manuf,fcf_yield,Capital use,Y,44,38,13.6,38,0,34
+Steel Works Etc,Manuf,capex_depr,Capital use,N,41,34,17.1,34,0,31
+Steel Works Etc,Manuf,results_move,Earnings surprise,Y,44,39,11.4,39,0,35
+Steel Works Etc,Manuf,insider_buying,Owner signals,Y,44,44,0.0,44,0,36
+Steel Works Etc,Manuf,inst_change,Owner signals,Y,44,44,0.0,44,0,36
+Textiles,NoDur,rev_growth,Growth,Y,6,6,0.0,6,6,129
+Textiles,NoDur,rev_accel,Growth,Y,6,6,0.0,6,6,126
+Textiles,NoDur,earn_growth,Growth,Y,6,6,0.0,6,6,129
+Textiles,NoDur,roe,Profitability,Y,6,6,0.0,6,6,123
+Textiles,NoDur,op_margin,Profitability,Y,6,6,0.0,6,6,135
+Textiles,NoDur,roic,Profitability,Y,6,6,0.0,6,6,134
+Textiles,NoDur,margin_stability,Profitability,Y,6,6,0.0,6,6,120
+Textiles,NoDur,gross_margin,Profitability,Y,6,6,0.0,0,0,0
+Textiles,NoDur,net_debt_ebitda,Balance sheet,Y,6,6,0.0,6,6,123
+Textiles,NoDur,interest_cover,Balance sheet,Y,6,6,0.0,6,6,120
+Textiles,NoDur,short_debt,Balance sheet,Y,6,6,0.0,6,6,138
+Textiles,NoDur,inventory_turns,Balance sheet,Y,6,6,0.0,0,0,0
+Textiles,NoDur,payout_yield,Capital use,Y,6,6,0.0,6,6,138
+Textiles,NoDur,share_change,Capital use,Y,6,6,0.0,6,6,136
+Textiles,NoDur,fcf_yield,Capital use,Y,6,6,0.0,6,6,133
+Textiles,NoDur,results_move,Earnings surprise,Y,6,0,100.0,0,0,0
+Textiles,NoDur,insider_buying,Owner signals,Y,6,6,0.0,6,6,138
+Textiles,NoDur,inst_change,Owner signals,Y,6,6,0.0,6,6,137
+Tobacco Products,NoDur,rev_growth,Growth,Y,8,7,12.5,7,7,129
+Tobacco Products,NoDur,rev_accel,Growth,Y,8,6,25.0,6,6,126
+Tobacco Products,NoDur,earn_growth,Growth,Y,8,7,12.5,7,7,129
+Tobacco Products,NoDur,roe,Profitability,Y,8,4,50.0,4,4,123
+Tobacco Products,NoDur,op_margin,Profitability,Y,8,7,12.5,7,7,135
+Tobacco Products,NoDur,roic,Profitability,Y,8,7,12.5,7,7,134
+Tobacco Products,NoDur,margin_stability,Profitability,Y,8,6,25.0,6,6,120
+Tobacco Products,NoDur,gross_margin,Profitability,Y,8,7,12.5,0,0,0
+Tobacco Products,NoDur,net_debt_ebitda,Balance sheet,Y,8,4,50.0,4,4,123
+Tobacco Products,NoDur,interest_cover,Balance sheet,Y,8,6,25.0,6,6,120
+Tobacco Products,NoDur,short_debt,Balance sheet,Y,8,8,0.0,8,8,138
+Tobacco Products,NoDur,inventory_turns,Balance sheet,Y,8,7,12.5,0,0,0
+Tobacco Products,NoDur,payout_yield,Capital use,Y,8,8,0.0,8,8,138
+Tobacco Products,NoDur,share_change,Capital use,Y,8,8,0.0,8,8,136
+Tobacco Products,NoDur,fcf_yield,Capital use,Y,8,7,12.5,7,7,133
+Tobacco Products,NoDur,results_move,Earnings surprise,Y,8,8,0.0,8,8,133
+Tobacco Products,NoDur,insider_buying,Owner signals,Y,8,8,0.0,8,8,138
+Tobacco Products,NoDur,inst_change,Owner signals,Y,8,8,0.0,8,8,137
+Trading,Money,rev_growth,Growth,Y,619,305,50.7,305,0,271
+Trading,Money,rev_accel,Growth,Y,619,296,52.2,296,0,262
+Trading,Money,earn_growth,Growth,Y,619,343,44.6,343,0,299
+Trading,BusEq,deferred_growth,Growth,Y,2,0,100.0,0,0,0
+Trading,Money,roe,Profitability,Y,619,324,47.7,324,0,287
+Trading,Money,op_margin,Profitability,Y,619,314,49.3,314,0,280
+Trading,Money,roic,Profitability,Y,619,460,25.7,460,0,411
+Trading,Money,margin_stability,Profitability,Y,619,301,51.4,301,0,269
+Trading,Shops,gross_margin,Profitability,Y,5,2,60.0,0,0,0
+Trading,Manuf,incr_margin,Profitability,Y,5,1,80.0,0,0,0
+Trading,Telcm,ebitda_margin,Profitability,Y,2,1,50.0,0,0,0
+Trading,Money,net_debt_ebitda,Balance sheet,Y,619,445,28.1,445,0,404
+Trading,Money,interest_cover,Balance sheet,Y,619,343,44.6,343,0,309
+Trading,Money,short_debt,Balance sheet,Y,619,372,39.9,372,0,342
+Trading,Shops,inventory_turns,Balance sheet,Y,5,2,60.0,0,0,0
+Trading,Money,payout_yield,Capital use,Y,619,616,0.5,616,0,566
+Trading,Money,share_change,Capital use,Y,619,499,19.4,499,0,450
+Trading,Money,fcf_yield,Capital use,Y,619,457,26.2,457,0,410
+Trading,BusEq,sbc_share,Capital use,Y,2,0,100.0,0,0,0
+Trading,BusEq,rnd_share,Profitability,N,2,0,100.0,0,0,0
+Trading,Manuf,capex_depr,Capital use,N,5,4,20.0,0,0,0
+Trading,Telcm,capex_rev,Capital use,N,2,1,50.0,0,0,0
+Trading,Money,results_move,Earnings surprise,Y,619,604,2.4,604,0,561
+Trading,Money,insider_buying,Owner signals,Y,619,619,0.0,619,0,566
+Trading,Money,inst_change,Owner signals,Y,619,595,3.9,595,0,542
+Transportation,Other,rev_growth,Growth,Y,163,131,19.6,131,0,109
+Transportation,Other,rev_accel,Growth,Y,163,122,25.2,122,0,104
+Transportation,Other,earn_growth,Growth,Y,163,131,19.6,131,0,109
+Transportation,Other,roe,Profitability,Y,163,129,20.9,129,0,104
+Transportation,Other,op_margin,Profitability,Y,163,138,15.3,138,0,113
+Transportation,Other,roic,Profitability,Y,163,136,16.6,136,0,112
+Transportation,Other,margin_stability,Profitability,Y,163,122,25.2,122,0,109
+Transportation,Manuf,incr_margin,Profitability,Y,1,1,0.0,0,0,0
+Transportation,Other,net_debt_ebitda,Balance sheet,Y,163,118,27.6,118,0,100
+Transportation,Other,interest_cover,Balance sheet,Y,163,132,19.0,132,0,106
+Transportation,Other,short_debt,Balance sheet,Y,163,141,13.5,141,0,114
+Transportation,Other,payout_yield,Capital use,Y,163,146,10.4,146,0,117
+Transportation,Other,share_change,Capital use,Y,163,141,13.5,141,0,114
+Transportation,Other,fcf_yield,Capital use,Y,163,133,18.4,133,0,109
+Transportation,Manuf,capex_depr,Capital use,N,1,0,100.0,0,0,0
+Transportation,Other,results_move,Earnings surprise,Y,163,141,13.5,141,0,113
+Transportation,Other,insider_buying,Owner signals,Y,163,163,0.0,163,0,117
+Transportation,Other,inst_change,Owner signals,Y,163,163,0.0,163,0,117
+Utilities,Utils,rev_growth,Growth,Y,125,106,15.2,106,0,103
+Utilities,Utils,rev_accel,Growth,Y,125,103,17.6,103,0,100
+Utilities,Utils,earn_growth,Growth,Y,125,110,12.0,110,0,106
+Utilities,Utils,roe,Profitability,Y,125,107,14.4,107,0,102
+Utilities,Utils,op_margin,Profitability,Y,125,109,12.8,109,0,105
+Utilities,Utils,roic,Profitability,Y,125,110,12.0,110,0,107
+Utilities,Utils,margin_stability,Profitability,Y,125,104,16.8,104,0,102
+Utilities,Utils,net_debt_ebitda,Balance sheet,Y,125,105,16.0,105,0,103
+Utilities,Utils,interest_cover,Balance sheet,Y,125,107,14.4,107,0,102
+Utilities,Utils,short_debt,Balance sheet,Y,125,116,7.2,116,0,111
+Utilities,Utils,payout_yield,Capital use,Y,125,116,7.2,116,0,111
+Utilities,Utils,share_change,Capital use,Y,125,115,8.0,115,0,110
+Utilities,Utils,fcf_yield,Capital use,Y,125,112,10.4,112,0,108
+Utilities,Utils,payout_ratio,Capital use,N,124,87,29.8,87,0,87
+Utilities,Utils,results_move,Earnings surprise,Y,125,113,9.6,113,0,108
+Utilities,Utils,insider_buying,Owner signals,Y,125,125,0.0,125,0,111
+Utilities,Utils,inst_change,Owner signals,Y,125,125,0.0,125,0,111
+Wholesale,Shops,rev_growth,Growth,Y,105,93,11.4,93,0,68
+Wholesale,Shops,rev_accel,Growth,Y,105,85,19.0,85,0,65
+Wholesale,Shops,earn_growth,Growth,Y,105,94,10.5,94,0,68
+Wholesale,BusEq,deferred_growth,Growth,Y,2,1,50.0,0,0,0
+Wholesale,Shops,roe,Profitability,Y,105,87,17.1,87,0,60
+Wholesale,Shops,op_margin,Profitability,Y,105,98,6.7,98,0,70
+Wholesale,Shops,roic,Profitability,Y,105,98,6.7,98,0,70
+Wholesale,Shops,margin_stability,Profitability,Y,105,84,20.0,84,0,67
+Wholesale,Shops,gross_margin,Profitability,Y,101,94,6.9,94,0,68
+Wholesale,Shops,net_debt_ebitda,Balance sheet,Y,105,90,14.3,90,0,69
+Wholesale,Shops,interest_cover,Balance sheet,Y,105,86,18.1,86,0,65
+Wholesale,Shops,short_debt,Balance sheet,Y,105,100,4.8,100,0,71
+Wholesale,Shops,inventory_turns,Balance sheet,Y,101,88,12.9,88,0,67
+Wholesale,Hlth,cash_runway,Balance sheet,Y,2,2,0.0,0,0,0
+Wholesale,Shops,payout_yield,Capital use,Y,105,101,3.8,101,0,72
+Wholesale,Shops,share_change,Capital use,Y,105,100,4.8,100,0,71
+Wholesale,Shops,fcf_yield,Capital use,Y,105,99,5.7,99,0,70
+Wholesale,BusEq,sbc_share,Capital use,Y,2,2,0.0,0,0,0
+Wholesale,BusEq,rnd_share,Profitability,N,4,4,0.0,0,0,0
+Wholesale,Shops,results_move,Earnings surprise,Y,105,100,4.8,100,0,72
+Wholesale,Shops,insider_buying,Owner signals,Y,105,105,0.0,105,0,72
+Wholesale,Shops,inst_change,Owner signals,Y,105,104,1.0,104,0,71

@@ -8,8 +8,8 @@ the bulk route (years=full), which answers with a redirect to a zip file.
 Tables pulled: tickers (company list with French industry group and
 delisting flag), fundamentals (SF1), stocks (daily prices, SEP), events (8-K
 filing dates and item codes) and actions (splits, delistings, mergers).
-Insider trades and institutional holdings are not pulled yet: they are only
-needed for owner signals and are very large in bulk.
+Insider trades and institutional holdings (owner signals) are pulled too,
+optionally: each is skipped with a note if it fails or its zip is too big.
 
 The raw zips stay on the runner (raw/sharadar/, ignored by git): they are
 too big for the repository and the personal licence does not allow
@@ -72,6 +72,14 @@ SEC_FACTS = "https://data.sec.gov/api/xbrl/companyfacts/CIK{cik}.json"
 USER_AGENT = "invest-with-ai-data-pull"
 
 TABLES = ["tickers", "fundamentals", "stocks", "events", "actions"]
+# Owner signals (company measures), tried under each name Sharadar might use.
+# Only the bulk route (years=full) returns the whole table: a shorter window
+# comes back as one capped page. Optional: a failure, or a zip over
+# OPTIONAL_MAX_MB, is noted and the run carries on without it.
+OPTIONAL_TABLES = {"insiders": ["insiders", "sf2"],
+                   "holdings": ["holdings", "sf3", "institutional"]}
+OPTIONAL_YEARS = "full"
+OPTIONAL_MAX_MB = 6000
 
 # Fields named in docs/company-factors.md (section 3 and the financials
 # table), with the factor that uses each.
@@ -158,11 +166,15 @@ def _error_text(e: urllib.error.HTTPError) -> str:
     return f"HTTP {e.code}{hints.get(e.code, '')}: {str(body)[:200]}"
 
 
-def download_table(table: str, key: str) -> Path:
-    """Bulk-download one table to raw/sharadar/<table>.zip."""
+def download_table(table: str, key: str, years: str = "full",
+                   dest_name: str | None = None,
+                   max_mb: float | None = None) -> Path:
+    """Bulk-download one table to raw/sharadar/<dest_name or table>.zip.
+
+    With max_mb, a zip whose size is stated as larger is not downloaded."""
     RAW.mkdir(parents=True, exist_ok=True)
-    dest = RAW / f"{table}.zip"
-    url = f"{API}/data/{table}?" + urllib.parse.urlencode({"years": "full"})
+    dest = RAW / f"{dest_name or table}.zip"
+    url = f"{API}/data/{table}?" + urllib.parse.urlencode({"years": years})
     opener = urllib.request.build_opener(_NoRedirect)
     location = None
     last = ""
@@ -193,6 +205,10 @@ def download_table(table: str, key: str) -> Path:
         req = urllib.request.Request(location, headers={"User-Agent": USER_AGENT})
         try:
             with urllib.request.urlopen(req, timeout=600) as resp:
+                size = resp.headers.get("Content-Length")
+                if max_mb and size and size.isdigit() and int(size) / 1e6 > max_mb:
+                    raise SourceError(f"{table}: zip is {int(size) / 1e6:,.0f} MB, "
+                                      f"over the {max_mb:,.0f} MB limit; skipped")
                 _stream_to(resp, dest)
                 return dest
         except urllib.error.HTTPError as e:
@@ -577,6 +593,23 @@ def main() -> int:
         except SourceError as e:
             failures.append(str(e))
             print(f"::error::{e}")
+    optional_notes = []
+    for dest, names in OPTIONAL_TABLES.items():
+        t0 = time.time()
+        errors = []
+        for name in names:
+            try:
+                p = download_table(name, key, years=OPTIONAL_YEARS, dest_name=dest,
+                                   max_mb=OPTIONAL_MAX_MB)
+                optional_notes.append(
+                    f"{dest}: downloaded as '{name}' (whole table), "
+                    f"{p.stat().st_size / 1e6:,.0f} MB in {time.time() - t0:,.0f}s")
+                break
+            except SourceError as e:
+                errors.append(str(e))
+        else:
+            optional_notes.append(f"{dest}: not downloaded ({'; '.join(errors)})")
+        print(optional_notes[-1])
     del key
     if "tickers" not in paths or "fundamentals" not in paths:
         print("::error::tickers and fundamentals are needed for the checks; stopping.")
@@ -727,9 +760,9 @@ def main() -> int:
     if fund["worst_gaps"]:
         lines += ["", "## Largest gaps in quarterly data", ""]
         lines += [f"- {t}: {g} quarters missing" for g, t in fund["worst_gaps"]]
-    lines += ["", "## Not pulled yet", "",
-              "- Insider trades and institutional holdings (owner signals): very "
-              "large in bulk; pulled when the owner-signal measure is built.",
+    lines += ["", "## Owner-signal tables (optional)", ""]
+    lines += [f"- {n}" for n in optional_notes]
+    lines += ["", "## Not committed", "",
               "- Raw tables stay on the runner and are not committed (size and "
               "licence)."]
     if failures:

@@ -46,13 +46,15 @@ For the run date, using only filings dated on or before it and prices on or befo
 | | Change in share count | lower | level | core |
 | | Free cash flow yield | higher | both | standard |
 | | Share-based pay ÷ revenue | lower | both | business equipment |
+| | Capex ÷ depreciation | lower | both | manufacturing |
+| | Capex ÷ revenue | lower | both | telecom |
 | Earnings surprise | Two-day move on the latest results day beyond the peer group's median move, ÷ normal daily volatility | higher | level | core |
 | Owner signals | Net open-market insider buying over 6 months ÷ shares outstanding | higher | level | core |
 | | Change in institutional ownership over the latest quarter ÷ shares outstanding | higher | level | core |
 
 **Edge cases (method section 2):** negative equity makes return on equity missing and puts the company at the bottom on leverage; a company with no debt ranks top on interest cover and debt due soon; a company not burning cash ranks top on cash runway; a zero or negative denominator elsewhere is missing.
 
-**Computed but not scored:** R&D ÷ revenue (business equipment, healthcare), capex ÷ depreciation (manufacturing), reinvestment rate (energy), capex ÷ revenue (telecom) and dividend payout ratio (utilities). The factors doc names them, but which way is better isn't settled: more R&D can be investment or waste, and a high payout ratio can be confidence or strain. They're kept in the per-company results; the measured check's proposed directions are in `docs/company-check.md`, waiting on a decision.
+**Computed but not scored:** R&D ÷ revenue (business equipment, healthcare), reinvestment rate (energy) and dividend payout ratio (utilities). Which way is better isn't settled: more R&D can be investment or waste, and a high payout ratio can be confidence or strain. The measured check found no steady direction for these three (`docs/company-check.md`), so they stay in the per-company results only. Capex ÷ depreciation and capex ÷ revenue were in this group until Nov 27, when the check showed heavy spenders lagging their peers in both halves since 2001 and they were switched on as lower is better.
 
 **Insider buying is ranked from zero out (changed Nov 27 after the first run).** Most companies have no open-market insider trades in six months, so their value is exactly zero. Ranked plainly, that tie sat around the 60th percentile and read +0.5, which made "nothing happened" look like a mild plus and tilted owner signals positive. Now zero reads 50 (neutral), net buyers rank among buyers from 50 to 100, and net sellers among sellers from 0 to 50.
 

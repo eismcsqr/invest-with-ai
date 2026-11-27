@@ -10,7 +10,7 @@
 - **Range:** 95% bootstrap range of the average spread (2,000 draws).
 - **Periods:** 2001 to 2007, 2008 to 2019, 2020 on, as the method asks, plus two halves (to 2013, 2014 on).
 - **False discoveries:** Benjamini-Hochberg at 10% across the six factors.
-- **Out of sample:** the six factors' directions were fixed in advance (the factors doc), so nothing is fitted to these returns. For the five held-out measures, the direction is read from 2001 to 2013 only and then tested on 2014 on.
+- **Out of sample:** the six factors' directions were fixed in advance (the factors doc), so nothing is fitted to these returns. For the five measures held out at the first run, the direction was read from 2001 to 2013 only and then tested on 2014 on.
 
 ## Results
 
@@ -49,13 +49,12 @@ Direction read from 2001 to 2013, then tested on 2014 on. A positive spread mean
 | Capex ÷ revenue | telecom | −2.61 | −0.92 (−3.66 to +1.81) | lower is better, low confidence |
 | Dividend payout ratio | utilities | +0.39 | −1.07 (−3.56 to +1.48) | keep out: the halves disagree |
 
-Over the whole period, capex ÷ depreciation is −1.08% (range −2.04 to −0.11, clear of zero) and capex ÷ revenue −1.78% (range −4.21 to +0.63): heavy spenders did worse than their peers, which fits the factors doc's worry about empire building. None of the five is switched on; that's a call for Kshitij.
+Over the whole period, capex ÷ depreciation is −1.08% (range −2.04 to −0.11, clear of zero) and capex ÷ revenue −1.78% (range −4.21 to +0.63): heavy spenders did worse than their peers, which fits the factors doc's worry about empire building. **Agreed Nov 27 (Kshitij):** capex ÷ depreciation and capex ÷ revenue are switched on as lower is better, inside capital use; the other three stay out and the monthly check keeps testing them.
 
 ## Open questions
 
-1. **Held-out measures:** switch on capex ÷ depreciation and capex ÷ revenue as "lower is better"; keep the other three out.
-2. **Owner signals:** the factor points the wrong way. Options: leave it scored and Low confidence (it can't pass check 3); drop it from the score until it's rebuilt; or flip it. Before deciding, one suspected data issue is worth fixing: institutional holdings are share counts as filed, so a stock split between two quarters can look like heavy institutional buying. Measuring the change as a share of shares outstanding at each quarter would remove that.
-3. **The check-3 rule** above, which is stricter than the method's wording ("the same sign across periods") because it also asks for a range above zero and the false-discovery check.
+1. **Owner signals:** the factor points the wrong way. Options: leave it scored and Low confidence (it can't pass check 3); drop it from the score until it's rebuilt; or flip it. Before deciding, one suspected data issue is worth fixing: institutional holdings are share counts as filed, so a stock split between two quarters can look like heavy institutional buying. Measuring the change as a share of shares outstanding at each quarter would remove that.
+2. **The check-3 rule** above, which is stricter than the method's wording ("the same sign across periods") because it also asks for a range above zero and the false-discovery check.
 
 ## How it differs from the method doc
 

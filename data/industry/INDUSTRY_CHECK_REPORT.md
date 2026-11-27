@@ -2,13 +2,16 @@
 
 Run date: 2026-11-27
 
-**5 datasets pulled. 1 failed, stale or empty. 0 skipped for a missing key.**
+**9 datasets pulled. 0 failed, stale or empty. 0 skipped for a missing key.**
 
 Series counts columns (industries, categories or indexes). Missing counts blank cells inside a series's own history. Stale means the newest value is older than expected (75 days for monthly data, 200 for quarterly).
 
 | Dataset | Source | Series | First | Latest | Periods | Missing | Status |
 |---|---|---|---|---|---|---|---|
-| gross_output | BEA |  |  |  |  |  | FAILED |
+| gross_output_nominal | BEA | 99 | 2005-01 | 2026-04 | 86 | 0 | ok |
+| gross_output_price_index | BEA | 99 | 2005-01 | 2026-04 | 86 | 0 | ok |
+| gross_output_quantity_index | BEA | 99 | 2005-01 | 2026-04 | 86 | 0 | ok |
+| gross_output_real | BEA | 100 | 2005-01 | 2026-04 | 86 | 0 | ok |
 | m3 | Census | 378 | 1992-01 | 2026-09 | 417 | 0 | ok |
 | concentration_2017 | Census | 1935 | 2017 | 2017 | 9974 | 115 | ok |
 | concentration_2022 | Census | 1866 | 2022 | 2022 | 9625 | 40 | ok |
@@ -17,7 +20,10 @@ Series counts columns (industries, categories or indexes). Missing counts blank 
 
 ## Notes and checks
 
-- **gross_output:** Earlier file kept. BEA table list: BEA said: This UserId is not active. Please activate it and try again.
+- **gross_output_nominal:** Table 15: Gross Output by Industry (A) (Q).
+- **gross_output_price_index:** Table 18: Chain-Type Price Indexes for Gross Output by Industry (A) (Q).
+- **gross_output_quantity_index:** Table 16: Chain-Type Quantity Indexes for Gross Output by Industry (A) (Q).
+- **gross_output_real:** Table 208: Real Gross Output by Industry (A) (Q).
 - **m3:** 87 M3 categories; millions of dollars. Category codes are Census M3 codes; mapping to NAICS and French groups comes next. 2 series with no value in the last 400 days (likely discontinued).
 - **concentration_2017:** 1919 of 1935 NAICS industries give the largest firms' share of revenue; 1505 also have an HHI (Census publishes it for the 50 largest firms, mostly in manufacturing). Missing counts withheld shares.
 - **concentration_2022:** 1865 of 1866 NAICS industries give the largest firms' share of revenue; 1461 also have an HHI (Census publishes it for the 50 largest firms, mostly in manufacturing). Missing counts withheld shares.

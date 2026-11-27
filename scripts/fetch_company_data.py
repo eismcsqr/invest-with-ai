@@ -52,6 +52,7 @@ import datetime as dt
 import io
 import json
 import os
+import re
 import statistics
 import sys
 import time
@@ -115,6 +116,8 @@ SPLITS = [("AAPL", "2020-08-28", "2020-08-31", 4.0),
           ("AAPL", "2014-06-06", "2014-06-09", 7.0),
           ("NVDA", "2024-06-07", "2024-06-10", 10.0)]
 
+TABLE_CODES = {"sf1": "SF1", "fundamentals": "SF1", "sep": "SEP",
+               "stocks": "SEP", "sfp": "SFP", "funds": "SFP"}
 MISSING_LIMIT = 0.02            # under 2% missing quarters
 EDGAR_TOLERANCE = 0.01          # within 1%
 FRESH_DAYS = 5                  # newest filing in the data within 5 days
@@ -270,11 +273,16 @@ def scan_tickers(path: Path) -> dict:
     sf1_delisted, sep_delisted, domestic = set(), set(), set()
     ciks = {}
     sf1_count = 0
+    table_values = Counter()
     for r in rows:
         if len(r) < len(header):
             continue
-        table, ticker = r[ix["table"]], r[ix["ticker"]]
-        delisted = r[ix["isdelisted"]].strip().upper() == "Y"
+        raw_table, ticker = r[ix["table"]].strip(), r[ix["ticker"]]
+        table_values[raw_table] += 1
+        # The direct API names tables by word ("fundamentals", "stocks");
+        # older exports used codes ("SF1", "SEP").
+        table = TABLE_CODES.get(raw_table.lower(), raw_table.upper())
+        delisted = r[ix["isdelisted"]].strip().upper() in ("Y", "YES", "TRUE", "1")
         if table == "SEP" and delisted:
             sep_delisted.add(ticker)
         if table != "SF1":
@@ -295,9 +303,13 @@ def scan_tickers(path: Path) -> dict:
             link = r[ix["secfilings"]]
             q = urllib.parse.parse_qs(urllib.parse.urlparse(link).query)
             cik = (q.get("CIK") or q.get("cik") or [""])[0]
+            if not cik.isdigit():
+                m = re.search(r"(?:cik[=/]?|/data/)0*(\d{1,10})", link, re.I)
+                cik = m.group(1) if m else ""
             if cik.isdigit():
                 ciks[ticker] = cik.zfill(10)
     return {"header": header, "groups": dict(groups), "sf1_count": sf1_count,
+            "table_values": dict(table_values),
             "sf1_delisted": sf1_delisted, "sep_delisted": sep_delisted,
             "domestic": domestic, "ciks": ciks}
 
@@ -624,6 +636,9 @@ def main() -> int:
                        f"first and last quarter ({fund['expected_q'] - fund['present_q']:,} "
                        f"of {fund['expected_q']:,}), domestic common stocks with at "
                        "least 4 quarters"))
+    else:
+        checks.append(("Under 2% missing quarters", None,
+                       "no domestic common stocks found in the tickers table"))
     newest = fund["newest"]
     fresh = newest is not None and (today - newest).days <= FRESH_DAYS
     checks.append(("New filings within 5 days", fresh,
@@ -649,7 +664,11 @@ def main() -> int:
     lines += [f"| {name} | {mark(ok)} | {detail} |" for name, ok, detail in checks]
     lines += ["", "## Tables", ""]
     lines.append(f"- **Tickers:** {tick['sf1_count']:,} companies with fundamentals, "
-                 f"{len(tick['groups'])} French industry groups (famaindustry).")
+                 f"{len(tick['groups'])} French industry groups (famaindustry). "
+                 "Rows by table: " + ", ".join(
+                     f"{k or '(blank)'} {v:,}" for k, v in
+                     sorted(tick["table_values"].items(), key=lambda kv: -kv[1])[:8])
+                 + ".")
     d = fund["dims"]
     lines.append(f"- **Fundamentals:** {fund['companies']:,} companies with "
                  f"as-first-reported quarterly rows ({fund['arq_rows']:,} rows). Rows by "

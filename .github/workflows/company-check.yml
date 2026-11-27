@@ -1,0 +1,73 @@
+name: Company measured check
+
+# The company pillar's measured check (scripts/company_check.py): scores
+# every quarter end since 2001 with only what was known that day, and tests
+# the readings against the next quarter's return relative to peers. Commits
+# only aggregate results to data/company/check/; factor_check.csv there sets
+# confidence check 3 in the weekly company run. The raw Sharadar tables stay
+# on the runner (personal licence, public repository).
+#
+# Needs the SHARADAR_API_KEY repository secret.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 18 1 * *"   # the 1st of each month, 18:00 UTC
+  push:
+    branches:
+      - main
+      - "claude/**"
+    paths:
+      - scripts/company_check.py
+      - .github/workflows/company-check.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: company-check-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Download Sharadar tables
+        env:
+          SHARADAR_API_KEY: ${{ secrets.SHARADAR_API_KEY }}
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+        run: python scripts/fetch_company_data.py
+
+      - name: Measured check
+        if: ${{ !cancelled() }}
+        run: python scripts/company_check.py
+
+      - name: Commit results
+        if: ${{ !cancelled() }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          [ -d data/company/check ] || { echo "No results to commit."; exit 0; }
+          git add data/company/check
+          if git diff --cached --quiet; then
+            echo "No changes."
+            exit 0
+          fi
+          git commit -m "Update company measured check ($(date -u +%Y-%m-%d))"
+          # The data download rewrites other committed reports; only the check
+          # results are committed here, so drop the rest before rebasing.
+          git checkout -- . && git clean -fdq -e raw/
+          for attempt in 1 2 3; do
+            if git push; then exit 0; fi
+            git pull --rebase
+          done
+          echo "::error::Could not push the results commit."
+          exit 1

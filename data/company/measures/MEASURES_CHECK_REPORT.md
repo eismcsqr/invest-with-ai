@@ -9,7 +9,7 @@ Run: 2026-11-27 (every filing and price on or before this date). Source: Sharada
 | No filing or price after the run date | pass | 0 filing or price dates after 2026-11-27 among those used |
 | Same results with later data deleted (a year back) | pass | run for 2025-11-27: 0 of 5,474 companies differ between all data and data cut at that date; 0 dates after it used |
 | Companies that later left the market are kept | pass | 377 companies listed on 2025-11-27 aren't listed now and are still in that run |
-| Peer ranks spread evenly | pass | 19.3% of peer-set level ranks in the top fifth (expect about 20%) |
+| Peer ranks spread evenly | pass | 19.9% of peer-set level ranks in the top fifth (expect about 20%) |
 | Most companies with fresh filings get a score | pass | 5,352 of the 5,352 with a filing in the last 200 days have a score |
 
 ## Universe
@@ -21,16 +21,27 @@ Run: 2026-11-27 (every filing and price on or before this date). Source: Sharada
 
 ## Factor coverage (all companies)
 
-| Factor | With a reading | +1 | +0.5 | 0 | −0.5 | −1 | Medium | Low |
-|---|---|---|---|---|---|---|---|---|
-| Growth | 77% (4,254) | 353 | 1016 | 1379 | 1014 | 492 | 3,225 | 1,029 |
-| Profitability | 85% (4,705) | 144 | 1231 | 1383 | 1197 | 750 | 3,371 | 1,334 |
-| Balance sheet | 87% (4,787) | 269 | 953 | 1747 | 1176 | 642 | 3,347 | 1,440 |
-| Capital use | 92% (5,077) | 319 | 1096 | 1507 | 1262 | 893 | 3,804 | 1,273 |
-| Earnings surprise | 92% (5,072) | 887 | 976 | 1168 | 1078 | 963 | 3,952 | 1,120 |
-| Owner signals | 100% (5,501) | 481 | 1521 | 2028 | 1117 | 354 | 3,997 | 1,504 |
+| Factor | With a reading | +1 | +0.5 | 0 | −0.5 | −1 | High | Medium | Low |
+|---|---|---|---|---|---|---|---|---|---|
+| Growth | 77% (4,254) | 353 | 1016 | 1379 | 1014 | 492 | 0 | 3,225 | 1,029 |
+| Profitability | 85% (4,705) | 144 | 1231 | 1383 | 1197 | 750 | 0 | 3,371 | 1,334 |
+| Balance sheet | 87% (4,787) | 269 | 953 | 1747 | 1176 | 642 | 3,242 | 549 | 996 |
+| Capital use | 92% (5,077) | 319 | 1096 | 1507 | 1262 | 893 | 3,804 | 216 | 1,057 |
+| Earnings surprise | 92% (5,072) | 887 | 976 | 1168 | 1078 | 963 | 0 | 3,952 | 1,120 |
+| Owner signals | 100% (5,501) | 0 | 936 | 2383 | 1789 | 393 | 0 | 3,997 | 1,504 |
 
-Company confidence: Medium 3,719, Low 1,782, High 0 (High needs the measured check, which hasn't run).
+Peer-set companies only (above the size floor), share in each band:
+
+| Factor | +1 | +0.5 | 0 | −0.5 | −1 |
+|---|---|---|---|---|---|
+| Growth | 8% | 25% | 35% | 24% | 8% |
+| Profitability | 4% | 31% | 33% | 23% | 9% |
+| Balance sheet | 5% | 23% | 42% | 23% | 8% |
+| Capital use | 8% | 26% | 33% | 24% | 9% |
+| Earnings surprise | 20% | 20% | 20% | 20% | 20% |
+| Owner signals | 0% | 17% | 41% | 35% | 7% |
+
+Company confidence: High 710, Medium 3,065, Low 1,726 (the measured check of 2026-11-27 sets check 3).
 
 ## Measures: missing rates among companies they apply to
 
@@ -87,20 +98,20 @@ Readings on the −1 to +1 scale and the company score (−3 to +3). No Sharadar
 
 | Ticker | Group | Growth | Profit | Balance | Capital | Surprise | Owners | Score (range) | Confidence |
 |---|---|---|---|---|---|---|---|---|---|
-| AAPL | Computers | 0.0 | 0.5 | 0.0 | 0.0 | -0.5 | 0.0 | +0.0 (-0.8 to +1.2) | Medium |
-| MSFT | Business Services | 0.5 | 0.5 | 0.5 | 0.0 | 0.0 | 0.0 | +0.8 (-0.2 to +1.6) | Medium |
-| NVDA | Electronic Equipment | 0.5 | 1.0 | 0.5 | 0.5 | -0.5 | 0.0 | +1.0 (+0.0 to +1.8) | Medium |
-| JPM | Banking | 0.5 | 0.5 | -1.0 | 0.5 | 0.5 | -0.5 | +0.0 (-0.9 to +0.5) | Medium |
-| BAC | Banking | 0.0 | 0.0 | -0.5 | 1.0 | -1.0 | 0.0 | -0.3 (-1.3 to +0.1) | Medium |
-| XOM | Petroleum and Natural Gas | 0.0 | 0.5 | 0.5 | 0.5 | 1.0 | 0.0 | +1.3 (-0.4 to +2.6) | Medium |
+| AAPL | Computers | 0.0 | 0.5 | 0.0 | 0.0 | -0.5 | 0.0 | +0.0 (-0.8 to +1.0) | Medium |
+| MSFT | Business Services | 0.5 | 0.5 | 0.5 | 0.0 | 0.0 | 0.0 | +0.8 (-0.2 to +1.4) | Medium |
+| NVDA | Electronic Equipment | 0.5 | 1.0 | 0.5 | 0.5 | -0.5 | -0.5 | +0.8 (+0.0 to +1.5) | Medium |
+| JPM | Banking | 0.5 | 0.5 | -1.0 | 0.5 | 0.5 | -0.5 | +0.0 (-0.9 to +0.5) | High |
+| BAC | Banking | 0.0 | 0.0 | -0.5 | 1.0 | -1.0 | -0.5 | -0.6 (-1.3 to -0.1) | High |
+| XOM | Petroleum and Natural Gas | 0.0 | 0.5 | 0.5 | 0.5 | 1.0 | -0.5 | +1.1 (-0.4 to +2.4) | High |
 | JNJ | Pharmaceutical Products | 0.0 | 0.5 | 0.5 | 0.5 | 0.5 | -0.5 | +0.7 (+0.2 to +1.6) | Medium |
 | WMT | Retail | 0.0 | 0.0 | 0.0 | -0.5 | 0.5 | -0.5 | -0.2 (-1.0 to +0.9) | Medium |
-| HD | Retail | -0.5 | 0.5 | 0.0 | 0.0 | -0.5 | 0.0 | -0.1 (-1.3 to +0.1) | Medium |
+| HD | Retail | -0.5 | 0.5 | 0.0 | 0.0 | -0.5 | 0.0 | -0.1 (-1.3 to -0.1) | Medium |
 | KO | Beer & Liquor | 0.0 | 0.5 | 0.5 | -0.5 | 0.5 | -0.5 | +0.3 (-0.5 to +1.6) | Low |
-| PGR | Insurance | -0.5 | 0.5 | 0.0 | 0.0 | -1.0 | -0.5 | -0.7 (-0.9 to +0.0) | Medium |
+| PGR | Insurance | -0.5 | 0.5 | 0.0 | 0.0 | -1.0 | -0.5 | -0.7 (-0.9 to -0.2) | High |
 | NEE | Utilities | 0.5 | 0.5 | 0.0 | 0.5 | 0.5 | 0.5 | +1.1 (-0.2 to +2.2) | Medium |
-| T | Communication | 0.0 | 0.0 | 0.0 | 0.5 | -1.0 | 0.0 | -0.2 (-1.3 to +0.7) | Medium |
-| CAT | Machinery | 0.5 | 0.5 | 0.0 | 0.5 | -1.0 | 0.0 | +0.2 (-0.5 to +1.5) | Medium |
+| T | Communication | 0.0 | 0.0 | 0.0 | 0.5 | -1.0 | -0.5 | -0.5 (-1.3 to +0.5) | High |
+| CAT | Machinery | 0.5 | 0.5 | 0.0 | 0.5 | -1.0 | 0.0 | +0.2 (-0.8 to +1.5) | Medium |
 | MRNA | Pharmaceutical Products | 0.5 | 0.0 | 0.0 | 0.5 | 0.0 | -1.0 | +0.1 (-0.5 to +1.2) | Medium |
 
 ## Notes

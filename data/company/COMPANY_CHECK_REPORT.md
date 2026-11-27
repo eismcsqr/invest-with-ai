@@ -37,7 +37,7 @@ Run: 2026-11-27. Source: Sharadar (direct API, bulk download of each table).
 ## Owner-signal tables (optional)
 
 - insiders: downloaded as 'insiders' (whole table), 248 MB in 2s
-- holdings: downloaded as 'holdings' (whole table), 717 MB in 5s
+- holdings: downloaded as 'holdings' (whole table), 717 MB in 4s
 
 ## Not committed
 

@@ -336,6 +336,8 @@ def load_insiders(data: Data, today: int) -> None:
         return
     header, rows = open_rows(p)
     ix = {h: i for i, h in enumerate(header)}
+    if "filingdate" not in ix and "date" in ix:
+        ix["filingdate"] = ix["date"]      # the direct API calls it "date"
     need = ["ticker", "filingdate", "transactioncode", "transactionshares"]
     if any(c not in ix for c in need):
         data.notes.append("Insider table columns not recognised ("
@@ -344,9 +346,18 @@ def load_insiders(data: Data, today: int) -> None:
     i_sec = ix.get("securityadcode")
     i_form = ix.get("formtype")
     start = today - PRICE_DAYS
-    n = 0
+    n = total = 0
+    first = last = ""
+    codes = Counter()
     for r in rows:
-        if len(r) < len(header) or r[ix["ticker"]] not in data.info:
+        if len(r) < len(header):
+            continue
+        total += 1
+        fd = r[ix["filingdate"]][:10]
+        first = min(first, fd) if first else fd
+        last = max(last, fd)
+        codes[r[ix["transactioncode"]].strip().upper()] += 1
+        if r[ix["ticker"]] not in data.info:
             continue
         code = r[ix["transactioncode"]].strip().upper()
         if code not in ("P", "S"):          # open-market buys and sales only
@@ -361,7 +372,9 @@ def load_insiders(data: Data, today: int) -> None:
             continue
         data.insiders[r[ix["ticker"]]].append((d, abs(sh) if code == "P" else -abs(sh)))
         n += 1
-    data.notes.append(f"Insider trades: {n:,} open-market buys and sales kept.")
+    data.notes.append(f"Insider trades: {total:,} rows filed {first} to {last} "
+                      f"(codes: {', '.join(f'{k} {v:,}' for k, v in codes.most_common(6))}); "
+                      f"{n:,} open-market buys and sales kept.")
 
 
 def load_holdings(data: Data, today: int) -> None:
@@ -372,6 +385,8 @@ def load_holdings(data: Data, today: int) -> None:
         return
     header, rows = open_rows(p)
     ix = {h: i for i, h in enumerate(header)}
+    if "calendardate" not in ix and "date" in ix:
+        ix["calendardate"] = ix["date"]    # quarter end, "date" in the direct API
     if any(c not in ix for c in ("ticker", "calendardate", "units")):
         data.notes.append("Holdings table columns not recognised ("
                           + ", ".join(header[:15]) + "...): institutional change is missing.")
@@ -379,8 +394,14 @@ def load_holdings(data: Data, today: int) -> None:
     i_type = ix.get("securitytype")
     start = today - PRICE_DAYS
     agg = defaultdict(float)
+    total = 0
+    quarters = Counter()
     for r in rows:
-        if len(r) < len(header) or r[ix["ticker"]] not in data.info:
+        if len(r) < len(header):
+            continue
+        total += 1
+        quarters[r[ix["calendardate"]][:10]] += 1
+        if r[ix["ticker"]] not in data.info:
             continue
         if i_type is not None and r[i_type].strip().upper() not in ("SHR", ""):
             continue
@@ -391,7 +412,9 @@ def load_holdings(data: Data, today: int) -> None:
         agg[(r[ix["ticker"]], q)] += u
     for (t, q), u in agg.items():
         data.holdings[t][q] = u
-    data.notes.append(f"Institutional holdings: {len(agg):,} company-quarters.")
+    data.notes.append(f"Institutional holdings: {total:,} rows (by quarter: "
+                      + ", ".join(f"{q} {c:,}" for q, c in sorted(quarters.items())[-6:])
+                      + f"); {len(agg):,} company-quarters kept.")
 
 
 # ------------------------------------------------------------------- prices --
@@ -714,6 +737,9 @@ class M:
         self.key, self.factor, self.label, self.fn = key, factor, label, fn
         self.direction, self.trend, self.core = direction, trend, core
         self.scored, self.where = scored, where   # where: predicate on info
+        # Core and generic measures fall back to the broad group when the
+        # detailed group is too small; group-specific ones don't.
+        self.fallback = core or where is None or where is std
 
 
 def std(info):
@@ -824,10 +850,11 @@ def results_moves(data: Data, asof: int, universe: dict, peer_sets: dict) -> dic
         gm = med.get(info["group"], {})
         if not ds or not gm:
             continue
-        days = data.results.get(t) or []
-        if not days:        # fall back to quarterly filing dates
-            days = sorted({r[1] for r in data.arq.get(t, [])})
-        days = [d for d in days if asof - PEER_SURPRISE_DAYS <= d <= asof]
+        # Results days known by asof; quarterly filing dates when there are none.
+        days = [d for d in data.results.get(t, []) if d <= asof]
+        if not days:
+            days = sorted({r[1] for r in data.arq.get(t, []) if r[1] <= asof})
+        days = [d for d in days if d >= asof - PEER_SURPRISE_DAYS]
         if not days:
             continue
         ev = days[-1]
@@ -962,7 +989,7 @@ def run(data: Data, asof: int) -> dict:
             peers, fallback = peer_pool.get(u["group"], []), ""
             cpeers = chg_pool.get(u["group"], [])
             if len(peers) < MIN_PEERS:
-                if m.core and len(broad_pool.get(u["broad"], [])) >= MIN_PEERS:
+                if m.fallback and len(broad_pool.get(u["broad"], [])) >= MIN_PEERS:
                     peers, fallback = broad_pool[u["broad"]], "broad group"
                     cpeers = chg_broad.get(u["broad"], [])
                 else:
@@ -1080,7 +1107,11 @@ def compare(a: dict, b: dict) -> tuple[int, int, list]:
                 (sa[0] is None) != (sb[0] is None)):
             diff += 1
             if len(examples) < 5:
-                examples.append(t)
+                what = "not in both runs"
+                if sa and sb:
+                    what = ", ".join(FACTOR_NAMES[f] for f, x, y in
+                                     zip(FACTORS, sa[1], sb[1]) if x != y) or "score"
+                examples.append(f"{t}: {what}")
     return diff, len(keys), examples
 
 
@@ -1149,7 +1180,7 @@ def report(res: dict, data: Data, tests: list, spot: list) -> None:
               f"- **Companies with a score:** {scored_n:,}. "
               f"{sum(1 for u in U.values() if u['group'] == '(none)'):,} have no "
               "French group in Sharadar and get no peer set.",
-              f"- **Groups:** {len(groups)} detailed groups (Sharadar's French "
+              f"- **Groups:** {len([g for g in groups if g != '(none)'])} detailed groups (Sharadar's French "
               "industry field uses his 48-group scheme), 12 broad groups from SIC "
               "codes."]
     # Factor coverage overall.

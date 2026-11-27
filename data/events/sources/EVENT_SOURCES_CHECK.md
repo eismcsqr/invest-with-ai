@@ -5,7 +5,7 @@ Run: 2026-11-27. One row per candidate source for the 12 agreed event types (doc
 | Event type | Source | Status | First | Last | Events | Cost | Note |
 |---|---|---|---|---|---|---|---|
 | Geopolitical shocks | Geopolitical risk index, daily (matteoiacoviello.com) | partial | 1985-01-01 | 2026-11-23 | 135 | free | column GPRD; 15 spike episodes in the top 1% of days, 135 in the top 5% (10-day gap); 3 of 5 known events in the top 5% of days; last value 4 days old |
-| Trade and tariff actions | Trade policy uncertainty index, daily (matteoiacoviello.com) | partial | 2015-01-01 | 2026-11-23 | 27 | free | column TPUD_ARTICLES; 7 spike episodes in the top 1% of days, 27 in the top 5% (10-day gap); 2 of 4 known events in the top 5% of days; last value 4 days old |
+| Trade and tariff actions | Trade policy uncertainty index, daily (matteoiacoviello.com) | partial | 2015-01-01 | 2026-11-23 | 17 | free | column TPUD_index; 8 spike episodes in the top 1% of days, 17 in the top 5% (10-day gap); 1 of 4 known events in the top 5% of days; last value 4 days old |
 | Elections and policy shocks | Economic policy uncertainty index, daily (FRED USEPUINDXD) | pass | 1985-01-01 | 2026-11-26 | 131 | free | column USEPUINDXD; 42 spike episodes in the top 1% of days, 131 in the top 5% (10-day gap); 2 of 3 known events in the top 5% of days; last value 1 days old |
 | Elections and policy shocks | US federal election days (fixed by law: first Tuesday after the first Monday in November) | pass | 1990-11-06 | 2026-11-03 | 8 presidential, 9 midterm since 1994 | free | computed; matches 5 known dates |
 | Energy and commodity supply shocks | WTI oil price, daily (FRED DCOILWTICO) | pass | 1986-01-02 | 2026-11-24 |  | free | last value 3 days old |
@@ -35,7 +35,7 @@ Run: 2026-11-27. One row per candidate source for the 12 agreed event types (doc
 - **gpr:** File: data_gpr_daily_recent.xls (sheet Sheet1).
 - **tpu:** Files linked on the TPU page: tpu_web_latest.xlsx, firm_tpu.csv
 - **tpu:** TPU_DAILY first rows: DATE, NUMBER_ARTICLES, TPUD_ARTICLES, TPUD_index, TPUD_index_MA7, TPUD_index_MA30 / 2015-01-01 00:00:00, 690, 0, 0, None, None / 2015-01-02 00:00:00, 726, 1, 13.7741046831955, None, None / 2015-01-03 00:00:00, 746, 1, 13.4048257372654, None, None
-- **tpu:** tpu_web_latest.xlsx: sheets ReadMe (37 rows), Series_description (5 rows), TPU_MONTHLY (803 rows), TPU_QUARTERLY (267 rows), TPU_DAILY (4346 rows); daily column TPUD_ARTICLES in TPU_DAILY
+- **tpu:** tpu_web_latest.xlsx: sheets ReadMe (37 rows), Series_description (5 rows), TPU_MONTHLY (803 rows), TPU_QUARTERLY (267 rows), TPU_DAILY (4346 rows); daily column TPUD_index in TPU_DAILY
 - **tpu:** firm_tpu.csv: sheets csv (119954 rows); no daily date/TPU column found
 - **fr:** Agencies with the most significant final rules: Health and Human Services Department (1323), Environmental Protection Agency (845), Transportation Department (839), Agriculture Department (817), Labor Department (626), Centers for Medicare & Medicaid Services (596), Defense Department (546), Commerce Department (496), Interior Department (490), Treasury Department (397), Homeland Security Department (386), Housing and Urban Development Department (378)
 - **sharadar:** Events table columns: ticker, date, eventcodes
@@ -45,8 +45,8 @@ Run: 2026-11-27. One row per candidate source for the 12 agreed event types (doc
 - **sharadar:** Sharadar code 35 rows with no matching 8-K item: 4 18, SC 13D/A 17, SCHEDULE 13D/A 7, 424B2 4, FWP 4 (SEC forms that company filed that day)
 - **sharadar:** Sharadar code 37 rows with no matching 8-K item: SC TO-T/A 19, 8-K 8, SC TO-C 8, 4 5, 425 5 (SEC forms that company filed that day)
 - **sharadar:** Sharadar code 52 rows with no matching 8-K item: 8-K/A 7, 10-Q 2, (nothing filed that day) 2, 3 1, 4 1 (SEC forms that company filed that day)
-- **sharadar:** Sharadar code 41 rows with no matching 8-K item: POS AM 1, 8-K/A 1, 4 1, S-8 1, 10-K 1 (SEC forms that company filed that day)
-- **sharadar:** Sharadar code 57 rows with no matching 8-K item: 8-K/A 2, 4 1, 10-Q 1 (SEC forms that company filed that day)
+- **sharadar:** Sharadar code 41 rows with no matching 8-K item: 8-K/A 1, S-4 1, 4 1, S-8 1, 10-K 1 (SEC forms that company filed that day)
+- **sharadar:** Sharadar code 57 rows with no matching 8-K item: 8-K/A 2, 10-Q 1, 4 1 (SEC forms that company filed that day)
 - **sharadar:** Sharadar code 81 rows with no matching 8-K item: 424B2 1 (SEC forms that company filed that day)
 - **edgar:** Ownership filings listed under the 8 companies' own SEC numbers: SCHEDULE 13G/A 129, SC 13G/A 116, SCHEDULE 13G 54, SC 13G 22, SC 13D/A 18, SCHEDULE 13D/A 15, SCHEDULE 13D 3, SC 13D 2
 - **edgar:** Quarterly index files (complete list from 1993): www.sec.gov: HTTP 403. SEC wants a contact in the User-Agent; set the SEC_USER_AGENT secret to read them.

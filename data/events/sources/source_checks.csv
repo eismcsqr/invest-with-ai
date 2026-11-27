@@ -1,6 +1,6 @@
 event_type,source,status,first,last,rows,events,cost,note
 Geopolitical shocks,"Geopolitical risk index, daily (matteoiacoviello.com)",partial,1985-01-01,2026-11-23,15302,135,free,"column GPRD; 15 spike episodes in the top 1% of days, 135 in the top 5% (10-day gap); 3 of 5 known events in the top 5% of days; last value 4 days old"
-Trade and tariff actions,"Trade policy uncertainty index, daily (matteoiacoviello.com)",partial,2015-01-01,2026-11-23,4345,27,free,"column TPUD_ARTICLES; 7 spike episodes in the top 1% of days, 27 in the top 5% (10-day gap); 2 of 4 known events in the top 5% of days; last value 4 days old"
+Trade and tariff actions,"Trade policy uncertainty index, daily (matteoiacoviello.com)",partial,2015-01-01,2026-11-23,4345,17,free,"column TPUD_index; 8 spike episodes in the top 1% of days, 17 in the top 5% (10-day gap); 1 of 4 known events in the top 5% of days; last value 4 days old"
 Elections and policy shocks,"Economic policy uncertainty index, daily (FRED USEPUINDXD)",pass,1985-01-01,2026-11-26,15305,131,free,"column USEPUINDXD; 42 spike episodes in the top 1% of days, 131 in the top 5% (10-day gap); 2 of 3 known events in the top 5% of days; last value 1 days old"
 Elections and policy shocks,US federal election days (fixed by law: first Tuesday after the first Monday in November),pass,1990-11-06,2026-11-03,19,"8 presidential, 9 midterm since 1994",free,computed; matches 5 known dates
 Energy and commodity supply shocks,"WTI oil price, daily (FRED DCOILWTICO)",pass,1986-01-02,2026-11-24,9552,,free,last value 3 days old

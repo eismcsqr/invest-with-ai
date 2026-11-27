@@ -19,17 +19,18 @@ GPR,spike episode (top 1%),2024-04-16,2024-04-16,,
 GPR,spike episode (top 1%),2025-06-23,2025-06-23,,
 GPR,spike episode (top 1%),2026-03-02,2026-03-02,,
 GPR,spike episode (top 1%),2026-07-14,2026-07-14,,
-TPU,known event,2018-03-01,2018-03-01,steel and aluminum tariffs announced,73.1
-TPU,known event,2018-07-06,2018-07-06,first China tariffs take effect,96.4
-TPU,known event,2019-05-06,2019-05-06,China tariff increase announced,81.8
-TPU,known event,2025-04-03,2025-04-03,reciprocal tariffs announced (day after),99.6
-TPU,spike episode (top 1%),2024-11-07,2024-11-07,,
-TPU,spike episode (top 1%),2025-02-04,2025-02-04,,
-TPU,spike episode (top 1%),2025-03-05,2025-03-05,,
+TPU,known event,2018-03-01,2018-03-01,steel and aluminum tariffs announced,72.5
+TPU,known event,2018-07-06,2018-07-06,first China tariffs take effect,93.6
+TPU,known event,2019-05-06,2019-05-06,China tariff increase announced,82.1
+TPU,known event,2025-04-03,2025-04-03,reciprocal tariffs announced (day after),99.7
+TPU,spike episode (top 1%),2025-02-03,2025-02-03,,
+TPU,spike episode (top 1%),2025-03-06,2025-03-06,,
 TPU,spike episode (top 1%),2025-04-01,2025-04-01,,
-TPU,spike episode (top 1%),2025-05-30,2025-05-30,,
+TPU,spike episode (top 1%),2025-05-31,2025-05-31,,
 TPU,spike episode (top 1%),2025-07-16,2025-07-16,,
-TPU,spike episode (top 1%),2025-07-31,2025-07-31,,
+TPU,spike episode (top 1%),2025-07-29,2025-07-29,,
+TPU,spike episode (top 1%),2025-09-02,2025-09-02,,
+TPU,spike episode (top 1%),2026-02-21,2026-02-21,,
 EPU,known event,2008-09-29,2008-09-29,House rejects bank bailout,95.9
 EPU,known event,2016-11-09,2016-11-09,day after 2016 election,91.1
 EPU,known event,2020-03-16,2020-03-16,Covid market crash,95.6

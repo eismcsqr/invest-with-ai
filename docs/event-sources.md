@@ -1,8 +1,8 @@
 # Events pillar: a source for each event type
 
-**Draft, November 27, 2026** (tracker task "Event sources"). For each of the 12 event types agreed on Nov 27 (`docs/event-types.md`), this names the source, how much history it has, what it costs and what's still missing. Every source here was opened and checked by `scripts/check_event_sources.py`, run on GitHub on Nov 27; the full results are in `data/events/sources/` (summary: `EVENT_SOURCES_CHECK.md`).
+**Agreed November 27, 2026** (tracker task "Event sources"). For each of the 12 event types agreed on Nov 27 (`docs/event-types.md`), this names the source, how much history it has, what it costs and what's still missing. Every source here was opened and checked by `scripts/check_event_sources.py`, run on GitHub on Nov 27; the full results are in `data/events/sources/` (summary: `EVENT_SOURCES_CHECK.md`).
 
-All 12 types have a working source that is free or already paid for (Sharadar). One type, energy supply shocks, is missing its best record (OPEC meeting dates) and has a fallback; that's the one call in section 4.
+All 12 types have a working source that is free or already paid for (Sharadar). One type, energy supply shocks, is missing its best record (OPEC meeting dates) and uses a fallback for now: big oil price moves, agreed on Nov 27 (section 4).
 
 ## 1. The table
 
@@ -15,7 +15,7 @@ All 12 types have a working source that is free or already paid for (Sharadar). 
 | | Trade policy uncertainty index, daily (same authors) | 2015 to Nov 23, 2026 | 17 spike episodes (top 5%) | Free | Daily only from 2015, and only 1 of 4 known tariff days lands in its top 5% (April 2025 does; the 2018 and 2019 announcements don't), so a cross-check, not the main record |
 | **Elections and policy shocks** | US federal election days, fixed by law | 1994 to 2026 | 8 presidential, 9 midterm | Free | Elections alone stay low confidence (too few) |
 | | Economic policy uncertainty index, daily (FRED `USEPUINDXD`) | 1985 to Nov 26, 2026 | 131 spike episodes (top 5%) | Free | Built from newspaper counts, so it is a published index rather than a decision record |
-| **Energy and commodity supply shocks** | WTI oil price, daily (FRED `DCOILWTICO`) | 1986 to Nov 24, 2026 | Big one-day oil moves (to be set in the event method) | Free | Big moves mix supply news with demand news. OPEC meeting dates would separate them but aren't reachable yet (section 4) |
+| **Energy and commodity supply shocks** | WTI oil price, daily (FRED `DCOILWTICO`) | 1986 to Nov 24, 2026 | Big one-day oil moves (to be set in the event method) | Free | Big moves mix supply news with demand news. OPEC meeting dates would separate them; added later (section 4) |
 | **Major regulatory actions** | Federal Register API: final rules marked significant, by agency | 1995 to now | 9,521 rules, about 300 a year | Free | Agencies need mapping to industry groups (health and EPA rules are the most common). "Significant" is wider than "major"; the method can keep the largest |
 | **Guidance changes** | Sharadar 8-K events: items 2.02 (results) and 7.01 (Reg FD) | 2.02 from Aug 2004 | 647,000 item filings | Already paid | Off-cycle ones are found by dropping filings near the 10-Q or 10-K date (from Sharadar fundamentals); raised vs. cut comes from the move, not the text |
 | **Mergers and acquisitions** | Sharadar 8-K events: items 1.01 and 2.01; a code that matches tender offer filings | 1994 to now | 238,000 item filings | Already paid | Item 1.01 covers every material contract, not just deals; tender offers and merger proxies narrow it |
@@ -46,10 +46,10 @@ All 12 types have a working source that is free or already paid for (Sharadar). 
 - **SEC enforcement actions** (part of accounting and legal trouble). SEC's litigation releases name companies in text, with no SEC number or ticker, so each would need matching by hand. Left out of v1; restatements, auditor changes, late filings and delisting notices cover the type.
 - **Daily trade policy uncertainty before 2015.** The index's daily version starts in 2015; the Federal Register gives the dated tariff actions back to 1994 instead.
 
-## 4. Calls to make
+## 4. Calls made
 
-1. **Energy supply shocks: start with big oil price moves, add OPEC dates later.** Recommended. Use days with the largest one-day moves in the WTI price (free, from 1986) as v1 event days, tagged as price moves, not decisions. OPEC meeting dates would split supply news from demand news, but the two routes need you: create a free openICPSR account and download Kaenzig's file, or have the dates typed in from OPEC press releases you open yourself. The alternative waits on that before the energy type can run.
-2. **SEC contact: not needed now.** Full-text search covers 2001 on. If the event study later wants 1994 to 2000 for filings outside 8-Ks, add a repository secret `SEC_USER_AGENT` holding a name and email, which SEC asks automated clients to give.
+1. **Energy supply shocks: start with big oil price moves, add OPEC dates later.** Agreed Nov 27. Use days with the largest one-day moves in the WTI price (free, from 1986) as v1 event days, tagged as price moves, not decisions. OPEC meeting dates would split supply news from demand news and are added later. Either route needs a person: a free openICPSR account to download Kaenzig's file, or the dates typed in from OPEC press releases.
+2. **SEC contact: not needed now** (no action taken). Full-text search covers 2001 on. If the event study later wants 1994 to 2000 for filings outside 8-Ks, add a repository secret `SEC_USER_AGENT` holding a name and email, which SEC asks automated clients to give.
 
 ## 5. Re-running the check
 

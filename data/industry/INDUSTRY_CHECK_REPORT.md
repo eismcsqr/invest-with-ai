@@ -21,7 +21,7 @@ Series counts columns (industries, categories or indexes). Missing counts blank 
 - **m3:** Skipped: CENSUS_API_KEY not set.
 - **concentration_2017:** Skipped: CENSUS_API_KEY not set.
 - **concentration_2022:** Skipped: CENSUS_API_KEY not set.
-- **ppi_industry:** Skipped: BLS_API_KEY not set. Series list also failed: FRED search PCU* download failed: HTTP 400: Bad Request.  Exceeded 5000 maximum searchable results
+- **ppi_industry:** Skipped: BLS_API_KEY not set. Series list saved (1166 industry-level indexes from FRED), so the pull is ready.
 - **capacity_utilization:** Percent of capacity, seasonally adjusted. 1 series a period or more behind the latest (often normal right after a release): CAPUTLN325211S. 2 series with no value in the last 400 days (likely discontinued).
 
 ## Known gaps

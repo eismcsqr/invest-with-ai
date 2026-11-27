@@ -77,3 +77,5 @@ It uses the Fed decision days in `data/events/fomc_decisions.csv` (rows marked f
 `config/macro_scorecard_v0_1.csv` is the v0 scorecard checked against the rates, inflation, spending and dollar tests: all 40 scores (10 company types × 4 factors) with their five channel scores, the v0 net, an evidence label, a confidence label and one line of evidence each. Write-up: `docs/score-review.md`. The original v0 scores stay in `config/v0_macro_scores.csv` and `config/v0_rates_scores.csv`, which the tests compare against.
 
 `docs/company-method.md` is the company pillar's scoring method: how each of the six factors in `docs/company-factors.md` becomes a score against industry peers, the factor weights, the confidence rule and how company sits with macro and industry. Agreed Nov 26; not built yet (needs company data).
+
+`docs/event-types.md` is the events pillar's list of event types: the boundary with the other pillars, the 12 types in v1 (four market-wide, one industry, seven company), what each acts through, its data and its test, and what is parked. Agreed Nov 27; not built yet.

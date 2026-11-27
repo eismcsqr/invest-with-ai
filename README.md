@@ -29,7 +29,7 @@ Each source has its own repository secret. A source whose secret is missing is s
 
 - **Layout:** time series files are wide: one `date` column and one column per industry, category or index. Quarterly BEA rows are dated to the quarter's first month (`2026-01` is Q1 2026).
 - **PPI series list:** BLS's own list files block automated downloads, so the job takes the list of industry-level indexes from FRED's copy of the PPI (ids like `PCU325325`) and pulls each one from BLS (`PCU325---325---`). The list is saved, so later runs can reuse it if FRED is down.
-- **Check report:** `data/industry/INDUSTRY_CHECK_REPORT.md` lists each dataset's series count, date range, missing values, stale or likely discontinued series, out-of-range values (capacity use outside 0 to 110, HHI outside 0 to 10,000) and which sources were skipped.
+- **Check report:** `data/industry/INDUSTRY_CHECK_REPORT.md` lists each dataset's series count, date range, missing values, stale or likely discontinued series, out-of-range values (capacity use outside 0 to 125, HHI outside 0 to 10,000) and which sources were skipped.
 - **Not covered yet:** services capacity (no free measure), Sharadar revenue shares (paid), QuantGov RegData and the Federal Register (regulation), PatentsView (technology), and the NAICS-to-French-group crosswalk.
 - **Keyless check:** `python scripts/fetch_industry_data.py --smoke` reads three PPI indexes from BLS's keyless API and writes nothing.
 

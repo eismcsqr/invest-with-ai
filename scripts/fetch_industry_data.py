@@ -271,6 +271,9 @@ def pull_g17(key: str, today: dt.date) -> dict:
     if not keep:
         raise SourceError("FRED search returned no monthly seasonally adjusted capacity "
                           "utilization series")
+    # Totals have other ids: total industry (TCU) and manufacturing (MCUMFN).
+    keep += [{"id": "TCU", "title": "Capacity Utilization: Total Industry"},
+             {"id": "MCUMFN", "title": "Capacity Utilization: Manufacturing (NAICS)"}]
     series = {}
     for s in keep:
         series[s["id"]] = fred_observations(s["id"], key)
@@ -281,7 +284,7 @@ def pull_g17(key: str, today: dt.date) -> dict:
               [[s["id"], s["title"]] for s in keep])
     print(f"G.17: {len(keep)} capacity utilization series")
     return check_wide("capacity_utilization", "Fed G.17 via FRED", "monthly", series, today,
-                      bounds=(0, 110), note="Percent of capacity, seasonally adjusted.")
+                      bounds=(0, 125), note="Percent of capacity, seasonally adjusted.")
 
 
 def ppi_series_from_fred(key: str) -> list[dict]:
@@ -342,6 +345,16 @@ def bls_fetch(series_ids: list[str], key: str | None, start: int, end: int,
     # a series with data in any window exists
     absent = {s for s in absent if not any(v for v in values[s].values())}
     return values, prelim, sorted(absent)
+
+
+def save_ppi_list(fred_key: str) -> int:
+    """Save the industry-level PPI list ahead of the BLS key, so the pull is ready."""
+    meta = ppi_series_from_fred(fred_key)
+    if not meta:
+        raise SourceError("FRED listed no industry-level PPI series")
+    write_csv(OUT / "bls" / "ppi_series.csv", ["series_id", "naics", "name", "preliminary_months"],
+              [[m["series_id"], m["naics"], m["name"], ""] for m in meta])
+    return len(meta)
 
 
 def pull_ppi(bls_key: str, fred_key: str | None, today: dt.date) -> dict:
@@ -615,9 +628,22 @@ def main() -> int:
         run(f"concentration_{year}", "Census", ["CENSUS_API_KEY"],
             lambda y=year: pull_concentration(keys["CENSUS_API_KEY"], y),
             OUT / "census" / f"concentration_{year}.csv")
-    run("ppi_industry", "BLS", ["BLS_API_KEY"],
-        lambda: pull_ppi(keys["BLS_API_KEY"], keys["FRED_API_KEY"] or None, today),
-        OUT / "bls" / "ppi_industry.csv")
+    if keys["FRED_API_KEY"] and not keys["BLS_API_KEY"]:
+        try:
+            n = save_ppi_list(keys["FRED_API_KEY"])
+            print(f"PPI series list saved: {n} industry indexes (BLS key not set yet)")
+            results.append(skipped("ppi_industry", "BLS",
+                                   f"Skipped: BLS_API_KEY not set. Series list saved "
+                                   f"({n} industry-level indexes from FRED), so the pull is ready."))
+        except Exception as e:
+            msg = str(e).replace(keys["FRED_API_KEY"], "***")
+            print(f"::warning::PPI series list failed: {msg}")
+            results.append(skipped("ppi_industry", "BLS",
+                                   f"Skipped: BLS_API_KEY not set. Series list also failed: {msg}"))
+    else:
+        run("ppi_industry", "BLS", ["BLS_API_KEY"],
+            lambda: pull_ppi(keys["BLS_API_KEY"], keys["FRED_API_KEY"] or None, today),
+            OUT / "bls" / "ppi_industry.csv")
     run("capacity_utilization", "Fed G.17 via FRED", ["FRED_API_KEY"],
         lambda: pull_g17(keys["FRED_API_KEY"], today), OUT / "fed_g17" / "capacity_utilization.csv")
 

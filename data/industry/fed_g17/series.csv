@@ -1,0 +1,59 @@
+series_id,name
+CAPUTLB5610CS,Capacity Utilization: Stage-of-Process: Crude Processing
+CAPUTLB562A3CS,Capacity Utilization: Stage-of-Process: Primary & Semifinished Processing
+CAPUTLB5640CS,Capacity Utilization: Stage-of-Process: Finished Processing
+CAPUTLG211S,Capacity Utilization: Mining: Oil and Gas Extraction (NAICS = 211)
+CAPUTLG2122S,Capacity Utilization: Mining: Metal Ore Mining (NAICS = 2122)
+CAPUTLG2123S,Capacity Utilization: Mining: Nonmetallic Mineral Mining and Quarrying (NAICS = 2123)
+CAPUTLG212S,Capacity Utilization: Mining: Mining (Except Oil and Gas) (NAICS = 212)
+CAPUTLG213S,Capacity Utilization: Mining: Support Activities for Mining (NAICS = 213)
+CAPUTLG21S,Capacity Utilization: Mining: Mining (NAICS = 21)
+CAPUTLG2211A2S,"Capacity Utilization: Utilities: Electric and Gas Utilities (NAICS = 2211,2)"
+CAPUTLG2211S,"Capacity Utilization: Utilities: Electric Power Generation, Transmission, and Distribution (NAICS = 2211)"
+CAPUTLG2212S,Capacity Utilization: Utilities: Natural Gas Distribution (NAICS = 2212)
+CAPUTLG311A2S,"Capacity Utilization: Manufacturing: Nondurable Goods: Food, Beverage, and Tobacco (NAICS = 311,2)"
+CAPUTLG311S,Capacity Utilization: Manufacturing: Nondurable Goods: Food (NAICS = 311)
+CAPUTLG312S,Capacity Utilization: Manufacturing: Nondurable Goods: Beverage and Tobacco Product (NAICS = 312)
+CAPUTLG313A4S,"Capacity Utilization: Manufacturing: Nondurable Goods: Textiles and Products (NAICS = 313,4)"
+CAPUTLG313S,Capacity Utilization: Manufacturing: Nondurable Goods: Textile Mills (NAICS = 313)
+CAPUTLG314S,Capacity Utilization: Manufacturing: Nondurable Goods: Textile Product Mills (NAICS = 314)
+CAPUTLG315A6S,"Capacity Utilization: Manufacturing: Nondurable Goods: Apparel and Leather Goods (NAICS = 315,6)"
+CAPUTLG315S,Capacity Utilization: Manufacturing: Nondurable Goods: Apparel (NAICS = 315)
+CAPUTLG316S,Capacity Utilization: Manufacturing: Nondurable Goods: Leather and Allied Product (NAICS = 316)
+CAPUTLG321S,Capacity Utilization: Manufacturing: Durable Goods: Wood Product (NAICS = 321)
+CAPUTLG322S,Capacity Utilization: Manufacturing: Nondurable Goods: Paper (NAICS = 322)
+CAPUTLG323S,Capacity Utilization: Manufacturing: Nondurable Goods: Printing and Related Support Activities (NAICS = 323)
+CAPUTLG324S,Capacity Utilization: Manufacturing: Nondurable Goods: Petroleum and Coal Products (NAICS = 324)
+CAPUTLG325212S,Capacity Utilization: Manufacturing: Nondurable Goods: Synthetic Rubber (NAICS = 325212)
+CAPUTLG32522S,Capacity Utilization: Manufacturing: Nondurable Goods: Artificial and Synthetic Fibers and Filaments (NAICS = 32522)
+CAPUTLG325S,Capacity Utilization: Manufacturing: Nondurable Goods: Chemical (NAICS = 325)
+CAPUTLG326S,Capacity Utilization: Manufacturing: Nondurable Goods: Plastics and Rubber Products (NAICS = 326)
+CAPUTLG327S,Capacity Utilization: Manufacturing: Durable Goods: Nonmetallic Mineral Product (NAICS = 327)
+CAPUTLG3311A2S,"Capacity Utilization: Manufacturing: Durable Goods: Iron and Steel Products (NAICS = 3311,2)"
+CAPUTLG331S,Capacity Utilization: Manufacturing: Durable Goods: Primary Metal (NAICS = 331)
+CAPUTLG332S,Capacity Utilization: Manufacturing: Durable Goods: Fabricated Metal Product (NAICS = 332)
+CAPUTLG333S,Capacity Utilization: Manufacturing: Durable Goods: Machinery (NAICS = 333)
+CAPUTLG3341S,Capacity Utilization: Manufacturing: Durable Goods: Computer and Peripheral Equipment (NAICS = 3341)
+CAPUTLG3342S,Capacity Utilization: Manufacturing: Durable Goods: Communications Equipment (NAICS = 3342)
+CAPUTLG33441A1S,Capacity Utilization: Semiconductors and related equipment (DISCONTINUED)
+CAPUTLG3344S,Capacity Utilization: Manufacturing: Durable Goods: Semiconductor and Other Electronic Component (NAICS = 3344)
+CAPUTLG334S,Capacity Utilization: Manufacturing: Durable Goods: Computer and Electronic Product (NAICS = 334)
+CAPUTLG335S,"Capacity Utilization: Manufacturing: Durable Goods: Electrical Equipment, Appliance, and Component (NAICS = 335)"
+CAPUTLG33611S,Capacity Utilization: Manufacturing: Durable Goods: Automobile and Light Duty Motor Vehicle (NAICS = 33611)
+CAPUTLG3361T3S,Capacity Utilization: Manufacturing: Durable Goods: Motor Vehicles and Parts (NAICS = 3361-3)
+CAPUTLG3364T9S,Capacity Utilization: Manufacturing: Durable Goods: Aerospace and Miscellaneous Transportation Equipment (NAICS = 3364-9)
+CAPUTLG336S,Capacity Utilization: Manufacturing: Durable Goods: Transportation Equipment (NAICS = 336)
+CAPUTLG337S,Capacity Utilization: Manufacturing: Durable Goods: Furniture and Related Product (NAICS = 337)
+CAPUTLG339S,Capacity Utilization: Manufacturing: Durable Goods: Miscellaneous (NAICS = 339)
+CAPUTLGMFDS,Capacity Utilization: Durable Manufacturing (NAICS)
+CAPUTLGMFNS,Capacity Utilization: Nondurable Manufacturing (NAICS)
+CAPUTLGMFOS,Capacity Utilization: Other Manufacturing
+CAPUTLHITEK2S,"Capacity Utilization: Manufacturing: Durable Goods: Computers, Communications Equipment, and Semiconductors (NAICS = 3341,3342,3344)"
+CAPUTLN2121S,Capacity Utilization: Mining: Coal Mining (NAICS = 2121)
+CAPUTLN325211S,Capacity Utilization: Manufacturing: Nondurable Goods: Plastics Material and Resin (NAICS = 325211)
+CAPUTLN32522S,Capacity Utilization: Nondurable Manufacturing: Artificial and synthetic fibers and filaments (DISCONTINUED)
+CAPUTLX4HTK2S,"Capacity Utilization: Manufacturing Excluding Computers, Communications Equipment, and Semiconductors"
+CAPUTLX4HTMVS,Capacity Utilization: Manufacturing Excluding Hi-Tech and Motor Vehicles & Parts
+CAPUTLX50HTKS,"Capacity Utilization: Total Excluding Computers, Communications Equipment, and Semiconductors"
+TCU,Capacity Utilization: Total Industry
+MCUMFN,Capacity Utilization: Manufacturing (NAICS)

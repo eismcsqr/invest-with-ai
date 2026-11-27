@@ -1,0 +1,5 @@
+table_id,description,measure
+15,Gross Output by Industry (A) (Q),nominal
+18,Chain-Type Price Indexes for Gross Output by Industry (A) (Q),price_index
+16,Chain-Type Quantity Indexes for Gross Output by Industry (A) (Q),quantity_index
+208,Real Gross Output by Industry (A) (Q),real

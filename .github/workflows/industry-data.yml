@@ -1,0 +1,69 @@
+name: Industry data pull
+
+# Fetches the industry pillar's free government data (BEA gross output by
+# industry, Census M3 orders and Economic Census concentration, BLS producer
+# prices by industry, and Fed G.17 capacity utilization from FRED), writes it
+# under data/industry/ with a check report, and commits any changes back to
+# the branch it ran on.
+#
+# Each source needs its own repository secret: BEA_API_KEY, CENSUS_API_KEY,
+# BLS_API_KEY, and FRED_API_KEY (already set for the macro pull). A source
+# whose secret is missing is skipped with a warning; the others still run.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 15 * * 6"   # Saturdays 15:00 UTC (7 AM Pacific), after the macro pull
+  push:
+    branches:
+      - main
+      - "claude/**"
+    paths:
+      - scripts/fetch_industry_data.py
+      - .github/workflows/industry-data.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: industry-data-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch industry data and write the check report
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+          BEA_API_KEY: ${{ secrets.BEA_API_KEY }}
+          CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
+          BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
+        run: python scripts/fetch_industry_data.py
+
+      # Runs even when a source failed, so the sources that worked are kept.
+      - name: Commit data changes
+        if: ${{ !cancelled() }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/industry
+          if git diff --cached --quiet; then
+            echo "No data changes."
+            exit 0
+          fi
+          git commit -m "Update industry data ($(date -u +%Y-%m-%d))"
+          for attempt in 1 2 3; do
+            if git push; then exit 0; fi
+            git pull --rebase
+          done
+          echo "::error::Could not push the data commit."
+          exit 1

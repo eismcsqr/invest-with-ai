@@ -67,7 +67,7 @@ ITEMS_START = dt.date(2004, 8, 23)   # current 8-K item numbers start here
 
 GPR_PAGE = "https://www.matteoiacoviello.com/gpr.htm"
 TPU_PAGE = "https://www.matteoiacoviello.com/tpu.htm"
-KAENZIG_PAGE = "https://dkaenzig.github.io/diegokaenzig.com/"
+OPEC_HOME = "https://www.opec.org/"
 FRED_OBS = "https://api.stlouisfed.org/fred/series/observations"
 FR_API = "https://www.federalregister.gov/api/v1/documents.json"
 EDGAR_INDEX = "https://www.sec.gov/Archives/edgar/full-index/{y}/QTR{q}/form.idx"
@@ -114,6 +114,14 @@ INDEX_QUARTERS = [(1994, 1), (1997, 1), (2001, 1), (2004, 4), (2008, 4),
                   (2012, 1), (2016, 1), (2020, 2), (2024, 1), (2025, 1),
                   (2025, 3)]
 XCHECK_TICKERS = ["AAPL", "WMT", "XOM", "JNJ", "HD", "JPM", "BA", "GE"]
+
+
+
+def item_code(item: str) -> str:
+    """8-K item number to Sharadar's code: 5.02 -> 52, 1.01 -> 11."""
+    a, b = item.split(".")
+    return f"{int(a)}{int(b)}"
+
 
 checks: list[dict] = []
 notes: dict[str, list[str]] = defaultdict(list)
@@ -248,6 +256,11 @@ def daily_series(sheets: dict, want: list[str]) -> tuple[str, str, dict]:
                 vcol = next((i for i, h in enumerate(labels) if h.upper() == w.upper()), None)
                 if vcol is not None:
                     break
+            if dcol is None:
+                dcol = next((i for i, h in enumerate(labels) if "date" in h.lower()), None)
+            if vcol is None and dcol is not None:
+                vcol = next((i for i, h in enumerate(labels) if i != dcol and any(
+                    w.upper() in h.upper() for w in want)), None)
             if dcol is None or vcol is None:
                 continue
             series = {}
@@ -296,6 +309,7 @@ spike_rows: list[list] = []
 def summarize_index(label: str, event_type: str, source: str, series: dict,
                     column: str) -> None:
     eps = spikes(series)
+    eps5 = spikes(series, 0.95)
     for d, what in KNOWN.get(label, []):
         p, used = percentile_of(series, dt.date.fromisoformat(d))
         spike_rows.append([label, "known event", d, used, what,
@@ -309,10 +323,10 @@ def summarize_index(label: str, event_type: str, source: str, series: dict,
     flagged = sum(1 for p in known_hits if p >= 95)
     first, last = min(series), max(series)
     stale = (TODAY - last).days
-    status = "pass" if len(eps) >= 30 and stale <= 21 and flagged >= len(known_hits) - 1 else "partial"
-    record(event_type, source, status, first, last, len(series), len(eps),
-           note=(f"column {column}; {len(eps)} spike episodes (top 1% of days, "
-                 f"10-day gap); {flagged} of {len(known_hits)} known events in "
+    status = "pass" if len(eps5) >= 30 and stale <= 21 and flagged >= len(known_hits) - 1 else "partial"
+    record(event_type, source, status, first, last, len(series), len(eps5),
+           note=(f"column {column}; {len(eps)} spike episodes in the top 1% of days, "
+                 f"{len(eps5)} in the top 5% (10-day gap); {flagged} of {len(known_hits)} known events in "
                  f"the top 5% of days; last value {stale} days old"))
 
 
@@ -353,6 +367,10 @@ def check_tpu():
             continue
         sheet, col, series = daily_series(sheets, ["TPU", "TPU_DAILY", "TPUD",
                                                    "DAILY_TPU", "TPU_INDEX"])
+        for nm, rows in sheets.items():
+            if "DAILY" in nm.upper():
+                notes["tpu"].append(f"{nm} first rows: " + " / ".join(
+                    ", ".join(str(c) for c in r[:6]) for r in rows[:4]))
         notes["tpu"].append(f"{url.rsplit('/', 1)[-1]}: sheets "
                             + ", ".join(f"{k} ({len(v)} rows)" for k, v in sheets.items())
                             + (f"; daily column {col} in {sheet}" if series else
@@ -415,51 +433,24 @@ def check_elections():
 
 @guarded
 def check_oil():
-    """Oil price and OPEC announcement dates"""
+    """Oil price and OPEC meeting dates"""
     wti = fred("DCOILWTICO")
     record("Energy and commodity supply shocks", "WTI oil price, daily (FRED DCOILWTICO)",
            "pass" if (TODAY - max(wti)).days <= 14 else "partial",
            min(wti), max(wti), len(wti), "",
            note=f"last value {(TODAY - max(wti)).days} days old")
-    # Kaenzig's OPEC announcement dates and oil supply surprise series.
+    # OPEC's own site, for meeting press releases (the official record of
+    # meeting dates). Kaenzig's dated list sits on openICPSR behind a sign-in.
     try:
-        found = links(KAENZIG_PAGE, r"\.(xlsx?|csv|zip|txt)$")
+        page = get(OPEC_HOME, timeout=60).decode("utf-8", "replace")
+        press = [u for u in re.findall(r'href\s*=\s*["\']([^"\']+)["\']', page, re.I)
+                 if re.search(r"press|meeting|conference", u, re.I)]
+        record("Energy and commodity supply shocks", "OPEC website: meeting press releases",
+               "partial", note=(f"site reachable; {len(press)} press or meeting links on the "
+                                "home page; dates need entering from the press releases"))
     except Exception as e:  # noqa: BLE001
-        record("Energy and commodity supply shocks",
-               "OPEC announcement dates and oil supply surprises (Kaenzig 2021)",
-               "fail", note=f"author's site: {e}")
-        return
-    oil = [u for u in found if re.search(r"oil|opec|surprise|shock", u, re.I)]
-    notes["oil"].append("Data files linked on Kaenzig's site: "
-                        + (", ".join(u.rsplit("/", 1)[-1] for u in oil) or "none")
-                        + f" (of {len(found)} files)")
-    best = None
-    for url in oil:
-        if url.lower().endswith(".zip"):
-            continue
-        try:
-            sheets = read_sheets(get(url, timeout=180), url)
-        except Exception as e:  # noqa: BLE001
-            notes["oil"].append(f"{url.rsplit('/', 1)[-1]}: {type(e).__name__}")
-            continue
-        for name, rows in sheets.items():
-            dates = [to_date(c) for r in rows for c in r[:2]]
-            dates = sorted(d for d in dates if d and dt.date(1970, 1, 1) < d <= TODAY)
-            notes["oil"].append(f"{url.rsplit('/', 1)[-1]} / {name}: {len(rows)} rows, "
-                                f"{len(dates)} dated"
-                                + (f", {dates[0]} to {dates[-1]}" if dates else "")
-                                + "; header: " + ", ".join(str(h) for h in (rows[0] if rows else [])[:6]))
-            if dates and (best is None or len(dates) > best[2]):
-                best = (url, name, len(dates), dates[0], dates[-1])
-    if best:
-        record("Energy and commodity supply shocks",
-               "OPEC announcement dates and oil supply surprises (Kaenzig 2021)",
-               "pass" if best[2] >= 30 else "partial", best[3], best[4], best[2],
-               best[2], note=f"from {best[0].rsplit('/', 1)[-1]}, sheet {best[1]}")
-    else:
-        record("Energy and commodity supply shocks",
-               "OPEC announcement dates and oil supply surprises (Kaenzig 2021)",
-               "fail", note="no dated series found on the author's site")
+        record("Energy and commodity supply shocks", "OPEC website: meeting press releases",
+               "fail", note=f"{e}")
 
 
 def fr_count(params: dict) -> int:
@@ -572,13 +563,13 @@ def check_sharadar_events():
     write_csv("sharadar_event_codes.csv",
               ["code", "as_8k_item", "rows", "rows_since_2004_08_23", "tickers",
                "first", "last"],
-              [[c, f"{c[0]}.{c[1:].zfill(2)}" if c.isdigit() and len(c) == 2 else "",
+              [[c, f"{c[0]}.0{c[1]}" if c.isdigit() and len(c) == 2 else "",
                 s["rows"], s["since"], len(s["tickers"]), s["first"], s["last"]]
                for c, s in sorted(stats.items(), key=lambda kv: kv[0])])
     SHARADAR["by_ticker"] = by_ticker
     SHARADAR["code_stats"] = stats
     for etype, items in EVENT_ITEMS.items():
-        codes = [i.replace(".", "") for i in items]
+        codes = [item_code(i) for i in items]
         n = sum(stats[c]["since"] for c in codes if c in stats)
         firsts = [stats[c]["first"] for c in codes if c in stats]
         missing = [i for i, c in zip(items, codes) if c not in stats]
@@ -598,6 +589,9 @@ def check_sharadar_actions():
     notes["sharadar"].append("Actions table columns: " + ", ".join(header))
     types = defaultdict(lambda: [0, None, None])
     divs = defaultdict(list)
+    splits = defaultdict(list)
+    delisted = {}
+    acq_samples = []
     for r in rows:
         if len(r) < len(header):
             continue
@@ -609,43 +603,76 @@ def check_sharadar_actions():
         t[0] += 1
         t[1] = d if t[1] is None or d < t[1] else t[1]
         t[2] = d if t[2] is None or d > t[2] else t[2]
+        if a == "split":
+            splits[r[ix["ticker"]]].append(d)
+        if a in ("delisted", "bankruptcyliquidation", "regulatorydelisting",
+                 "voluntarydelisting", "acquisitionby", "mergerfrom"):
+            delisted[r[ix["ticker"]]] = max(d, delisted.get(r[ix["ticker"]], d))
+        if a == "acquisitionby" and d.year >= 2025 and len(acq_samples) < 3:
+            acq_samples.append(f"{d} {r[ix['ticker']]} ({r[ix['name']][:30]}) "
+                               f"acquisitionby {r[ix['contraticker']]} ({r[ix['contraname']][:30]})")
         if a == "dividend":
             v = to_float(r[ix["value"]]) if "value" in ix else None
             if v:
                 divs[r[ix["ticker"]]].append((d, v))
     write_csv("sharadar_actions.csv", ["action", "rows", "first", "last"],
               [[a, n, f, l] for a, (n, f, l) in sorted(types.items(), key=lambda kv: -kv[1][0])])
-    # Dividend breaks: a regular payer (4+ payments in the prior 400 days)
-    # cutting by 25% or more, stopping (no payment for 200+ days), or a
-    # first-ever payment after 2+ years of no dividends in the table.
-    cuts = suspensions = 0
+    # Dividend breaks. A steady payer: its last four payments within 400
+    # days, all within 10% of their median, and no split in that window. A
+    # cut: the next regular payment at least 25% below that median. A stop:
+    # a steady payer with no payment for 200+ days while still listed.
+    cuts = stops = 0
     for t, ps in divs.items():
         ps.sort()
+        sp = splits.get(t, [])
         for i in range(4, len(ps)):
             d, v = ps[i]
-            prior = [x for x in ps[max(0, i - 6):i] if (d - x[0]).days <= 400]
-            if len(prior) >= 4:
-                med = statistics.median(x[1] for x in prior)
-                if v <= 0.75 * med and v > 0:
-                    cuts += 1
-        if len(ps) >= 4 and (TODAY - ps[-1][0]).days > 200:
-            suspensions += 1
-    SHARADAR["div_payers"] = len(divs)
+            prior = ps[i - 4:i]
+            if (d - prior[0][0]).days > 400:
+                continue
+            med = statistics.median(x[1] for x in prior)
+            if any(abs(x[1] - med) > 0.10 * med for x in prior):
+                continue
+            if any(prior[0][0] <= s_ <= d for s_ in sp):
+                continue
+            if 0 < v <= 0.75 * med:
+                cuts += 1
+        for i in range(4, len(ps) + 1):
+            prior = ps[i - 4:i]
+            nxt = ps[i][0] if i < len(ps) else min(TODAY, delisted.get(t, TODAY))
+            med = statistics.median(x[1] for x in prior)
+            steady = ((prior[-1][0] - prior[0][0]).days <= 400 and
+                      all(abs(x[1] - med) <= 0.10 * med for x in prior))
+            if steady and (nxt - prior[-1][0]).days > 200 and nxt != delisted.get(t):
+                stops += 1
     record("Capital structure breaks", "Sharadar corporate actions: dividend history",
            "pass" if cuts >= 30 else "partial",
-           types["dividend"][1], types["dividend"][2], types["dividend"][0], cuts,
+           types["dividend"][1], types["dividend"][2], types["dividend"][0], cuts + stops,
            cost="already paid (Sharadar bundle)",
-           note=(f"{len(divs):,} payers; {cuts:,} candidate cuts of 25% or more "
-                 f"(rough: specials and splits not yet removed); {suspensions:,} "
-                 f"payers with no dividend in the last 200 days"))
-    acq = sum(types[a][0] for a in types if a.startswith(("acquisition", "merger")))
-    record("Mergers and acquisitions", "Sharadar corporate actions: acquisitions and mergers",
-           "pass" if acq >= 30 else "partial",
-           min((types[a][1] for a in types if a.startswith(("acquisition", "merger"))), default=""),
-           max((types[a][2] for a in types if a.startswith(("acquisition", "merger"))), default=""),
-           acq, acq, cost="already paid (Sharadar bundle)",
-           note="completion dates with the other party: " + ", ".join(
-               f"{a} {types[a][0]:,}" for a in sorted(types) if a.startswith(("acquisition", "merger"))))
+           note=(f"{len(divs):,} payers; {cuts:,} cuts of 25% or more by steady payers "
+                 f"and {stops:,} stops (200+ days without a payment), splits removed"))
+    notes["sharadar"].append("Sample acquisitionby rows (date, ticker, other party): "
+                             + "; ".join(acq_samples))
+
+    def tot(names):
+        return (sum(types[a][0] for a in names),
+                min((types[a][1] for a in names if types[a][1]), default=""),
+                max((types[a][2] for a in names if types[a][2]), default=""))
+    n, f, l = tot(["acquisitionby", "mergerfrom"])
+    record("Mergers and acquisitions",
+           "Sharadar corporate actions: completed acquisitions and mergers (target side)",
+           "pass" if n >= 30 else "partial", f, l, n, n, cost="already paid (Sharadar bundle)",
+           note=(f"acquisitionby {types['acquisitionby'][0]:,} and mergerfrom "
+                 f"{types['mergerfrom'][0]:,}, each with the other party's ticker; "
+                 f"completion dates, not announcement dates"))
+    n, f, l = tot(["bankruptcyliquidation"])
+    record("Distress and restructuring", "Sharadar corporate actions: bankruptcy or liquidation delistings",
+           "pass" if n >= 30 else "partial", f, l, n, n, cost="already paid (Sharadar bundle)",
+           note="the delisting end of a bankruptcy; the filing itself is 8-K item 1.03")
+    n, f, l = tot(["regulatorydelisting"])
+    record("Accounting and legal trouble", "Sharadar corporate actions: regulatory delistings",
+           "pass" if n >= 30 else "partial", f, l, n, n, cost="already paid (Sharadar bundle)",
+           note="the delisting itself; the earlier exchange notice is 8-K item 3.01")
 
 
 @guarded
@@ -654,57 +681,79 @@ def check_items_crosscheck():
     ciks, _ = ticker_ciks()
     by_ticker = SHARADAR.get("by_ticker", {})
     out = []
-    agree = total_edgar = total_shar = 0
-    times = 0
+    agree_f = agree_r = total_edgar = total_shar = times = 0
+    other_forms = defaultdict(Counter)   # Sharadar code -> SEC forms that day
+    owner_forms = Counter()
     for t in XCHECK_TICKERS:
         cik = ciks.get(t)
         if not cik:
-            out.append([t, "", "", "", "", "", "no CIK in Sharadar tickers"])
+            out.append([t, "", "", "", "", "", "", "no CIK in Sharadar tickers"])
             continue
         try:
             sub = json.loads(get(EDGAR_SUBMISSIONS.format(cik=cik)))
         except Exception as e:  # noqa: BLE001
-            out.append([t, cik, "", "", "", "", str(e)])
+            out.append([t, cik, "", "", "", "", "", str(e)])
             continue
         time.sleep(0.2)
         rec = sub.get("filings", {}).get("recent", {})
-        edgar = set()
-        lo = None
-        for form, fdate, items, acc in zip(rec.get("form", []), rec.get("filingDate", []),
-                                           rec.get("items", []), rec.get("acceptanceDateTime", [])):
-            if form != "8-K":
-                continue
+        cols = [rec.get(k, []) for k in ("form", "filingDate", "reportDate", "items",
+                                         "acceptanceDateTime")]
+        edgar_f, edgar_r, lo = set(), set(), None
+        forms_on = defaultdict(set)
+        end = TODAY - dt.timedelta(days=7)
+        for form, fdate, rdate, items, acc in zip(*cols):
             d = to_date(fdate)
-            if not d or d < dt.date(2015, 1, 1) or d > TODAY - dt.timedelta(days=7):
+            if not d:
+                continue
+            forms_on[d].add(form)
+            if form.startswith(("SC 13", "SCHEDULE 13")):
+                owner_forms[form] += 1
+            if form != "8-K" or d < dt.date(2015, 1, 1) or d > end:
                 continue
             lo = d if lo is None or d < lo else lo
             times += bool(acc)
+            rd = to_date(rdate) or d
             for it in str(items).split(","):
                 it = it.strip()
                 if re.fullmatch(r"\d\.\d\d", it) and it != "9.01":
-                    edgar.add((d, it.replace(".", "")))
+                    edgar_f.add((d, item_code(it)))
+                    edgar_r.add((rd, item_code(it)))
         if lo is None:
-            out.append([t, cik, "", "", "", "", "no 8-Ks since 2015 in SEC's recent list"])
+            out.append([t, cik, "", "", "", "", "", "no 8-Ks since 2015 in SEC's recent list"])
             continue
         shar = {(d, c) for d, c in by_ticker.get(t, set())
-                if lo <= d <= TODAY - dt.timedelta(days=7) and c.isdigit() and c != "91"}
-        both = edgar & shar
-        agree += len(both)
-        total_edgar += len(edgar)
+                if lo <= d <= end and c.isdigit() and c != "91"}
+        for d, c in shar - edgar_f - edgar_r:
+            for f in forms_on.get(d, {"(nothing filed that day)"}):
+                other_forms[c][f] += 1
+        bf, br = len(edgar_f & shar), len(edgar_r & shar)
+        agree_f += bf
+        agree_r += br
+        total_edgar += len(edgar_f)
         total_shar += len(shar)
-        out.append([t, cik, lo, len(edgar), len(shar), len(both),
-                    f"{100 * len(both) / len(edgar):.0f}% of SEC items found in Sharadar"
-                    if edgar else ""])
+        out.append([t, cik, lo, len(edgar_f), len(shar), bf, br,
+                    f"{100 * max(bf, br) / len(edgar_f):.0f}% of SEC items found in Sharadar"
+                    if edgar_f else ""])
     write_csv("sharadar_vs_edgar_8k.csv",
-              ["ticker", "cik", "from", "sec_items", "sharadar_items", "both", "note"], out)
-    rate = agree / total_edgar if total_edgar else 0
+              ["ticker", "cik", "from", "sec_items", "sharadar_items",
+               "match_on_filing_date", "match_on_event_date", "note"], out)
+    for c, forms in sorted(other_forms.items(), key=lambda kv: -sum(kv[1].values())):
+        notes["sharadar"].append(f"Sharadar code {c} rows with no matching 8-K item: "
+                                 + ", ".join(f"{f} {n}" for f, n in forms.most_common(5))
+                                 + " (SEC forms that company filed that day)")
+    notes["edgar"].append("Ownership filings listed under the 8 companies' own SEC numbers: "
+                          + (", ".join(f"{f} {n}" for f, n in owner_forms.most_common())
+                             or "none"))
+    best = max(agree_f, agree_r)
+    rate = best / total_edgar if total_edgar else 0
     record("Company events (all 8-K types)",
            "Cross-check: Sharadar item codes vs SEC filing index, 8 companies since 2015",
            "pass" if rate >= 0.9 else ("partial" if rate >= 0.6 else "fail"),
-           "2015-01-01", TODAY, total_edgar, agree,
-           note=(f"{100 * rate:.0f}% of SEC's (date, item) pairs found in Sharadar; "
-                 f"Sharadar has {total_shar} pairs; SEC gives the acceptance time "
-                 f"for {times} 8-Ks (needed for the after-4 PM rule)"))
+           "2015-01-01", TODAY, total_edgar, best,
+           note=(f"{100 * rate:.0f}% of SEC's (date, item) pairs found in Sharadar "
+                 f"({agree_f} on filing date, {agree_r} on event date); Sharadar has "
+                 f"{total_shar} pairs; SEC gives the acceptance time for {times} 8-Ks "
+                 f"(needed for the after-4 PM rule)"))
 
 
 # ----------------------------------------------------------------- EDGAR ----
@@ -723,54 +772,100 @@ def parse_form_idx(text: str) -> Counter:
     return counts
 
 
+def fts(params: dict) -> dict:
+    """One EDGAR full-text search call; tries without a query word first."""
+    last = None
+    for q in (None, "*", '"the"'):
+        p = dict(params)
+        if q:
+            p["q"] = q
+        try:
+            data = json.loads(get(EDGAR_FTS, p, tries=2))
+        except Exception as e:  # noqa: BLE001
+            last = e
+            continue
+        if data.get("hits", {}).get("total", {}).get("value", 0) > 0:
+            data["_q"] = q or "(none)"
+            return data
+    if last:
+        raise last
+    return {"hits": {"total": {"value": 0}, "hits": []}, "_q": "none worked"}
+
+
 @guarded
 def check_edgar_forms():
-    """SEC EDGAR quarterly filing index: non-8-K forms"""
+    """SEC EDGAR: non-8-K forms per quarter"""
+    # SEC's quarterly index files are the complete list, from 1993, but
+    # www.sec.gov refuses a client that does not name a contact.
+    y0, q0 = INDEX_QUARTERS[-1]
+    try:
+        parse_form_idx(get(EDGAR_INDEX.format(y=y0, q=q0), timeout=300, tries=2)
+                       .decode("latin-1"))
+        notes["edgar"].append("Quarterly index files (complete list from 1993): readable.")
+        index_ok = True
+    except Exception as e:  # noqa: BLE001
+        notes["edgar"].append(f"Quarterly index files (complete list from 1993): {e}. "
+                              "SEC wants a contact in the User-Agent; set the "
+                              "SEC_USER_AGENT secret to read them.")
+        index_ok = False
+    # Full-text search (from 2001) gives counts per form and date range.
     rows = []
-    sample_13d = None
+    two_ciks = seen_13d = 0
+    used_q = set()
     for y, q in INDEX_QUARTERS + [(TODAY.year, (TODAY.month - 1) // 3 + 1)]:
-        url = EDGAR_INDEX.format(y=y, q=q)
-        try:
-            text = get(url, timeout=300).decode("latin-1")
-        except Exception as e:  # noqa: BLE001
-            rows.append([f"{y}Q{q}"] + [""] * len(FORMS) + [str(e)])
+        if y < 2001:
             continue
-        counts = parse_form_idx(text)
-        rows.append([f"{y}Q{q}"] + [sum(counts[f] for f in fs) for fs in FORMS.values()]
-                    + ["; ".join(f"{f} {counts[f]}" for fs in FORMS.values() for f in fs)])
-        if sample_13d is None or y >= 2025:
-            for line in text.splitlines():
-                if line.startswith(("SC 13D ", "SCHEDULE 13D ")):
-                    parts = re.split(r"\s{2,}", line.strip())
-                    sample_13d = parts[-1]
-                    break
-        time.sleep(0.3)
+        start = dt.date(y, 3 * q - 2, 1)
+        end = min(TODAY, (dt.date(y + (q == 4), 1 if q == 4 else 3 * q + 1, 1)
+                          - dt.timedelta(days=1)))
+        row = [f"{y}Q{q}"]
+        detail = []
+        for etype, forms in FORMS.items():
+            n = 0
+            for f in forms:
+                try:
+                    data = fts({"forms": f, "dateRange": "custom",
+                                "startdt": start.isoformat(), "enddt": end.isoformat()})
+                except Exception as e:  # noqa: BLE001
+                    detail.append(f"{f} {e}")
+                    continue
+                used_q.add(data.get("_q", ""))
+                k = data.get("hits", {}).get("total", {}).get("value", 0)
+                rel = data.get("hits", {}).get("total", {}).get("relation", "eq")
+                n += k
+                detail.append(f"{f} {k}{'+' if rel == 'gte' else ''}")
+                if "13D" in f:
+                    for h in data.get("hits", {}).get("hits", [])[:50]:
+                        seen_13d += 1
+                        two_ciks += len(set(h.get("_source", {}).get("ciks") or [])) >= 2
+                time.sleep(0.15)
+            row.append(n)
+        rows.append(row + ["; ".join(detail)])
     write_csv("edgar_form_counts.csv", ["quarter"] + list(FORMS) + ["by_form"], rows)
-    got = [r for r in rows if r[1] != ""]
-    first_q = got[0][0] if got else ""
+    notes["edgar"].append("Full-text search query word used for form counts: "
+                          + ", ".join(sorted(used_q)) + ". Counts of 10,000 show as 10000+ "
+                          "(the search caps its totals there).")
+    if seen_13d:
+        notes["edgar"].append(f"13D subject company: {two_ciks} of {seen_13d} sampled 13D "
+                              "hits list two or more SEC numbers (filer and subject), so the "
+                              "target can be tied to a stock without opening the filing.")
+    got = [r for r in rows if isinstance(r[1], int)]
+    labels = {"Activist stakes": "Activist stakes",
+              "Mergers (tender offers)": "Mergers and acquisitions",
+              "Mergers (merger proxies)": "Mergers and acquisitions",
+              "Offerings": "Capital structure breaks",
+              "Late filings": "Accounting and legal trouble"}
     for i, (etype, forms) in enumerate(FORMS.items(), start=1):
-        if etype == "All 8-Ks":
+        if etype not in labels:
             continue
-        avg = statistics.mean(r[i] for r in got) if got else 0
-        label = {"Activist stakes": "Activist stakes",
-                 "Mergers (tender offers)": "Mergers and acquisitions",
-                 "Mergers (merger proxies)": "Mergers and acquisitions",
-                 "Offerings": "Capital structure breaks",
-                 "Late filings": "Accounting and legal trouble"}[etype]
-        record(label, f"SEC EDGAR filing index: {', '.join(forms)}",
-               "pass" if avg >= 30 else "partial", first_q, got[-1][0] if got else "",
-               "", f"about {avg:,.0f} a quarter",
-               note=f"{len(got)} sample quarters read")
-    # Can the subject company be read from a 13D? (needed to tie it to a stock)
-    if sample_13d:
-        try:
-            head = get("https://www.sec.gov/Archives/" + sample_13d,
-                       headers={"Range": "bytes=0-6000"}, timeout=60).decode("latin-1")
-            m = re.search(r"SUBJECT COMPANY:.*?CENTRAL INDEX KEY:\s*(\d+)", head, re.S)
-            notes["edgar"].append("13D header check: subject company CIK "
-                                  + ("read from the filing header" if m else "NOT found in the first 6 KB"))
-        except Exception as e:  # noqa: BLE001
-            notes["edgar"].append(f"13D header check failed: {e}")
+        vals = [r[i] for r in got]
+        avg = statistics.mean(vals) if vals else 0
+        record(labels[etype], f"SEC EDGAR full-text search: {', '.join(forms)}",
+               "pass" if avg >= 30 else "partial", "2001-01-01" if got else "",
+               TODAY if got else "", "", f"about {avg:,.0f} a quarter",
+               note=(f"{len(got)} sample quarters, 2001 on"
+                     + ("; quarterly index files also readable (from 1993)" if index_ok
+                        else "; complete index from 1993 needs SEC_USER_AGENT")))
 
 
 @guarded

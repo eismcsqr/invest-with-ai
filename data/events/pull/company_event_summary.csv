@@ -1,1 +1,35 @@
 type,subtype,role,source,events,companies,first,last,with_returns,median_abs_abn_d0_pct,ordinary_median_abs_d0_pct,ratio,median_abn_d01_pct,mean_abn_d01_pct,median_abn_post20_pct,picked_with_later_filing
+Guidance changes,"Reg FD disclosure away from results, mostly presentations (8-K 7.01)",cross-check,Sharadar 8-K events,148363,7709,2005-09-07,2026-11-25,146550,1.328,1.254,1.06,0.007,0.462,-0.533,0
+Guidance changes,results release away from the regular schedule (8-K 2.02),main,Sharadar 8-K events,19650,6651,2005-09-06,2026-11-25,19350,2.372,1.254,1.89,-0.550,-0.647,-1.182,0
+Mergers and acquisitions,"acquisition or sale completed, either side (8-K 2.01)",cross-check,Sharadar 8-K events,67098,11700,1994-01-04,2026-11-25,56023,1.618,1.254,1.29,-0.136,2.998,-1.023,0
+Mergers and acquisitions,"tender offer (Sharadar code 37, inferred)",cross-check,Sharadar 8-K events,34867,3904,2000-01-24,2026-11-25,32368,1.227,1.254,0.98,0.076,1.909,-0.684,0
+Mergers and acquisitions,buyer: deal announced (from the target's filing),main,Sharadar corporate actions + 8-K events,2100,1223,2004-08-24,2026-10-08,1945,1.276,1.254,1.02,-0.405,-0.499,-0.466,2100
+Mergers and acquisitions,buyer: deal completed,main,Sharadar corporate actions,5181,2619,1998-01-07,2026-11-20,4692,1.195,1.254,0.95,0.095,0.284,-0.487,0
+Mergers and acquisitions,target: deal announced (8-K 1.01 before the deal filing),main,Sharadar 8-K events + SEC EDGAR,4577,4329,2004-08-24,2026-11-23,4561,3.542,1.254,2.82,3.027,15.193,-0.239,4577
+Mergers and acquisitions,target: deal completed,main,Sharadar corporate actions,7517,7482,1998-01-07,2026-11-20,15,0.920,1.254,0.73,2.377,-2.045,-4.576,0
+Mergers and acquisitions,target: merger proxy filed,main,SEC EDGAR PREM14A/DEFM14A,4953,4639,2001-01-02,2026-11-24,4927,0.836,1.254,0.67,-0.046,0.418,-0.752,0
+Mergers and acquisitions,target: tender offer filed,main,SEC EDGAR SC TO-T,863,798,2001-01-02,2026-11-25,840,0.995,1.254,0.79,0.255,2.342,-0.381,0
+Leadership changes,any officer or director change (8-K 5.02),cross-check,Sharadar 8-K events,237661,11165,1994-12-05,2026-11-25,228275,1.325,1.254,1.06,-0.192,-0.038,-0.849,0
+Leadership changes,CEO exit (effective immediately),main,SEC EDGAR 8-K item 5.02 text,4476,3128,2004-08-27,2026-11-27,4333,1.690,1.254,1.35,-0.250,1.292,-1.258,0
+Leadership changes,CEO exit (other wording),main,SEC EDGAR 8-K item 5.02 text,31037,8010,2004-08-23,2026-11-27,29492,1.383,1.254,1.10,-0.259,0.123,-0.817,0
+Leadership changes,CFO exit (effective immediately),main,SEC EDGAR 8-K item 5.02 text,876,712,2004-10-20,2026-11-27,858,1.776,1.254,1.42,-0.306,-0.392,-1.838,0
+Leadership changes,CFO exit (other wording),main,SEC EDGAR 8-K item 5.02 text,8635,4201,2004-08-24,2026-11-25,8526,1.267,1.254,1.01,-0.325,-0.355,-0.724,0
+Capital structure breaks,dividend cut of 25% or more,main,Sharadar corporate actions: dividends,2013,1463,1998-11-04,2026-11-17,1995,1.335,1.254,1.06,-0.129,0.050,-1.146,0
+Capital structure breaks,dividend stopped (no payment for 200 days),main,Sharadar corporate actions: dividends,1163,1068,1999-05-03,2026-09-22,1153,1.705,1.254,1.36,-0.365,-0.330,-1.292,0
+Capital structure breaks,first dividend,main,Sharadar corporate actions: dividends,1631,1631,2000-01-27,2026-11-16,1614,1.278,1.254,1.02,0.450,0.779,-0.792,0
+Capital structure breaks,new share offering,main,SEC EDGAR 424B4,4054,2485,2001-01-04,2026-11-23,4036,2.890,1.254,2.30,-0.773,-1.531,-1.801,0
+Capital structure breaks,new share offering,main,SEC EDGAR 424B5,24503,3880,2001-01-08,2026-11-27,24445,1.943,1.254,1.55,-1.125,-2.585,-1.296,0
+Accounting and legal trouble,auditor change (8-K 4.01),main,Sharadar 8-K events,10698,4988,2004-08-23,2026-11-25,9828,1.665,1.254,1.33,-0.423,0.743,-1.925,0
+Accounting and legal trouble,"auditor change, pre-2004 item",main,Sharadar 8-K events,6806,3558,1994-01-13,2004-08-20,5029,1.820,1.254,1.45,-0.306,0.010,-1.686,0
+Accounting and legal trouble,delisted by the exchange or regulator,main,Sharadar corporate actions,1010,1010,1997-12-31,2026-11-25,0,6.885,1.254,5.49,,,,0
+Accounting and legal trouble,delisting or listing-rule notice (8-K 3.01),main,Sharadar 8-K events,25130,7709,2004-08-24,2026-11-25,21057,2.439,1.254,1.94,-1.285,-2.442,-3.443,0
+Accounting and legal trouble,late annual report notice (NT 10-K),main,SEC EDGAR NT 10-K,9013,4504,2001-01-02,2026-10-29,8890,2.122,1.254,1.69,-0.809,-0.989,-2.649,0
+Accounting and legal trouble,late quarterly report notice (NT 10-Q),main,SEC EDGAR NT 10-Q,13195,4740,2001-01-16,2026-11-18,13028,1.887,1.254,1.50,-0.532,-0.856,-3.480,0
+Accounting and legal trouble,restatement: past results no longer reliable (8-K 4.02),main,Sharadar 8-K events,5015,3167,2004-08-24,2026-11-25,4843,1.477,1.254,1.18,-0.575,-1.515,-0.983,0
+Distress and restructuring,bankruptcy or receivership (8-K 1.03),main,Sharadar 8-K events,3130,1716,1994-01-05,2026-11-25,1541,6.605,1.254,5.27,-4.072,-14.584,-5.994,0
+Distress and restructuring,debt default or acceleration trigger (8-K 2.04),main,Sharadar 8-K events,3236,1843,2004-08-26,2026-11-24,2836,2.252,1.254,1.80,-1.295,-7.346,-2.728,0
+Distress and restructuring,delisted after bankruptcy or liquidation,main,Sharadar corporate actions,3337,3337,1998-01-06,2026-11-20,0,4.417,1.254,3.52,,,,0
+Distress and restructuring,"layoffs, closures or exit costs (8-K 2.05)",main,Sharadar 8-K events,7564,2950,2004-08-24,2026-11-17,7445,1.836,1.254,1.46,-0.563,-1.643,-1.092,0
+Activist stakes,"13D stake (Sharadar code 35, inferred)",cross-check,Sharadar 8-K events,155890,13864,1993-11-08,2026-11-25,134894,1.581,1.254,1.26,0.020,0.733,-1.197,0
+Activist stakes,13D stake of 5% or more,main,SEC EDGAR SC 13D,21109,8957,2001-01-02,2024-12-17,20894,1.707,1.254,1.36,0.299,1.438,-1.200,0
+Activist stakes,13D stake of 5% or more,main,SEC EDGAR SCHEDULE 13D,1551,1220,2024-02-12,2026-11-27,1498,2.128,1.254,1.70,0.152,1.519,-2.294,0

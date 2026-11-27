@@ -79,3 +79,7 @@ It uses the Fed decision days in `data/events/fomc_decisions.csv` (rows marked f
 `docs/company-method.md` is the company pillar's scoring method: how each of the six factors in `docs/company-factors.md` becomes a score against industry peers, the factor weights, the confidence rule and how company sits with macro and industry. Agreed Nov 26; not built yet (needs company data).
 
 `docs/event-types.md` is the events pillar's list of event types: the boundary with the other pillars, the 12 types in v1 (four market-wide, one industry, seven company), what each acts through, its data and its test, and what is parked. Agreed Nov 27; not built yet.
+
+## Event sources check
+
+`.github/workflows/event-sources.yml` runs `scripts/check_event_sources.py` on demand and whenever the script or workflow changes. It opens the candidate source for each of the 12 event types (geopolitical risk and trade policy uncertainty indexes, FRED, the Federal Register API, Sharadar's events and corporate actions tables, SEC EDGAR) and commits counts and date ranges to `data/events/sources/` (summary: `EVENT_SOURCES_CHECK.md`). Write-up and the chosen source per type: `docs/event-sources.md`. Needs `SHARADAR_API_KEY` and `FRED_API_KEY`; `SEC_USER_AGENT` is optional and opens SEC's quarterly index files (from 1993).

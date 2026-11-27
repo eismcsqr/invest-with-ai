@@ -10,16 +10,16 @@ Reading: +1 tailwind (top fifth of the group's own history), 0 neutral, −1 hea
 |---|---|---|---|---|---|---|---|
 | Consumer staples | Demand cycle | +0 (44) | 1 | +0 | +0 to +0 | Medium | backs, not past the false-discovery check |
 | Consumer staples | Capacity cycle | +0 (71) | 1 | +0 | +0 to +0 | Low | doesn't back |
-| Consumer staples | Coping with shocks | -1 (18) | 3 | -3 | -3 to +0 | Low | weak (halves disagree) |
+| Consumer staples | Coping with shocks | -1 (18) | 2 | -2 | -2 to +0 | Low | weak (halves disagree) |
 | Consumer durables | Demand cycle | +0 (76) | 3 | +0 | +0 to +3 | Low | doesn't back |
 | Consumer durables | Capacity cycle | +0 (33) | 2 | +0 | +0 to +0 | Low | doesn't back |
 | Consumer durables | Coping with shocks | +0 (21) | 2 | +0 | -2 to +0 | Low | doesn't back |
 | Manufacturing | Demand cycle | +0 (68) | 3 | +0 | +0 to +0 | Medium | leans |
-| Manufacturing | Capacity cycle | +1 (84) | 3 | +3 | +0 to +3 | Low | doesn't back |
+| Manufacturing | Capacity cycle | +1 (84) | 2 | +2 | +0 to +2 | Low | doesn't back |
 | Manufacturing | Coping with shocks | +0 (78) | 3 | +0 | +0 to +3 | Low | weak (halves disagree) |
 | Energy | Demand cycle | +0 (57) | 2 | +0 | +0 to +0 | Low | weak (halves disagree) |
 | Energy | Capacity cycle | +0 (74) | 3 | +0 | +0 to +0 | Medium | leans |
-| Energy | Coping with shocks | +1 (86) | 2 | +2 | +0 to +2 | Low | leans |
+| Energy | Coping with shocks | +1 (86) | 1 | +1 | +0 to +1 | Low | leans |
 | Chemicals | Demand cycle | +0 (63) | 2 | +0 | +0 to +2 | Low | doesn't back |
 | Chemicals | Capacity cycle | -1 (19) | 3 | -3 | -3 to +0 | Low | doesn't back |
 | Chemicals | Coping with shocks | +0 (68) | 3 | +0 | -3 to +0 | Medium | leans |
@@ -28,7 +28,7 @@ Reading: +1 tailwind (top fifth of the group's own history), 0 neutral, −1 hea
 | Telecom | Demand cycle | -1 (18) | 1 | -1 | -1 to +0 | Medium | leans |
 | Telecom | Coping with shocks | +0 (26) | 1 | +0 | -1 to +0 | Medium | leans |
 | Utilities | Demand cycle | +0 (56) | 1 | +0 | +0 to +0 | Low | doesn't back |
-| Utilities | Capacity cycle | -1 (1) | 1 | -1 | -1 to +0 | Medium | leans |
+| Utilities | Capacity cycle | -1 (1) | 0 | +0 | +0 to +0 | Medium | leans |
 | Utilities | Coping with shocks | +0 (31) | 2 | +0 | +0 to +0 | Medium | leans |
 | Retail and wholesale | Demand cycle | +1 (88) | 2 | +2 | +0 to +2 | Low | doesn't back |
 | Retail and wholesale | Coping with shocks | +0 (26) | 3 | +0 | +0 to +0 | Medium | leans |

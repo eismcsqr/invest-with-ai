@@ -4,7 +4,7 @@ NoDur,capacity,1,0,0,0,0,0,1,Tight plants let food makers hold prices
 NoDur,competition,1,0,0,0,0,2,3,Brand share and retailer private labels decide margins
 NoDur,regulation,1,1,0,0,0,0,2,"Tobacco, food labeling and ingredient rules"
 NoDur,technology,0,0,0,0,0,1,1,"Slow-moving, but new brands and weight-loss drugs can shift demand"
-NoDur,coping,1,2,0,0,0,0,3,Profits hinge on passing commodity costs through
+NoDur,coping,1,1,0,0,0,0,2,"Profits hinge on passing commodity costs through; the measure tracks selling prices, not margins, so lowered to 2 on review"
 Durbl,demand,3,0,0,0,0,0,3,"Cars, furniture and appliances are bought when times are good"
 Durbl,capacity,1,1,0,0,0,0,2,High plant use lifts pricing and spreads fixed costs
 Durbl,competition,1,0,0,0,0,2,3,Share fights and imports set car and appliance prices
@@ -12,7 +12,7 @@ Durbl,regulation,0,2,0,0,0,0,2,Emissions and safety rules raise costs
 Durbl,technology,0,0,0,0,1,2,3,Electric and self-driving cars reshuffle winners
 Durbl,coping,0,2,0,0,0,0,2,"Steel, chips and parts costs are hard to pass on"
 Manuf,demand,3,0,0,0,0,0,3,Machinery and parts orders swing hard with the cycle
-Manuf,capacity,2,1,0,0,0,0,3,"Full order books and plants mean pricing power and operating leverage"
+Manuf,capacity,1,1,0,0,0,0,2,Full plants mean pricing power; lowered to 2 on review because past returns leaned against it
 Manuf,competition,1,0,0,0,0,1,2,Fragmented in parts; concentrated in aerospace
 Manuf,regulation,0,1,0,0,0,0,1,Environmental and safety costs
 Manuf,technology,0,0,0,0,0,1,1,Automation shifts share slowly
@@ -22,7 +22,7 @@ Enrgy,capacity,2,1,0,0,0,0,3,Refinery and rig use drive margins
 Enrgy,competition,0,0,0,0,0,1,1,Commodity sellers take the market price
 Enrgy,regulation,1,2,0,0,0,0,3,"Drilling permits, emissions and fuel rules"
 Enrgy,technology,0,0,0,0,1,1,2,Shale and the energy transition move value
-Enrgy,coping,2,0,0,0,0,0,2,Output prices are the oil shock itself; hedging softens it
+Enrgy,coping,1,0,0,0,0,0,1,"Output prices are the oil shock itself, which macro already counts; lowered to 1 on review"
 Chems,demand,2,0,0,0,0,0,2,Industrial and consumer demand both feed chemicals
 Chems,capacity,2,1,0,0,0,0,3,Chemical margins move with plant use
 Chems,competition,1,0,0,0,0,1,2,Specialty firms hold share; commodity chemicals don't
@@ -42,7 +42,7 @@ Telcm,regulation,1,1,0,0,0,0,2,Spectrum and FCC rules
 Telcm,technology,0,1,0,0,0,1,2,New network generations cost money and shift share
 Telcm,coping,0,1,0,0,0,0,1,Price plans are sticky either way
 Utils,demand,1,0,0,0,0,0,1,"Regulated returns; load growth (data centers) matters at the margin"
-Utils,capacity,1,0,0,0,0,0,1,Tight power supply lifts wholesale prices
+Utils,capacity,0,0,0,0,0,0,0,Regulated utilities earn set returns however busy their plants are; lowered to 0 on review
 Utils,competition,0,0,0,0,0,0,0,Mostly regulated local monopolies
 Utils,regulation,2,0,1,0,0,0,3,Allowed returns are set by regulators
 Utils,technology,0,1,0,0,0,0,1,Renewables and storage change costs

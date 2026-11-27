@@ -1,0 +1,9 @@
+ticker,cik,from,sec_items,sharadar_items,match_on_filing_date,match_on_event_date,note
+AAPL,0000320193,2015-10-27,106,133,105,56,99% of SEC items found in Sharadar
+WMT,0000104169,2023-08-16,47,60,46,31,98% of SEC items found in Sharadar
+XOM,0002115436,2026-07-07,8,13,8,8,100% of SEC items found in Sharadar
+JNJ,0000200406,2018-10-02,116,178,107,90,92% of SEC items found in Sharadar
+HD,0000354950,2018-05-15,111,146,109,57,98% of SEC items found in Sharadar
+JPM,0000019617,2025-12-08,28,61,28,19,100% of SEC items found in Sharadar
+BA,0000012927,2019-04-05,148,177,146,65,99% of SEC items found in Sharadar
+GE,0000040545,2019-01-31,140,196,138,79,99% of SEC items found in Sharadar

@@ -365,7 +365,7 @@ def check_tpu():
         except Exception as e:  # noqa: BLE001
             notes["tpu"].append(f"{url.rsplit('/', 1)[-1]}: {type(e).__name__}")
             continue
-        sheet, col, series = daily_series(sheets, ["TPU", "TPU_DAILY", "TPUD",
+        sheet, col, series = daily_series(sheets, ["TPUD_INDEX", "TPU", "TPU_DAILY", "TPUD",
                                                    "DAILY_TPU", "TPU_INDEX"])
         for nm, rows in sheets.items():
             if "DAILY" in nm.upper():

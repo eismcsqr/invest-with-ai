@@ -83,3 +83,13 @@ It uses the Fed decision days in `data/events/fomc_decisions.csv` (rows marked f
 ## Event sources check
 
 `.github/workflows/event-sources.yml` runs `scripts/check_event_sources.py` on demand and whenever the script or workflow changes. It opens the candidate source for each of the 12 event types (geopolitical risk and trade policy uncertainty indexes, FRED, the Federal Register API, Sharadar's events and corporate actions tables, SEC EDGAR) and commits counts and date ranges to `data/events/sources/` (summary: `EVENT_SOURCES_CHECK.md`). Write-up and the chosen source per type: `docs/event-sources.md`. Needs `SHARADAR_API_KEY` and `FRED_API_KEY`; `SEC_USER_AGENT` is optional and opens SEC's quarterly index files (from 1993).
+
+## Event data pull
+
+`.github/workflows/event-data.yml` runs `scripts/build_event_data.py` every Saturday at 10 AM Pacific (after the company pull), on demand from the Actions tab, and whenever the script, the agency map or the workflow changes. It pulls all 12 event types from their checked sources, writes one event table per level and lines each event up with returns around it. Write-up: `docs/event-data.md`.
+
+- **Market-wide and industry events** (risk index spikes, tariff actions, elections, policy uncertainty spikes, big oil moves, significant final rules) are committed in `data/events/pull/` with each French group's move against the market (`sector_moves_12.csv`, `sector_moves_49.csv`). Rules are tied to industries through `config/regulation_agencies.csv`.
+- **Company events** (guidance, mergers, leadership, capital structure, accounting, distress, activist stakes) come from Sharadar and SEC EDGAR. They and their stock-minus-peer returns stay on the runner (`raw/event_results/`, licence); only counts and medians are committed (`company_event_summary.csv`).
+- **No look-ahead:** spike days, off-cycle guidance and dividend breaks use only earlier data, checked by rerunning on data cut a year back. Merger announcements are the one exception (flagged `later_filing`).
+- **Secrets:** `SHARADAR_API_KEY`, `FRED_API_KEY`; `SEC_USER_AGENT` optional. SEC search results are cached between runs, so the first run takes longest.
+- **Check report:** `data/events/pull/EVENT_DATA_CHECK.md`.

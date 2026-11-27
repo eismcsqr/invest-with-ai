@@ -1,0 +1,55 @@
+agency_slug,agency_name,groups12,groups49,note
+food-and-drug-administration,Food and Drug Administration,Hlth,Drugs;MedEq,drug and device approvals and rules
+centers-for-medicare-medicaid-services,Centers for Medicare & Medicaid Services,Hlth,Hlth;Insur,payment rules hit providers and managed care
+health-and-human-services-department,Health and Human Services Department,Hlth,Hlth;Drugs;MedEq,parent: used only when no child agency maps
+drug-enforcement-administration,Drug Enforcement Administration,Hlth,Drugs,controlled substances
+veterans-affairs-department,Veterans Affairs Department,Hlth,Hlth,care purchasing rules
+environmental-protection-agency,Environmental Protection Agency,Enrgy;Chems;Utils,Oil;Coal;Chems;Util,emissions and chemicals rules fall mostly on these
+energy-department,Energy Department,Durbl;Manuf,Hshld;ElcEq;Mach,mostly appliance and equipment efficiency standards
+energy-efficiency-and-renewable-energy-office,Energy Efficiency and Renewable Energy Office,Durbl;Manuf,Hshld;ElcEq;Mach,efficiency standards
+federal-energy-regulatory-commission,Federal Energy Regulatory Commission,Utils;Enrgy,Util;Oil,power and pipeline rates
+nuclear-regulatory-commission,Nuclear Regulatory Commission,Utils,Util,nuclear plants
+transportation-department,Transportation Department,Other,Trans,parent: used only when no child agency maps
+national-highway-traffic-safety-administration,National Highway Traffic Safety Administration,Durbl,Autos,vehicle safety and fuel economy
+federal-aviation-administration,Federal Aviation Administration,Other;Manuf,Trans;Aero,airlines and aircraft makers
+federal-motor-carrier-safety-administration,Federal Motor Carrier Safety Administration,Other,Trans,trucking
+federal-railroad-administration,Federal Railroad Administration,Other,Trans,railroads
+pipeline-and-hazardous-materials-safety-administration,Pipeline and Hazardous Materials Safety Administration,Enrgy;Other,Oil;Trans,pipelines
+surface-transportation-board,Surface Transportation Board,Other,Trans,railroad rates
+federal-maritime-commission,Federal Maritime Commission,Other,Trans,shipping
+maritime-administration,Maritime Administration,Other,Ships;Trans,shipping and shipbuilding
+transportation-security-administration,Transportation Security Administration,Other,Trans,airports and airlines
+coast-guard,Coast Guard,Other,Trans,shipping
+agriculture-department,Agriculture Department,NoDur,Agric;Food,parent: used only when no child agency maps
+food-safety-and-inspection-service,Food Safety and Inspection Service,NoDur,Food,meat and poultry
+agricultural-marketing-service,Agricultural Marketing Service,NoDur,Agric;Food,marketing orders
+animal-and-plant-health-inspection-service,Animal and Plant Health Inspection Service,NoDur,Agric,farm imports and pests
+national-oceanic-and-atmospheric-administration,National Oceanic and Atmospheric Administration,NoDur,Food,mostly fishing rules
+national-marine-fisheries-service,National Marine Fisheries Service,NoDur,Food,fishing
+alcohol-and-tobacco-tax-and-trade-bureau,Alcohol and Tobacco Tax and Trade Bureau,NoDur,Beer;Smoke,alcohol and tobacco
+consumer-product-safety-commission,Consumer Product Safety Commission,Durbl;NoDur,Toys;Hshld,product safety
+defense-department,Defense Department,Manuf,Aero;Guns,mostly defense purchasing rules
+industry-and-security-bureau,Industry and Security Bureau,BusEq,Chips;Hardw,export controls
+interior-department,Interior Department,Enrgy,Oil;Coal;Mines,parent: used only when no child agency maps
+land-management-bureau,Land Management Bureau,Enrgy,Oil;Coal;Mines,leasing on federal land
+ocean-energy-management-bureau,Ocean Energy Management Bureau,Enrgy,Oil,offshore leasing
+safety-and-environmental-enforcement-bureau,Safety and Environmental Enforcement Bureau,Enrgy,Oil,offshore drilling safety
+minerals-management-service,Minerals Management Service,Enrgy,Oil,offshore leasing and royalties (to 2010)
+ocean-energy-management-regulation-and-enforcement-bureau,"Ocean Energy Management, Regulation, and Enforcement Bureau",Enrgy,Oil,offshore (2010 to 2011)
+surface-mining-reclamation-and-enforcement-office,Surface Mining Reclamation and Enforcement Office,Enrgy,Coal,coal mining
+mine-safety-and-health-administration,Mine Safety and Health Administration,Enrgy;Other,Coal;Mines,mine safety
+treasury-department,Treasury Department,Money,Banks;Fin,parent: used only when no child agency maps (tax rules are under the IRS)
+comptroller-of-the-currency,Comptroller of the Currency,Money,Banks,banks
+financial-crimes-enforcement-network,Financial Crimes Enforcement Network,Money,Banks,bank compliance
+federal-reserve-system,Federal Reserve System,Money,Banks,bank rules
+federal-deposit-insurance-corporation,Federal Deposit Insurance Corporation,Money,Banks,banks
+consumer-financial-protection-bureau,Consumer Financial Protection Bureau,Money,Banks;Fin,consumer lending
+national-credit-union-administration,National Credit Union Administration,Money,Banks,credit unions
+federal-housing-finance-agency,Federal Housing Finance Agency,Money,Banks;Fin,mortgage finance
+housing-and-urban-development-department,Housing and Urban Development Department,Money,Banks;RlEst,mortgage insurance and housing
+securities-and-exchange-commission,Securities and Exchange Commission,Money,Fin,markets and brokers
+commodity-futures-trading-commission,Commodity Futures Trading Commission,Money,Fin,derivatives markets
+employee-benefits-security-administration,Employee Benefits Security Administration,Money,Fin,retirement plan rules
+federal-communications-commission,Federal Communications Commission,Telcm,Telcm,telecom and broadcasting
+copyright-royalty-board,Copyright Royalty Board,Other,Fun,music and broadcast royalties
+education-department,Education Department,Other,PerSv,education companies

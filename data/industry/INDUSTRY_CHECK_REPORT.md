@@ -13,7 +13,7 @@ Series counts columns (industries, categories or indexes). Missing counts blank 
 | concentration_2017 | Census |  |  |  |  |  | skipped |
 | concentration_2022 | Census |  |  |  |  |  | skipped |
 | ppi_industry | BLS |  |  |  |  |  | skipped |
-| capacity_utilization | Fed G.17 via FRED | 56 | 1948-01 | 2026-10 | 946 | 0 | ok |
+| capacity_utilization | Fed G.17 via FRED | 58 | 1948-01 | 2026-10 | 946 | 0 | ok |
 
 ## Notes and checks
 
@@ -21,8 +21,8 @@ Series counts columns (industries, categories or indexes). Missing counts blank 
 - **m3:** Skipped: CENSUS_API_KEY not set.
 - **concentration_2017:** Skipped: CENSUS_API_KEY not set.
 - **concentration_2022:** Skipped: CENSUS_API_KEY not set.
-- **ppi_industry:** Skipped: BLS_API_KEY not set.
-- **capacity_utilization:** Percent of capacity, seasonally adjusted. 5 values outside 0 to 110: CAPUTLG3361T3S 1950-06=111.3630, CAPUTLG3361T3S 1950-07=110.6527, CAPUTLG3361T3S 1950-08=113.4966, CAPUTLG3361T3S 1950-10=111.1052, CAPUTLN325211S 1973-02=110.3539. 1 series a period or more behind the latest (often normal right after a release): CAPUTLN325211S. 2 series with no value in the last 400 days (likely discontinued).
+- **ppi_industry:** Skipped: BLS_API_KEY not set. Series list also failed: FRED search PCU* download failed: HTTP 400: Bad Request.  Exceeded 5000 maximum searchable results
+- **capacity_utilization:** Percent of capacity, seasonally adjusted. 1 series a period or more behind the latest (often normal right after a release): CAPUTLN325211S. 2 series with no value in the last 400 days (likely discontinued).
 
 ## Known gaps
 

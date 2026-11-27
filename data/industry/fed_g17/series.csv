@@ -55,3 +55,5 @@ CAPUTLN32522S,Capacity Utilization: Nondurable Manufacturing: Artificial and syn
 CAPUTLX4HTK2S,"Capacity Utilization: Manufacturing Excluding Computers, Communications Equipment, and Semiconductors"
 CAPUTLX4HTMVS,Capacity Utilization: Manufacturing Excluding Hi-Tech and Motor Vehicles & Parts
 CAPUTLX50HTKS,"Capacity Utilization: Total Excluding Computers, Communications Equipment, and Semiconductors"
+TCU,Capacity Utilization: Total Industry
+MCUMFN,Capacity Utilization: Manufacturing (NAICS)

@@ -115,6 +115,8 @@ ALL_TYPES = MARKET_TYPES + [REG] + COMPANY_TYPES
 SPIKE_PCT = 0.95          # index above the 95th percentile of all earlier days
 SPIKE_MIN_OBS = 730       # at least two years of earlier days
 SPIKE_GAP = 10            # a new episode needs 10 quiet days
+ESCALATE_PCT = 0.99       # inside an episode, a day above the 99th percentile of earlier days ...
+ESCALATE_RISE = 1.25      # ... and 25% above the episode's last recorded day is an escalation
 OIL_PCT = 0.975           # one-day oil move above the 97.5th percentile of earlier moves
 OIL_MIN_OBS = 500
 OIL_GAP = 5
@@ -230,13 +232,19 @@ def ev(level, etype, subtype, role, date, source, ref="", detail="", public_from
 # ------------------------------------------------- point-in-time detectors --
 
 def expanding_spikes(series: dict, pct: float, min_obs: int, gap: int,
-                     upto: dt.date | None = None) -> list[tuple[dt.date, float, float]]:
+                     upto: dt.date | None = None, escalate: float | None = None
+                     ) -> list[tuple[dt.date, float, float, str]]:
     """Days whose value is above the pct quantile of all earlier days.
 
-    Returns (first day of each episode, value, percentile among earlier days).
-    Only data up to `upto` is read when given (the truncation test)."""
+    Returns (day, value, percentile among earlier days, kind). kind "start" is
+    the first day of an episode; a new episode needs `gap` quiet days. With
+    `escalate`, a day inside a running episode is kept as "escalation" when it
+    is above that quantile of earlier days, ESCALATE_RISE times the episode's
+    last recorded day and at least `gap` days after it (so a war that breaks out
+    weeks into an elevated stretch still gets its own day). Only earlier data
+    is used. Only data up to `upto` is read when given (the truncation test)."""
     seen: list[float] = []
-    out, last = [], None
+    out, last, rec_d, rec_v = [], None, None, 0.0
     for d in sorted(series):
         if upto and d > upto:
             break
@@ -245,7 +253,12 @@ def expanding_spikes(series: dict, pct: float, min_obs: int, gap: int,
             cut = seen[int(pct * (len(seen) - 1))]
             if v >= cut:
                 if last is None or (d - last).days > gap:
-                    out.append((d, v, 100 * bisect_left(seen, v) / len(seen)))
+                    out.append((d, v, 100 * bisect_left(seen, v) / len(seen), "start"))
+                    rec_d, rec_v = d, v
+                elif (escalate and v >= seen[int(escalate * (len(seen) - 1))]
+                      and v >= ESCALATE_RISE * rec_v and (d - rec_d).days >= gap):
+                    out.append((d, v, 100 * bisect_left(seen, v) / len(seen), "escalation"))
+                    rec_d, rec_v = d, v
                 last = d
         insort(seen, v)
     return out
@@ -260,7 +273,7 @@ def oil_moves(prices: dict, upto: dt.date | None = None) -> list[tuple[dt.date, 
         if pa > 0 and pb > 0 and (b - a).days <= 7:
             moves[b] = math.log(pb / pa)
     absmoves = {d: abs(r) for d, r in moves.items()}
-    return [(d, moves[d], p) for d, _, p in
+    return [(d, moves[d], p) for d, _, p, _ in
             expanding_spikes(absmoves, OIL_PCT, OIL_MIN_OBS, OIL_GAP, upto)]
 
 
@@ -344,8 +357,10 @@ def pull_gpr(market: list, series_store: dict) -> None:
     if not series:
         raise RuntimeError("no daily GPRD column found")
     series_store["GPR"] = series
-    for d, v, p in expanding_spikes(series, SPIKE_PCT, SPIKE_MIN_OBS, SPIKE_GAP):
-        market.append(ev("market", GEO, "risk index spike", "main", d,
+    for d, v, p, kind in expanding_spikes(series, SPIKE_PCT, SPIKE_MIN_OBS, SPIKE_GAP,
+                                          escalate=ESCALATE_PCT):
+        sub = "risk index spike" if kind == "start" else "risk index spike: escalation"
+        market.append(ev("market", GEO, sub, "main", d,
                          "Geopolitical risk index, daily (Caldara and Iacoviello)",
                          ref=f"GPRD {d}", detail=f"index {v:.1f}; above {p:.1f}% of earlier days"))
     notes.append(f"Geopolitical risk index: {min(series)} to {max(series)}, column {col}.")
@@ -363,7 +378,7 @@ def pull_tpu(market: list, series_store: dict) -> None:
     if not best:
         raise RuntimeError("no daily TPU series found")
     series_store["TPU"] = best
-    for d, v, p in expanding_spikes(best, SPIKE_PCT, SPIKE_MIN_OBS // 2, SPIKE_GAP):
+    for d, v, p, _ in expanding_spikes(best, SPIKE_PCT, SPIKE_MIN_OBS // 2, SPIKE_GAP):
         market.append(ev("market", TRADE, "trade uncertainty spike", "cross-check", d,
                          "Trade policy uncertainty index, daily (Caldara and Iacoviello)",
                          ref=f"TPUD {d}", detail=f"index {v:.1f}; above {p:.1f}% of earlier days"))
@@ -373,8 +388,10 @@ def pull_tpu(market: list, series_store: dict) -> None:
 def pull_epu(market: list, series_store: dict) -> None:
     series = ces.fred("USEPUINDXD")
     series_store["EPU"] = series
-    for d, v, p in expanding_spikes(series, SPIKE_PCT, SPIKE_MIN_OBS, SPIKE_GAP):
-        market.append(ev("market", ELECT, "policy uncertainty spike", "main", d,
+    for d, v, p, kind in expanding_spikes(series, SPIKE_PCT, SPIKE_MIN_OBS, SPIKE_GAP,
+                                          escalate=ESCALATE_PCT):
+        sub = "policy uncertainty spike" + ("" if kind == "start" else ": escalation")
+        market.append(ev("market", ELECT, sub, "main", d,
                          "Economic policy uncertainty index, daily (FRED USEPUINDXD)",
                          ref=f"USEPUINDXD {d}", detail=f"index {v:.1f}; above {p:.1f}% of earlier days"))
 
@@ -411,7 +428,7 @@ def fr_all(params: dict) -> list[dict]:
     """Every Federal Register document for a query (pages of 1,000)."""
     out, page = [], 1
     fields = ["document_number", "title", "type", "publication_date", "signing_date",
-              "agencies", "significant", "presidential_document_type", "executive_order_number"]
+              "agencies", "significant", "subtype", "executive_order_number"]
     while True:
         p = {"per_page": 1000, "page": page, "order": "oldest", "fields[]": fields}
         p.update(params)
@@ -847,7 +864,8 @@ def load_sharadar(info: dict, cik_map: dict) -> tuple[Prices, dict, dict]:
     for r in rows:
         if len(r) < len(header):
             continue
-        if r[ix["table"]].strip().upper() not in ("SEP", "SF1"):
+        # The direct API names tables by word; older exports used codes.
+        if r[ix["table"]].strip().lower() not in ("sep", "sf1", "stocks", "fundamentals"):
             continue
         t = r[ix["ticker"]]
         cat = r[ix["category"]].strip().lower()
@@ -1231,9 +1249,11 @@ def truncation_tests(series_store: dict, sh: dict | None, actions: dict | None,
                      px: Prices | None) -> None:
     """Rerun each point-in-time rule on data cut a year back; compare."""
     for label, key, fn in (("Geopolitical risk spikes", "GPR",
-                            lambda s, u: expanding_spikes(s, SPIKE_PCT, SPIKE_MIN_OBS, SPIKE_GAP, u)),
+                            lambda s, u: expanding_spikes(s, SPIKE_PCT, SPIKE_MIN_OBS, SPIKE_GAP, u,
+                                                         escalate=ESCALATE_PCT)),
                            ("Policy uncertainty spikes", "EPU",
-                            lambda s, u: expanding_spikes(s, SPIKE_PCT, SPIKE_MIN_OBS, SPIKE_GAP, u)),
+                            lambda s, u: expanding_spikes(s, SPIKE_PCT, SPIKE_MIN_OBS, SPIKE_GAP, u,
+                                                         escalate=ESCALATE_PCT)),
                            ("Oil price moves", "WTI", lambda s, u: oil_moves(s, u))):
         s = series_store.get(key)
         if not s:

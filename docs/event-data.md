@@ -6,9 +6,9 @@
 
 | Type | Level | Record | Rule |
 |---|---|---|---|
-| Geopolitical shocks | Market | Geopolitical risk index, daily | Index above the 95th percentile of all earlier days (two years of history first); a new episode needs 10 quiet days |
+| Geopolitical shocks | Market | Geopolitical risk index, daily | Index above the 95th percentile of all earlier days (two years of history first); a new episode needs 10 quiet days. Inside a running episode, a day above the 99th percentile and 25% above the episode's last recorded day is kept as an escalation (so Russia's invasion of Ukraine, weeks into an elevated stretch, gets its own day) |
 | Trade and tariff actions | Market | Federal Register: presidential proclamations and executive orders, and USTR notices, that mention tariffs | Kept when the title is an actual action (Section 232 and 301 actions, new or changed duties, trade agreements); routine notices (comment requests, hearings, product exclusions, GSP reviews) dropped. One event per day. The trade policy uncertainty index's spikes are kept as a cross-check |
-| Elections and policy shocks | Market | Election days (by law) and the policy uncertainty index, daily | Every presidential and midterm election since 1994; index spikes as for geopolitical risk |
+| Elections and policy shocks | Market | Election days (by law) and the policy uncertainty index, daily | Every presidential and midterm election since 1994; index spikes and escalations as for geopolitical risk |
 | Energy and commodity supply shocks | Market | WTI oil price, daily | One-day moves bigger than 97.5% of earlier moves, split into jumps and drops (agreed Nov 27: oil moves now, OPEC dates later). The event method can tighten the cut-off from the percentile on each row |
 | Major regulatory actions | Industry | Federal Register: final rules marked significant | Each rule tied to French groups through its agency (`config/regulation_agencies.csv`, 12 and 49 groups). Rules from agencies with no single industry (tax, labor, wildlife) are kept but marked unmapped |
 | Guidance changes | Company | Sharadar 8-K item 2.02 | A results filing that doesn't fit the company's own schedule: no earlier 2.02 about one, two, three or four quarters before (within 10 days). Needs a year of earlier filings. Item 7.01 filed away from results is kept as a cross-check (mostly presentations) |

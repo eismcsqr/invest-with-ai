@@ -10,7 +10,7 @@ For the run date, using only filings dated on or before it and prices on or befo
 2. **Measures:** each company's measures, from the as-reported trailing twelve months (Sharadar's ART rows), dated by filing. A filing older than 200 days counts as missing.
 3. **Peers:** the company's detailed French group (Sharadar's `famaindustry`). The smallest fifth of listed companies by market value is left out of peer sets; they are still ranked against their group, with low confidence.
 4. **Percentiles:** each measure ranked within peers (ties share a rank). Measures with a trend are two thirds level, one third change over the past year, both ranked within peers.
-5. **Fallback:** with fewer than 10 peers, core measures rank against the broad group (French's 12, from SIC codes); other measures have no reading.
+5. **Fallback:** with fewer than 10 peers, core measures and the standard measures every group shares rank against the broad group (French's 12, from SIC codes); industry-specific measures have no reading.
 6. **Factor reading:** the average of its measure percentiles, in five bands (+1, +0.5, 0, −0.5, −1). A factor needs at least half its measures.
 7. **Company score:** 3 × Σ(exposure × reading) ÷ Σ(exposure), on −3 to +3, with a range (each factor at its weakest and strongest measure) and a confidence label. Factors with no data drop out of both sums.
 
@@ -54,6 +54,8 @@ For the run date, using only filings dated on or before it and prices on or befo
 
 **Computed but not scored:** R&D ÷ revenue (business equipment, healthcare), capex ÷ depreciation (manufacturing), reinvestment rate (energy), capex ÷ revenue (telecom) and dividend payout ratio (utilities). The factors doc names them, but which way is better isn't settled: more R&D can be investment or waste, and a high payout ratio can be confidence or strain. They're kept in the per-company results until the measured check shows a direction.
 
+**Owner signals need whole tables.** Insider trades and institutional holdings are pulled as whole tables (skipped with a note if a zip is over 6 GB). Insider buying is scored only when the insider table covers the full 6 months to the run date; institutional change only when there are two complete recent quarters (a quarter is complete when it holds at least half as many companies as the fullest quarter, and at least 1,000), counted 46 days after quarter end. Otherwise the measure is left out of that run and the check report says why.
+
 **Valuation baseline** (shown, not scored): earnings yield, and price to tangible book for every company.
 
 ## How it differs from the method doc
@@ -61,6 +63,7 @@ For the run date, using only filings dated on or before it and prices on or befo
 - **48 groups, not 49.** Sharadar's `famaindustry` follows French's 48-group scheme (software sits inside business services).
 - **Peer group's move for earnings surprise** comes from Sharadar prices (the median daily return of the group's peer set), not French's files, which run about two months behind.
 - **Results days** are 8-K item 2.02 filings ("results of operations"); quarterly filing dates are the fallback for companies without one. A results day must be in the last 200 days; peers' moves from the past year count.
+- **Standard measures fall back too.** The method names only core measures for the broad-group fallback; small groups (tobacco, coal, shipbuilding and a few others) would otherwise have no growth, profitability or balance sheet reading, so the standard measures every group shares fall back as well.
 - **Industry-specific measures with fewer than 10 peers** get no reading for now. The method pools the group's last three years instead; that needs the historical runs that come with the measured check.
 - **Share count change** is worked out from market value and split-adjusted price at each filing, so splits don't show as dilution.
 - **Exposure profile** multipliers stay at 1 (filing-level data not parsed yet), as the method says.

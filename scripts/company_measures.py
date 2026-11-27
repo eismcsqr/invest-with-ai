@@ -64,6 +64,7 @@ SURPRISE_DAYS = 200         # latest results day must be this recent
 PEER_SURPRISE_DAYS = 365    # peers' results-day moves from the past year
 INSIDER_DAYS = 182
 HOLDINGS_LAG = 46           # 13F holdings usable 46 days after quarter end
+MIN_HOLDING_COMPANIES = 1000  # a holdings quarter needs this many companies
 HISTORY_YEARS = 7           # fundamentals kept for lags (3 years back + test)
 PRICE_DAYS = 1100           # prices kept (year-back test needs ~2.7 years)
 
@@ -183,6 +184,8 @@ class Data:
         self.results = defaultdict(list)  # ticker -> sorted results-day ordinals
         self.insiders = defaultdict(list)  # ticker -> [(filed, net shares)]
         self.holdings = defaultdict(dict)  # ticker -> {quarter end: units}
+        self.insider_days = []    # every filing date in the insider table
+        self.holding_qs = {}      # quarter end -> companies with holdings
         self.notes = []
         self.split_note = ""
 
@@ -205,6 +208,9 @@ class Data:
         for k, qs in self.holdings.items():
             t.holdings[k] = {q: u for q, u in qs.items()
                              if q + HOLDINGS_LAG <= asof}
+        t.insider_days = self.insider_days[:bisect_right(self.insider_days, asof)]
+        t.holding_qs = {q: n for q, n in self.holding_qs.items()
+                        if q + HOLDINGS_LAG <= asof}
         return t
 
 
@@ -349,11 +355,13 @@ def load_insiders(data: Data, today: int) -> None:
     n = total = 0
     first = last = ""
     codes = Counter()
+    days = set()
     for r in rows:
         if len(r) < len(header):
             continue
         total += 1
         fd = r[ix["filingdate"]][:10]
+        days.add(fd)
         first = min(first, fd) if first else fd
         last = max(last, fd)
         codes[r[ix["transactioncode"]].strip().upper()] += 1
@@ -372,6 +380,7 @@ def load_insiders(data: Data, today: int) -> None:
             continue
         data.insiders[r[ix["ticker"]]].append((d, abs(sh) if code == "P" else -abs(sh)))
         n += 1
+    data.insider_days = sorted(o for o in (d2o(x) for x in days) if o is not None)
     data.notes.append(f"Insider trades: {total:,} rows filed {first} to {last} "
                       f"(codes: {', '.join(f'{k} {v:,}' for k, v in codes.most_common(6))}); "
                       f"{n:,} open-market buys and sales kept.")
@@ -410,8 +419,11 @@ def load_holdings(data: Data, today: int) -> None:
         if q is None or u is None or q < start:
             continue
         agg[(r[ix["ticker"]], q)] += u
+    per_q = Counter()
     for (t, q), u in agg.items():
         data.holdings[t][q] = u
+        per_q[q] += 1
+    data.holding_qs = dict(per_q)
     data.notes.append(f"Institutional holdings: {total:,} rows (by quarter: "
                       + ", ".join(f"{q} {c:,}" for q, c in sorted(quarters.items())[-6:])
                       + f"); {len(agg):,} company-quarters kept.")
@@ -877,6 +889,36 @@ def results_moves(data: Data, asof: int, universe: dict, peer_sets: dict) -> dic
     return out
 
 
+def insider_coverage(data: Data, asof: int) -> str:
+    """Empty if the insider table covers the 6 months to asof, else why not."""
+    days = [d for d in data.insider_days if d <= asof]
+    if not days:
+        return "no insider filings by the run date"
+    first, last = days[0], days[-1]
+    if first > asof - INSIDER_DAYS or last < asof - 14:
+        return (f"insider filings cover only {dt.date.fromordinal(first)} to "
+                f"{dt.date.fromordinal(last)}, not the 6 months to the run date")
+    return ""
+
+
+def complete_quarters(data: Data, asof: int) -> list[int]:
+    """Quarters known by asof that hold most companies (half the best quarter)."""
+    qs = {q: n for q, n in data.holding_qs.items() if q + HOLDINGS_LAG <= asof}
+    if not qs or max(qs.values()) < MIN_HOLDING_COMPANIES:
+        return []
+    top = max(qs.values())
+    return sorted(q for q, n in qs.items() if n >= top / 2)
+
+
+def holdings_coverage(data: Data, asof: int) -> str:
+    qs = complete_quarters(data, asof)
+    if len(qs) < 2 or qs[-1] - qs[-2] > 100 or asof - qs[-1] > STALE_DAYS:
+        known = sorted(q for q in data.holding_qs if q + HOLDINGS_LAG <= asof)
+        return ("institutional holdings don't have two complete recent quarters "
+                f"({len(known)} quarter(s) known, {len(qs)} complete)")
+    return ""
+
+
 def insider_buying(data: Data, asof: int, t: str, shares: float | None):
     rows = [s for d, s in data.insiders.get(t, []) if asof - INSIDER_DAYS < d <= asof]
     if not shares or shares <= 0:
@@ -884,14 +926,15 @@ def insider_buying(data: Data, asof: int, t: str, shares: float | None):
     return sum(rows) / shares
 
 
-def inst_change(data: Data, asof: int, t: str, shares: float | None):
-    qs = sorted(q for q in data.holdings.get(t, {}) if q + HOLDINGS_LAG <= asof)
-    if len(qs) < 2 or not shares or shares <= 0:
+def inst_change(data: Data, asof: int, t: str, shares: float | None,
+                quarters: list[int]):
+    """Change between the two latest complete quarters ÷ shares outstanding."""
+    if len(quarters) < 2 or not shares or shares <= 0:
         return None
-    a, b = qs[-1], qs[-2]
-    if a - b > 100 or asof - a > STALE_DAYS:
+    a, b = quarters[-1], quarters[-2]
+    h = data.holdings.get(t, {})
+    if a not in h or b not in h:
         return None
-    h = data.holdings[t]
     return (h[a] - h[b]) / shares
 
 
@@ -951,13 +994,18 @@ def run(data: Data, asof: int) -> dict:
         if asof - ev <= SURPRISE_DAYS:
             vals["results_move"][t] = (z, None)
         universe[t]["ctx"].used_dates += [ev, last_day]
+    owner_gaps = {"insider_buying": insider_coverage(data, asof),
+                  "inst_change": holdings_coverage(data, asof)}
+    quarters = complete_quarters(data, asof) if not owner_gaps["inst_change"] else []
     for t, u in universe.items():
-        ib = insider_buying(data, asof, t, u["shares"])
-        if ib is not None and data.insiders:
-            vals["insider_buying"][t] = (ib, None)
-        ic = inst_change(data, asof, t, u["shares"])
-        if ic is not None:
-            vals["inst_change"][t] = (ic, None)
+        if not owner_gaps["insider_buying"]:
+            ib = insider_buying(data, asof, t, u["shares"])
+            if ib is not None:
+                vals["insider_buying"][t] = (ib, None)
+        if quarters:
+            ic = inst_change(data, asof, t, u["shares"], quarters)
+            if ic is not None:
+                vals["inst_change"][t] = (ic, None)
 
     # Percentiles within peers.
     pct = defaultdict(dict)         # ticker -> {key: info}
@@ -1046,7 +1094,8 @@ def run(data: Data, asof: int) -> dict:
                         "high": hi, "confidence": conf, "weights": w}
     lookahead = sum(1 for u in universe.values() for d in u["ctx"].used_dates if d > asof)
     return {"asof": asof, "universe": universe, "vals": vals, "pct": pct,
-            "companies": companies, "floor": floor, "lookahead": lookahead}
+            "companies": companies, "floor": floor, "lookahead": lookahead,
+            "owner_gaps": owner_gaps}
 
 
 # ------------------------------------------------------------------ outputs --
@@ -1235,7 +1284,9 @@ def report(res: dict, data: Data, tests: list, spot: list) -> None:
                  if c["score"] is not None else "–")
             lines.append(f"| {t} | {c['info']['group']} | " + " | ".join(r)
                          + f" | {s} | {c['confidence']} |")
-    lines += ["", "## Notes", ""] + [f"- {x}" for x in data.notes]
+    owner = [f"{BY_KEY[k].label}: not scored this run, because {why}."
+             for k, why in res.get("owner_gaps", {}).items() if why]
+    lines += ["", "## Notes", ""] + [f"- {x}" for x in owner + data.notes]
     lines += [data.split_note] if data.split_note else []
     lines += ["- Full per-company results stay on the runner "
               "(raw/company_results/): the repository is public and the Sharadar "
@@ -1291,12 +1342,14 @@ def main() -> int:
         tests.append(("Peer ranks spread evenly", 0.15 <= top <= 0.25,
                       f"{100 * top:.1f}% of peer-set level ranks in the top fifth "
                       "(expect about 20%)"))
-    coverage = sum(1 for c in res["companies"].values() if c["score"] is not None)
-    fresh = sum(1 for u in res["universe"].values() if u["ctx"].fresh)
+    fresh_t = [t for t, u in res["universe"].items() if u["ctx"].fresh]
+    fresh = len(fresh_t)
+    coverage = sum(1 for t in fresh_t
+                   if res["companies"].get(t, {}).get("score") is not None)
     tests.append(("Most companies with fresh filings get a score",
                   fresh and coverage / fresh >= 0.9,
-                  f"{coverage:,} scored of {fresh:,} with a filing in the last "
-                  f"{STALE_DAYS} days"))
+                  f"{coverage:,} of the {fresh:,} with a filing in the last "
+                  f"{STALE_DAYS} days have a score"))
 
     report(res, data, tests, SPOT)
     header, rows = company_rows(res)

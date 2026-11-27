@@ -1,0 +1,7 @@
+ticker,cik,period_end,measure,sharadar,edgar,diff_pct,within_1pct,sharadar_filed,edgar_filed,note
+AAPL,,,,,,,,,,no CIK or no yearly rows in Sharadar
+WMT,,,,,,,,,,no CIK or no yearly rows in Sharadar
+XOM,,,,,,,,,,no CIK or no yearly rows in Sharadar
+JNJ,,,,,,,,,,no CIK or no yearly rows in Sharadar
+HD,,,,,,,,,,no CIK or no yearly rows in Sharadar
+JPM,,,,,,,,,,no CIK or no yearly rows in Sharadar
